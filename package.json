@@ -5,18 +5,18 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "npx astro check && npx astro build",
     "preview": "astro preview",
     "astro": "astro",
     "lint": "eslint . --ext .ts,.tsx,.astro",
     "format": "prettier --write ."
   },
   "dependencies": {
-    "astro": "^5.2.5",
     "gsap": "^3.12.5",
     "lenis": "^1.1.20"
   },
   "devDependencies": {
+    "astro": "^5.2.5",
     "@astrojs/check": "^0.9.4",
     "@astrojs/tailwind": "^6.0.2",
     "@types/node": "^22.10.7",
