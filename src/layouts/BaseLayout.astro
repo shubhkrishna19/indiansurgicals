@@ -1,0 +1,140 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import '../styles/globals.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { business } from '../data/business';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+const siteUrl = Astro.site || new URL('https://indiansurgicals.com');
+const canonicalURL = new URL(Astro.url.pathname, siteUrl);
+const { brand, tagline, workingHours } = business;
+const defaultDescription = business.descriptionShort;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="generator" content={Astro.generator} />
+
+  <!-- Primary Meta Tags -->
+  <title>{title} | {brand}</title>
+  <meta name="title" content={`${title} | ${brand}`} />
+  <meta name="description" content={description || defaultDescription} />
+  <link rel="canonical" href={canonicalURL} />
+
+  <!-- OpenGraph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:title" content={`${title} | ${brand}`} />
+  <meta property="og:description" content={description || defaultDescription} />
+  <meta property="og:site_name" content={brand} />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content={canonicalURL} />
+  <meta property="twitter:title" content={`${title} | ${brand}`} />
+  <meta property="twitter:description" content={description || defaultDescription} />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
+
+  <!-- ClientRouter for View Transitions -->
+  <ClientRouter />
+
+  <!-- Working Hours Script -->
+  <script is:inline>
+    (function() {
+      const schedule = [
+        { day: "Sunday", open: null, close: null },
+        { day: "Monday", open: "10:00", close: "19:00" },
+        { day: "Tuesday", open: "10:00", close: "19:00" },
+        { day: "Wednesday", open: "10:00", close: "19:00" },
+        { day: "Thursday", open: "10:00", close: "19:00" },
+        { day: "Friday", open: "10:00", close: "19:00" },
+        { day: "Saturday", open: "10:00", close: "19:00" }
+      ];
+
+      function timeToMinutes(time) {
+        const [hours, minutes] = time.split(':').map(Number);
+        return hours * 60 + minutes;
+      }
+
+      function formatTime(time) {
+        const [hours, minutes] = time.split(':').map(Number);
+        const period = hours >= 12 ? 'PM' : 'AM';
+        const displayHours = hours % 12 || 12;
+        return `${displayHours}:${minutes.toString().padStart(2, '0')} ${period}`;
+      }
+
+      function getKolkataDate() {
+        const now = new Date();
+        return new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }));
+      }
+
+      function updateWorkingHoursBadge() {
+        const badges = document.querySelectorAll('.working-hours-badge');
+        if (badges.length === 0) return;
+
+        const kolkataDate = getKolkataDate();
+        const currentDayName = kolkataDate.toLocaleDateString('en-US', { weekday: 'long', timeZone: 'Asia/Kolkata' });
+        const currentMinutes = kolkataDate.getHours() * 60 + kolkataDate.getMinutes();
+
+        const todaySchedule = schedule.find(s => s.day === currentDayName);
+
+        badges.forEach(badge => {
+          if (!todaySchedule || !todaySchedule.open || !todaySchedule.close) {
+            badge.textContent = 'Closed';
+            badge.className = 'working-hours-badge badge badge-error';
+            return;
+          }
+
+          const openMinutes = timeToMinutes(todaySchedule.open);
+          const closeMinutes = timeToMinutes(todaySchedule.close);
+          const isOpen = currentMinutes >= openMinutes && currentMinutes < closeMinutes;
+
+          if (isOpen) {
+            badge.textContent = 'Open Now';
+            badge.className = 'working-hours-badge badge badge-success';
+          } else if (currentMinutes < openMinutes) {
+            badge.textContent = `Opens at ${formatTime(todaySchedule.open)}`;
+            badge.className = 'working-hours-badge badge badge-warning';
+          } else {
+            badge.textContent = 'Closed';
+            badge.className = 'working-hours-badge badge badge-error';
+          }
+        });
+      }
+
+      // Run on initial page load
+      updateWorkingHoursBadge();
+
+      // Re-run on Astro view transitions
+      document.addEventListener('astro:page-load', updateWorkingHoursBadge);
+    })();
+  </script>
+</head>
+<body class="min-h-screen flex flex-col">
+  <Header />
+  <main class="flex-1">
+    <slot />
+  </main>
+  <Footer />
+</body>
+</html>
+
+<style is:global>
+  :root {
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+  }
+</style>

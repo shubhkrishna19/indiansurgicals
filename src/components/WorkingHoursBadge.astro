@@ -1,0 +1,156 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<div class:list={['working-hours-badge', className]} data-working-hours>
+  <span class="working-hours-badge__indicator">
+    <span class="working-hours-badge__dot"></span>
+  </span>
+  <span class="working-hours-badge__text">
+    <span class="working-hours-badge__status">Open</span>
+    <span class="working-hours-badge__time">Mon-Sat: 10AM-7PM IST</span>
+  </span>
+</div>
+
+<script>
+  // Update working hours status based on current time
+  const updateWorkingHours = () => {
+    const badge = document.querySelector('[data-working-hours]');
+    if (!badge) return;
+
+    const now = new Date();
+    const day = now.getDay(); // 0 = Sunday, 1 = Saturday
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const currentTime = hours * 60 + minutes; // Time in minutes
+
+    // Business hours: Mon-Sat 10:00 AM - 7:00 PM IST
+    // IST is UTC+5:30, but we'll use local time as approximation
+    // 10 AM = 600 minutes, 7 PM = 1140 minutes (19 * 60)
+
+    const isWeekday = day >= 1 && day <= 6;
+    const isBusinessHours = currentTime >= 600 && currentTime < 1140;
+
+    const isOpen = isWeekday && isBusinessHours;
+
+    const statusElement = badge.querySelector('.working-hours-badge__status');
+    const dotElement = badge.querySelector('.working-hours-badge__dot');
+
+    if (statusElement && dotElement) {
+      if (isOpen) {
+        statusElement.textContent = 'Open';
+        badge.classList.remove('working-hours-badge--closed');
+        badge.classList.add('working-hours-badge--open');
+      } else {
+        statusElement.textContent = 'Closed';
+        badge.classList.remove('working-hours-badge--open');
+        badge.classList.add('working-hours-badge--closed');
+      }
+    }
+  };
+
+  // Run on page load
+  document.addEventListener('DOMContentLoaded', updateWorkingHours);
+
+  // Run on view transitions
+  document.addEventListener('astro:page-load', updateWorkingHours);
+
+  // Update every minute
+  setInterval(updateWorkingHours, 60000);
+</script>
+
+<style>
+  .working-hours-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    background: var(--color-surface);
+    border-radius: var(--radius-full);
+    border: 1px solid var(--color-border);
+    transition: all 0.3s var(--ease-out-expo);
+  }
+
+  .working-hours-badge__indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .working-hours-badge__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-success);
+    box-shadow: 0 0 8px var(--color-success);
+    animation: pulse 2s ease-in-out infinite;
+    transition: background 0.3s var(--ease-out-expo), box-shadow 0.3s var(--ease-out-expo);
+  }
+
+  .working-hours-badge--closed .working-hours-badge__dot {
+    background: var(--color-error);
+    box-shadow: 0 0 8px var(--color-error);
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.7;
+      transform: scale(1.1);
+    }
+  }
+
+  .working-hours-badge__text {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .working-hours-badge__status {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-success);
+    transition: color 0.3s var(--ease-out-expo);
+  }
+
+  .working-hours-badge--closed .working-hours-badge__status {
+    color: var(--color-error);
+  }
+
+  .working-hours-badge__time {
+    font-size: 0.6875rem;
+    color: var(--color-text-muted);
+    line-height: 1.2;
+  }
+
+  /* Hover effect */
+  .working-hours-badge:hover {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .working-hours-badge__dot {
+      animation: none;
+    }
+
+    .working-hours-badge {
+      transition: none;
+    }
+
+    .working-hours-badge:hover {
+      border-color: var(--color-primary);
+      box-shadow: none;
+    }
+  }
+</style>

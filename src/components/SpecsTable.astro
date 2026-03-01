@@ -1,0 +1,129 @@
+---
+interface SpecItem {
+  label: string;
+  value: string;
+}
+
+interface Props {
+  specs: SpecItem[];
+  class?: string;
+}
+
+const { specs, class: className = '' } = Astro.props;
+---
+
+<div class:list={['specs-table', className]}>
+  {specs.map((spec, index) => (
+    <div class="specs-table__row" style={`--index: ${index}`}>
+      <span class="specs-table__label">{spec.label}</span>
+      <span class="specs-table__value">{spec.value}</span>
+    </div>
+  ))}
+</div>
+
+<script>
+  // Animated row reveal on scroll
+  const observeSpecsTable = () => {
+    const rows = document.querySelectorAll('.specs-table__row');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('specs-table__row--visible');
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      }
+    );
+
+    rows.forEach((row) => {
+      observer.observe(row);
+    });
+  };
+
+  // Run on page load
+  document.addEventListener('DOMContentLoaded', observeSpecsTable);
+
+  // Run on view transitions
+  document.addEventListener('astro:page-load', observeSpecsTable);
+</script>
+
+<style>
+  .specs-table {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+  }
+
+  .specs-table__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-4) var(--space-5);
+    border-bottom: 1px solid var(--color-border);
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.4s var(--ease-out-expo);
+    transition-delay: calc(var(--index) * 0.05s);
+  }
+
+  .specs-table__row:last-child {
+    border-bottom: none;
+  }
+
+  .specs-table__row--visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .specs-table__row:hover {
+    background: var(--color-primary-50);
+  }
+
+  .specs-table__label {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+  }
+
+  .specs-table__value {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-text);
+    text-align: right;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 480px) {
+    .specs-table__row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-1);
+    }
+
+    .specs-table__value {
+      text-align: left;
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .specs-table__row {
+      opacity: 1;
+      transform: none;
+      transition: background 0.2s ease;
+    }
+
+    .specs-table__row:hover {
+      background: var(--color-primary-50);
+    }
+  }
+</style>

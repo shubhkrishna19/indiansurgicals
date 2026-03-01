@@ -1,0 +1,838 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CategoryCard from '../components/CategoryCard.astro';
+import ProductCard from '../components/ProductCard.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+import CTAButtons from '../components/CTAButtons.astro';
+import MotionController from '../components/MotionController.astro';
+import { categories, getFeaturedCategories } from '../data/categories';
+import { products, getFeaturedProducts } from '../data/products';
+import { business, getWhatsAppLink } from '../data/business';
+import { testimonials } from '../data/testimonials';
+import { faqs } from '../data/faqs';
+
+const { brand, trustChips, metrics, descriptionLong } = business;
+const featuredProducts = getFeaturedProducts();
+const featuredCategories = getFeaturedCategories();
+
+// How it works steps
+const steps = [
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>`,
+    title: 'Share Requirements',
+    description: 'Contact us on WhatsApp or call with your product list, quantities, and delivery city.'
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>`,
+    title: 'Get Quote',
+    description: 'Receive competitive pricing with GST breakdown within 24 hours during working days.'
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>`,
+    title: 'Fast Dispatch',
+    description: 'Products are packed carefully and dispatched with tracking. Delivery across India.'
+  }
+];
+---
+
+<BaseLayout title="Home" description={business.descriptionShort}>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero__bg">
+      <div class="hero__pattern"></div>
+    </div>
+
+    <div class="container hero__container">
+      <div class="hero__content">
+        <h1 class="hero__title">
+          Medical equipment supply,<br />
+          <span class="hero__title-highlight">made fast and reliable.</span>
+        </h1>
+
+        <p class="hero__subtitle">
+          Wholesale supplier of hospital equipment, OT essentials, and surgical instruments.
+          Competitive pricing for bulk orders with GST invoice.
+        </p>
+
+        <!-- Trust Chips -->
+        <div class="hero__chips">
+          {trustChips.map((chip) => (
+            <span class="hero__chip">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              {chip}
+            </span>
+          ))}
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="hero__ctas">
+          <CTAButtons variant="primary" href="/products" icon="arrow">
+            Browse Products
+          </CTAButtons>
+          <CTAButtons variant="whatsapp" href={getWhatsAppLink('Hi, I need a quote for medical equipment')} icon="whatsapp">
+            Get Quote on WhatsApp
+          </CTAButtons>
+        </div>
+
+        <!-- Working Hours Badge -->
+        <div class="hero__working-hours">
+          <span class="working-hours-badge badge badge-success">Open Now</span>
+          <span class="hero__working-hours-text">Mon-Sat, 10 AM - 7 PM IST</span>
+        </div>
+      </div>
+
+      <!-- Floating Featured Products -->
+      <div class="hero__products">
+        <div class="hero__products-grid">
+          {featuredProducts.slice(0, 3).map((product, index) => (
+            <a
+              href={`/products/${product.categorySlug}/${product.slug}`}
+              class="hero__product-card"
+              style={`--index: ${index}`}
+            >
+              <div class="hero__product-image-wrapper">
+                <img
+                  src={product.images[0]}
+                  alt={product.name}
+                  class="hero__product-image"
+                  loading="lazy"
+                />
+              </div>
+              <div class="hero__product-info">
+                <span class="hero__product-name">{product.name}</span>
+                <span class="hero__product-cta">Get Quote</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Numbers Section -->
+  <section class="numbers">
+    <div class="container">
+      <div class="numbers__grid reveal-stagger">
+        {metrics.map((metric) => (
+          <div class="numbers__card">
+            <span class="numbers__value counter" data-value={metric.value}>
+              {metric.value}
+            </span>
+            <span class="numbers__label">{metric.label}</span>
+            {metric.note && <span class="numbers__note">{metric.note}</span>}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="categories-section">
+    <div class="container">
+      <SectionTitle
+        title="Product Categories"
+        subtitle="Browse our wide range of medical equipment across various categories"
+        align="center"
+      />
+
+      <div class="categories-grid reveal-stagger">
+        {categories.map((category) => (
+          <CategoryCard category={category} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products Section -->
+  <section class="featured-section">
+    <div class="container">
+      <SectionTitle
+        title="Featured Products"
+        subtitle="Popular products trusted by hospitals and clinics across India"
+        align="center"
+      />
+
+      <div class="products-grid reveal-stagger">
+        {featuredProducts.map((product) => (
+          <ProductCard product={product} />
+        ))}
+      </div>
+
+      <div class="featured-section__cta">
+        <CTAButtons variant="secondary" href="/products" icon="arrow">
+          View All Products
+        </CTAButtons>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="how-it-works">
+    <div class="container">
+      <SectionTitle
+        title="How It Works"
+        subtitle="Get your medical equipment in three simple steps"
+        align="center"
+      />
+
+      <div class="steps-grid reveal-stagger">
+        {steps.map((step, index) => (
+          <div class="step-card">
+            <div class="step-card__icon" set:html={step.icon} />
+            <span class="step-card__number">0{index + 1}</span>
+            <h3 class="step-card__title">{step.title}</h3>
+            <p class="step-card__description">{step.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section">
+    <div class="container">
+      <SectionTitle
+        title="What Our Clients Say"
+        subtitle="Trusted by hospitals, clinics, and healthcare professionals across India"
+        align="center"
+      />
+
+      <div class="testimonials-grid reveal-stagger">
+        {testimonials.map((testimonial) => (
+          <div class="testimonial-card">
+            <span class="testimonial-card__tag">{testimonial.tag}</span>
+            <div class="testimonial-card__rating">
+              {[...Array(5)].map(() => (
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+              ))}
+            </div>
+            <blockquote class="testimonial-card__quote">"{testimonial.quote}"</blockquote>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__initials">{testimonial.initials}</div>
+              <div class="testimonial-card__info">
+                <span class="testimonial-card__name">{testimonial.name}</span>
+                <span class="testimonial-card__location">{testimonial.title}, {testimonial.location}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="container">
+      <SectionTitle
+        title="Frequently Asked Questions"
+        subtitle="Got questions? We have answers. Contact us for more information."
+        align="center"
+      />
+
+      <div class="faq-grid reveal">
+        {faqs.map((faq, index) => (
+          <details class="faq-item">
+            <summary class="faq-item__question">
+              {faq.question}
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-item__icon">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </summary>
+            <p class="faq-item__answer">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Strip -->
+  <section class="cta-strip">
+    <div class="container">
+      <div class="cta-strip__content">
+        <h2 class="cta-strip__title">Ready to get started?</h2>
+        <p class="cta-strip__subtitle">Contact us today for competitive quotes on medical equipment</p>
+        <div class="cta-strip__buttons">
+          <CTAButtons variant="primary" href="/products">
+            Browse Products
+          </CTAButtons>
+          <CTAButtons variant="whatsapp" href={getWhatsAppLink('Hi, I need a quote for medical equipment')} icon="whatsapp">
+            Chat on WhatsApp
+          </CTAButtons>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <MotionController />
+</BaseLayout>
+
+<style>
+  /* Hero Section */
+  .hero {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    padding: var(--space-24) 0;
+    overflow: hidden;
+  }
+
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+
+  .hero__pattern {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(13, 148, 136, 0.15), transparent),
+      radial-gradient(ellipse 60% 40% at 80% 60%, rgba(249, 115, 22, 0.08), transparent);
+  }
+
+  .hero__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-16);
+    align-items: center;
+  }
+
+  .hero__content {
+    max-width: 600px;
+  }
+
+  .hero__title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 600;
+    line-height: 1.15;
+    color: var(--color-text);
+    margin-bottom: var(--space-6);
+  }
+
+  .hero__title-highlight {
+    color: var(--color-primary);
+  }
+
+  .hero__subtitle {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-8);
+  }
+
+  .hero__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-bottom: var(--space-8);
+  }
+
+  .hero__chip {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text);
+  }
+
+  .hero__chip svg {
+    color: var(--color-success);
+  }
+
+  .hero__ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-bottom: var(--space-8);
+  }
+
+  .hero__working-hours {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .hero__working-hours-text {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+  }
+
+  .hero__products {
+    position: relative;
+  }
+
+  .hero__products-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+
+  .hero__product-card {
+    display: block;
+    background: var(--color-surface);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    text-decoration: none;
+    transition: all 0.4s var(--ease-out-expo);
+  }
+
+  .hero__product-card:nth-child(2) {
+    transform: translateY(var(--space-8));
+  }
+
+  .hero__product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .hero__product-card:nth-child(2):hover {
+    transform: translateY(calc(var(--space-8) - 4px));
+  }
+
+  .hero__product-image-wrapper {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+  }
+
+  .hero__product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s var(--ease-out-expo);
+  }
+
+  .hero__product-card:hover .hero__product-image {
+    transform: scale(1.08);
+  }
+
+  .hero__product-info {
+    padding: var(--space-3);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .hero__product-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .hero__product-cta {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-primary);
+  }
+
+  /* Numbers Section */
+  .numbers {
+    padding: var(--space-16) 0;
+    background: var(--color-surface);
+  }
+
+  .numbers__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-8);
+  }
+
+  .numbers__card {
+    text-align: center;
+    padding: var(--space-6);
+  }
+
+  .numbers__value {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    line-height: 1;
+    margin-bottom: var(--space-2);
+  }
+
+  .numbers__label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--space-1);
+  }
+
+  .numbers__note {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+  }
+
+  /* Categories Section */
+  .categories-section {
+    padding: var(--space-24) 0;
+  }
+
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+
+  /* Featured Section */
+  .featured-section {
+    padding: var(--space-24) 0;
+    background: var(--color-bg-alt);
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+
+  .featured-section__cta {
+    text-align: center;
+    margin-top: var(--space-12);
+  }
+
+  /* How It Works */
+  .how-it-works {
+    padding: var(--space-24) 0;
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-8);
+  }
+
+  .step-card {
+    position: relative;
+    text-align: center;
+    padding: var(--space-8);
+    background: var(--color-surface);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    transition: all 0.4s var(--ease-out-expo);
+  }
+
+  .step-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .step-card__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    background: var(--color-primary-50);
+    border-radius: var(--radius-full);
+    color: var(--color-primary);
+    margin-bottom: var(--space-6);
+  }
+
+  .step-card__number {
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-4);
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-border);
+    line-height: 1;
+  }
+
+  .step-card__title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--space-3);
+  }
+
+  .step-card__description {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+  }
+
+  /* Testimonials */
+  .testimonials-section {
+    padding: var(--space-24) 0;
+    background: var(--color-bg-alt);
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+
+  .testimonial-card {
+    background: var(--color-surface);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-md);
+    transition: all 0.4s var(--ease-out-expo);
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .testimonial-card__tag {
+    display: inline-block;
+    padding: var(--space-1) var(--space-3);
+    background: var(--color-primary-50);
+    color: var(--color-primary);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-4);
+  }
+
+  .testimonial-card__rating {
+    display: flex;
+    gap: 2px;
+    margin-bottom: var(--space-4);
+    color: #F59E0B;
+  }
+
+  .testimonial-card__quote {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    margin-bottom: var(--space-6);
+    font-style: italic;
+  }
+
+  .testimonial-card__author {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .testimonial-card__initials {
+    width: 44px;
+    height: 44px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+
+  .testimonial-card__info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .testimonial-card__name {
+    font-weight: 600;
+    font-size: 0.9375rem;
+    color: var(--color-text);
+  }
+
+  .testimonial-card__location {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    padding: var(--space-24) 0;
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+    transition: all 0.3s var(--ease-out-expo);
+  }
+
+  .faq-item[open] {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-md);
+  }
+
+  .faq-item__question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-4) var(--space-5);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--color-text);
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .faq-item__question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item__icon {
+    flex-shrink: 0;
+    transition: transform 0.3s var(--ease-out-expo);
+  }
+
+  .faq-item[open] .faq-item__icon {
+    transform: rotate(180deg);
+  }
+
+  .faq-item__answer {
+    padding: 0 var(--space-5) var(--space-4);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+  }
+
+  /* CTA Strip */
+  .cta-strip {
+    padding: var(--space-24) 0;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  }
+
+  .cta-strip__content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .cta-strip__title {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 600;
+    color: white;
+    margin-bottom: var(--space-4);
+  }
+
+  .cta-strip__subtitle {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: var(--space-8);
+  }
+
+  .cta-strip__buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-4);
+  }
+
+  .cta-strip__buttons :global(.cta-button--primary) {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-strip__buttons :global(.cta-button--primary:hover) {
+    background: var(--color-secondary-light);
+    color: var(--color-primary-dark);
+  }
+
+  .cta-strip__buttons :global(.cta-button--whatsapp) {
+    background: #25D366;
+  }
+
+  .cta-strip__buttons :global(.cta-button--whatsapp:hover) {
+    background: #128C7E;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .hero__container {
+      grid-template-columns: 1fr;
+    }
+
+    .hero__products {
+      display: none;
+    }
+
+    .numbers__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .categories-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .products-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .steps-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+
+    .testimonials-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero {
+      min-height: auto;
+      padding: var(--space-16) 0;
+    }
+
+    .hero__ctas {
+      flex-direction: column;
+    }
+
+    .numbers__grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-4);
+    }
+
+    .numbers__card {
+      padding: var(--space-4);
+    }
+
+    .numbers__value {
+      font-size: 2rem;
+    }
+
+    .categories-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .products-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .faq-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-strip__buttons {
+      flex-direction: column;
+    }
+  }
+</style>

@@ -1,0 +1,144 @@
+---
+interface Props {
+  items: string[];
+  direction?: 'left' | 'right';
+  class?: string;
+}
+
+const {
+  items,
+  direction = 'left',
+  class: className = ''
+} = Astro.props;
+
+// Duplicate items to create seamless loop
+const duplicatedItems = [...items, ...items, ...items];
+---
+
+<div class:list={['marquee', `marquee--${direction}`, className]}>
+  <div class="marquee__container">
+    {duplicatedItems.map((item, index) => (
+      <div class="marquee__item">
+        <span class="marquee__text">{item}</span>
+        <span class="marquee__separator">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </span>
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .marquee {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding: var(--space-4) 0;
+    background: linear-gradient(90deg, var(--color-bg) 0%, var(--color-bg-alt) 50%, var(--color-bg) 100%);
+  }
+
+  .marquee::before,
+  .marquee::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 120px;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .marquee::before {
+    left: 0;
+    background: linear-gradient(to right, var(--color-bg) 0%, transparent 100%);
+  }
+
+  .marquee::after {
+    right: 0;
+    background: linear-gradient(to left, var(--color-bg) 0%, transparent 100%);
+  }
+
+  .marquee__container {
+    display: flex;
+    width: fit-content;
+  }
+
+  .marquee--left .marquee__container {
+    animation: marquee-left 30s linear infinite;
+  }
+
+  .marquee--right .marquee__container {
+    animation: marquee-right 30s linear infinite;
+  }
+
+  @keyframes marquee-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-33.333%);
+    }
+  }
+
+  @keyframes marquee-right {
+    0% {
+      transform: translateX(-33.333%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  .marquee__item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: 0 var(--space-6);
+    white-space: nowrap;
+  }
+
+  .marquee__text {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-text);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .marquee__separator {
+    display: flex;
+    align-items: center;
+    color: var(--color-primary);
+    opacity: 0.6;
+  }
+
+  .marquee__separator svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  /* Hover pause effect */
+  .marquee:hover .marquee__container {
+    animation-play-state: paused;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .marquee__container {
+      animation: none;
+      width: auto;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .marquee::before,
+    .marquee::after {
+      display: none;
+    }
+  }
+</style>

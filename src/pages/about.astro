@@ -1,0 +1,444 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTAButtons from '../components/CTAButtons.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+import MotionController from '../components/MotionController.astro';
+import { categories } from '../data/categories';
+import { business, getWhatsAppLink } from '../data/business';
+
+const { brand, descriptionLong, phones, whatsappNumber, email, address } = business;
+
+// Quality and sourcing points
+const qualityPoints = [
+  'Direct partnerships with certified manufacturers',
+  'Strict quality inspection before dispatch',
+  'Complete product certification and warranty support',
+  'Traceable supply chain for all medical equipment'
+];
+
+// How we support procurement
+const supportPoints = [
+  'Competitive bulk pricing with GST invoice',
+  'Quick quote turnaround within 24 working hours',
+  'Pan-India dispatch with tracking support',
+  'Dedicated support for hospital and clinic procurement teams'
+];
+---
+
+<BaseLayout title="About Us" description="Learn more about IndianSurgicals - your trusted wholesale supplier of medical equipment across India.">
+  <!-- Hero Section -->
+  <section class="page-hero">
+    <div class="page-hero__bg">
+      <div class="page-hero__pattern"></div>
+    </div>
+    <div class="container">
+      <h1 class="page-hero__title reveal">About IndianSurgicals</h1>
+      <p class="page-hero__subtitle reveal">Your trusted partner for medical equipment supply across India</p>
+    </div>
+  </section>
+
+  <!-- Who We Are Section -->
+  <section class="about-section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-content reveal">
+          <SectionTitle
+            title="Who We Are"
+            subtitle="Leading wholesale supplier of medical equipment"
+            align="left"
+          />
+          <div class="about-text">
+            <p>{descriptionLong}</p>
+            <p>With years of experience in the healthcare supply industry, we understand the unique challenges faced by hospitals, clinics, and procurement teams. Our commitment to quality, competitive pricing, and reliable service has made us a preferred choice for medical equipment sourcing across Delhi NCR and major Indian cities.</p>
+          </div>
+        </div>
+        <div class="about-stats reveal">
+          <div class="stat-card">
+            <span class="stat-card__value counter" data-value="14+">14+</span>
+            <span class="stat-card__label">Product Categories</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card__value counter" data-value="90+">90+</span>
+            <span class="stat-card__label">Product Types</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card__value counter" data-value="&lt; 24h">&lt; 24h</span>
+            <span class="stat-card__label">Quote Response</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card__value counter" data-value="All">All</span>
+            <span class="stat-card__label">Major Indian Cities</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Supply Section -->
+  <section class="supply-section">
+    <div class="container">
+      <SectionTitle
+        title="What We Supply"
+        subtitle="Comprehensive range of medical equipment for healthcare facilities"
+        align="center"
+      />
+      <div class="supply-grid reveal-stagger">
+        {categories.map((category) => (
+          <a href={`/products/${category.slug}`} class="supply-card">
+            <span class="supply-card__icon">{category.icon}</span>
+            <h3 class="supply-card__name">{category.name}</h3>
+            <p class="supply-card__desc">{category.description}</p>
+            <span class="supply-card__count">{category.productCount} products</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Quality and Sourcing Section -->
+  <section class="quality-section">
+    <div class="container">
+      <div class="quality-grid">
+        <div class="quality-content reveal">
+          <SectionTitle
+            title="Quality and Sourcing"
+            subtitle="Our commitment to quality"
+            align="left"
+          />
+          <ul class="quality-list">
+            {qualityPoints.map((point) => (
+              <li class="quality-list__item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                {point}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="support-content reveal">
+          <SectionTitle
+            title="How We Support Procurement"
+            subtitle="Making sourcing easy"
+            align="left"
+          />
+          <ul class="support-list">
+            {supportPoints.map((point) => (
+              <li class="support-list__item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                {point}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title reveal">Get in Touch</h2>
+        <p class="cta-subtitle reveal">Ready to source medical equipment? Contact us today for competitive quotes.</p>
+        <div class="cta-buttons reveal">
+          <CTAButtons variant="whatsapp" href={getWhatsAppLink('Hi, I would like to know more about your products')} icon="whatsapp">
+            Chat on WhatsApp
+          </CTAButtons>
+          <CTAButtons variant="primary" href={`tel:${phones[0]}`} icon="phone">
+            Call Now
+          </CTAButtons>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <MotionController />
+</BaseLayout>
+
+<style>
+  /* Page Hero */
+  .page-hero {
+    position: relative;
+    padding: var(--space-24) 0;
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .page-hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+
+  .page-hero__pattern {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(13, 148, 136, 0.15), transparent),
+      radial-gradient(ellipse 60% 40% at 80% 60%, rgba(249, 115, 22, 0.08), transparent);
+  }
+
+  .page-hero__title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--space-4);
+  }
+
+  .page-hero__subtitle {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    max-width: 600px;
+  }
+
+  /* About Section */
+  .about-section {
+    padding: var(--space-20) 0;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-16);
+    align-items: start;
+  }
+
+  .about-text {
+    margin-top: var(--space-6);
+  }
+
+  .about-text p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-4);
+  }
+
+  .about-text p:last-child {
+    margin-bottom: 0;
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+
+  .stat-card {
+    background: var(--color-surface);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s var(--ease-out-expo);
+  }
+
+  .stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .stat-card__value {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: var(--space-2);
+  }
+
+  .stat-card__label {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+  }
+
+  /* Supply Section */
+  .supply-section {
+    padding: var(--space-20) 0;
+    background: var(--color-bg-alt);
+  }
+
+  .supply-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+    margin-top: var(--space-12);
+  }
+
+  .supply-card {
+    display: block;
+    background: var(--color-surface);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    text-decoration: none;
+    transition: all 0.3s var(--ease-out-expo);
+    border: 1px solid transparent;
+  }
+
+  .supply-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-primary);
+  }
+
+  .supply-card__icon {
+    display: inline-block;
+    font-size: 2rem;
+    margin-bottom: var(--space-4);
+  }
+
+  .supply-card__name {
+    font-family: var(--font-heading);
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--space-2);
+  }
+
+  .supply-card__desc {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-3);
+  }
+
+  .supply-card__count {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* Quality Section */
+  .quality-section {
+    padding: var(--space-20) 0;
+  }
+
+  .quality-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-16);
+  }
+
+  .quality-list,
+  .support-list {
+    list-style: none;
+    margin-top: var(--space-6);
+    padding: 0;
+  }
+
+  .quality-list__item,
+  .support-list__item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-3) 0;
+    font-size: 0.9375rem;
+    color: var(--color-text);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .quality-list__item:last-child,
+  .support-list__item:last-child {
+    border-bottom: none;
+  }
+
+  .quality-list__item svg {
+    flex-shrink: 0;
+    color: var(--color-primary);
+    margin-top: 2px;
+  }
+
+  .support-list__item svg {
+    flex-shrink: 0;
+    color: var(--color-success);
+    margin-top: 2px;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    padding: var(--space-20) 0;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  }
+
+  .cta-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .cta-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 600;
+    color: white;
+    margin-bottom: var(--space-4);
+  }
+
+  .cta-subtitle {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: var(--space-8);
+  }
+
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-4);
+  }
+
+  .cta-buttons :global(.cta-button--primary) {
+    background: white;
+    color: var(--color-primary);
+  }
+
+  .cta-buttons :global(.cta-button--primary:hover) {
+    background: var(--color-secondary-light);
+    color: var(--color-primary-dark);
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-12);
+    }
+
+    .supply-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .quality-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-12);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .page-hero {
+      min-height: 30vh;
+      padding: var(--space-16) 0;
+    }
+
+    .about-stats {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .supply-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+    }
+  }
+</style>
