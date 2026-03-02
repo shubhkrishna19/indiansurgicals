@@ -1,7 +1,6 @@
 ---
 import type { Product } from '../data/products';
 import { getWhatsAppLink } from '../data/business';
-import CTAButtons from './CTAButtons.astro';
 
 interface Props {
   product: Product;
@@ -9,14 +8,14 @@ interface Props {
 }
 
 const { product, class: className = '' } = Astro.props;
-const { slug, name, shortDesc, images } = product;
+const { slug, name, shortDesc, images, categorySlug } = product;
 
 const whatsappLink = getWhatsAppLink(`Hi, I'd like to get a quote for: ${name}`);
 ---
 
 <article class:list={['product-card', className]} data-tilt>
   <div class="product-card__image-container">
-    <a href={`/products/${product.categorySlug}/${slug}`} class="product-card__image-link">
+    <a href={`/products/${categorySlug}/${slug}`} class="product-card__image-link">
       <img
         src={images[0] || 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&h=600&fit=crop'}
         alt={name}
@@ -25,19 +24,10 @@ const whatsappLink = getWhatsAppLink(`Hi, I'd like to get a quote for: ${name}`)
         loading="lazy"
       />
     </a>
-    <div class="product-card__overlay">
-      <a href={`/products/${product.categorySlug}/${slug}`} class="product-card__quick-view">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-          <circle cx="12" cy="12" r="3"></circle>
-        </svg>
-        Quick View
-      </a>
-    </div>
   </div>
 
   <div class="product-card__content">
-    <a href={`/products/${product.categorySlug}/${slug}`}>
+    <a href={`/products/${categorySlug}/${slug}`}>
       <h3 class="product-card__title" style={`view-transition-name: product-title-${slug}`}>
         {name}
       </h3>
@@ -45,7 +35,7 @@ const whatsappLink = getWhatsAppLink(`Hi, I'd like to get a quote for: ${name}`)
     <p class="product-card__description">{shortDesc}</p>
 
     <div class="product-card__actions">
-      <a href={`/products/${product.categorySlug}/${slug}`} class="product-card__details-link">
+      <a href={`/products/${categorySlug}/${slug}`} class="product-card__details-link">
         View Details
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -58,17 +48,16 @@ const whatsappLink = getWhatsAppLink(`Hi, I'd like to get a quote for: ${name}`)
         target="_blank"
         rel="noopener noreferrer"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
         </svg>
-        Get Quote
+        Quote
       </a>
     </div>
   </div>
 </article>
 
 <script>
-  // Tilt effect for product cards
   const cards = document.querySelectorAll('[data-tilt]');
 
   cards.forEach((card) => {
@@ -97,24 +86,23 @@ const whatsappLink = getWhatsAppLink(`Hi, I'd like to get a quote for: ${name}`)
 
 <style>
   .product-card {
-    background: var(--color-surface);
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-md);
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    transition: all 0.4s var(--ease-out-expo);
-    transform-style: preserve-3d;
+    transition: all 0.3s ease;
   }
 
   .product-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-xl);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
   }
 
   .product-card__image-container {
     position: relative;
     aspect-ratio: 4 / 3;
     overflow: hidden;
-    background: var(--color-bg-alt);
+    background: #f5f5f4;
   }
 
   .product-card__image-link {
@@ -127,75 +115,36 @@ const whatsappLink = getWhatsAppLink(`Hi, I'd like to get a quote for: ${name}`)
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s var(--ease-out-expo);
+    transition: transform 0.5s ease;
   }
 
   .product-card:hover .product-card__image {
-    transform: scale(1.08);
-  }
-
-  .product-card__overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 50%);
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    padding: var(--space-4);
-    opacity: 0;
-    transition: opacity 0.3s var(--ease-out-expo);
-  }
-
-  .product-card:hover .product-card__overlay {
-    opacity: 1;
-  }
-
-  .product-card__quick-view {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    padding: var(--space-2) var(--space-4);
-    background: rgba(255, 255, 255, 0.95);
-    color: var(--color-text);
-    font-size: 0.875rem;
-    font-weight: 500;
-    border-radius: var(--radius-full);
-    transform: translateY(10px);
-    transition: transform 0.3s var(--ease-out-expo);
-  }
-
-  .product-card:hover .product-card__quick-view {
-    transform: translateY(0);
-  }
-
-  .product-card__quick-view:hover {
-    background: var(--color-primary);
-    color: white;
+    transform: scale(1.05);
   }
 
   .product-card__content {
-    padding: var(--space-4);
+    padding: 16px;
   }
 
   .product-card__title {
-    font-family: var(--font-heading);
-    font-size: 1.125rem;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1rem;
     font-weight: 600;
-    color: var(--color-text);
-    margin-bottom: var(--space-2);
-    transition: color 0.2s var(--ease-out-expo);
-    line-height: 1.3;
+    color: #1c1917;
+    margin-bottom: 6px;
+    line-height: 1.35;
+    transition: color 0.2s ease;
   }
 
-  .product-card__title:hover {
-    color: var(--color-primary);
+  a:hover .product-card__title {
+    color: #0D9488;
   }
 
   .product-card__description {
-    font-size: 0.875rem;
-    color: var(--color-text-muted);
+    font-size: 0.8125rem;
+    color: #78716c;
     line-height: 1.5;
-    margin-bottom: var(--space-4);
+    margin-bottom: 14px;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -206,37 +155,40 @@ const whatsappLink = getWhatsAppLink(`Hi, I'd like to get a quote for: ${name}`)
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: var(--space-3);
-    padding-top: var(--space-3);
-    border-top: 1px solid var(--color-border);
+    gap: 10px;
+    padding-top: 14px;
+    border-top: 1px solid #e7e5e4;
   }
 
   .product-card__details-link {
     display: inline-flex;
     align-items: center;
-    gap: var(--space-1);
-    font-size: 0.875rem;
+    gap: 4px;
+    font-size: 0.8125rem;
     font-weight: 500;
-    color: var(--color-primary);
-    transition: gap 0.2s var(--ease-out-expo);
+    color: #0D9488;
+    text-decoration: none;
+    transition: gap 0.2s ease;
   }
 
   .product-card__details-link:hover {
-    gap: var(--space-2);
-    color: var(--color-primary-dark);
+    gap: 6px;
+    color: #0f766e;
   }
 
   .product-card__whatsapp-btn {
     display: inline-flex;
     align-items: center;
-    gap: var(--space-1);
-    padding: var(--space-2) var(--space-3);
+    gap: 5px;
+    padding: 8px 12px;
     background: #25D366;
     color: white;
-    font-size: 0.8125rem;
-    font-weight: 500;
-    border-radius: var(--radius-full);
-    transition: all 0.2s var(--ease-out-expo);
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
   }
 
   .product-card__whatsapp-btn:hover {
@@ -244,29 +196,10 @@ const whatsappLink = getWhatsAppLink(`Hi, I'd like to get a quote for: ${name}`)
     transform: scale(1.05);
   }
 
-  /* Focus styles */
-  .product-card a:focus-visible {
-    outline: 2px solid var(--color-primary);
-    outline-offset: 2px;
-  }
-
-  /* Reduced motion */
   @media (prefers-reduced-motion: reduce) {
     .product-card,
-    .product-card__image,
-    .product-card__overlay,
-    .product-card__quick-view,
-    .product-card__actions,
-    .product-card__whatsapp-btn {
+    .product-card__image {
       transition: none;
-    }
-
-    .product-card:hover {
-      transform: translateY(-8px);
-    }
-
-    .product-card:hover .product-card__image {
-      transform: scale(1.08);
     }
   }
 </style>

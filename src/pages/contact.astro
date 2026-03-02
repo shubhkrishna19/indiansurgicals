@@ -1,107 +1,130 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import CTAButtons from '../components/CTAButtons.astro';
 import MotionController from '../components/MotionController.astro';
 import { business, getWhatsAppLink } from '../data/business';
 
-const { brand, phones, whatsappNumber, email, address } = business;
+const { phones, whatsappNumber, email, address } = business;
 
 const fullAddress = `${address.line1}, ${address.line2 ? address.line2 + ', ' : ''}${address.city}, ${address.state} ${address.postalCode}, ${address.country}`;
 ---
 
-<BaseLayout title="Contact Us" description="Get in touch with IndianSurgicals for medical equipment quotes. Contact us via phone, WhatsApp, or email.">
+<BaseLayout title="Contact Us" description="Get in touch with IndianSurgicals for medical equipment quotes.">
   <!-- Hero Section -->
-  <section class="page-hero">
-    <div class="page-hero__bg">
-      <div class="page-hero__pattern"></div>
-    </div>
-    <div class="container">
-      <h1 class="page-hero__title reveal">Contact Us</h1>
-      <p class="page-hero__subtitle reveal">We're here to help with your medical equipment needs</p>
+  <section class="contact-hero">
+    <div class="contact-hero__bg"></div>
+    <div class="contact-hero__content">
+      <h1 class="contact-hero__title reveal">Contact Us</h1>
+      <p class="contact-hero__subtitle reveal">We're here to help with your medical equipment needs</p>
     </div>
   </section>
 
   <!-- Contact Cards Section -->
   <section class="contact-section">
-    <div class="container">
-      <div class="contact-grid reveal-stagger">
+    <div class="contact-container">
+      <!-- Section Label -->
+      <p class="contact-section__label">Get in Touch</p>
+
+      <div class="contact-grid">
         <!-- Phone Card -->
         <div class="contact-card">
-          <div class="contact-card__icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-            </svg>
+          <div class="contact-card__header">
+            <div class="contact-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+            </div>
+            <h3 class="contact-card__title">Phone</h3>
           </div>
-          <h3 class="contact-card__title">Phone</h3>
-          <p class="contact-card__desc">Call us during working hours for immediate assistance</p>
-          <div class="contact-card__links">
-            {phones.map((phone) => (
-              <a href={`tel:${phone}`} class="contact-card__link">{phone}</a>
-            ))}
+          <div class="contact-card__body">
+            <p class="contact-card__desc">Call us for immediate assistance</p>
+            <div class="contact-card__links">
+              {phones.map((phone) => (
+                <a href={`tel:${phone}`} class="contact-card__link">{phone}</a>
+              ))}
+            </div>
           </div>
-          <span class="working-hours-badge badge badge-success">Open Now</span>
+          <div class="contact-card__footer">
+            <span class="contact-card__badge">
+              <span class="contact-card__badge-dot"></span>
+              Open Now
+            </span>
+          </div>
         </div>
 
         <!-- WhatsApp Card -->
-        <div class="contact-card contact-card--whatsapp">
-          <div class="contact-card__icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-            </svg>
+        <div class="contact-card contact-card--green">
+          <div class="contact-card__header">
+            <div class="contact-card__icon contact-card__icon--white">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+            </div>
+            <h3 class="contact-card__title">WhatsApp</h3>
           </div>
-          <h3 class="contact-card__title">WhatsApp</h3>
-          <p class="contact-card__desc">Chat with us for quick quotes and product inquiries</p>
-          <div class="contact-card__links">
-            <a href={getWhatsAppLink('Hi, I need a quote for medical equipment')} class="contact-card__link contact-card__link--whatsapp">
+          <div class="contact-card__body">
+            <p class="contact-card__desc">Quick quotes & product inquiries</p>
+            <a href={getWhatsAppLink('Hi, I need a quote for medical equipment')} class="contact-card__btn">
               Send Message
             </a>
           </div>
-          <span class="contact-card__note">Messages accepted anytime</span>
+          <div class="contact-card__footer">
+            <span class="contact-card__note">Available 24/7</span>
+          </div>
         </div>
 
         <!-- Email Card -->
         <div class="contact-card">
-          <div class="contact-card__icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-              <polyline points="22,6 12,13 2,6"></polyline>
-            </svg>
+          <div class="contact-card__header">
+            <div class="contact-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </div>
+            <h3 class="contact-card__title">Email</h3>
           </div>
-          <h3 class="contact-card__title">Email</h3>
-          <p class="contact-card__desc">Send us an email for detailed inquiries</p>
-          <div class="contact-card__links">
+          <div class="contact-card__body">
+            <p class="contact-card__desc">Detailed inquiries & documentation</p>
             <a href={`mailto:${email}`} class="contact-card__link">{email}</a>
           </div>
-          <span class="contact-card__note">Response within 24 hours</span>
+          <div class="contact-card__footer">
+            <span class="contact-card__note">Reply within 24 hours</span>
+          </div>
         </div>
 
         <!-- Address Card -->
         <div class="contact-card">
-          <div class="contact-card__icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-              <circle cx="12" cy="10" r="3"></circle>
-            </svg>
+          <div class="contact-card__header">
+            <div class="contact-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            <h3 class="contact-card__title">Address</h3>
           </div>
-          <h3 class="contact-card__title">Address</h3>
-          <p class="contact-card__desc">Visit our office during working hours</p>
-          <address class="contact-card__address">
-            {address.line1}<br />
-            {address.line2 && <>{address.line2}<br /></>}
-            {address.city}, {address.state} {address.postalCode}<br />
-            {address.country}
-          </address>
+          <div class="contact-card__body">
+            <p class="contact-card__desc">Visit us during working hours</p>
+            <address class="contact-card__address">
+              {address.line1}<br/>
+              {address.line2 && <>{address.line2}<br/></>}
+              {address.city}, {address.state} {address.postalCode}
+            </address>
+          </div>
+          <div class="contact-card__footer">
+            <span class="contact-card__note">India</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Working Hours Panel -->
+  <!-- Working Hours Section -->
   <section class="hours-section">
-    <div class="container">
-      <div class="hours-panel reveal">
+    <div class="contact-container">
+      <div class="hours-panel">
         <div class="hours-panel__icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="12" r="10"></circle>
             <polyline points="12 6 12 12 16 14"></polyline>
           </svg>
@@ -109,66 +132,19 @@ const fullAddress = `${address.line1}, ${address.line2 ? address.line2 + ', ' : 
         <div class="hours-panel__content">
           <h3 class="hours-panel__title">Working Hours</h3>
           <div class="hours-panel__schedule">
-            <div class="hours-panel__day">
-              <span class="hours-panel__day-label">Mon - Sat</span>
-              <span class="hours-panel__day-time">10:00 AM - 7:00 PM (IST)</span>
+            <div class="hours-panel__row">
+              <span class="hours-panel__day">Monday - Saturday</span>
+              <span class="hours-panel__time">10:00 AM - 7:00 PM</span>
             </div>
-            <div class="hours-panel__day">
-              <span class="hours-panel__day-label">Sunday</span>
-              <span class="hours-panel__day-time hours-panel__day-time--closed">Closed</span>
+            <div class="hours-panel__row">
+              <span class="hours-panel__day">Sunday</span>
+              <span class="hours-panel__time hours-panel__time--closed">Closed</span>
             </div>
           </div>
           <p class="hours-panel__note">
-            <span class="working-hours-badge badge badge-warning">Note</span>
-            WhatsApp messages are accepted anytime
+            <span class="hours-panel__dot"></span>
+            WhatsApp messages accepted 24/7
           </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Form Section -->
-  <section class="form-section">
-    <div class="container">
-      <div class="form-grid">
-        <div class="form-content reveal">
-          <h2 class="form-title">Send us a Message</h2>
-          <p class="form-desc">Fill out the form below and we'll get back to you within 24 hours.</p>
-          <form class="contact-form" action="#" method="POST">
-            <div class="form-group">
-              <label for="name" class="form-label">Full Name</label>
-              <input type="text" id="name" name="name" class="form-input" placeholder="Your name" required />
-            </div>
-            <div class="form-group">
-              <label for="email" class="form-label">Email Address</label>
-              <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com" required />
-            </div>
-            <div class="form-group">
-              <label for="message" class="form-label">Message</label>
-              <textarea id="message" name="message" class="form-input form-textarea" placeholder="Tell us about your requirements..." rows="5" required></textarea>
-            </div>
-            <button type="submit" class="form-submit">
-              Send Message
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="22" y1="2" x2="11" y2="13"></line>
-                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-              </svg>
-            </button>
-          </form>
-        </div>
-        <div class="map-content reveal">
-          <h2 class="form-title">Find Us</h2>
-          <p class="form-desc">We're located in {address.city}. Visit us during working hours.</p>
-          <div class="map-placeholder">
-            <div class="map-placeholder__content">
-              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg>
-              <p>Map Placeholder</p>
-              <span>{address.city}, {address.state}</span>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -178,180 +154,264 @@ const fullAddress = `${address.line1}, ${address.line2 ? address.line2 + ', ' : 
 </BaseLayout>
 
 <style>
-  /* Page Hero */
-  .page-hero {
+  .contact-hero {
     position: relative;
-    padding: var(--space-24) 0;
-    min-height: 40vh;
-    display: flex;
-    align-items: center;
+    padding: 80px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #f0fdfa 0%, #fef7ee 100%);
     overflow: hidden;
   }
 
-  .page-hero__bg {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-  }
-
-  .page-hero__pattern {
+  .contact-hero__bg {
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(13, 148, 136, 0.15), transparent),
-      radial-gradient(ellipse 60% 40% at 80% 60%, rgba(249, 115, 22, 0.08), transparent);
+      radial-gradient(ellipse 80% 50% at 50% 0%, rgba(13, 148, 136, 0.1) 0%, transparent 50%),
+      radial-gradient(ellipse 60% 40% at 80% 80%, rgba(249, 115, 22, 0.08) 0%, transparent 40%);
   }
 
-  .page-hero__title {
-    font-family: var(--font-heading);
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
-    font-weight: 600;
-    color: var(--color-text);
-    margin-bottom: var(--space-4);
-  }
-
-  .page-hero__subtitle {
-    font-size: 1.125rem;
-    color: var(--color-text-muted);
+  .contact-hero__content {
+    position: relative;
     max-width: 600px;
+    margin: 0 auto;
   }
 
-  /* Contact Section */
+  .contact-hero__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    font-weight: 700;
+    color: #1c1917;
+    margin-bottom: 12px;
+  }
+
+  .contact-hero__subtitle {
+    font-size: 1.125rem;
+    color: #78716c;
+  }
+
   .contact-section {
-    padding: var(--space-16) 0;
+    padding: 60px 20px;
+  }
+
+  .contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .contact-section__label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #0D9488;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 24px;
+    text-align: center;
   }
 
   .contact-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-6);
+    gap: 20px;
+  }
+
+  @media (max-width: 1024px) {
+    .contact-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
   }
 
   .contact-card {
-    background: var(--color-surface);
-    border-radius: var(--radius-xl);
-    padding: var(--space-6);
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 24px;
     text-align: center;
-    box-shadow: var(--shadow-md);
-    transition: all 0.3s var(--ease-out-expo);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
+    min-height: 260px;
+    border: 1px solid #f5f5f4;
   }
 
   .contact-card:hover {
     transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    border-color: #e7e5e4;
   }
 
-  .contact-card--whatsapp {
-    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  .contact-card--green {
+    background: linear-gradient(145deg, #25D366 0%, #128C7E 100%);
+    border: none;
   }
 
-  .contact-card--whatsapp .contact-card__icon {
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
+  .contact-card--green:hover {
+    border: none;
+    box-shadow: 0 20px 25px -5px rgba(37, 211, 102, 0.3), 0 8px 10px -6px rgba(18, 140, 126, 0.2);
   }
 
-  .contact-card--whatsapp .contact-card__title,
-  .contact-card--whatsapp .contact-card__desc,
-  .contact-card--whatsapp .contact-card__link,
-  .contact-card--whatsapp .contact-card__note {
-    color: white;
-  }
-
-  .contact-card--whatsapp .contact-card__desc {
-    color: rgba(255, 255, 255, 0.85);
+  .contact-card__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
   }
 
   .contact-card__icon {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     width: 56px;
     height: 56px;
-    background: var(--color-primary-50);
-    border-radius: var(--radius-full);
-    color: var(--color-primary);
-    margin-bottom: var(--space-4);
+    background: #f0fdfa;
+    border-radius: 50%;
+    color: #0D9488;
+  }
+
+  .contact-card__icon--white {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
   }
 
   .contact-card__title {
-    font-family: var(--font-heading);
+    font-family: 'Playfair Display', Georgia, serif;
     font-size: 1.125rem;
     font-weight: 600;
-    color: var(--color-text);
-    margin-bottom: var(--space-2);
+    color: #1c1917;
+    margin: 0;
+  }
+
+  .contact-card--green .contact-card__title {
+    color: white;
+  }
+
+  .contact-card__body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 16px;
   }
 
   .contact-card__desc {
-    font-size: 0.875rem;
-    color: var(--color-text-muted);
-    margin-bottom: var(--space-4);
-    flex: 1;
+    font-size: 0.8125rem;
+    color: #78716c;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .contact-card--green .contact-card__desc {
+    color: rgba(255, 255, 255, 0.85);
   }
 
   .contact-card__links {
     display: flex;
     flex-direction: column;
-    gap: var(--space-2);
-    margin-bottom: var(--space-3);
+    gap: 2px;
   }
 
   .contact-card__link {
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
     font-weight: 600;
-    color: var(--color-primary);
+    color: #0D9488;
     text-decoration: none;
-    transition: color 0.2s;
+    word-break: break-word;
   }
 
   .contact-card__link:hover {
-    color: var(--color-primary-dark);
     text-decoration: underline;
   }
 
-  .contact-card__link--whatsapp {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: var(--space-2) var(--space-4);
+  .contact-card__btn {
+    display: inline-block;
+    padding: 10px 20px;
     background: white;
     color: #128C7E;
-    border-radius: var(--radius-full);
+    font-size: 0.875rem;
     font-weight: 600;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    align-self: center;
   }
 
-  .contact-card__link--whatsapp:hover {
-    background: #f0f0f0;
-    text-decoration: none;
+  .contact-card__btn:hover {
+    background: #f0fdfa;
+    transform: scale(1.02);
+  }
+
+  .contact-card__footer {
+    padding-top: 16px;
+    border-top: 1px solid #f5f5f4;
+  }
+
+  .contact-card--green .contact-card__footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .contact-card__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    background: #dcfce7;
+    color: #16a34a;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 20px;
+  }
+
+  .contact-card__badge-dot {
+    width: 6px;
+    height: 6px;
+    background: #16a34a;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
   }
 
   .contact-card__note {
     font-size: 0.75rem;
-    color: var(--color-text-muted);
+    color: #a8a29e;
+  }
+
+  .contact-card--green .contact-card__note {
+    color: rgba(255, 255, 255, 0.75);
   }
 
   .contact-card__address {
     font-style: normal;
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
+    color: #78716c;
     line-height: 1.6;
-    color: var(--color-text-muted);
+    margin: 0;
   }
 
   /* Hours Section */
   .hours-section {
-    padding: var(--space-8) 0 var(--space-16);
+    padding: 0 20px 80px;
   }
 
   .hours-panel {
-    background: var(--color-surface);
-    border-radius: var(--radius-xl);
-    padding: var(--space-8);
-    box-shadow: var(--shadow-md);
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07);
     display: flex;
     align-items: flex-start;
-    gap: var(--space-6);
-    max-width: 600px;
+    gap: 24px;
+    max-width: 700px;
     margin: 0 auto;
   }
 
@@ -359,11 +419,11 @@ const fullAddress = `${address.line1}, ${address.line2 ? address.line2 + ', ' : 
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 64px;
-    height: 64px;
-    background: var(--color-primary-50);
-    border-radius: var(--radius-full);
-    color: var(--color-primary);
+    width: 72px;
+    height: 72px;
+    background: #f0fdfa;
+    border-radius: 50%;
+    color: #0D9488;
     flex-shrink: 0;
   }
 
@@ -372,210 +432,72 @@ const fullAddress = `${address.line1}, ${address.line2 ? address.line2 + ', ' : 
   }
 
   .hours-panel__title {
-    font-family: var(--font-heading);
-    font-size: 1.25rem;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.375rem;
     font-weight: 600;
-    color: var(--color-text);
-    margin-bottom: var(--space-4);
+    color: #1c1917;
+    margin-bottom: 16px;
   }
 
   .hours-panel__schedule {
     display: flex;
     flex-direction: column;
-    gap: var(--space-3);
-    margin-bottom: var(--space-4);
+    gap: 12px;
+    margin-bottom: 16px;
   }
 
-  .hours-panel__day {
+  .hours-panel__row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: var(--space-3);
-    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e7e5e4;
   }
 
-  .hours-panel__day:last-child {
+  .hours-panel__row:last-child {
     border-bottom: none;
     padding-bottom: 0;
   }
 
-  .hours-panel__day-label {
-    font-weight: 600;
-    color: var(--color-text);
+  .hours-panel__day {
+    font-weight: 500;
+    color: #44403c;
   }
 
-  .hours-panel__day-time {
-    color: var(--color-text-muted);
+  .hours-panel__time {
+    color: #78716c;
   }
 
-  .hours-panel__day-time--closed {
-    color: var(--color-error);
+  .hours-panel__time--closed {
+    color: #dc2626;
     font-weight: 500;
   }
 
   .hours-panel__note {
     display: flex;
     align-items: center;
-    gap: var(--space-2);
+    gap: 8px;
     font-size: 0.875rem;
-    color: var(--color-text-muted);
+    color: #78716c;
   }
 
-  /* Form Section */
-  .form-section {
-    padding: var(--space-16) 0;
-    background: var(--color-bg-alt);
-  }
-
-  .form-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-12);
-    align-items: start;
-  }
-
-  .form-title {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--color-text);
-    margin-bottom: var(--space-2);
-  }
-
-  .form-desc {
-    font-size: 0.9375rem;
-    color: var(--color-text-muted);
-    margin-bottom: var(--space-6);
-  }
-
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-  }
-
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-  }
-
-  .form-label {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--color-text);
-  }
-
-  .form-input {
-    padding: var(--space-3) var(--space-4);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    font-size: 1rem;
-    color: var(--color-text);
-    background: var(--color-surface);
-    transition: border-color 0.2s, box-shadow 0.2s;
-  }
-
-  .form-input:focus {
-    outline: none;
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px var(--color-primary-50);
-  }
-
-  .form-input::placeholder {
-    color: var(--color-text-muted);
-  }
-
-  .form-textarea {
-    resize: vertical;
-    min-height: 120px;
-  }
-
-  .form-submit {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-2);
-    padding: var(--space-3) var(--space-6);
-    background: var(--color-primary);
-    color: white;
-    border: none;
-    border-radius: var(--radius-lg);
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.2s;
-    margin-top: var(--space-2);
-  }
-
-  .form-submit:hover {
-    background: var(--color-primary-dark);
-    transform: translateY(-2px);
-  }
-
-  .map-placeholder {
-    background: var(--color-surface);
-    border-radius: var(--radius-xl);
-    padding: var(--space-16);
-    text-align: center;
-    border: 2px dashed var(--color-border);
-  }
-
-  .map-placeholder__content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-2);
-    color: var(--color-text-muted);
-  }
-
-  .map-placeholder__content svg {
-    color: var(--color-primary);
-    opacity: 0.5;
-  }
-
-  .map-placeholder__content p {
-    font-weight: 600;
-    color: var(--color-text);
-  }
-
-  .map-placeholder__content span {
-    font-size: 0.875rem;
-  }
-
-  /* Responsive */
-  @media (max-width: 1024px) {
-    .contact-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .form-grid {
-      grid-template-columns: 1fr;
-    }
+  .hours-panel__dot {
+    width: 8px;
+    height: 8px;
+    background: #25D366;
+    border-radius: 50%;
   }
 
   @media (max-width: 640px) {
-    .page-hero {
-      min-height: 30vh;
-      padding: var(--space-16) 0;
-    }
-
-    .contact-grid {
-      grid-template-columns: 1fr;
-    }
-
     .hours-panel {
       flex-direction: column;
       text-align: center;
+      align-items: center;
     }
 
-    .hours-panel__icon {
-      margin: 0 auto;
-    }
-
-    .hours-panel__day {
+    .hours-panel__row {
       flex-direction: column;
-      gap: var(--space-1);
+      gap: 4px;
     }
   }
 </style>

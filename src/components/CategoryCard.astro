@@ -28,30 +28,22 @@ const { slug, name, description, heroImage, icon, productCount } = category;
       <p class="category-card__description">{description}</p>
       <span class="category-card__count">{productCount} Products</span>
     </div>
-
-    <span class="category-card__cta">
-      View Products
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="category-card__arrow">
-        <line x1="5" y1="12" x2="19" y2="12"></line>
-        <polyline points="12 5 19 12 12 19"></polyline>
-      </svg>
-    </span>
   </a>
 </article>
 
 <style>
   .category-card {
     position: relative;
-    border-radius: var(--radius-xl);
+    border-radius: 16px;
     overflow: hidden;
-    background: var(--color-surface);
-    box-shadow: var(--shadow-md);
-    transition: all 0.4s var(--ease-out-expo);
+    background: #ffffff;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
   }
 
   .category-card:hover {
     transform: translateY(-6px);
-    box-shadow: var(--shadow-xl);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
   }
 
   .category-card__link {
@@ -62,7 +54,7 @@ const { slug, name, description, heroImage, icon, productCount } = category;
 
   .category-card__image-wrapper {
     position: relative;
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 16 / 9;
     overflow: hidden;
   }
 
@@ -70,18 +62,17 @@ const { slug, name, description, heroImage, icon, productCount } = category;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s var(--ease-out-expo);
+    transition: transform 0.5s ease;
   }
 
   .category-card:hover .category-card__image {
-    transform: scale(1.12);
+    transform: scale(1.08);
   }
 
   .category-card__overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.2) 50%, transparent 100%);
-    pointer-events: none;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
   }
 
   .category-card__content {
@@ -89,27 +80,26 @@ const { slug, name, description, heroImage, icon, productCount } = category;
     bottom: 0;
     left: 0;
     right: 0;
-    padding: var(--space-4);
+    padding: 20px;
     color: white;
   }
 
   .category-card__icon {
     font-size: 2rem;
-    margin-bottom: var(--space-2);
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    margin-bottom: 8px;
   }
 
   .category-card__title {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.25rem;
     font-weight: 600;
     color: white;
-    margin-bottom: var(--space-1);
+    margin-bottom: 6px;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   }
 
   .category-card__description {
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     color: rgba(255, 255, 255, 0.85);
     line-height: 1.5;
     display: -webkit-box;
@@ -117,68 +107,32 @@ const { slug, name, description, heroImage, icon, productCount } = category;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
   }
 
   .category-card__count {
     display: inline-block;
-    margin-top: var(--space-2);
-    padding: var(--space-1) var(--space-3);
-    background: rgba(255, 255, 255, 0.2);
+    padding: 4px 12px;
+    background: rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(4px);
-    font-size: 0.75rem;
+    font-size: 0.6875rem;
     font-weight: 600;
     color: white;
-    border-radius: var(--radius-full);
+    border-radius: 20px;
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
 
-  .category-card__cta {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-    padding: var(--space-3) var(--space-4);
-    background: var(--color-surface);
-    color: var(--color-primary);
-    font-size: 0.875rem;
-    font-weight: 600;
-    transition: all 0.3s var(--ease-out-expo);
-  }
-
-  .category-card__arrow {
-    transition: transform 0.3s var(--ease-out-expo);
-  }
-
-  .category-card:hover .category-card__cta {
-    background: var(--color-primary);
-    color: white;
-  }
-
-  .category-card:hover .category-card__arrow {
-    transform: translateX(4px);
-  }
-
   /* Focus styles */
   .category-card a:focus-visible {
-    outline: 2px solid var(--color-primary);
+    outline: 2px solid #0D9488;
     outline-offset: 2px;
   }
 
-  /* Reduced motion */
   @media (prefers-reduced-motion: reduce) {
     .category-card,
-    .category-card__image,
-    .category-card__cta,
-    .category-card__arrow {
+    .category-card__image {
       transition: none;
-    }
-
-    .category-card:hover {
-      transform: translateY(-6px);
-    }
-
-    .category-card:hover .category-card__image {
-      transform: scale(1.12);
     }
   }
 </style>

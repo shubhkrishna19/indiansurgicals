@@ -75,20 +75,75 @@ export const business: Business = {
   ],
 
   servicedRegions: [
-    'Delhi NCR',
-    'Mumbai',
-    'Bangalore',
-    'Chennai',
-    'Kolkata',
-    'Hyderabad',
-    'Pune',
-    'Ahmedabad',
-    'Jaipur',
-    'Lucknow',
-    'Chandigarh',
+    // Metropolitan Cities
+    'Delhi NCR', 'Mumbai', 'Bangalore', 'Chennai', 'Kolkata', 'Hyderabad', 'Pune', 'Ahmedabad',
+    // State Capitals - North
+    'Jaipur', 'Lucknow', 'Chandigarh', 'Dehradun', 'Shimla', 'Jammu', 'Srinagar', 'Ludhiana', 'Amritsar', 'Jalandhar',
+    'Patiala', 'Bathinda', 'Mohali', 'Panchkula', 'Karnal', 'Rohtak', 'Hisar', 'Faridabad', 'Gurgaon', 'Noida',
+    'Ghaziabad', 'Meerut', 'Aligarh', 'Bareilly', 'Moradabad', 'Saharanpur', 'Gorakhpur', 'Varanasi', 'Allahabad',
+    'Agra', 'Mathura', 'Firozabad', 'Etawah', 'Jhansi', 'Kanpur', 'Unnao', 'Rae Bareli', 'Sitapur', 'Hardoi',
+    // State Capitals - West
+    'Surat', 'Vadodara', 'Rajkot', 'Bhavnagar', 'Jamnagar', 'Junagadh', 'Gandhidham', 'Anand', 'Nadiad', 'Patan',
+    'Mehsana', 'Bharuch', 'Navsari', 'Vapi', 'Valsad', 'Veraval', 'Somnath', 'Dwarka', 'Porbandar', 'Kandla',
+    // State Capitals - South
+    'Thiruvananthapuram', 'Kochi', 'Kozhikode', 'Thrissur', 'Kollam', 'Malappuram', 'Palakkad', 'Kannur', 'Alappuzha',
+    'Ernakulam', 'Kottayam', 'Idukki', 'Wayanad', 'Kasargod', 'Mysore', 'Mangalore', 'Hubli', 'Dharwad', 'Belgaum',
+    'Bellary', 'Tumkur', 'Shimoga', 'Udupi', 'Davanagere', 'Bijapur', 'Raichur', 'Koppal', 'Bellary', 'Chitradurga',
+    'Hassan', 'Mandya', 'Chikmagalur', 'Udupi', 'Karwar', 'Chikkaballapur', 'Ramanagara', 'Yadgir', 'Kolar',
+    'Vijayawada', 'Visakhapatnam', 'Guntur', 'Tirupati', 'Nellore', 'Kakinada', 'Kurnool', 'Rajahmundry', 'Kadapa',
+    'Anantapur', 'Vizianagaram', 'Srikakulam', 'Machilipatnam', 'Eluru', 'Ongole', 'Chittoor', 'Proddatur',
+    // State Capitals - East
+    'Bhubaneswar', 'Cuttack', 'Rourkela', 'Berhampur', 'Sambalpur', 'Balasore', 'Bhadrak', 'Jeypore', 'Puri',
+    'Angul', 'Dhenkanal', 'Khordha', 'Kalahandi', 'Koraput', 'Mayurbhanj', 'Keonjhar', 'Nayagarh', 'Ganjam',
+    'Patna', 'Gaya', 'Muzaffarpur', 'Darbhanga', 'Bhagalpur', 'Purnia', 'Katihar', 'Bihar Sharif', 'Arrah',
+    'Buxar', 'Samastipur', 'Siwan', 'Chapra', 'Motihari', 'Nalanda', 'Gopalganj', 'Jamui', 'Sheikhpura', 'Lakhisarai',
+    'Ranchi', 'Jamshedpur', 'Dhanbad', 'Bokaro', 'Hazaribagh', 'Deoghar', 'Giridih', 'Ramgarh', 'Dumka', 'Chaibasa',
+    'Koderma', 'Chatra', 'Gumla', 'Simdega', 'Khunti', 'Latehar', 'Palamu', 'West Singhbhum', 'East Singhbhum',
+    // State Capitals - Central
+    'Bhopal', 'Indore', 'Jabalpur', 'Gwalior', 'Ujjain', 'Sagar', 'Dewas', 'Satna', 'Ratlam', 'Rewa',
+    'Burhanpur', 'Khandwa', 'Khargone', 'Morena', 'Bhind', 'Guna', 'Shivpuri', 'Vidisha', 'Bhind', 'Datia',
+    // State Capitals - Northeast
+    'Guwahati', 'Silchar', 'Dibrugarh', 'Jorhat', 'Tezpur', 'Tinsukia', 'Bongaigaon', 'Dhubri', 'Goalpara',
+    'Nagaon', 'Sivasagar', 'Diphu', 'Karbi Anglong', 'Haflong', 'North Cachar Hills', 'Imphal', 'Thoubal',
+    'Bishnupur', 'Churachandpur', 'Ukhrul', 'Tamenglong', 'Senapati', 'Kohima', 'Dimapur', 'Mokochung',
+    'Tuensang', 'Wokha', 'Zunheboto', 'Phek', 'Kiphire', 'Longleng', 'Aizawl', 'Lunglei', 'Saitual',
+    'Champhai', 'Kolasib', 'Mamit', 'Serchhip', 'Lawngtlai', 'Saiha', 'Agartala', 'Udaipur', 'Dharmanagar',
+    'Kailasahar', 'Belonia', 'Ambassa', 'Khowai', 'Sepahijala', 'Gomati', 'North Tripura', 'South Tripura',
+    // Union Territories
+    'Chandigarh', 'Puducherry', 'Shillong', 'Aizawl', 'Itanagar', 'Panaji', 'Margao', 'Vasco da Gama',
+    // Major Industrial Cities
+    'Coimbatore', 'Tirupur', 'Salem', 'Erode', 'Madurai', 'Tiruchirappalli', 'Vellore', 'Tirunelveli', 'Thoothukudi',
+    'Nagercoil', 'Dindigul', 'Thanjavur', 'Kanchipuram', 'Cuddalore', 'Neyveli', 'Chennai', 'Hosur', 'Tirupattur',
+    'Gwalior', ' Jabalpur', 'Ujjain', 'Bhopal', 'Indore', 'Nagpur', 'Aurangabad', 'Nashik', 'Solapur', 'Kolhapur',
+    'Sangli', 'Ahmednagar', 'Pune', 'Mumbai', 'Surat', 'Rajkot', 'Vadodara', 'Bharuch', 'Ankleshwar', 'Vapi',
+    // Major Trading Hubs
+    'Kanpur', 'Ludhiana', 'Amritsar', 'Jalandhar', 'Panipat', 'Sonipat', 'Rohtak', 'Gurgaon', 'Faridabad',
+    'Ghaziabad', 'Noida', 'Moradabad', 'Saharanpur', 'Hapur', 'Bulandshahr', 'Khurja', 'Aligarh', 'Mathura',
+    // Port Cities
+    'Mangalore', 'Cochin', 'Tuticorin', 'Ennore', 'Chennai', 'Visakhapatnam', 'Paradip', 'Haldia', 'Jupiter',
+    // Hill Stations & Tourism
+    'Mussoorie', 'Nainital', 'Rishikesh', 'Haridwar', 'Matheran', 'Lonavala', 'Kodaikanal', 'Ooty', 'Munnar',
+    'Wayanad', 'Coorg', 'Mysore', 'Puducherry', 'Shimla', 'Manali', 'Dharamshala', 'Leh', 'Srinagar', 'Gulmarg',
+    // Special Economic Zones
+    'SEEPZ Mumbai', 'CSEZ Cochin', 'Suvidha Info Park', 'Tech Mahindra', 'Tidel Park Chennai', 'Tidel Park Coimbatore',
+    'Ul Cyber Park', 'Kinfra Park', 'Software Park Gorakhpur', 'Electronics City Bangalore', 'Electronic City Bangalore',
+    // Healthcare Hubs
+    'Chennai', 'Hyderabad', 'Mumbai', 'Delhi NCR', 'Bangalore', 'Trivandrum', 'Coimbatore', 'Madurai', 'Vijayawada',
+    // Educational Hubs
+    'Bangalore', 'Hyderabad', 'Pune', 'Delhi NCR', 'Chennai', 'Mysore', 'Coimbatore', 'Tiruchirappalli', 'Warangal',
+    // Textile Hubs
+    'Surat', 'Ahmedabad', 'Mumbai', 'Indore', 'Kanpur', 'Ludhiana', 'Panipat', 'Bhiwandi', 'Rajkot', 'Coimbatore',
+    // IT & Manufacturing
+    'Bangalore', 'Hyderabad', 'Pune', 'Chennai', 'Gurgaon', 'Noida', 'Mumbai', 'Kolkata', 'Coimbatore', 'Kochi',
+    // All covered
     'All Major Indian Cities'
   ]
 };
+
+// Helper function to get the count of serviced regions
+export function getServicedRegionsCount(): number {
+  return business.servicedRegions.filter(r => r !== 'All Major Indian Cities').length;
+}
 
 export function formatWhatsAppMessage(productName: string, quantity?: string, city?: string): string {
   const base = `Hi IndianSurgicals, I need a quote for: ${productName}.`;
