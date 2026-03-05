@@ -28,7 +28,7 @@ export interface Business {
 
 export const business: Business = {
   brand: "IndianSurgicals",
-  legalName: "IndianSurgicals (Medical Equipment Wholesaler)",
+  legalName: "IndianSurgicals",
   tagline: "Fast quotes • Bulk supply • Reliable dispatch support",
   descriptionShort: "Wholesale supplier of hospital equipment, OT essentials, sterilization solutions, and surgical instruments.",
   descriptionLong: "IndianSurgicals supports clinics, hospitals, labs, and procurement teams with a wide range of medical equipment. Share your requirements (product, quantity, city) on WhatsApp or call during working hours for pricing and availability. Images and specifications on this website are for reference—final specifications depend on model and stock availability.",
