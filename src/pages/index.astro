@@ -658,38 +658,44 @@ const steps = [
 
   /* FAQ Section */
   .faq-section {
-    padding: var(--space-24) 0;
+    padding: 100px 0;
+    background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
   }
 
   .faq-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-4);
+    gap: 20px;
     max-width: 900px;
     margin: 0 auto;
   }
 
   .faq-item {
-    background: var(--color-surface);
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--color-border);
+    background: white;
+    border-radius: 20px;
+    border: 1px solid #e2e8f0;
     overflow: hidden;
-    transition: all 0.3s var(--ease-out-expo);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .faq-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
   }
 
   .faq-item[open] {
-    border-color: var(--color-primary);
-    box-shadow: var(--shadow-md);
+    border-color: #0d9488;
+    box-shadow: 0 8px 30px rgba(13, 148, 136, 0.15);
   }
 
   .faq-item__question {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: var(--space-4) var(--space-5);
+    gap: 16px;
+    padding: 22px 24px;
     font-weight: 600;
-    font-size: 1rem;
-    color: var(--color-text);
+    font-size: 1.05rem;
+    color: #1e293b;
     cursor: pointer;
     list-style: none;
   }
@@ -700,7 +706,8 @@ const steps = [
 
   .faq-item__icon {
     flex-shrink: 0;
-    transition: transform 0.3s var(--ease-out-expo);
+    color: #0d9488;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .faq-item[open] .faq-item__icon {
@@ -708,10 +715,35 @@ const steps = [
   }
 
   .faq-item__answer {
-    padding: 0 var(--space-5) var(--space-4);
-    font-size: 0.9375rem;
-    line-height: 1.6;
-    color: var(--color-text-muted);
+    padding: 0 24px 22px 60px;
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: #64748b;
+  }
+
+  .faq-item__question::before {
+    content: "Q";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%);
+    color: white;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 768px) {
+    .faq-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .faq-section {
+      padding: 60px 0;
+    }
   }
 
   /* CTA Strip */
