@@ -27,10 +27,7 @@ export const products: Product[] = [
       { label: 'Warranty', value: '2 Years' }
     ],
     tags: ['Surgical', 'Scalpel', 'Sterile', 'Premium'],
-    images: [
-      'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1606265752439-1f18756aa5fc?w=800&h=600&fit=crop'
-    ],
+    images: ['https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&h=600&fit=crop'],
     featured: true
   },
   {
@@ -47,9 +44,7 @@ export const products: Product[] = [
       { label: 'Autoclavable', value: 'Yes - 134°C' }
     ],
     tags: ['Scissors', 'Surgical', 'Mayo'],
-    images: [
-      'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800&h=600&fit=crop'
-    ],
+    images: ['https://images.unsplash.com/photo-1606265752439-1f18756aa5fc?w=800&h=600&fit=crop'],
     featured: false
   },
   {
@@ -66,9 +61,7 @@ export const products: Product[] = [
       { label: 'Autoclavable', value: 'Yes' }
     ],
     tags: ['Forceps', 'Hemostatic', 'Surgical'],
-    images: [
-      'https://images.unsplash.com/photo-1559757175-5700dde675bc?w=800&h=600&fit=crop'
-    ],
+    images: ['https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800&h=600&fit=crop'],
     featured: true
   },
 
@@ -88,9 +81,7 @@ export const products: Product[] = [
       { label: 'Warranty', value: '3 Years' }
     ],
     tags: ['Bed', 'Hospital', 'Hydraulic', '3-Function'],
-    images: [
-      'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&h=600&fit=crop'
-    ],
+    images: ['https://images.unsplash.com/photo-1559757175-5700dde675bc?w=800&h=600&fit=crop'],
     featured: true
   },
   {
@@ -107,9 +98,7 @@ export const products: Product[] = [
       { label: 'Mattress', value: '4-inch foam, removable' }
     ],
     tags: ['Trolley', 'Stretcher', 'Transfer'],
-    images: [
-      'https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=800&h=600&fit=crop'
-    ],
+    images: ['https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=800&h=600&fit=crop'],
     featured: false
   },
   {
@@ -126,9 +115,7 @@ export const products: Product[] = [
       { label: 'Lock', value: 'Yale type with 2 keys' }
     ],
     tags: ['Cabinet', 'Medicine', 'Storage'],
-    images: [
-      'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800&h=600&fit=crop'
-    ],
+    images: ['https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&h=600&fit=crop'],
     featured: false
   },
 
@@ -148,9 +135,7 @@ export const products: Product[] = [
       { label: 'Warranty', value: '2 Years' }
     ],
     tags: ['BP Monitor', 'Digital', 'Diagnostic'],
-    images: [
-      'https://images.unsplash.com/photo-1559757175-5700dde675bc?w=800&h=600&fit=crop'
-    ],
+    images: ['https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&h=600&fit=crop'],
     featured: true
   },
   {
@@ -168,9 +153,7 @@ export const products: Product[] = [
       { label: 'Power', value: '2x AAA batteries' }
     ],
     tags: ['Thermometer', 'Infrared', 'Non-contact'],
-    images: [
-      'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800&h=600&fit=crop'
-    ],
+    images: ['https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop'],
     featured: true
   },
   {
@@ -188,9 +171,7 @@ export const products: Product[] = [
       { label: 'Warranty', value: '3 Years' }
     ],
     tags: ['Stethoscope', 'Diagnostic', 'Littmann'],
-    images: [
-      'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop'
-    ],
+    images: ['https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=800&h=600&fit=crop'],
     featured: true
   },
   {
@@ -208,9 +189,7 @@ export const products: Product[] = [
       { label: 'Warranty', value: '1 Year' }
     ],
     tags: ['Pulse Oximeter', 'SpO2', 'Diagnostic'],
-    images: [
-      'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&h=600&fit=crop'
-    ],
+    images: ['https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=800&h=600&fit=crop'],
     featured: false
   },
 
@@ -230,9 +209,7 @@ export const products: Product[] = [
       { label: 'Warranty', value: '3 Years' }
     ],
     tags: ['OT Table', 'Operation Table', 'Hydraulic'],
-    images: [
-      'https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=800&h=600&fit=crop'
-    ],
+    images: ['https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=800&h=600&fit=crop'],
     featured: true
   },
   {
@@ -250,9 +227,7 @@ export const products: Product[] = [
       { label: 'Warranty', value: '3 Years' }
     ],
     tags: ['Surgical Light', 'LED', 'OT'],
-    images: [
-      'https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=800&h=600&fit=crop'
-    ],
+    images: ['https://images.unsplash.com/photo-1626544827763-d516dce335e2?w=800&h=600&fit=crop'],
     featured: true
   },
 
@@ -272,9 +247,7 @@ export const products: Product[] = [
       { label: 'Power', value: 'AC 100-240V' }
     ],
     tags: ['Patient Monitor', 'ICU', 'Multiparameter'],
-    images: [
-      'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800&h=600&fit=crop'
-    ],
+    images: ['https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&h=600&fit=crop'],
     featured: true
   },
   {
@@ -292,9 +265,7 @@ export const products: Product[] = [
       { label: 'Warranty', value: '2 Years' }
     ],
     tags: ['Infusion Pump', 'Syringe Pump', 'ICU'],
-    images: [
-      'https://images.unsplash.com/photo-1559757175-5700dde675bc?w=800&h=600&fit=crop'
-    ],
+    images: ['https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&h=600&fit=crop'],
     featured: false
   },
 
@@ -314,9 +285,7 @@ export const products: Product[] = [
       { label: 'Weight Capacity', value: '200 kg' }
     ],
     tags: ['Physiotherapy Table', 'Treatment Table', 'Massage'],
-    images: [
-      'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&h=600&fit=crop'
-    ],
+    images: ['https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=800&h=600&fit=crop'],
     featured: true
   },
   {
@@ -334,9 +303,7 @@ export const products: Product[] = [
       { label: 'Modes', value: 'Continuous and Pulsed' }
     ],
     tags: ['Ultrasound', 'Therapy', 'Physiotherapy'],
-    images: [
-      'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&h=600&fit=crop'
-    ],
+    images: ['https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=800&h=600&fit=crop'],
     featured: false
   }
 ];
