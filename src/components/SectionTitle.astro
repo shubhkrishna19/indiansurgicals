@@ -2,130 +2,52 @@
 interface Props {
   title: string;
   subtitle?: string;
-  align?: 'left' | 'center';
-  class?: string;
+  kicker?: string;
+  align?: "left" | "center";
 }
 
-const {
-  title,
-  subtitle,
-  align = 'center',
-  class: className = ''
-} = Astro.props;
+const { title, subtitle = "", kicker = "", align = "left" } = Astro.props;
 ---
 
-<div class:list={['section-title', `section-title--align-${align}`, className]}>
-  <h2 class="section-title__title">{title}</h2>
+<div class:list={["section-title", `section-title--${align}`]}>
+  {kicker && <p class="section-title__kicker">{kicker}</p>}
+  <h2>{title}</h2>
   {subtitle && <p class="section-title__subtitle">{subtitle}</p>}
-  <div class:list={['section-title__decor', { 'section-title__decor--center': align === 'center' }]}>
-    <span class="section-title__dot"></span>
-    <span class="section-title__line"></span>
-    <span class="section-title__dot"></span>
-  </div>
 </div>
 
 <style>
   .section-title {
-    max-width: 700px;
-    margin-bottom: var(--space-12);
+    display: grid;
+    gap: 0.9rem;
+    max-width: 52rem;
+    margin-bottom: 2.4rem;
   }
 
-  .section-title--align-left {
-    text-align: left;
-    margin-left: 0;
-  }
-
-  .section-title--align-center {
+  .section-title--center {
+    margin-inline: auto;
     text-align: center;
-    margin-left: auto;
-    margin-right: auto;
   }
 
-  .section-title__title {
-    font-family: var(--font-heading);
-    font-size: clamp(2rem, 4vw, 2.75rem);
-    font-weight: 600;
-    color: var(--color-text);
-    line-height: 1.2;
-    margin-bottom: var(--space-3);
-    position: relative;
+  .section-title__kicker {
+    margin: 0;
+    color: var(--color-primary);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .section-title h2 {
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 3.35rem);
+    line-height: 0.98;
+    letter-spacing: -0.05em;
   }
 
   .section-title__subtitle {
-    font-family: var(--font-body);
-    font-size: 1.125rem;
+    margin: 0;
     color: var(--color-text-muted);
-    line-height: 1.6;
-    max-width: 550px;
-  }
-
-  .section-title--align-left .section-title__subtitle {
-    max-width: 100%;
-  }
-
-  .section-title--align-center .section-title__subtitle {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .section-title__decor {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-    margin-top: var(--space-4);
-  }
-
-  .section-title__decor--center {
-    justify-content: center;
-  }
-
-  .section-title__dot {
-    width: 8px;
-    height: 8px;
-    background: var(--color-primary);
-    border-radius: 50%;
-  }
-
-  .section-title__line {
-    width: 40px;
-    height: 2px;
-    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
-    border-radius: 1px;
-  }
-
-  /* Premium typography enhancements */
-  .section-title__title {
-    letter-spacing: -0.02em;
-  }
-
-  .section-title__title::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 4px;
-    height: 1.2em;
-    background: var(--color-primary);
-    border-radius: 2px;
-    opacity: 0;
-    transition: opacity 0.3s var(--ease-out-expo);
-  }
-
-  .section-title--align-center .section-title__title::before {
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .section-title__title:hover::before {
-    opacity: 1;
-  }
-
-  /* Reduced motion */
-  @media (prefers-reduced-motion: reduce) {
-    .section-title__title::before {
-      transition: none;
-      opacity: 1;
-    }
+    font-size: 1.02rem;
+    line-height: 1.7;
   }
 </style>

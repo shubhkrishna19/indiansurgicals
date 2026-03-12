@@ -1,336 +1,170 @@
 ---
-import { business, getServicedRegionsCount } from '../data/business';
+import { business, hasPublicContactDetails } from "../data/business";
+import { getAllCategories } from "../data/catalogue";
 
-const { brand, legalName, email, phones, address, workingHours, trustChips } = business;
-const citiesCount = getServicedRegionsCount();
-
-const currentYear = new Date().getFullYear();
-
-const quickLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/products', label: 'Products' },
-  { href: '/about', label: 'About Us' },
-  { href: '/contact', label: 'Contact' },
-];
-
-const formatWorkingHours = () => {
-  const schedule = workingHours.schedule;
-  const openDays = schedule.filter(s => s.open !== null).map(s => s.day);
-  const closedDays = schedule.filter(s => s.open === null).map(s => s.day);
-
-  const openTime = schedule.find(s => s.open)?.open;
-  const closeTime = schedule.find(s => s.close)?.close;
-
-  return {
-    days: openDays.join(' - ') + (closedDays.length > 0 ? ` (${closedDays.join(', ')} closed)` : ''),
-    time: openTime && closeTime ? `${openTime} - ${closeTime} IST` : ''
-  };
-};
-
-const hoursInfo = formatWorkingHours();
+const categories = getAllCategories();
+const year = new Date().getFullYear();
 ---
 
-<footer class="footer">
-  <div class="footer-container">
-    <div class="footer-grid">
-      <!-- Brand Section -->
-      <div class="footer-brand">
-        <a href="/" class="footer-logo">{brand}</a>
-        <p class="footer-description">
-          {business.descriptionShort}
-        </p>
-        <div class="trust-chips">
-          {trustChips.map((chip) => (
-            <span class="chip">{chip}</span>
-          ))}
-        </div>
-      </div>
+<footer class="site-footer">
+  <div class="container site-footer__grid">
+    <section class="site-footer__intro">
+      <span class="site-footer__mark">{business.brandMark}</span>
+      <h2>{business.brand}</h2>
+      <p>{business.shortDescription}</p>
+      <ul class="site-footer__tags">
+        {business.certifications.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    </section>
 
-      <!-- Quick Links -->
-      <div class="footer-section">
-        <h4 class="footer-heading">Quick Links</h4>
-        <ul class="footer-links">
-          {quickLinks.map((link) => (
-            <li>
-              <a href={link.href} class="footer-link">{link.label}</a>
-            </li>
-          ))}
-        </ul>
-      </div>
+    <section>
+      <h3>Catalogue Sections</h3>
+      <ul class="site-footer__links">
+        {categories.map((category) => (
+          <li><a href={`/products/${category.slug}`}>{category.name}</a></li>
+        ))}
+      </ul>
+    </section>
 
-      <!-- Contact Info -->
-      <div class="footer-section">
-        <h4 class="footer-heading">Contact</h4>
-        <ul class="footer-contact">
-          <li>
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-            </svg>
-            <div class="contact-text">
-              <span>{phones[0]}</span>
-              <span>{phones[1]}</span>
-            </div>
-          </li>
-          <li>
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-              <polyline points="22,6 12,13 2,6"></polyline>
-            </svg>
-            <span>{email}</span>
-          </li>
-          <li>
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-              <circle cx="12" cy="10" r="3"></circle>
-            </svg>
-            <div class="contact-text">
-              <span>{address.line1}</span>
-              <span>{address.city}, {address.state} {address.postalCode}</span>
-            </div>
-          </li>
-        </ul>
-      </div>
+    <section>
+      <h3>Company</h3>
+      <ul class="site-footer__links">
+        <li><a href="/about">About the manufacturer</a></li>
+        <li><a href="/products">Browse all product families</a></li>
+        <li><a href="/contact">Contact and enquiry status</a></li>
+      </ul>
+    </section>
 
-      <!-- Working Hours -->
-      <div class="footer-section">
-        <h4 class="footer-heading">Working Hours</h4>
-        <div class="working-hours">
-          <div class="hours-status">
-            <span class="status-dot"></span>
-            <span class="status-text working-hours-badge">Check Status</span>
-          </div>
-          <div class="hours-details">
-            <p class="hours-day">{hoursInfo.days}</p>
-            <p class="hours-time">{hoursInfo.time}</p>
-          </div>
-        </div>
-      </div>
+    <section>
+      <h3>Business Notes</h3>
+      <ul class="site-footer__notes">
+        <li>{business.experienceClaim} manufacturing heritage</li>
+        <li>{business.manufacturingBase}</li>
+        <li>{business.marketPresence}</li>
+        <li>{business.quoteOnlyNote}</li>
+        <li>
+          {hasPublicContactDetails()
+            ? "Public contact channels are live on the contact page."
+            : business.contactNote}
+        </li>
+      </ul>
+    </section>
+  </div>
 
-      <!-- Serviced Regions -->
-      <div class="footer-section">
-        <h4 class="footer-heading">Serviced Regions</h4>
-        <div class="serviced-regions">
-          <div class="regions-count">
-            <span class="regions-number">{citiesCount}+</span>
-            <span class="regions-label">Cities</span>
-          </div>
-          <p class="regions-note">Across India</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p class="copyright">
-        &copy; {currentYear} {legalName}. All rights reserved.
-      </p>
-    </div>
+  <div class="container site-footer__bottom">
+    <span>(c) {year} {business.brand}. All rights reserved.</span>
+    <span>Catalogue build prepared for web and future export-driven product collateral.</span>
   </div>
 </footer>
 
 <style>
-  .footer {
-    background: #ffffff;
-    border-top: 1px solid #e7e5e4;
-    padding: 64px 0 32px;
-    margin-top: auto;
+  .site-footer {
+    margin-top: 5rem;
+    padding: 3rem 0 1.5rem;
+    background:
+      linear-gradient(180deg, rgba(11, 27, 43, 0.02), rgba(11, 27, 43, 0.07)),
+      #f4f7fa;
+    border-top: 1px solid rgba(84, 96, 109, 0.16);
   }
 
-  .footer-container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-
-  .footer-grid {
+  .site-footer__grid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 40px;
+    grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+    gap: 2rem;
   }
 
-  @media (min-width: 640px) {
-    .footer-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
+  .site-footer__intro h2 {
+    margin: 0.8rem 0 0.75rem;
+    font-size: 1.45rem;
   }
 
-  @media (min-width: 1024px) {
-    .footer-grid {
-      grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
-      gap: 40px;
-    }
+  .site-footer__intro p {
+    margin: 0;
+    color: var(--color-text-muted);
+    line-height: 1.65;
   }
 
-  .footer-logo {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #0D9488;
-    text-decoration: none;
+  .site-footer__mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--color-accent), #f0a25d);
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
-  .footer-description {
-    color: #78716c;
-    margin-top: 12px;
-    font-size: 0.9375rem;
-    line-height: 1.6;
+  .site-footer h3 {
+    margin: 0 0 1rem;
+    font-size: 0.94rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
-  .trust-chips {
+  .site-footer__links,
+  .site-footer__notes,
+  .site-footer__tags {
+    display: grid;
+    gap: 0.72rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .site-footer__links a,
+  .site-footer__notes li {
+    color: var(--color-text-muted);
+    font-size: 0.93rem;
+    line-height: 1.55;
+  }
+
+  .site-footer__tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 16px;
+    gap: 0.5rem;
+    margin-top: 1rem;
   }
 
-  .chip {
-    display: inline-block;
-    padding: 4px 12px;
-    font-size: 0.75rem;
-    font-weight: 500;
-    background: #f5f5f4;
-    color: #78716c;
-    border-radius: 20px;
-  }
-
-  .footer-heading {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 20px;
-    color: #1c1917;
-  }
-
-  .footer-links {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin: 0;
-    padding: 0;
-  }
-
-  .footer-link {
-    color: #78716c;
-    text-decoration: none;
-    font-size: 0.9375rem;
-    transition: color 0.2s ease;
-  }
-
-  .footer-link:hover {
-    color: #0D9488;
-  }
-
-  .footer-contact {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin: 0;
-    padding: 0;
-  }
-
-  .footer-contact li {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    color: #78716c;
-    font-size: 0.875rem;
-  }
-
-  .footer-contact svg {
-    flex-shrink: 0;
-    margin-top: 2px;
-    color: #0D9488;
-  }
-
-  .contact-text {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  .working-hours {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .hours-status {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .status-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #22c55e;
-  }
-
-  .status-text {
-    font-size: 0.8125rem;
-    font-weight: 500;
-    color: #1c1917;
-  }
-
-  .hours-details {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  .hours-day {
-    color: #44403c;
-    font-size: 0.875rem;
-    font-weight: 500;
-  }
-
-  .hours-time {
-    color: #78716c;
-    font-size: 0.8125rem;
-  }
-
-  .serviced-regions {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .regions-count {
-    display: flex;
-    align-items: baseline;
-    gap: 4px;
-  }
-
-  .regions-number {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 1.75rem;
+  .site-footer__tags li {
+    border-radius: 999px;
+    padding: 0.4rem 0.72rem;
+    background: rgba(25, 77, 128, 0.08);
+    color: var(--color-primary);
+    font-size: 0.76rem;
     font-weight: 700;
-    color: #0D9488;
-    line-height: 1;
   }
 
-  .regions-label {
-    font-size: 0.9375rem;
-    font-weight: 600;
-    color: #44403c;
+  .site-footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid rgba(84, 96, 109, 0.14);
+    color: var(--color-text-muted);
+    font-size: 0.82rem;
   }
 
-  .regions-note {
-    font-size: 0.8125rem;
-    color: #78716c;
-    margin: 0;
+  @media (max-width: 960px) {
+    .site-footer__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .site-footer__bottom {
+      flex-direction: column;
+    }
   }
 
-  .footer-bottom {
-    margin-top: 48px;
-    padding-top: 24px;
-    border-top: 1px solid #e7e5e4;
-  }
-
-  .copyright {
-    text-align: center;
-    color: #a8a29e;
-    font-size: 0.875rem;
+  @media (max-width: 640px) {
+    .site-footer__grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

@@ -1,597 +1,525 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
-import Breadcrumbs from '../../../components/Breadcrumbs.astro';
-import ProductCard from '../../../components/ProductCard.astro';
-import SpecsTable from '../../../components/SpecsTable.astro';
-import CTAButtons from '../../../components/CTAButtons.astro';
-import MotionController from '../../../components/MotionController.astro';
-import { categories, getCategoryBySlug } from '../../../data/categories';
-import { products, getProductBySlug, getProductsByCategory, getFeaturedProducts } from '../../../data/products';
-import { business, getWhatsAppLink } from '../../../data/business';
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../../components/Breadcrumbs.astro";
+import ProductCard from "../../../components/ProductCard.astro";
+import SectionTitle from "../../../components/SectionTitle.astro";
+import {
+  getAllFamilies,
+  getCategoryBySlug,
+  getRelatedFamilies,
+} from "../../../data/catalogue";
+import { business } from "../../../data/business";
 
 export function getStaticPaths() {
-  return products.map((product) => ({
-    params: {
-      category: product.categorySlug,
-      product: product.slug
-    },
-    props: { product },
+  return getAllFamilies().map((family) => ({
+    params: { category: family.categorySlug, product: family.slug },
+    props: { family },
   }));
 }
 
-const { product } = Astro.props;
-const category = getCategoryBySlug(product.categorySlug);
-const relatedProducts = getProductsByCategory(product.categorySlug)
-  .filter((p) => p.slug !== product.slug)
-  .slice(0, 4);
-const featuredProducts = getFeaturedProducts().slice(0, 4);
+const { family } = Astro.props;
+const category = getCategoryBySlug(family.categorySlug);
+const relatedFamilies = getRelatedFamilies(family, 4);
+const activeVariant = family.variants[0];
+const matrixColumns = family.tableColumns.length > 0 ? family.tableColumns : ["Model"];
+const heroImages = (family.images.length > 0 ? family.images : activeVariant?.images ?? []).slice(0, 4);
+const detailNotes = [...family.highlights, ...family.notes].filter(Boolean).slice(0, 6);
 
-const whatsappLink = getWhatsAppLink(`Hi, I'd like to get a quote for: ${product.name}`);
-const callLink = `tel:${business.phones[0]}`;
-const emailLink = `mailto:${business.email}`;
-
-const breadcrumbs = [
-  { label: 'Products', href: '/products' },
-  { label: category?.name || '', href: `/products/${product.categorySlug}` },
-  { label: product.name }
-];
+function getAttributeValue(
+  variant: { attributes: { label: string; value: string }[] },
+  label: string,
+) {
+  return variant.attributes.find((attribute) => attribute.label === label)?.value ?? "Not listed";
+}
 ---
 
-<BaseLayout
-  title={product.name}
-  description={product.shortDesc}
->
-  <!-- Product Hero -->
-  <section class="product-hero">
+<BaseLayout title={family.name} description={family.summary}>
+  <section class="section product-hero">
     <div class="container">
-      <Breadcrumbs breadcrumbs={breadcrumbs} />
+      <Breadcrumbs
+        breadcrumbs={[
+          { label: "Catalogue", href: "/products" },
+          category ? { label: category.name, href: `/products/${category.slug}` } : { label: family.categorySlug },
+          { label: family.name },
+        ]}
+      />
 
       <div class="product-hero__grid">
-        <!-- Product Image -->
-        <div class="product-hero__image-wrapper">
-          <div class="product-hero__image-container">
-            <img
-              src={product.images[0]}
-              alt={product.name}
-              class="product-hero__image"
-              style={`view-transition-name: product-image-${product.slug}`}
-            />
+        <div class="product-hero__content">
+          <span class="eyebrow">{category?.name ?? "Catalogue Family"}</span>
+          <h1>{family.name}</h1>
+          <p class="product-hero__summary">{family.description}</p>
+
+          <div class="product-hero__meta">
+            <div class="panel">
+              <strong>{family.variants.length}</strong>
+              <span>available models</span>
+            </div>
+            <div class="panel">
+              <strong>{category?.name ?? "Catalogue"}</strong>
+              <span>business section</span>
+            </div>
+            <div class="panel">
+              <strong>Quote only</strong>
+              <span>pricing on request</span>
+            </div>
           </div>
 
-          <!-- Additional Images Thumbnails -->
-          {product.images.length > 1 && (
-            <div class="product-hero__thumbnails">
-              {product.images.map((image, index) => (
-                <button
-                  class={`product-hero__thumbnail ${index === 0 ? 'product-hero__thumbnail--active' : ''}`}
-                  data-index={index}
-                >
-                  <img src={image} alt={`${product.name} - Image ${index + 1}`} />
-                </button>
+          {detailNotes.length > 0 && (
+            <ul class="product-hero__notes">
+              {detailNotes.map((item) => (
+                <li>{item}</li>
               ))}
-            </div>
+            </ul>
           )}
         </div>
 
-        <!-- Product Info -->
-        <div class="product-hero__info">
-          <!-- Tags -->
-          <div class="product-hero__tags">
-            {product.tags.map((tag) => (
-              <span class="product-hero__tag">{tag}</span>
-            ))}
-            {category && (
-              <a href={`/products/${category.slug}`} class="product-hero__category-tag">
-                {category.icon} {category.name}
-              </a>
-            )}
-          </div>
-
-          <!-- Title -->
-          <h1
-            class="product-hero__title"
-            style={`view-transition-name: product-title-${product.slug}`}
-          >
-            {product.name}
-          </h1>
-
-          <!-- Short Description -->
-          <p class="product-hero__short-desc">{product.shortDesc}</p>
-
-          <!-- CTA Box -->
-          <div class="product-hero__cta-box">
-            <h3 class="product-hero__cta-title">Get a Quote</h3>
-            <p class="product-hero__cta-text">
-              Share your requirements and we'll get back to you with pricing
-            </p>
-            <div class="product-hero__cta-buttons">
-              <CTAButtons variant="whatsapp" href={whatsappLink} icon="whatsapp">
-                WhatsApp Quote
-              </CTAButtons>
-              <CTAButtons variant="phone" href={callLink} icon="phone">
-                Call Now
-              </CTAButtons>
-              <CTAButtons variant="email" href={emailLink} icon="email">
-                Email Inquiry
-              </CTAButtons>
-            </div>
-          </div>
-
-          <!-- Trust Indicators -->
-          <div class="product-hero__trust">
-            <div class="product-hero__trust-item">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-              </svg>
-              <span>Quality Checked</span>
-            </div>
-            <div class="product-hero__trust-item">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="1" y="3" width="15" height="13"></rect>
-                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
-                <circle cx="5.5" cy="18.5" r="2.5"></circle>
-                <circle cx="18.5" cy="18.5" r="2.5"></circle>
-              </svg>
-              <span>Fast Dispatch</span>
-            </div>
-            <div class="product-hero__trust-item">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="1" x2="12" y2="23"></line>
-                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-              </svg>
-              <span>GST Invoice</span>
-            </div>
-          </div>
-        </div>
+        <aside class="product-hero__aside panel">
+          <p class="product-hero__aside-kicker">Commercial mode</p>
+          <h2>Family specifications are public. Quotations remain direct and request-based.</h2>
+          <p>{business.quoteOnlyNote}</p>
+          <p>{business.contactNote}</p>
+          <a href="/contact" class="button button--primary">Open contact page</a>
+        </aside>
       </div>
     </div>
   </section>
 
-  <!-- Overview Section -->
-  <section class="product-overview">
+  <section class="section">
     <div class="container">
-      <div class="product-overview__grid">
-        <div class="product-overview__content">
-          <h2 class="product-overview__title">Overview</h2>
-          <p class="product-overview__text">{product.longDesc}</p>
-        </div>
-
-        <div class="product-overview__highlights">
-          <h3 class="product-overview__highlights-title">Key Features</h3>
-          <ul class="product-overview__highlights-list">
-            <li>Premium quality materials</li>
-            <li>Industry-standard specifications</li>
-            <li>Certified for medical use</li>
-            <li>Warranty support available</li>
-            <li>Competitive bulk pricing</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Specifications Section -->
-  <section class="product-specs">
-    <div class="container">
-      <h2 class="product-specs__title">Specifications</h2>
-      <div class="product-specs__table">
-        <SpecsTable specs={product.specs} />
-      </div>
-    </div>
-  </section>
-
-  <!-- Related Products -->
-  {relatedProducts.length > 0 && (
-    <section class="related-products">
-      <div class="container">
-        <h2 class="related-products__title">Related Products</h2>
-        <div class="related-products__grid">
-          {relatedProducts.map((relatedProduct) => (
-            <ProductCard product={relatedProduct} />
+      {heroImages.length > 0 ? (
+        <div class="gallery-grid">
+          {heroImages.map((image) => (
+            <div class="gallery-grid__item panel">
+              <img src={image} alt={family.name} loading="lazy" />
+            </div>
           ))}
         </div>
-      </div>
-    </section>
-  )}
+      ) : (
+        <div class="gallery-empty panel">
+          <h2>Product imagery is being mapped into this family.</h2>
+          <p>The specification structure is already live. Additional approved images will continue to be attached to the relevant family and model records.</p>
+        </div>
+      )}
+    </div>
+  </section>
 
-  <!-- More Featured Products -->
-  <section class="featured-products">
+  <section class="section section--band">
     <div class="container">
-      <h2 class="featured-products__title">Featured Products</h2>
-      <div class="featured-products__grid">
-        {featuredProducts.map((featuredProduct) => (
-          <ProductCard product={featuredProduct} />
+      <SectionTitle
+        kicker="Variant Matrix"
+        title="Compare the model lineup at a glance."
+        subtitle="This table surfaces the shared decision columns for the family so procurement teams can compare capacities, sizes, and configuration differences quickly."
+      />
+
+      <div class="matrix panel">
+        <div class="matrix__table-wrap">
+          <table>
+            <thead>
+              <tr>
+                {matrixColumns.map((column) => (
+                  <th>{column}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {family.variants.map((variant) => (
+                <tr>
+                  <td>{variant.model}</td>
+                  {matrixColumns.slice(1).map((column) => (
+                    <td>{getAttributeValue(variant, column)}</td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container variant-section">
+      <SectionTitle
+        kicker="Model Details"
+        title="Switch between models for specification-level review."
+        subtitle="Each model keeps its own attributes, supporting notes, and approved imagery under the same family page."
+      />
+
+      <div class="variant-switcher" role="tablist" aria-label="Model selector">
+        {family.variants.map((variant, index) => (
+          <button
+            class:list={["variant-switcher__button", { "is-active": index === 0 }]}
+            data-model-target={variant.slug}
+            role="tab"
+            aria-selected={index === 0 ? "true" : "false"}
+          >
+            {variant.model}
+          </button>
+        ))}
+      </div>
+
+      <div class="variant-panels">
+        {family.variants.map((variant, index) => (
+          <article
+            class:list={["variant-panel panel", { "is-active": index === 0 }]}
+            data-model-panel={variant.slug}
+            hidden={index === 0 ? undefined : true}
+          >
+            <div class="variant-panel__header">
+              <div>
+                <p class="variant-panel__eyebrow">Model</p>
+                <h2>{variant.model}</h2>
+              </div>
+              <span class="variant-panel__tag">{family.name}</span>
+            </div>
+
+            <div class="variant-panel__grid">
+              <div class="variant-panel__specs">
+                {variant.attributes.map((attribute) => (
+                  <div class="variant-panel__spec">
+                    <span>{attribute.label}</span>
+                    <strong>{attribute.value}</strong>
+                  </div>
+                ))}
+              </div>
+
+              <div class="variant-panel__notes">
+                <h3>Supporting details</h3>
+                {variant.descriptionLines.length > 0 ? (
+                  <ul>
+                    {variant.descriptionLines.map((line) => (
+                      <li>{line}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p>Additional line-level notes will continue to be expanded from the approved source files for this model.</p>
+                )}
+              </div>
+            </div>
+          </article>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- CTA Strip -->
-  <section class="product-cta-strip">
-    <div class="container">
-      <div class="product-cta-strip__content">
-        <h2 class="product-cta-strip__title">Need this product or something similar?</h2>
-        <p class="product-cta-strip__text">Contact us for competitive pricing and bulk order discounts</p>
-        <div class="product-cta-strip__buttons">
-          <CTAButtons variant="primary" href="/products">
-            Browse More Products
-          </CTAButtons>
-          <CTAButtons variant="whatsapp" href={whatsappLink} icon="whatsapp">
-            Get Quote on WhatsApp
-          </CTAButtons>
+  {relatedFamilies.length > 0 && (
+    <section class="section">
+      <div class="container">
+        <SectionTitle
+          kicker="Related Families"
+          title={`More from ${category?.name ?? "this catalogue section"}.`}
+          subtitle="These families sit in the same business section and are commonly reviewed together during planning and procurement."
+        />
+
+        <div class="related-grid">
+          {relatedFamilies.map((relatedFamily) => (
+            <ProductCard family={relatedFamily} />
+          ))}
         </div>
       </div>
-    </div>
-  </section>
-
-  <MotionController />
+    </section>
+  )}
 </BaseLayout>
 
+<script>
+  const buttons = Array.from(document.querySelectorAll("[data-model-target]"));
+  const panels = Array.from(document.querySelectorAll("[data-model-panel]"));
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const target = button.getAttribute("data-model-target");
+      buttons.forEach((candidate) => {
+        candidate.classList.remove("is-active");
+        candidate.setAttribute("aria-selected", "false");
+      });
+      panels.forEach((panel) => {
+        const isMatch = panel.getAttribute("data-model-panel") === target;
+        panel.toggleAttribute("hidden", !isMatch);
+        panel.classList.toggle("is-active", isMatch);
+      });
+      button.classList.add("is-active");
+      button.setAttribute("aria-selected", "true");
+    });
+  });
+</script>
+
 <style>
-  /* Product Hero */
   .product-hero {
-    padding: var(--space-8) 0 var(--space-16);
-    background: var(--color-bg-alt);
+    padding-bottom: 1rem;
   }
 
   .product-hero__grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-12);
-    align-items: start;
+    grid-template-columns: 1.35fr 0.8fr;
+    gap: 1.6rem;
   }
 
-  .product-hero__image-wrapper {
-    position: sticky;
-    top: calc(var(--header-height) + var(--space-8));
+  .product-hero__content {
+    display: grid;
+    gap: 1rem;
   }
 
-  .product-hero__image-container {
-    background: var(--color-surface);
-    border-radius: var(--radius-2xl);
+  .product-hero__content h1 {
+    font-size: clamp(2.7rem, 5vw, 4.4rem);
+    line-height: 0.94;
+    letter-spacing: -0.05em;
+    max-width: 12ch;
+  }
+
+  .product-hero__summary {
+    color: var(--color-text-muted);
+    line-height: 1.85;
+    max-width: 58rem;
+  }
+
+  .product-hero__meta {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.9rem;
+  }
+
+  .product-hero__meta .panel,
+  .product-hero__aside {
+    padding: 1rem;
+  }
+
+  .product-hero__meta strong {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-size: 1.2rem;
+  }
+
+  .product-hero__meta span,
+  .product-hero__aside p {
+    color: var(--color-text-muted);
+    line-height: 1.7;
+  }
+
+  .product-hero__notes {
+    display: grid;
+    gap: 0.65rem;
+    margin: 0;
+    padding-left: 1.15rem;
+    color: var(--color-text-muted);
+    line-height: 1.65;
+  }
+
+  .product-hero__aside {
+    display: grid;
+    gap: 0.8rem;
+    align-content: start;
+  }
+
+  .product-hero__aside-kicker,
+  .variant-panel__eyebrow {
+    color: var(--color-primary);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .product-hero__aside h2 {
+    font-size: 1.55rem;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .gallery-grid__item {
+    aspect-ratio: 1 / 1;
     overflow: hidden;
-    box-shadow: var(--shadow-lg);
   }
 
-  .product-hero__image {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-  }
-
-  .product-hero__thumbnails {
-    display: flex;
-    gap: var(--space-3);
-    margin-top: var(--space-4);
-  }
-
-  .product-hero__thumbnail {
-    width: 80px;
-    height: 60px;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    border: 2px solid transparent;
-    background: none;
-    padding: 0;
-    cursor: pointer;
-    transition: all 0.3s var(--ease-out-expo);
-  }
-
-  .product-hero__thumbnail--active,
-  .product-hero__thumbnail:hover {
-    border-color: var(--color-primary);
-  }
-
-  .product-hero__thumbnail img {
+  .gallery-grid__item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
 
-  .product-hero__info {
-    padding-top: var(--space-4);
+  .gallery-empty {
+    display: grid;
+    gap: 0.8rem;
+    padding: 1.4rem;
   }
 
-  .product-hero__tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-2);
-    margin-bottom: var(--space-4);
-  }
-
-  .product-hero__tag {
-    padding: var(--space-1) var(--space-3);
-    background: var(--color-primary-50);
-    color: var(--color-primary);
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    border-radius: var(--radius-full);
-  }
-
-  .product-hero__category-tag {
-    padding: var(--space-1) var(--space-3);
-    background: var(--color-bg-alt);
-    color: var(--color-text);
-    font-size: 0.75rem;
-    font-weight: 500;
-    text-decoration: none;
-    border-radius: var(--radius-full);
-    transition: all 0.2s var(--ease-out-expo);
-  }
-
-  .product-hero__category-tag:hover {
-    background: var(--color-primary);
-    color: white;
-  }
-
-  .product-hero__title {
-    font-family: var(--font-heading);
-    font-size: clamp(2rem, 4vw, 2.75rem);
-    font-weight: 600;
-    color: var(--color-text);
-    line-height: 1.2;
-    margin-bottom: var(--space-4);
-  }
-
-  .product-hero__short-desc {
-    font-size: 1.125rem;
+  .gallery-empty p {
+    color: var(--color-text-muted);
     line-height: 1.7;
+  }
+
+  .section--band {
+    background: linear-gradient(180deg, rgba(25, 77, 128, 0.04), rgba(25, 77, 128, 0.01));
+  }
+
+  .matrix {
+    overflow: hidden;
+  }
+
+  .matrix__table-wrap {
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 42rem;
+  }
+
+  th,
+  td {
+    padding: 0.95rem 1rem;
+    border-bottom: 1px solid rgba(84, 96, 109, 0.14);
+    text-align: left;
+    vertical-align: top;
+  }
+
+  th {
+    background: rgba(25, 77, 128, 0.06);
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  td {
     color: var(--color-text-muted);
-    margin-bottom: var(--space-8);
   }
 
-  /* CTA Box */
-  .product-hero__cta-box {
-    background: var(--color-surface);
-    border-radius: var(--radius-xl);
-    padding: var(--space-6);
-    box-shadow: var(--shadow-md);
-    margin-bottom: var(--space-8);
-  }
-
-  .product-hero__cta-title {
-    font-family: var(--font-heading);
-    font-size: 1.25rem;
-    font-weight: 600;
+  td:first-child {
     color: var(--color-text);
-    margin-bottom: var(--space-2);
+    font-weight: 700;
   }
 
-  .product-hero__cta-text {
-    font-size: 0.9375rem;
-    color: var(--color-text-muted);
-    margin-bottom: var(--space-4);
-  }
-
-  .product-hero__cta-buttons {
+  .variant-switcher {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-3);
+    gap: 0.75rem;
+    margin-bottom: 1.1rem;
   }
 
-  /* Trust Indicators */
-  .product-hero__trust {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-6);
-    padding: var(--space-4) 0;
-    border-top: 1px solid var(--color-border);
-  }
-
-  .product-hero__trust-item {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-    font-size: 0.875rem;
+  .variant-switcher__button {
+    border: 1px solid rgba(84, 96, 109, 0.18);
+    border-radius: 999px;
+    padding: 0.7rem 0.95rem;
+    background: rgba(255, 255, 255, 0.86);
     color: var(--color-text-muted);
   }
 
-  .product-hero__trust-item svg {
-    color: var(--color-success);
-  }
-
-  /* Overview Section */
-  .product-overview {
-    padding: var(--space-16) 0;
-  }
-
-  .product-overview__grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: var(--space-12);
-  }
-
-  .product-overview__title {
-    font-family: var(--font-heading);
-    font-size: 1.75rem;
-    font-weight: 600;
-    color: var(--color-text);
-    margin-bottom: var(--space-4);
-  }
-
-  .product-overview__text {
-    font-size: 1.0625rem;
-    line-height: 1.8;
-    color: var(--color-text-muted);
-  }
-
-  .product-overview__highlights {
-    background: var(--color-surface);
-    border-radius: var(--radius-xl);
-    padding: var(--space-6);
-    box-shadow: var(--shadow-md);
-    height: fit-content;
-  }
-
-  .product-overview__highlights-title {
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: var(--color-text);
-    margin-bottom: var(--space-4);
-  }
-
-  .product-overview__highlights-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .product-overview__highlights-list li {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-    padding: var(--space-2) 0;
-    font-size: 0.9375rem;
-    color: var(--color-text-muted);
-  }
-
-  .product-overview__highlights-list li::before {
-    content: '';
-    width: 6px;
-    height: 6px;
+  .variant-switcher__button.is-active {
     background: var(--color-primary);
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-
-  /* Specs Section */
-  .product-specs {
-    padding: var(--space-16) 0;
-    background: var(--color-bg-alt);
-  }
-
-  .product-specs__title {
-    font-family: var(--font-heading);
-    font-size: 1.75rem;
-    font-weight: 600;
-    color: var(--color-text);
-    margin-bottom: var(--space-8);
-    text-align: center;
-  }
-
-  .product-specs__table {
-    max-width: 700px;
-    margin: 0 auto;
-  }
-
-  /* Related Products */
-  .related-products {
-    padding: var(--space-16) 0;
-  }
-
-  .related-products__title {
-    font-family: var(--font-heading);
-    font-size: 1.75rem;
-    font-weight: 600;
-    color: var(--color-text);
-    margin-bottom: var(--space-8);
-  }
-
-  .related-products__grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-6);
-  }
-
-  /* Featured Products */
-  .featured-products {
-    padding: var(--space-16) 0;
-    background: var(--color-bg-alt);
-  }
-
-  .featured-products__title {
-    font-family: var(--font-heading);
-    font-size: 1.75rem;
-    font-weight: 600;
-    color: var(--color-text);
-    margin-bottom: var(--space-8);
-  }
-
-  .featured-products__grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-6);
-  }
-
-  /* CTA Strip */
-  .product-cta-strip {
-    padding: var(--space-16) 0;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-  }
-
-  .product-cta-strip__content {
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .product-cta-strip__title {
-    font-family: var(--font-heading);
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    font-weight: 600;
+    border-color: var(--color-primary);
     color: white;
-    margin-bottom: var(--space-4);
   }
 
-  .product-cta-strip__text {
-    font-size: 1.0625rem;
-    color: rgba(255, 255, 255, 0.85);
-    margin-bottom: var(--space-6);
+  .variant-panel {
+    padding: 1.3rem;
   }
 
-  .product-cta-strip__buttons {
+  .variant-panel__header {
     display: flex;
-    justify-content: center;
-    gap: var(--space-4);
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(84, 96, 109, 0.14);
   }
 
-  .product-cta-strip__buttons :global(.cta-button--primary) {
-    background: white;
+  .variant-panel__header h2 {
+    margin-top: 0.35rem;
+    font-size: 2rem;
+  }
+
+  .variant-panel__tag {
+    display: inline-flex;
+    align-items: center;
+    align-self: start;
+    border-radius: 999px;
+    padding: 0.45rem 0.75rem;
+    background: rgba(25, 77, 128, 0.08);
     color: var(--color-primary);
+    font-size: 0.78rem;
+    font-weight: 700;
   }
 
-  .product-cta-strip__buttons :global(.cta-button--primary:hover) {
-    background: var(--color-secondary-light);
+  .variant-panel__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.4rem;
+    padding-top: 1rem;
   }
 
-  /* Responsive */
-  @media (max-width: 1024px) {
-    .product-hero__grid {
+  .variant-panel__specs {
+    display: grid;
+    gap: 0.8rem;
+  }
+
+  .variant-panel__spec {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 0.7rem;
+    border-bottom: 1px solid rgba(84, 96, 109, 0.1);
+  }
+
+  .variant-panel__spec span {
+    color: var(--color-text-muted);
+  }
+
+  .variant-panel__spec strong {
+    text-align: right;
+  }
+
+  .variant-panel__notes h3 {
+    margin-bottom: 0.8rem;
+    font-size: 1.05rem;
+  }
+
+  .variant-panel__notes ul {
+    display: grid;
+    gap: 0.7rem;
+    margin: 0;
+    padding-left: 1.1rem;
+    color: var(--color-text-muted);
+    line-height: 1.65;
+  }
+
+  .variant-panel__notes p {
+    color: var(--color-text-muted);
+    line-height: 1.7;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.2rem;
+  }
+
+  @media (max-width: 1100px) {
+    .product-hero__grid,
+    .variant-panel__grid,
+    .related-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .gallery-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 760px) {
+    .product-hero__grid,
+    .product-hero__meta,
+    .variant-panel__grid,
+    .related-grid,
+    .gallery-grid {
       grid-template-columns: 1fr;
     }
 
-    .product-hero__image-wrapper {
-      position: static;
-    }
-
-    .product-overview__grid {
-      grid-template-columns: 1fr;
-    }
-
-    .related-products__grid,
-    .featured-products__grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (max-width: 640px) {
-    .product-hero__cta-buttons {
-      flex-direction: column;
-    }
-
-    .product-hero__trust {
-      flex-direction: column;
-      gap: var(--space-3);
-    }
-
-    .related-products__grid,
-    .featured-products__grid {
-      grid-template-columns: 1fr;
-    }
-
-    .product-cta-strip__buttons {
+    .variant-panel__header {
       flex-direction: column;
     }
   }

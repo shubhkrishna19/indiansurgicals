@@ -25,3 +25,6 @@ npm-debug.log*
 # Astro
 .astro/
 node_modules
+
+# Local source workbooks and brochures
+Company Info/

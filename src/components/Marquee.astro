@@ -17,7 +17,7 @@ const duplicatedItems = [...items, ...items, ...items];
 
 <div class:list={['marquee', `marquee--${direction}`, className]}>
   <div class="marquee__container">
-    {duplicatedItems.map((item, index) => (
+    {duplicatedItems.map((item) => (
       <div class="marquee__item">
         <span class="marquee__text">{item}</span>
         <span class="marquee__separator">

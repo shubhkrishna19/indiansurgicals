@@ -5,10 +5,10 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "npm exec astro check && npm exec astro build",
+    "check": "astro check",
+    "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "postinstall": "chmod +x node_modules/.bin/astro",
     "lint": "eslint . --ext .ts,.tsx,.astro",
     "format": "prettier --write ."
   },

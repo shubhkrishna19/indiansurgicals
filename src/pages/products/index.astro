@@ -1,457 +1,188 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import ProductCard from '../../components/ProductCard.astro';
-import MotionController from '../../components/MotionController.astro';
-import { categories } from '../../data/categories';
-import { products, getAllProducts } from '../../data/products';
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ProductCard from "../../components/ProductCard.astro";
+import SectionTitle from "../../components/SectionTitle.astro";
+import { getAllCategories, getAllFamilies } from "../../data/catalogue";
 
-const allProducts = getAllProducts();
-const pageTitle = 'Products';
+const categories = getAllCategories();
+const families = getAllFamilies();
 ---
 
-<BaseLayout title={pageTitle} description="Browse our complete range of medical equipment - surgical instruments, hospital furniture, diagnostic equipment, and more.">
-  <!-- Page Header -->
-  <section class="page-header">
+<BaseLayout
+  title="Catalogue"
+  description="Browse Indian Surgical Industries product families by category, family, and model coverage."
+>
+  <section class="section">
     <div class="container">
-      <h1 class="page-header__title">{pageTitle}</h1>
-      <p class="page-header__subtitle">
-        Browse our complete range of medical equipment across {categories.length} categories
-      </p>
-    </div>
-  </section>
+      <SectionTitle
+        kicker="Full Catalogue"
+        title="Search families, compare sections, and move into model-level specification pages."
+        subtitle="Every card below represents a product family. Open it to read the full overview and inspect available models, capacities, sizes, and other attributes."
+        align="left"
+      />
 
-  <!-- Filters Section -->
-  <section class="filters-section">
-    <div class="container">
-      <!-- Category Filter Pills -->
-      <div class="filter-pills">
-        <button class="filter-pill filter-pill--active" data-category="all">
-          All Products
-        </button>
-        {categories.map((category) => (
-          <button class="filter-pill" data-category={category.slug}>
-            <span class="filter-pill__icon">{category.icon}</span>
-            {category.name}
-          </button>
-        ))}
+      <div class="catalogue-toolbar panel">
+        <div class="catalogue-toolbar__search">
+          <label for="catalogue-search">Search the catalogue</label>
+          <input id="catalogue-search" type="search" placeholder="Search by family, category, or model" />
+        </div>
+
+        <div class="catalogue-toolbar__filters" aria-label="Category filters">
+          <button class="is-active" data-filter="all">All categories</button>
+          {categories.map((category) => (
+            <button data-filter={category.slug}>{category.name}</button>
+          ))}
+        </div>
+
+        <p class="catalogue-toolbar__count">
+          <strong id="catalogue-count">{families.length}</strong> product families
+        </p>
       </div>
 
-      <!-- Search Input -->
-      <div class="search-box">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-box__icon">
-          <circle cx="11" cy="11" r="8"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
-        <input
-          type="text"
-          id="product-search"
-          class="search-box__input"
-          placeholder="Search products..."
-          autocomplete="off"
-        />
-        <button class="search-box__clear" aria-label="Clear search" style="display: none;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
-      </div>
-
-      <!-- Results Count -->
-      <div class="results-info">
-        <span class="results-count">{allProducts.length} products</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Products Grid -->
-  <section class="products-section">
-    <div class="container">
-      <div class="products-grid" id="products-grid">
-        {allProducts.map((product) => (
-          <div class="product-item" data-category={product.categorySlug} data-name={product.name.toLowerCase()}>
-            <ProductCard product={product} />
+      <div class="catalogue-grid" id="catalogue-grid">
+        {families.map((family) => (
+          <div
+            class="catalogue-grid__item"
+            data-category={family.categorySlug}
+            data-search={`${family.name} ${family.summary} ${family.variants.map((variant) => variant.model).join(" ")}`.toLowerCase()}
+          >
+            <ProductCard family={family} />
           </div>
         ))}
       </div>
 
-      <!-- No Results Message -->
-      <div class="no-results" id="no-results" style="display: none;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="11" r="8"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          <line x1="8" y1="8" x2="14" y2="14"></line>
-          <line x1="14" y1="8" x2="8" y2="14"></line>
-        </svg>
-        <h3>No products found</h3>
-        <p>Try adjusting your search or filter to find what you're looking for.</p>
+      <div class="catalogue-empty panel" id="catalogue-empty" hidden>
+        <h2>No matching families</h2>
+        <p>Try a broader search term or remove the category filter.</p>
       </div>
     </div>
   </section>
-
-  <MotionController />
 </BaseLayout>
 
 <script>
-  // Client-side filtering
-  document.addEventListener('DOMContentLoaded', () => {
-    const searchInput = document.getElementById('product-search') as HTMLInputElement;
-    const clearButton = document.querySelector('.search-box__clear') as HTMLButtonElement;
-    const filterPills = document.querySelectorAll('.filter-pill');
-    const productItems = document.querySelectorAll('.product-item');
-    const resultsCount = document.querySelector('.results-count');
-    const noResults = document.getElementById('no-results');
+  const searchInput = document.getElementById("catalogue-search");
+  const filterButtons = Array.from(document.querySelectorAll("[data-filter]"));
+  const catalogueItems = Array.from(document.querySelectorAll(".catalogue-grid__item"));
+  const countNode = document.getElementById("catalogue-count");
+  const emptyNode = document.getElementById("catalogue-empty");
 
-    let activeCategory = 'all';
-    let searchQuery = '';
+  let activeFilter = "all";
 
-    // Search functionality
-    function filterProducts() {
-      let visibleCount = 0;
+  function applyFilters() {
+    const query = searchInput instanceof HTMLInputElement ? searchInput.value.trim().toLowerCase() : "";
+    let visible = 0;
 
-      productItems.forEach((item) => {
-        const productEl = item as HTMLElement;
-        const category = productEl.dataset.category;
-        const name = productEl.dataset.name || '';
-
-        const matchesCategory = activeCategory === 'all' || category === activeCategory;
-        const matchesSearch = name.includes(searchQuery.toLowerCase());
-
-        if (matchesCategory && matchesSearch) {
-          productEl.style.display = 'block';
-          visibleCount++;
-        } else {
-          productEl.style.display = 'none';
-        }
-      });
-
-      // Update results count
-      if (resultsCount) {
-        resultsCount.textContent = `${visibleCount} products`;
-      }
-
-      // Show/hide no results message
-      if (noResults) {
-        noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+    for (const item of catalogueItems) {
+      const element = item;
+      const category = element.getAttribute("data-category") ?? "";
+      const haystack = element.getAttribute("data-search") ?? "";
+      const categoryMatches = activeFilter === "all" || category === activeFilter;
+      const queryMatches = !query || haystack.includes(query);
+      const matches = categoryMatches && queryMatches;
+      element.toggleAttribute("hidden", !matches);
+      if (matches) {
+        visible += 1;
       }
     }
 
-    // Search input handler
-    searchInput?.addEventListener('input', (e) => {
-      const target = e.target as HTMLInputElement;
-      searchQuery = target.value;
-
-      // Show/hide clear button
-      if (clearButton) {
-        clearButton.style.display = searchQuery ? 'flex' : 'none';
-      }
-
-      filterProducts();
-    });
-
-    // Clear button handler
-    clearButton?.addEventListener('click', () => {
-      searchInput.value = '';
-      searchQuery = '';
-      clearButton.style.display = 'none';
-      filterProducts();
-    });
-
-    // Filter pills handler
-    filterPills.forEach((pill) => {
-      pill.addEventListener('click', () => {
-        // Update active state
-        filterPills.forEach((p) => p.classList.remove('filter-pill--active'));
-        pill.classList.add('filter-pill--active');
-
-        // Update active category
-        activeCategory = (pill as HTMLElement).dataset.category || 'all';
-
-        // Filter products
-        filterProducts();
-      });
-    });
-  });
-
-  // Re-initialize on Astro view transitions
-  document.addEventListener('astro:page-load', () => {
-    // Re-run the filtering logic
-    const searchInput = document.getElementById('product-search') as HTMLInputElement;
-    const filterPills = document.querySelectorAll('.filter-pill');
-    const productItems = document.querySelectorAll('.product-item');
-    const resultsCount = document.querySelector('.results-count');
-    const noResults = document.getElementById('no-results');
-
-    let activeCategory = 'all';
-    let searchQuery = '';
-
-    function filterProducts() {
-      let visibleCount = 0;
-
-      productItems.forEach((item) => {
-        const productEl = item as HTMLElement;
-        const category = productEl.dataset.category;
-        const name = productEl.dataset.name || '';
-
-        const matchesCategory = activeCategory === 'all' || category === activeCategory;
-        const matchesSearch = name.includes(searchQuery.toLowerCase());
-
-        if (matchesCategory && matchesSearch) {
-          productEl.style.display = 'block';
-          visibleCount++;
-        } else {
-          productEl.style.display = 'none';
-        }
-      });
-
-      if (resultsCount) {
-        resultsCount.textContent = `${visibleCount} products`;
-      }
-
-      if (noResults) {
-        noResults.style.display = visibleCount === 0 ? 'block' : 'none';
-      }
+    if (countNode) {
+      countNode.textContent = String(visible);
     }
+    if (emptyNode) {
+      emptyNode.hidden = visible !== 0;
+    }
+  }
 
-    searchInput?.addEventListener('input', (e) => {
-      const target = e.target as HTMLInputElement;
-      searchQuery = target.value;
-      filterProducts();
-    });
-
-    filterPills.forEach((pill) => {
-      pill.addEventListener('click', () => {
-        filterPills.forEach((p) => p.classList.remove('filter-pill--active'));
-        pill.classList.add('filter-pill--active');
-        activeCategory = (pill as HTMLElement).dataset.category || 'all';
-        filterProducts();
-      });
+  searchInput?.addEventListener("input", applyFilters);
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      activeFilter = button.getAttribute("data-filter") ?? "all";
+      filterButtons.forEach((candidate) => candidate.classList.remove("is-active"));
+      button.classList.add("is-active");
+      applyFilters();
     });
   });
 </script>
 
 <style>
-  /* Page Header */
-  .page-header {
-    padding: var(--space-16) 0 var(--space-8);
-    text-align: center;
-    background: linear-gradient(to bottom, var(--color-bg-alt), var(--color-bg));
+  .catalogue-toolbar {
+    display: grid;
+    gap: 1rem;
+    padding: 1.2rem;
+    margin-bottom: 1.4rem;
   }
 
-  .page-header__title {
-    font-family: var(--font-heading);
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
-    font-weight: 600;
-    color: var(--color-text);
-    margin-bottom: var(--space-4);
+  .catalogue-toolbar__search {
+    display: grid;
+    gap: 0.55rem;
   }
 
-  .page-header__subtitle {
-    font-size: 1.125rem;
-    color: var(--color-text-muted);
-    max-width: 500px;
-    margin: 0 auto;
-  }
-
-  /* Filters Section */
-  .filters-section {
-    padding: var(--space-6) 0;
-    background: var(--color-surface);
-    border-bottom: 1px solid var(--color-border);
-    position: sticky;
-    top: var(--header-height);
-    z-index: 10;
-  }
-
-  .filter-pills {
-    display: flex;
-    gap: var(--space-2);
-    overflow-x: auto;
-    padding-bottom: var(--space-4);
-    margin-bottom: var(--space-4);
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-
-  .filter-pills::-webkit-scrollbar {
-    display: none;
-  }
-
-  .filter-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    padding: var(--space-2) var(--space-4);
-    background: var(--color-bg-alt);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-full);
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--color-text-muted);
-    white-space: nowrap;
-    cursor: pointer;
-    transition: all 0.3s var(--ease-out-expo);
-  }
-
-  .filter-pill:hover {
-    background: var(--color-surface);
-    border-color: var(--color-primary);
+  .catalogue-toolbar__search label {
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     color: var(--color-primary);
   }
 
-  .filter-pill--active {
+  .catalogue-toolbar__search input {
+    border: 1px solid rgba(84, 96, 109, 0.18);
+    border-radius: 1rem;
+    padding: 0.9rem 1rem;
+    background: rgba(255, 255, 255, 0.84);
+  }
+
+  .catalogue-toolbar__filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+  }
+
+  .catalogue-toolbar__filters button {
+    border: 1px solid rgba(84, 96, 109, 0.18);
+    border-radius: 999px;
+    padding: 0.65rem 0.9rem;
+    background: rgba(255, 255, 255, 0.82);
+    color: var(--color-text-muted);
+  }
+
+  .catalogue-toolbar__filters button.is-active {
     background: var(--color-primary);
     border-color: var(--color-primary);
     color: white;
   }
 
-  .filter-pill__icon {
-    font-size: 1rem;
-  }
-
-  /* Search Box */
-  .search-box {
-    position: relative;
-    max-width: 400px;
-    margin-bottom: var(--space-4);
-  }
-
-  .search-box__icon {
-    position: absolute;
-    left: var(--space-4);
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--color-text-light);
-    pointer-events: none;
-  }
-
-  .search-box__input {
-    width: 100%;
-    padding: var(--space-3) var(--space-4) var(--space-3) var(--space-12);
-    background: var(--color-bg-alt);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-full);
-    font-size: 0.9375rem;
-    color: var(--color-text);
-    transition: all 0.3s var(--ease-out-expo);
-  }
-
-  .search-box__input:focus {
-    outline: none;
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px var(--color-primary-50);
-  }
-
-  .search-box__input::placeholder {
-    color: var(--color-text-light);
-  }
-
-  .search-box__clear {
-    position: absolute;
-    right: var(--space-3);
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    color: var(--color-text-light);
-    cursor: pointer;
-    padding: var(--space-1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: var(--radius-full);
-    transition: all 0.2s var(--ease-out-expo);
-  }
-
-  .search-box__clear:hover {
-    color: var(--color-text);
-    background: var(--color-secondary);
-  }
-
-  /* Results Info */
-  .results-info {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .results-count {
-    font-size: 0.875rem;
+  .catalogue-toolbar__count {
+    margin: 0;
     color: var(--color-text-muted);
   }
 
-  /* Products Section */
-  .products-section {
-    padding: var(--space-12) 0 var(--space-24);
-  }
-
-  .products-grid {
+  .catalogue-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-6);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.2rem;
   }
 
-  .product-item {
-    animation: fadeIn 0.4s var(--ease-out-expo) forwards;
+  .catalogue-empty {
+    display: grid;
+    gap: 0.7rem;
+    padding: 1.4rem;
+    margin-top: 1.2rem;
   }
 
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* No Results */
-  .no-results {
-    text-align: center;
-    padding: var(--space-16) var(--space-4);
-  }
-
-  .no-results svg {
-    color: var(--color-text-light);
-    margin-bottom: var(--space-4);
-  }
-
-  .no-results h3 {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--color-text);
-    margin-bottom: var(--space-2);
-  }
-
-  .no-results p {
-    font-size: 1rem;
+  .catalogue-empty p {
     color: var(--color-text-muted);
   }
 
-  /* Responsive */
-  @media (max-width: 1024px) {
-    .products-grid {
-      grid-template-columns: repeat(2, 1fr);
+  @media (max-width: 1100px) {
+    .catalogue-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 
-  @media (max-width: 640px) {
-    .page-header {
-      padding: var(--space-12) 0 var(--space-6);
-    }
-
-    .filters-section {
-      position: static;
-    }
-
-    .products-grid {
+  @media (max-width: 700px) {
+    .catalogue-grid {
       grid-template-columns: 1fr;
-    }
-
-    .filter-pills {
-      padding-bottom: var(--space-2);
     }
   }
 </style>

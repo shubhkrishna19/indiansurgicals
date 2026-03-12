@@ -1,503 +1,320 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import MotionController from '../components/MotionController.astro';
-import { business, getWhatsAppLink } from '../data/business';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import { business, getPrimaryContactHref, hasPublicContactDetails } from "../data/business";
+import { getAllCategories } from "../data/catalogue";
 
-const { phones, whatsappNumber, email, address } = business;
-
-const fullAddress = `${address.line1}, ${address.line2 ? address.line2 + ', ' : ''}${address.city}, ${address.state} ${address.postalCode}, ${address.country}`;
+const contactReady = hasPublicContactDetails();
+const categories = getAllCategories();
+const primaryContactHref = getPrimaryContactHref();
 ---
 
-<BaseLayout title="Contact Us" description="Get in touch with IndianSurgicals for medical equipment quotes.">
-  <!-- Hero Section -->
-  <section class="contact-hero">
-    <div class="contact-hero__bg"></div>
-    <div class="contact-hero__content">
-      <h1 class="contact-hero__title reveal">Contact Us</h1>
-      <p class="contact-hero__subtitle reveal">We're here to help with your medical equipment needs</p>
+<BaseLayout
+  title="Contact And Enquiries"
+  description="Review the enquiry status for Indian Surgical Industries and browse the catalogue structure before direct quotation discussion."
+>
+  <section class="section contact-hero">
+    <div class="container contact-hero__grid">
+      <div class="contact-hero__content">
+        <span class="eyebrow">Enquiry Status</span>
+        <h1>Indian Surgical Industries runs this site as a quote-only product catalogue.</h1>
+        <p class="contact-hero__copy">{business.quoteOnlyNote}</p>
+        <p class="contact-hero__copy">
+          {contactReady
+            ? "Public contact channels are active below."
+            : "Public phone, WhatsApp, and email publication is being finalized. The catalogue and company profile are live so buyers can already review the range properly."}
+        </p>
+
+        <div class="contact-hero__actions">
+          <a href="/products" class="button button--primary">Browse the catalogue</a>
+          <a href={primaryContactHref} class="button button--secondary">
+            {contactReady ? "Contact now" : "View contact status"}
+          </a>
+        </div>
+      </div>
+
+      <aside class="contact-hero__panel panel">
+        <p class="contact-hero__panel-kicker">Business Snapshot</p>
+        <div class="contact-hero__facts">
+          <div>
+            <span>Manufacturer</span>
+            <strong>{business.brand}</strong>
+          </div>
+          <div>
+            <span>Base</span>
+            <strong>{business.manufacturingBase}</strong>
+          </div>
+          <div>
+            <span>Legacy</span>
+            <strong>{business.experienceClaim}</strong>
+          </div>
+          <div>
+            <span>Commercial mode</span>
+            <strong>Quote only</strong>
+          </div>
+        </div>
+      </aside>
     </div>
   </section>
 
-  <!-- Contact Cards Section -->
-  <section class="contact-section">
-    <div class="contact-container">
-      <!-- Section Label -->
-      <p class="contact-section__label">Get in Touch</p>
+  <section class="section section--band">
+    <div class="container">
+      <SectionTitle
+        kicker="Contact Layer"
+        title={contactReady ? "Public contact channels are available." : "Public contact channels are being finalized."}
+        subtitle="The website is already usable as a full display catalogue with family pages, model selectors, and specification views."
+        align="left"
+      />
 
-      <div class="contact-grid">
-        <!-- Phone Card -->
-        <div class="contact-card">
-          <div class="contact-card__header">
-            <div class="contact-card__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-              </svg>
-            </div>
-            <h3 class="contact-card__title">Phone</h3>
-          </div>
-          <div class="contact-card__body">
-            <p class="contact-card__desc">Call us for immediate assistance</p>
-            <div class="contact-card__links">
-              {phones.map((phone) => (
-                <a href={`tel:${phone}`} class="contact-card__link">{phone}</a>
+      {contactReady ? (
+        <div class="contact-grid">
+          {business.contact.phones.length > 0 && (
+            <article class="panel contact-card">
+              <span>Phone</span>
+              {business.contact.phones.map((phone) => (
+                <a href={`tel:${phone}`}>{phone}</a>
               ))}
-            </div>
-          </div>
-          <div class="contact-card__footer">
-            <span class="contact-card__badge">
-              <span class="contact-card__badge-dot"></span>
-              Open Now
-            </span>
-          </div>
-        </div>
+            </article>
+          )}
 
-        <!-- WhatsApp Card -->
-        <div class="contact-card contact-card--green">
-          <div class="contact-card__header">
-            <div class="contact-card__icon contact-card__icon--white">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-              </svg>
-            </div>
-            <h3 class="contact-card__title">WhatsApp</h3>
-          </div>
-          <div class="contact-card__body">
-            <p class="contact-card__desc">Quick quotes & product inquiries</p>
-            <a href={getWhatsAppLink('Hi, I need a quote for medical equipment')} class="contact-card__btn">
-              Send Message
-            </a>
-          </div>
-          <div class="contact-card__footer">
-            <span class="contact-card__note">Available 24/7</span>
-          </div>
-        </div>
+          {business.contact.whatsappNumber && (
+            <article class="panel contact-card">
+              <span>WhatsApp</span>
+              <a href={`https://wa.me/${business.contact.whatsappNumber}`}>{business.contact.whatsappNumber}</a>
+            </article>
+          )}
 
-        <!-- Email Card -->
-        <div class="contact-card">
-          <div class="contact-card__header">
-            <div class="contact-card__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
-            </div>
-            <h3 class="contact-card__title">Email</h3>
-          </div>
-          <div class="contact-card__body">
-            <p class="contact-card__desc">Detailed inquiries & documentation</p>
-            <a href={`mailto:${email}`} class="contact-card__link">{email}</a>
-          </div>
-          <div class="contact-card__footer">
-            <span class="contact-card__note">Reply within 24 hours</span>
-          </div>
-        </div>
+          {business.contact.email && (
+            <article class="panel contact-card">
+              <span>Email</span>
+              <a href={`mailto:${business.contact.email}`}>{business.contact.email}</a>
+            </article>
+          )}
 
-        <!-- Address Card -->
-        <div class="contact-card">
-          <div class="contact-card__header">
-            <div class="contact-card__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg>
-            </div>
-            <h3 class="contact-card__title">Address</h3>
-          </div>
-          <div class="contact-card__body">
-            <p class="contact-card__desc">Visit us during working hours</p>
-            <address class="contact-card__address">
-              {address.line1}<br/>
-              {address.line2 && <>{address.line2}<br/></>}
-              {address.city}, {address.state} {address.postalCode}
-            </address>
-          </div>
-          <div class="contact-card__footer">
-            <span class="contact-card__note">India</span>
-          </div>
+          <article class="panel contact-card">
+            <span>Address</span>
+            <p>{business.contact.addressLines.join(", ")}</p>
+          </article>
         </div>
-      </div>
+      ) : (
+        <div class="status-grid">
+          <article class="panel status-card">
+            <span>Contact publication</span>
+            <h2>Pending final public details</h2>
+            <p>{business.contactNote}</p>
+          </article>
+
+          <article class="panel status-card">
+            <span>What buyers can do now</span>
+            <h2>Shortlist the right family and model first</h2>
+            <p>Use the category, family, and model pages to understand product fit before direct communication is switched on publicly.</p>
+          </article>
+
+          <article class="panel status-card">
+            <span>Manufacturing base</span>
+            <h2>{business.manufacturingBase}</h2>
+            <p>{business.marketPresence}</p>
+          </article>
+        </div>
+      )}
     </div>
   </section>
 
-  <!-- Working Hours Section -->
-  <section class="hours-section">
-    <div class="contact-container">
-      <div class="hours-panel">
-        <div class="hours-panel__icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"></circle>
-            <polyline points="12 6 12 12 16 14"></polyline>
-          </svg>
-        </div>
-        <div class="hours-panel__content">
-          <h3 class="hours-panel__title">Working Hours</h3>
-          <div class="hours-panel__schedule">
-            <div class="hours-panel__row">
-              <span class="hours-panel__day">Monday - Saturday</span>
-              <span class="hours-panel__time">10:00 AM - 7:00 PM</span>
-            </div>
-            <div class="hours-panel__row">
-              <span class="hours-panel__day">Sunday</span>
-              <span class="hours-panel__time hours-panel__time--closed">Closed</span>
-            </div>
-          </div>
-          <p class="hours-panel__note">
-            <span class="hours-panel__dot"></span>
-            WhatsApp messages accepted 24/7
-          </p>
-        </div>
+  <section class="section">
+    <div class="container process-grid">
+      <div>
+        <SectionTitle
+          kicker="How To Use The Site"
+          title="The site is structured for procurement-style navigation."
+          subtitle="Move from section to family to model instead of browsing generic cards with incomplete detail."
+          align="left"
+        />
+
+        <ol class="process-list">
+          <li>
+            <strong>Open a business section.</strong>
+            Review the relevant category first, such as autoclaves, hospital furniture, suction units, or OT lights.
+          </li>
+          <li>
+            <strong>Shortlist the product family.</strong>
+            Each family page consolidates images, family summary, and the available model lineup.
+          </li>
+          <li>
+            <strong>Compare models.</strong>
+            Use the variant matrix and model switcher to inspect capacities, sizes, and other specification differences.
+          </li>
+        </ol>
       </div>
+
+      <aside class="panel section-list">
+        <h2>Catalogue sections</h2>
+        <ul>
+          {categories.map((category) => (
+            <li><a href={`/products/${category.slug}`}>{category.name}</a></li>
+          ))}
+        </ul>
+      </aside>
     </div>
   </section>
-
-  <MotionController />
 </BaseLayout>
 
 <style>
   .contact-hero {
-    position: relative;
-    padding: 80px 20px;
-    text-align: center;
-    background: linear-gradient(135deg, #f0fdfa 0%, #fef7ee 100%);
-    overflow: hidden;
+    padding-top: 4.4rem;
   }
 
-  .contact-hero__bg {
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 80% 50% at 50% 0%, rgba(13, 148, 136, 0.1) 0%, transparent 50%),
-      radial-gradient(ellipse 60% 40% at 80% 80%, rgba(249, 115, 22, 0.08) 0%, transparent 40%);
+  .contact-hero__grid {
+    display: grid;
+    grid-template-columns: 1.25fr 0.85fr;
+    gap: 2rem;
+    align-items: start;
   }
 
   .contact-hero__content {
-    position: relative;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .contact-hero__title {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(2.5rem, 6vw, 3.5rem);
-    font-weight: 700;
-    color: #1c1917;
-    margin-bottom: 12px;
-  }
-
-  .contact-hero__subtitle {
-    font-size: 1.125rem;
-    color: #78716c;
-  }
-
-  .contact-section {
-    padding: 60px 20px;
-  }
-
-  .contact-container {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .contact-section__label {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: #0D9488;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 24px;
-    text-align: center;
-  }
-
-  .contact-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    gap: 1.1rem;
   }
 
-  @media (max-width: 1024px) {
-    .contact-grid {
-      grid-template-columns: repeat(2, 1fr);
+  .contact-hero__content h1 {
+    font-size: clamp(2.6rem, 5vw, 4.6rem);
+    line-height: 0.95;
+    letter-spacing: -0.05em;
+    max-width: 12ch;
+  }
+
+  .contact-hero__copy {
+    margin: 0;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+    max-width: 52rem;
+  }
+
+  .contact-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+  }
+
+  .contact-hero__panel {
+    display: grid;
+    gap: 1rem;
+    padding: 1.3rem;
+  }
+
+  .contact-hero__panel-kicker,
+  .contact-card span,
+  .status-card span {
+    color: var(--color-primary);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .contact-hero__facts {
+    display: grid;
+    gap: 0.8rem;
+  }
+
+  .contact-hero__facts div {
+    padding: 1rem;
+    border-radius: 1rem;
+    background: rgba(25, 77, 128, 0.06);
+  }
+
+  .contact-hero__facts span {
+    display: block;
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .contact-hero__facts strong {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+  }
+
+  .section--band {
+    background: linear-gradient(180deg, rgba(25, 77, 128, 0.04), rgba(25, 77, 128, 0.01));
+  }
+
+  .contact-grid,
+  .status-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .contact-card,
+  .status-card,
+  .section-list {
+    display: grid;
+    gap: 0.8rem;
+    padding: 1.2rem;
+  }
+
+  .contact-card a,
+  .section-list a {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+
+  .contact-card p,
+  .status-card p {
+    margin: 0;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+  }
+
+  .status-card h2,
+  .section-list h2 {
+    font-size: 1.25rem;
+  }
+
+  .process-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 2rem;
+  }
+
+  .process-list {
+    display: grid;
+    gap: 1rem;
+    padding-left: 1.2rem;
+    margin: 0;
+    color: var(--color-text-muted);
+    line-height: 1.75;
+  }
+
+  .process-list strong {
+    display: block;
+    color: var(--color-text);
+    margin-bottom: 0.15rem;
+  }
+
+  .section-list ul {
+    display: grid;
+    gap: 0.75rem;
+    margin: 0;
+    padding-left: 1rem;
+    color: var(--color-text-muted);
+  }
+
+  @media (max-width: 1100px) {
+    .contact-hero__grid,
+    .contact-grid,
+    .status-grid,
+    .process-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 
-  @media (max-width: 640px) {
-    .contact-grid {
+  @media (max-width: 760px) {
+    .contact-hero__grid,
+    .contact-grid,
+    .status-grid,
+    .process-grid {
       grid-template-columns: 1fr;
-    }
-  }
-
-  .contact-card {
-    background: #ffffff;
-    border-radius: 20px;
-    padding: 24px;
-    text-align: center;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    min-height: 260px;
-    border: 1px solid #f5f5f4;
-  }
-
-  .contact-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-    border-color: #e7e5e4;
-  }
-
-  .contact-card--green {
-    background: linear-gradient(145deg, #25D366 0%, #128C7E 100%);
-    border: none;
-  }
-
-  .contact-card--green:hover {
-    border: none;
-    box-shadow: 0 20px 25px -5px rgba(37, 211, 102, 0.3), 0 8px 10px -6px rgba(18, 140, 126, 0.2);
-  }
-
-  .contact-card__header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 16px;
-  }
-
-  .contact-card__icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 56px;
-    height: 56px;
-    background: #f0fdfa;
-    border-radius: 50%;
-    color: #0D9488;
-  }
-
-  .contact-card__icon--white {
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
-  }
-
-  .contact-card__title {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: #1c1917;
-    margin: 0;
-  }
-
-  .contact-card--green .contact-card__title {
-    color: white;
-  }
-
-  .contact-card__body {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 12px;
-    margin-bottom: 16px;
-  }
-
-  .contact-card__desc {
-    font-size: 0.8125rem;
-    color: #78716c;
-    margin: 0;
-    line-height: 1.5;
-  }
-
-  .contact-card--green .contact-card__desc {
-    color: rgba(255, 255, 255, 0.85);
-  }
-
-  .contact-card__links {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  .contact-card__link {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: #0D9488;
-    text-decoration: none;
-    word-break: break-word;
-  }
-
-  .contact-card__link:hover {
-    text-decoration: underline;
-  }
-
-  .contact-card__btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background: white;
-    color: #128C7E;
-    font-size: 0.875rem;
-    font-weight: 600;
-    border-radius: 25px;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    align-self: center;
-  }
-
-  .contact-card__btn:hover {
-    background: #f0fdfa;
-    transform: scale(1.02);
-  }
-
-  .contact-card__footer {
-    padding-top: 16px;
-    border-top: 1px solid #f5f5f4;
-  }
-
-  .contact-card--green .contact-card__footer {
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-  }
-
-  .contact-card__badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 4px 12px;
-    background: #dcfce7;
-    color: #16a34a;
-    font-size: 0.75rem;
-    font-weight: 600;
-    border-radius: 20px;
-  }
-
-  .contact-card__badge-dot {
-    width: 6px;
-    height: 6px;
-    background: #16a34a;
-    border-radius: 50%;
-    animation: pulse 2s infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
-  }
-
-  .contact-card__note {
-    font-size: 0.75rem;
-    color: #a8a29e;
-  }
-
-  .contact-card--green .contact-card__note {
-    color: rgba(255, 255, 255, 0.75);
-  }
-
-  .contact-card__address {
-    font-style: normal;
-    font-size: 0.8125rem;
-    color: #78716c;
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  /* Hours Section */
-  .hours-section {
-    padding: 0 20px 80px;
-  }
-
-  .hours-panel {
-    background: #ffffff;
-    border-radius: 20px;
-    padding: 32px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07);
-    display: flex;
-    align-items: flex-start;
-    gap: 24px;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-
-  .hours-panel__icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 72px;
-    height: 72px;
-    background: #f0fdfa;
-    border-radius: 50%;
-    color: #0D9488;
-    flex-shrink: 0;
-  }
-
-  .hours-panel__content {
-    flex: 1;
-  }
-
-  .hours-panel__title {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 1.375rem;
-    font-weight: 600;
-    color: #1c1917;
-    margin-bottom: 16px;
-  }
-
-  .hours-panel__schedule {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 16px;
-  }
-
-  .hours-panel__row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 12px;
-    border-bottom: 1px solid #e7e5e4;
-  }
-
-  .hours-panel__row:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-  }
-
-  .hours-panel__day {
-    font-weight: 500;
-    color: #44403c;
-  }
-
-  .hours-panel__time {
-    color: #78716c;
-  }
-
-  .hours-panel__time--closed {
-    color: #dc2626;
-    font-weight: 500;
-  }
-
-  .hours-panel__note {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.875rem;
-    color: #78716c;
-  }
-
-  .hours-panel__dot {
-    width: 8px;
-    height: 8px;
-    background: #25D366;
-    border-radius: 50%;
-  }
-
-  @media (max-width: 640px) {
-    .hours-panel {
-      flex-direction: column;
-      text-align: center;
-      align-items: center;
-    }
-
-    .hours-panel__row {
-      flex-direction: column;
-      gap: 4px;
     }
   }
 </style>

@@ -1,323 +1,160 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
-import Breadcrumbs from '../../../components/Breadcrumbs.astro';
-import ProductCard from '../../../components/ProductCard.astro';
-import MotionController from '../../../components/MotionController.astro';
-import { categories, getCategoryBySlug } from '../../../data/categories';
-import { products, getProductsByCategory } from '../../../data/products';
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../../components/Breadcrumbs.astro";
+import ProductCard from "../../../components/ProductCard.astro";
+import SectionTitle from "../../../components/SectionTitle.astro";
+import { getAllCategories, getFamiliesByCategory } from "../../../data/catalogue";
 
 export function getStaticPaths() {
-  return categories.map((category) => ({
+  return getAllCategories().map((category) => ({
     params: { category: category.slug },
     props: { category },
   }));
 }
 
 const { category } = Astro.props;
-const categoryProducts = getProductsByCategory(category.slug);
-
-const breadcrumbs = [
-  { label: category.name, href: `/products/${category.slug}` }
-];
+const families = getFamiliesByCategory(category.slug);
+const subheadings = [...new Set(families.map((family) => family.subheading).filter(Boolean))];
 ---
 
-<BaseLayout
-  title={category.name}
-  description={category.description}
->
-  <!-- Category Hero -->
-  <section class="category-hero">
-    <div class="category-hero__bg">
-      <img
-        src={category.heroImage}
-        alt={category.name}
-        class="category-hero__image"
-        style={`view-transition-name: category-hero-${category.slug}`}
-      />
-      <div class="category-hero__overlay"></div>
-    </div>
-
+<BaseLayout title={category.name} description={category.summary}>
+  <section class="section category-hero">
     <div class="container">
-      <Breadcrumbs
-        breadcrumbs={[
-          { label: 'Products', href: '/products' },
-          ...breadcrumbs
-        ]}
-      />
+      <Breadcrumbs breadcrumbs={[{ label: "Catalogue", href: "/products" }, { label: category.name }]} />
 
-      <div class="category-hero__content">
-        <span class="category-hero__icon">{category.icon}</span>
-        <h1 class="category-hero__title" style={`view-transition-name: category-title-${category.slug}`}>
-          {category.name}
-        </h1>
-        <p class="category-hero__description">{category.description}</p>
-        <div class="category-hero__meta">
-          <span class="category-hero__count">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
-              <line x1="7" y1="7" x2="7.01" y2="7"></line>
-            </svg>
-            {category.productCount} Products
-          </span>
+      <div class="category-hero__panel panel">
+        <div class="category-hero__copy">
+          <span class="eyebrow">Category Section</span>
+          <h1>{category.name}</h1>
+          <p>{category.intro}</p>
         </div>
+
+        <dl class="category-hero__stats">
+          <div>
+            <dt>Families</dt>
+            <dd>{category.familyCount}</dd>
+          </div>
+          <div>
+            <dt>Model variants</dt>
+            <dd>{category.variantCount}</dd>
+          </div>
+        </dl>
       </div>
     </div>
   </section>
 
-  <!-- Products Grid -->
-  <section class="category-products">
+  <section class="section">
     <div class="container">
-      <div class="products-grid reveal-stagger">
-        {categoryProducts.map((product) => (
-          <ProductCard product={product} />
-        ))}
-      </div>
+      <SectionTitle
+        kicker="Category Families"
+        title={`Browse ${category.name.toLowerCase()} by family.`}
+        subtitle="Each family page brings the model lineup, structured specifications, and approved imagery into one place."
+      />
 
-      {categoryProducts.length === 0 && (
-        <div class="no-products">
-          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <line x1="8" y1="12" x2="16" y2="12"></line>
-          </svg>
-          <h3>No products available</h3>
-          <p>We're currently updating our inventory for this category.</p>
+      {subheadings.length > 0 && (
+        <div class="subcategory-row">
+          {subheadings.map((subheading) => (
+            <span>{subheading}</span>
+          ))}
         </div>
       )}
-    </div>
-  </section>
 
-  <!-- Related Categories -->
-  <section class="related-categories">
-    <div class="container">
-      <h2 class="related-categories__title">Explore Other Categories</h2>
-      <div class="related-categories__grid">
-        {categories
-          .filter((c) => c.slug !== category.slug)
-          .slice(0, 3)
-          .map((relatedCategory) => (
-            <a href={`/products/${relatedCategory.slug}`} class="related-category-card">
-              <div class="related-category-card__image-wrapper">
-                <img
-                  src={relatedCategory.heroImage}
-                  alt={relatedCategory.name}
-                  class="related-category-card__image"
-                />
-              </div>
-              <div class="related-category-card__content">
-                <span class="related-category-card__icon">{relatedCategory.icon}</span>
-                <span class="related-category-card__name">{relatedCategory.name}</span>
-              </div>
-            </a>
-          ))}
+      <div class="family-grid">
+        {families.map((family) => (
+          <ProductCard family={family} />
+        ))}
       </div>
     </div>
   </section>
-
-  <MotionController />
 </BaseLayout>
 
 <style>
-  /* Category Hero */
   .category-hero {
-    position: relative;
-    min-height: 400px;
-    display: flex;
-    align-items: flex-end;
-    padding: var(--space-12) 0;
-    overflow: hidden;
+    padding-bottom: 1rem;
   }
 
-  .category-hero__bg {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-  }
-
-  .category-hero__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .category-hero__overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to top,
-      rgba(0, 0, 0, 0.8) 0%,
-      rgba(0, 0, 0, 0.4) 50%,
-      rgba(0, 0, 0, 0.2) 100%
-    );
-  }
-
-  .category-hero__content {
-    max-width: 600px;
-  }
-
-  .category-hero__icon {
-    display: inline-block;
-    font-size: 3rem;
-    margin-bottom: var(--space-4);
-  }
-
-  .category-hero__title {
-    font-family: var(--font-heading);
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
-    font-weight: 600;
-    color: white;
-    margin-bottom: var(--space-4);
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  }
-
-  .category-hero__description {
-    font-size: 1.125rem;
-    line-height: 1.7;
-    color: rgba(255, 255, 255, 0.85);
-    margin-bottom: var(--space-6);
-  }
-
-  .category-hero__meta {
-    display: flex;
-    gap: var(--space-4);
-  }
-
-  .category-hero__count {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    padding: var(--space-2) var(--space-4);
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(8px);
-    border-radius: var(--radius-full);
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: white;
-  }
-
-  /* Products Section */
-  .category-products {
-    padding: var(--space-12) 0 var(--space-24);
-  }
-
-  .products-grid {
+  .category-hero__panel {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-6);
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 1.5rem;
+    padding: 1.45rem;
   }
 
-  /* No Products */
-  .no-products {
-    text-align: center;
-    padding: var(--space-16);
+  .category-hero__copy {
+    display: grid;
+    gap: 0.8rem;
   }
 
-  .no-products svg {
-    color: var(--color-text-light);
-    margin-bottom: var(--space-4);
+  .category-hero__copy h1 {
+    font-size: clamp(2.6rem, 5vw, 4.1rem);
+    line-height: 0.94;
+    letter-spacing: -0.05em;
   }
 
-  .no-products h3 {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--color-text);
-    margin-bottom: var(--space-2);
-  }
-
-  .no-products p {
-    font-size: 1rem;
+  .category-hero__copy p {
     color: var(--color-text-muted);
+    max-width: 50rem;
+    line-height: 1.8;
   }
 
-  /* Related Categories */
-  .related-categories {
-    padding: var(--space-16) 0 var(--space-24);
-    background: var(--color-bg-alt);
-  }
-
-  .related-categories__title {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--color-text);
-    text-align: center;
-    margin-bottom: var(--space-8);
-  }
-
-  .related-categories__grid {
+  .category-hero__stats {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-6);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 0;
   }
 
-  .related-category-card {
-    display: block;
-    border-radius: var(--radius-xl);
-    overflow: hidden;
-    background: var(--color-surface);
-    box-shadow: var(--shadow-md);
-    text-decoration: none;
-    transition: all 0.4s var(--ease-out-expo);
+  .category-hero__stats div {
+    padding: 1rem;
+    border-radius: 1rem;
+    background: rgba(25, 77, 128, 0.06);
   }
 
-  .related-category-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-xl);
+  .category-hero__stats dt {
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+    margin-bottom: 0.4rem;
   }
 
-  .related-category-card__image-wrapper {
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
+  .category-hero__stats dd {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: 1.55rem;
   }
 
-  .related-category-card__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s var(--ease-out-expo);
-  }
-
-  .related-category-card:hover .related-category-card__image {
-    transform: scale(1.08);
-  }
-
-  .related-category-card__content {
-    padding: var(--space-4);
+  .subcategory-row {
     display: flex;
-    align-items: center;
-    gap: var(--space-3);
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin-bottom: 1.2rem;
   }
 
-  .related-category-card__icon {
-    font-size: 1.5rem;
+  .subcategory-row span {
+    display: inline-flex;
+    border-radius: 999px;
+    padding: 0.5rem 0.8rem;
+    background: rgba(25, 77, 128, 0.08);
+    color: var(--color-primary);
+    font-size: 0.8rem;
+    font-weight: 700;
   }
 
-  .related-category-card__name {
-    font-weight: 600;
-    color: var(--color-text);
+  .family-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.2rem;
   }
 
-  /* Responsive */
-  @media (max-width: 1024px) {
-    .products-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .related-categories__grid {
-      grid-template-columns: repeat(2, 1fr);
+  @media (max-width: 1100px) {
+    .category-hero__panel,
+    .family-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 
-  @media (max-width: 640px) {
-    .category-hero {
-      min-height: 300px;
-    }
-
-    .products-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .related-categories__grid {
+  @media (max-width: 760px) {
+    .category-hero__panel,
+    .family-grid {
       grid-template-columns: 1fr;
     }
   }

@@ -1,4 +1,4 @@
-import { formatWhatsAppMessage as formatMessage, getWhatsAppLink as generateLink, business } from '../data/business';
+import { business, formatWhatsAppMessage as formatMessage, getWhatsAppLink as generateLink } from "../data/business";
 
 /**
  * Formats a WhatsApp message for requesting a quote
@@ -27,5 +27,5 @@ export function getWhatsAppLink(productName: string, quantity?: string, city?: s
  * @returns WhatsApp number string
  */
 export function getWhatsAppNumber(): string {
-  return business.whatsappNumber;
+  return business.contact.whatsappNumber;
 }

@@ -1,205 +1,175 @@
 ---
-import type { Product } from '../data/products';
-import { getWhatsAppLink } from '../data/business';
+import type { ProductFamily } from "../data/catalogue";
 
 interface Props {
-  product: Product;
-  class?: string;
+  family: ProductFamily;
 }
 
-const { product, class: className = '' } = Astro.props;
-const { slug, name, shortDesc, images, categorySlug } = product;
-
-const whatsappLink = getWhatsAppLink(`Hi, I'd like to get a quote for: ${name}`);
+const { family } = Astro.props;
+const image = family.images[0] ?? "";
 ---
 
-<article class:list={['product-card', className]} data-tilt>
-  <div class="product-card__image-container">
-    <a href={`/products/${categorySlug}/${slug}`} class="product-card__image-link">
-      <img
-        src={images[0] || 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&h=600&fit=crop'}
-        alt={name}
-        class="product-card__image"
-        style={`view-transition-name: product-image-${slug}`}
-        loading="lazy"
-      />
-    </a>
-  </div>
+<article class="family-card">
+  <a href={`/products/${family.categorySlug}/${family.slug}`} class="family-card__media">
+    {image ? (
+      <img src={image} alt={family.name} loading="lazy" />
+    ) : (
+      <div class="family-card__placeholder"></div>
+    )}
+    <span class="family-card__badge">
+      {family.variants.length} model{family.variants.length === 1 ? "" : "s"}
+    </span>
+  </a>
 
-  <div class="product-card__content">
-    <a href={`/products/${categorySlug}/${slug}`}>
-      <h3 class="product-card__title" style={`view-transition-name: product-title-${slug}`}>
-        {name}
-      </h3>
+  <div class="family-card__body">
+    <p class="family-card__eyebrow">{family.subheading || "Product Family"}</p>
+    <a href={`/products/${family.categorySlug}/${family.slug}`} class="family-card__title-link">
+      <h3>{family.name}</h3>
     </a>
-    <p class="product-card__description">{shortDesc}</p>
+    <p class="family-card__summary">{family.summary}</p>
 
-    <div class="product-card__actions">
-      <a href={`/products/${categorySlug}/${slug}`} class="product-card__details-link">
-        View Details
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="5" y1="12" x2="19" y2="12"></line>
-          <polyline points="12 5 19 12 12 19"></polyline>
-        </svg>
-      </a>
-      <a
-        href={whatsappLink}
-        class="product-card__whatsapp-btn"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-        </svg>
-        Quote
-      </a>
+    <div class="family-card__chips">
+      {family.tableColumns.slice(1, 4).map((column) => (
+        <span>{column}</span>
+      ))}
+    </div>
+
+    <div class="family-card__footer">
+      <span>Read specifications</span>
+      <span>Quote only</span>
     </div>
   </div>
 </article>
 
-<script>
-  const cards = document.querySelectorAll('[data-tilt]');
-
-  cards.forEach((card) => {
-    const element = card as HTMLElement;
-
-    element.addEventListener('mousemove', (e: Event) => {
-      const mouseEvent = e as MouseEvent;
-      const rect = element.getBoundingClientRect();
-      const x = mouseEvent.clientX - rect.left;
-      const y = mouseEvent.clientY - rect.top;
-
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-
-      const rotateX = (y - centerY) / 20;
-      const rotateY = (centerX - x) / 20;
-
-      element.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-    });
-
-    element.addEventListener('mouseleave', () => {
-      element.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
-    });
-  });
-</script>
-
 <style>
-  .product-card {
-    background: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  .family-card {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    border: 1px solid var(--color-line);
+    border-radius: 1.35rem;
     overflow: hidden;
-    transition: all 0.3s ease;
+    background: var(--color-surface);
+    box-shadow: var(--shadow-card);
+    min-height: 100%;
+    transition:
+      transform 180ms ease,
+      box-shadow 180ms ease,
+      border-color 180ms ease;
   }
 
-  .product-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  .family-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(25, 77, 128, 0.24);
+    box-shadow: var(--shadow-card-hover);
   }
 
-  .product-card__image-container {
+  .family-card__media {
     position: relative;
-    aspect-ratio: 4 / 3;
-    overflow: hidden;
-    background: #f5f5f4;
-  }
-
-  .product-card__image-link {
     display: block;
-    width: 100%;
-    height: 100%;
+    aspect-ratio: 16 / 11;
+    background:
+      radial-gradient(circle at top left, rgba(25, 77, 128, 0.12), transparent 45%),
+      linear-gradient(135deg, rgba(11, 27, 43, 0.06), rgba(25, 77, 128, 0.04));
+    overflow: hidden;
   }
 
-  .product-card__image {
+  .family-card__media img,
+  .family-card__placeholder {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    transition: transform 220ms ease;
   }
 
-  .product-card:hover .product-card__image {
-    transform: scale(1.05);
+  .family-card:hover .family-card__media img,
+  .family-card:hover .family-card__placeholder {
+    transform: scale(1.03);
   }
 
-  .product-card__content {
-    padding: 16px;
+  .family-card__placeholder {
+    background:
+      linear-gradient(135deg, rgba(25, 77, 128, 0.1), rgba(201, 111, 40, 0.08)),
+      repeating-linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.08) 0,
+        rgba(255, 255, 255, 0.08) 1px,
+        transparent 1px,
+        transparent 22px
+      );
   }
 
-  .product-card__title {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 1rem;
+  .family-card__badge {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    padding: 0.5rem 0.85rem;
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--color-text);
+    font-size: 0.78rem;
     font-weight: 600;
-    color: #1c1917;
-    margin-bottom: 6px;
-    line-height: 1.35;
-    transition: color 0.2s ease;
+    box-shadow: 0 8px 18px rgba(11, 27, 43, 0.12);
   }
 
-  a:hover .product-card__title {
-    color: #0D9488;
+  .family-card__body {
+    display: grid;
+    gap: 0.95rem;
+    padding: 1.2rem 1.2rem 1.25rem;
   }
 
-  .product-card__description {
-    font-size: 0.8125rem;
-    color: #78716c;
-    line-height: 1.5;
-    margin-bottom: 14px;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+  .family-card__eyebrow {
+    margin: 0;
+    color: var(--color-primary);
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
   }
 
-  .product-card__actions {
+  .family-card__title-link {
+    color: inherit;
+  }
+
+  .family-card h3 {
+    margin: 0;
+    font-size: 1.16rem;
+    line-height: 1.2;
+  }
+
+  .family-card__summary {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 0.94rem;
+    line-height: 1.62;
+  }
+
+  .family-card__chips {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    padding-top: 14px;
-    border-top: 1px solid #e7e5e4;
+    flex-wrap: wrap;
+    gap: 0.45rem;
   }
 
-  .product-card__details-link {
+  .family-card__chips span {
     display: inline-flex;
     align-items: center;
-    gap: 4px;
-    font-size: 0.8125rem;
-    font-weight: 500;
-    color: #0D9488;
-    text-decoration: none;
-    transition: gap 0.2s ease;
-  }
-
-  .product-card__details-link:hover {
-    gap: 6px;
-    color: #0f766e;
-  }
-
-  .product-card__whatsapp-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    padding: 8px 12px;
-    background: #25D366;
-    color: white;
+    border-radius: 999px;
+    padding: 0.38rem 0.7rem;
+    background: rgba(25, 77, 128, 0.08);
+    color: var(--color-primary);
     font-size: 0.75rem;
     font-weight: 600;
-    border-radius: 20px;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    white-space: nowrap;
   }
 
-  .product-card__whatsapp-btn:hover {
-    background: #128C7E;
-    transform: scale(1.05);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .product-card,
-    .product-card__image {
-      transition: none;
-    }
+  .family-card__footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.8rem;
+    margin-top: auto;
+    padding-top: 0.95rem;
+    border-top: 1px solid rgba(84, 96, 109, 0.16);
+    color: var(--color-text-muted);
+    font-size: 0.82rem;
   }
 </style>

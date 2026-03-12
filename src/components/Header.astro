@@ -1,344 +1,196 @@
 ---
-import { business } from '../data/business';
+import { business } from "../data/business";
 
-const { brand, whatsappNumber } = business;
 const currentPath = Astro.url.pathname;
-
-const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/products', label: 'Products' },
-  { href: '/about', label: 'About' },
-  { href: '/contact', label: 'Contact' },
+const navItems = [
+  { href: "/", label: "Home" },
+  { href: "/products", label: "Catalogue" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
 ];
 
-function isActive(href: string, pathname: string): boolean {
-  if (href === '/') {
-    return pathname === '/';
+function isActive(href: string) {
+  if (href === "/") {
+    return currentPath === "/";
   }
-  return pathname.startsWith(href);
+  return currentPath.startsWith(href);
 }
 ---
 
-<header class="header">
-  <div class="header-inner">
-    <nav class="nav">
-      <a href="/" class="logo">
-        <span class="logo-text">{brand}</span>
-      </a>
-
-      <ul class="nav-links">
-        {navLinks.map((link) => (
-          <li>
-            <a
-              href={link.href}
-              class:list={['nav-link', { active: isActive(link.href, currentPath) }]}
-            >
-              {link.label}
-            </a>
-          </li>
-        ))}
-      </ul>
-
-      <div class="nav-actions">
-        <a
-          href={`https://wa.me/${whatsappNumber}`}
-          class="btn-whatsapp desktop-only"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-          </svg>
-          <span class="btn-text">WhatsApp</span>
-        </a>
-
-        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
-          <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
-          <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
-      </div>
-    </nav>
+<header class="site-header">
+  <div class="site-header__notice">
+    <div class="container site-header__notice-inner">
+      <span>{business.experienceClaim} manufacturing legacy</span>
+      <span>{business.quoteOnlyNote}</span>
+    </div>
   </div>
 
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobile-menu">
-    <div class="mobile-menu-content">
-      <ul class="mobile-nav-links">
-        {navLinks.map((link) => (
-          <li>
-            <a
-              href={link.href}
-              class:list={['mobile-nav-link', { active: isActive(link.href, currentPath) }]}
-            >
-              {link.label}
-            </a>
-          </li>
-        ))}
-      </ul>
-      <div class="mobile-menu-cta">
-        <a
-          href={`https://wa.me/${whatsappNumber}`}
-          class="btn-whatsapp mobile-cta-btn"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-          </svg>
-          Get Quote on WhatsApp
+  <div class="container site-header__bar">
+    <a href="/" class="site-header__brand">
+      <span class="site-header__mark">{business.brandMark}</span>
+      <span class="site-header__brand-copy">
+        <strong>{business.brand}</strong>
+        <small>Industrial medical equipment catalogue</small>
+      </span>
+    </a>
+
+    <nav class="site-header__nav" aria-label="Primary">
+      {navItems.map((item) => (
+        <a href={item.href} class:list={["site-header__link", { "is-active": isActive(item.href) }]}>
+          {item.label}
         </a>
-      </div>
-    </div>
+      ))}
+    </nav>
+
+    <a href="/contact" class="site-header__cta">Request details</a>
   </div>
 </header>
 
-<script>
-  const menuBtn = document.getElementById('mobile-menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-
-  menuBtn?.addEventListener('click', () => {
-    mobileMenu?.classList.toggle('active');
-    menuBtn.classList.toggle('active');
-    document.body.style.overflow = mobileMenu?.classList.contains('active') ? 'hidden' : '';
-  });
-
-  mobileMenu?.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.remove('active');
-      menuBtn?.classList.remove('active');
-      document.body.style.overflow = '';
-    });
-  });
-</script>
-
 <style>
-  .header {
+  .site-header {
     position: sticky;
     top: 0;
-    z-index: 100;
-    background: #ffffff;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    z-index: 50;
+    backdrop-filter: blur(16px);
+    background: rgba(245, 248, 250, 0.92);
+    border-bottom: 1px solid rgba(84, 96, 109, 0.14);
   }
 
-  .header-inner {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 16px;
+  .site-header__notice {
+    border-bottom: 1px solid rgba(84, 96, 109, 0.1);
+    background: linear-gradient(90deg, rgba(11, 27, 43, 0.98), rgba(25, 77, 128, 0.92));
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 0.78rem;
   }
 
-  .nav {
+  .site-header__notice-inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 0.55rem;
+  }
+
+  .site-header__bar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 60px;
+    gap: 1.5rem;
+    min-height: 5.2rem;
   }
 
-  .logo {
+  .site-header__brand {
     display: flex;
     align-items: center;
-    gap: 8px;
-    text-decoration: none;
+    gap: 0.95rem;
+    min-width: 0;
   }
 
-  .logo-text {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #0D9488;
-  }
-
-  .nav-links {
-    display: none;
-    align-items: center;
-    gap: 32px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  @media (min-width: 768px) {
-    .nav-links {
-      display: flex;
-    }
-
-    .header-inner {
-      padding: 0 24px;
-    }
-
-    .nav {
-      height: 68px;
-    }
-
-    .logo-text {
-      font-size: 1.5rem;
-    }
-  }
-
-  .nav-link {
-    position: relative;
-    font-weight: 500;
-    font-size: 0.95rem;
-    color: #44403c;
-    text-decoration: none;
-    padding: 8px 0;
-    transition: color 0.2s ease;
-  }
-
-  .nav-link:hover {
-    color: #0D9488;
-  }
-
-  .nav-link.active {
-    color: #0D9488;
-  }
-
-  .nav-link.active::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: #0D9488;
-    border-radius: 1px;
-  }
-
-  .nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .desktop-only {
-    display: none;
-  }
-
-  @media (min-width: 768px) {
-    .desktop-only {
-      display: inline-flex;
-    }
-  }
-
-  .btn-whatsapp {
+  .site-header__mark {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 8px 16px;
-    font-size: 0.875rem;
-    font-weight: 500;
-    background: #25D366;
-    color: white;
-    border-radius: 9999px;
-    text-decoration: none;
-    transition: all 0.2s ease;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--color-accent), #f0a25d);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    box-shadow: 0 12px 22px rgba(201, 111, 40, 0.22);
   }
 
-  .btn-whatsapp:hover {
-    background: #128C7E;
-    color: white;
-    transform: translateY(-1px);
+  .site-header__brand-copy {
+    display: grid;
+    min-width: 0;
   }
 
-  .mobile-menu-btn {
+  .site-header__brand-copy strong {
+    font-size: 1rem;
+    line-height: 1.1;
+  }
+
+  .site-header__brand-copy small {
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+  }
+
+  .site-header__nav {
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    border-radius: 8px;
-    color: #44403c;
+    gap: 1.2rem;
   }
 
-  .mobile-menu-btn:hover {
-    background: #f5f5f4;
+  .site-header__link {
+    position: relative;
+    color: var(--color-text-muted);
+    font-size: 0.92rem;
+    font-weight: 600;
   }
 
-  .mobile-menu-btn .close-icon {
-    display: none;
+  .site-header__link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -0.55rem;
+    height: 2px;
+    border-radius: 999px;
+    background: var(--color-primary);
+    opacity: 0;
+    transform: scaleX(0.5);
+    transition:
+      opacity 160ms ease,
+      transform 160ms ease;
   }
 
-  .mobile-menu-btn.active .menu-icon {
-    display: none;
+  .site-header__link:hover,
+  .site-header__link.is-active {
+    color: var(--color-text);
   }
 
-  .mobile-menu-btn.active .close-icon {
-    display: block;
+  .site-header__link:hover::after,
+  .site-header__link.is-active::after {
+    opacity: 1;
+    transform: scaleX(1);
   }
 
-  @media (min-width: 768px) {
-    .mobile-menu-btn {
-      display: none;
+  .site-header__cta {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    padding: 0.8rem 1.1rem;
+    background: var(--color-primary);
+    color: white;
+    font-size: 0.86rem;
+    font-weight: 700;
+    box-shadow: 0 14px 24px rgba(25, 77, 128, 0.22);
+  }
+
+  @media (max-width: 920px) {
+    .site-header__notice-inner {
+      flex-direction: column;
+    }
+
+    .site-header__bar {
+      flex-wrap: wrap;
+      padding-block: 0.8rem;
+    }
+
+    .site-header__nav {
+      order: 3;
+      width: 100%;
+      justify-content: space-between;
+      overflow-x: auto;
+      padding-bottom: 0.3rem;
     }
   }
 
-  .mobile-menu {
-    display: none;
-    position: fixed;
-    top: 60px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: #ffffff;
-    z-index: 99;
-    padding: 24px 16px;
-  }
-
-  .mobile-menu.active {
-    display: block;
-  }
-
-  .mobile-menu-content {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
-
-  .mobile-nav-links {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  .mobile-nav-link {
-    display: block;
-    padding: 14px 16px;
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: #1c1917;
-    text-decoration: none;
-    border-radius: 10px;
-    transition: all 0.2s ease;
-  }
-
-  .mobile-nav-link:hover,
-  .mobile-nav-link.active {
-    background: #f0fdfa;
-    color: #0D9488;
-  }
-
-  .mobile-menu-cta {
-    margin-top: auto;
-    padding-top: 24px;
-    border-top: 1px solid #e7e5e4;
-  }
-
-  .mobile-cta-btn {
-    width: 100%;
-    justify-content: center;
-    padding: 14px 24px;
-    font-size: 1rem;
+  @media (max-width: 640px) {
+    .site-header__cta {
+      width: 100%;
+      justify-content: center;
+    }
   }
 </style>
