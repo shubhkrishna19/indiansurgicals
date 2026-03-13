@@ -2,6 +2,7 @@
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import Breadcrumbs from "../../../components/Breadcrumbs.astro";
 import ProductCard from "../../../components/ProductCard.astro";
+import ProductGallery from "../../../components/ProductGallery.astro";
 import SectionTitle from "../../../components/SectionTitle.astro";
 import {
   getAllFamilies,
@@ -22,7 +23,9 @@ const category = getCategoryBySlug(family.categorySlug);
 const relatedFamilies = getRelatedFamilies(family, 4);
 const activeVariant = family.variants[0];
 const matrixColumns = family.tableColumns.length > 0 ? family.tableColumns : ["Model"];
-const heroImages = (family.images.length > 0 ? family.images : activeVariant?.images ?? []).slice(0, 4);
+const galleryImages = Array.from(
+  new Set([...(family.images.length > 0 ? family.images : []), ...(activeVariant?.images ?? [])]),
+);
 const detailNotes = [...family.highlights, ...family.notes].filter(Boolean).slice(0, 6);
 
 function getAttributeValue(
@@ -87,14 +90,8 @@ function getAttributeValue(
 
   <section class="section">
     <div class="container">
-      {heroImages.length > 0 ? (
-        <div class="gallery-grid">
-          {heroImages.map((image) => (
-            <div class="gallery-grid__item panel">
-              <img src={image} alt={family.name} loading="lazy" />
-            </div>
-          ))}
-        </div>
+      {galleryImages.length > 0 ? (
+        <ProductGallery images={galleryImages} name={family.name} />
       ) : (
         <div class="gallery-empty panel">
           <h2>Product imagery is being mapped into this family.</h2>
@@ -323,23 +320,6 @@ function getAttributeValue(
 
   .product-hero__aside h2 {
     font-size: 1.55rem;
-  }
-
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 1rem;
-  }
-
-  .gallery-grid__item {
-    aspect-ratio: 1 / 1;
-    overflow: hidden;
-  }
-
-  .gallery-grid__item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
   }
 
   .gallery-empty {

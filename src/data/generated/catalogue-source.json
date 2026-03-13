@@ -4,6 +4,7 @@
     "AUTOCLAVE ALL SPECS  Specification (1).xlsx",
     "Hospital furniture  specs-2 part (1).xlsx"
   ],
+  "approvedImageSource": "indian surgicals product images high quality",
   "categories": [
     {
       "slug": "autoclaves",
@@ -13,13 +14,13 @@
       "order": 1,
       "familyCount": 30,
       "variantCount": 198,
-      "heroImage": "/catalogue-media/image62.png",
+      "heroImage": "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
       "gallery": [
-        "/catalogue-media/image62.png",
-        "/catalogue-media/image111.png",
-        "/catalogue-media/image71.png",
-        "/catalogue-media/image152.png",
-        "/catalogue-media/image108.png"
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/autoclave-wing-nut-type.jpg"
       ]
     },
     {
@@ -30,12 +31,10 @@
       "order": 2,
       "familyCount": 5,
       "variantCount": 43,
-      "heroImage": "/catalogue-media/image62.png",
+      "heroImage": "/catalogue-media-hq/bowl-sterilizer.jpeg",
       "gallery": [
-        "/catalogue-media/image62.png",
-        "/catalogue-media/image75.png",
-        "/catalogue-media/image74.png",
-        "/catalogue-media/image72.png"
+        "/catalogue-media-hq/bowl-sterilizer.jpeg",
+        "/catalogue-media-hq/sterilizer.jpg"
       ]
     },
     {
@@ -46,15 +45,9 @@
       "order": 3,
       "familyCount": 26,
       "variantCount": 128,
-      "heroImage": "/catalogue-media/image82.png",
+      "heroImage": "/catalogue-media-hq/bedpan.jpg",
       "gallery": [
-        "/catalogue-media/image82.png",
-        "/catalogue-media/image113.png",
-        "/catalogue-media/image96.png",
-        "/catalogue-media/image97.png",
-        "/catalogue-media/image84.png",
-        "/catalogue-media/image62.png",
-        "/catalogue-media/image92.png"
+        "/catalogue-media-hq/bedpan.jpg"
       ]
     },
     {
@@ -65,13 +58,13 @@
       "order": 4,
       "familyCount": 12,
       "variantCount": 27,
-      "heroImage": "/catalogue-media/image62.png",
+      "heroImage": "/catalogue-media-hq/56-ambulance-stretcher.jpg",
       "gallery": [
-        "/catalogue-media/image62.png",
-        "/catalogue-media/image119.png",
-        "/catalogue-media/image99.png",
-        "/catalogue-media/image117.png",
-        "/catalogue-media/image123.png"
+        "/catalogue-media-hq/56-ambulance-stretcher.jpg",
+        "/catalogue-media-hq/suction-deluxe.png",
+        "/catalogue-media-hq/suction-life-line-ss.jpg",
+        "/catalogue-media-hq/10-suction-acce10.jpg",
+        "/catalogue-media-hq/suction-ss-plain.jpg"
       ]
     },
     {
@@ -111,9 +104,9 @@
       "order": 7,
       "familyCount": 5,
       "variantCount": 7,
-      "heroImage": "/catalogue-media/image62.png",
+      "heroImage": "/catalogue-media-hq/112-x-ray-illuminator.jpg",
       "gallery": [
-        "/catalogue-media/image62.png"
+        "/catalogue-media-hq/112-x-ray-illuminator.jpg"
       ]
     },
     {
@@ -122,12 +115,15 @@
       "summary": "ICU beds, Fowler beds, couches, delivery tables, operation tables, and patient furniture.",
       "intro": "Patient care furniture, beds, couches, and procedural support platforms for healthcare facilities.",
       "order": 8,
-      "familyCount": 37,
-      "variantCount": 46,
-      "heroImage": "/catalogue-media/image62.png",
+      "familyCount": 38,
+      "variantCount": 47,
+      "heroImage": "/catalogue-media-hq/88-blood-transfusion-chair.jpg",
       "gallery": [
-        "/catalogue-media/image62.png",
-        "/catalogue-media/image5.jpeg"
+        "/catalogue-media-hq/88-blood-transfusion-chair.jpg",
+        "/catalogue-media-hq/102-operation-table.jpg",
+        "/catalogue-media-hq/94-delivery-table.jpg",
+        "/catalogue-media-hq/89-dialysis-chair.jpg",
+        "/catalogue-media-hq/90-examination-couch.jpg"
       ]
     },
     {
@@ -136,16 +132,15 @@
       "summary": "Ward utility trolleys, stools, bins, cabinets, cradles, and daily-use support equipment.",
       "intro": "Hospital support equipment for ward organization, bedside utility, and movement inside facilities.",
       "order": 9,
-      "familyCount": 40,
-      "variantCount": 47,
-      "heroImage": "/catalogue-media/image50.jpeg",
+      "familyCount": 39,
+      "variantCount": 46,
+      "heroImage": "/catalogue-media-hq/101-autopsy-table.jpg",
       "gallery": [
-        "/catalogue-media/image50.jpeg",
-        "/catalogue-media/image51.jpeg",
-        "/catalogue-media/image49.jpeg",
-        "/catalogue-media/image62.png",
-        "/catalogue-media/image27.jpeg",
-        "/catalogue-media/image29.jpeg"
+        "/catalogue-media-hq/101-autopsy-table.jpg",
+        "/catalogue-media-hq/111-baby-bassinet.jpg",
+        "/catalogue-media-hq/78-baby-cradle.jpg",
+        "/catalogue-media-hq/47-bed-side-screen.jpg",
+        "/catalogue-media-hq/39-cardiac-table.jpg"
       ]
     },
     {
@@ -156,10 +151,12 @@
       "order": 10,
       "familyCount": 5,
       "variantCount": 6,
-      "heroImage": "/catalogue-media/image62.png",
+      "heroImage": "/catalogue-media-hq/50-recovery-trolley.jpg",
       "gallery": [
-        "/catalogue-media/image62.png",
-        "/catalogue-media/image58.jpeg"
+        "/catalogue-media-hq/50-recovery-trolley.jpg",
+        "/catalogue-media-hq/54-folding-stretcher.jpg",
+        "/catalogue-media-hq/55-spine-board.jpg",
+        "/catalogue-media-hq/51-stretcher.jpg"
       ]
     },
     {
@@ -170,10 +167,9 @@
       "order": 11,
       "familyCount": 5,
       "variantCount": 62,
-      "heroImage": "/catalogue-media/image62.png",
+      "heroImage": "/catalogue-media-hq/113-ot-light.jpg",
       "gallery": [
-        "/catalogue-media/image62.png",
-        "/catalogue-media/image163.png"
+        "/catalogue-media-hq/113-ot-light.jpg"
       ]
     }
   ],
@@ -193,6 +189,10 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave-p-type.jpg",
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image110.png",
         "/catalogue-media/image146.png"
@@ -2142,6 +2142,11 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave-p-type.jpg",
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/p-type-with-controller.jpg",
         "/catalogue-media/image111.png"
       ],
       "variants": [
@@ -2427,6 +2432,10 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
         "/catalogue-media/image71.png"
       ],
       "variants": [
@@ -2842,6 +2851,10 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/fully-automatic-1.png",
         "/catalogue-media/image152.png"
       ],
       "variants": [
@@ -3036,6 +3049,12 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/fully-automatic-1.png",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
         "/catalogue-media/image62.png",
         "/catalogue-media/image142.png",
         "/catalogue-media/image143.png"
@@ -3299,6 +3318,12 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
+        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/fully-automatic-1.png",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image141.png"
       ],
@@ -3461,6 +3486,14 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
+        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave-p-type.jpg",
+        "/catalogue-media-hq/autoclave-wing-nut-type.jpg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image109.png"
       ],
@@ -3798,6 +3831,9 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/autoclave-wing-nut-type.jpg",
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
         "/catalogue-media/image108.png"
       ],
       "variants": [
@@ -4429,6 +4465,10 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave-p-type.jpg",
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
         "/catalogue-media/image147.png"
       ],
       "variants": [
@@ -5315,6 +5355,14 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
+        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave-p-type.jpg",
+        "/catalogue-media-hq/autoclave-wing-nut-type.jpg",
         "/catalogue-media/image155.jpeg"
       ],
       "variants": [
@@ -5730,6 +5778,10 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
         "/catalogue-media/image140.png"
       ],
       "variants": [
@@ -5983,6 +6035,9 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image112.png"
       ],
@@ -6207,6 +6262,11 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
         "/catalogue-media/image62.png"
       ],
       "variants": [
@@ -6267,6 +6327,12 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-wing-nut-type.jpg",
+        "/catalogue-media-hq/p-type-with-controller.jpg",
         "/catalogue-media/image64.jpeg"
       ],
       "variants": [
@@ -6853,6 +6919,9 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
         "/catalogue-media/image67.jpeg"
       ],
       "variants": [
@@ -7239,6 +7308,11 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/p-type-with-controller.jpg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image68.jpeg"
       ],
@@ -7626,6 +7700,9 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
         "/catalogue-media/image63.jpeg",
         "/catalogue-media/image112.png"
       ],
@@ -8215,6 +8292,14 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-wing-nut-type.jpg",
+        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
+        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave-p-type.jpg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image65.jpeg"
       ],
@@ -8474,6 +8559,11 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/fully-automatic-1.png",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image139.png"
       ],
@@ -8669,6 +8759,14 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
+        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave-p-type.jpg",
+        "/catalogue-media-hq/autoclave-wing-nut-type.jpg",
         "/catalogue-media/image66.jpeg"
       ],
       "variants": [
@@ -8927,6 +9025,11 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/p-type-with-controller.jpg",
         "/catalogue-media/image69.png"
       ],
       "variants": [
@@ -9263,6 +9366,14 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
+        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave-p-type.jpg",
+        "/catalogue-media-hq/autoclave-wing-nut-type.jpg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image70.png"
       ],
@@ -9550,6 +9661,14 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
+        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave-p-type.jpg",
+        "/catalogue-media-hq/autoclave-wing-nut-type.jpg",
         "/catalogue-media/image153.jpeg"
       ],
       "variants": [
@@ -9785,7 +9904,13 @@
         "Available in 1 model option."
       ],
       "notes": [],
-      "images": [],
+      "images": [
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
+        "/catalogue-media-hq/autoclave-horizontal-rectangular.png"
+      ],
       "variants": [
         {
           "model": "AHDC-60",
@@ -9843,7 +9968,16 @@
         "Available in 2 model options."
       ],
       "notes": [],
-      "images": [],
+      "images": [
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
+        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave-p-type.jpg",
+        "/catalogue-media-hq/autoclave-wing-nut-type.jpg"
+      ],
       "variants": [
         {
           "model": "AHC-160",
@@ -9942,6 +10076,9 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/table-top-autoclave.jpeg",
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
         "/catalogue-media/image62.png"
       ],
       "variants": [
@@ -10106,6 +10243,9 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/table-top-autoclave.jpeg",
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
         "/catalogue-media/image154.jpeg"
       ],
       "variants": [
@@ -10272,6 +10412,14 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-wing-nut-type.jpg",
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
+        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave-p-type.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
         "/catalogue-media/image62.png"
       ],
       "variants": [
@@ -10364,7 +10512,16 @@
         "Available in 2 model options."
       ],
       "notes": [],
-      "images": [],
+      "images": [
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-wing-nut-type.jpg",
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
+        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave-p-type.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg"
+      ],
       "variants": [
         {
           "model": "AVTV-100",
@@ -10455,7 +10612,11 @@
         "Available in 1 model option."
       ],
       "notes": [],
-      "images": [],
+      "images": [
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg"
+      ],
       "variants": [
         {
           "model": "AVDR-150",
@@ -10834,6 +10995,7 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/88-blood-transfusion-chair.jpg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image10.jpeg"
       ],
@@ -10918,6 +11080,11 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/102-operation-table.jpg",
+        "/catalogue-media-hq/93-operation-table.jpg",
+        "/catalogue-media-hq/103-operating-table.jpg",
+        "/catalogue-media-hq/104-operating-table.jpg",
+        "/catalogue-media-hq/table.jpeg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image135.png"
       ],
@@ -10971,6 +11138,11 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/102-operation-table.jpg",
+        "/catalogue-media-hq/93-operation-table.jpg",
+        "/catalogue-media-hq/103-operating-table.jpg",
+        "/catalogue-media-hq/104-operating-table.jpg",
+        "/catalogue-media-hq/table.jpeg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image135.png"
       ],
@@ -11029,6 +11201,11 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/102-operation-table.jpg",
+        "/catalogue-media-hq/93-operation-table.jpg",
+        "/catalogue-media-hq/103-operating-table.jpg",
+        "/catalogue-media-hq/104-operating-table.jpg",
+        "/catalogue-media-hq/table.jpeg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image18.jpeg"
       ],
@@ -11123,6 +11300,11 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/102-operation-table.jpg",
+        "/catalogue-media-hq/93-operation-table.jpg",
+        "/catalogue-media-hq/103-operating-table.jpg",
+        "/catalogue-media-hq/104-operating-table.jpg",
+        "/catalogue-media-hq/table.jpeg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image18.jpeg"
       ],
@@ -11181,6 +11363,10 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/94-delivery-table.jpg",
+        "/catalogue-media-hq/96-ward-equipments.jpg",
+        "/catalogue-media-hq/97-ward-equipments.jpg",
+        "/catalogue-media-hq/table.jpeg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image15.jpeg"
       ],
@@ -11262,7 +11448,9 @@
         "Specification"
       ],
       "notes": [],
-      "images": [],
+      "images": [
+        "/catalogue-media-hq/89-dialysis-chair.jpg"
+      ],
       "variants": [
         {
           "model": "DC-1",
@@ -11345,6 +11533,10 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/90-examination-couch.jpg",
+        "/catalogue-media-hq/91-examination-couch.jpg",
+        "/catalogue-media-hq/92-gynaec-examination-table.jpg",
+        "/catalogue-media-hq/examination-table.png",
         "/catalogue-media/image62.png",
         "/catalogue-media/image11.jpeg",
         "/catalogue-media/image12.jpeg"
@@ -11472,6 +11664,9 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/33-mattress.jpg",
+        "/catalogue-media-hq/34-mattress.jpg",
+        "/catalogue-media-hq/35-mattress.jpg",
         "/catalogue-media/image5.jpeg",
         "/catalogue-media/image62.png"
       ],
@@ -11547,7 +11742,12 @@
         "Framework made up of M.S. tubes"
       ],
       "notes": [],
-      "images": [],
+      "images": [
+        "/catalogue-media-hq/24-fowler-bed.jpg",
+        "/catalogue-media-hq/25-fowler-bed.jpg",
+        "/catalogue-media-hq/26-fowler-bed.jpg",
+        "/catalogue-media-hq/27-fowler-bed.jpg"
+      ],
       "variants": [
         {
           "model": "HFBE-1",
@@ -11624,6 +11824,9 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/92-gynaec-examination-table.jpg",
+        "/catalogue-media-hq/examination-table.png",
+        "/catalogue-media-hq/table.jpeg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image13.jpeg"
       ],
@@ -11705,6 +11908,7 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/87-gynecological-couch.jpg",
         "/catalogue-media/image9.jpeg"
       ],
       "variants": [
@@ -11784,6 +11988,7 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/28-hospital-bed.jpg",
         "/catalogue-media/image22.jpeg"
       ],
       "variants": [
@@ -11870,6 +12075,10 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/24-fowler-bed.jpg",
+        "/catalogue-media-hq/25-fowler-bed.jpg",
+        "/catalogue-media-hq/26-fowler-bed.jpg",
+        "/catalogue-media-hq/27-fowler-bed.jpg",
         "/catalogue-media/image2.jpeg",
         "/catalogue-media/image20.jpeg"
       ],
@@ -11959,7 +12168,12 @@
         "Bed mounted on 4\" Castors, 2 with brakes"
       ],
       "notes": [],
-      "images": [],
+      "images": [
+        "/catalogue-media-hq/24-fowler-bed.jpg",
+        "/catalogue-media-hq/25-fowler-bed.jpg",
+        "/catalogue-media-hq/26-fowler-bed.jpg",
+        "/catalogue-media-hq/27-fowler-bed.jpg"
+      ],
       "variants": [
         {
           "model": "HFBM-1",
@@ -12036,6 +12250,11 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/24-fowler-bed.jpg",
+        "/catalogue-media-hq/25-fowler-bed.jpg",
+        "/catalogue-media-hq/26-fowler-bed.jpg",
+        "/catalogue-media-hq/27-fowler-bed.jpg",
+        "/catalogue-media-hq/28-hospital-bed.jpg",
         "/catalogue-media/image21.jpeg"
       ],
       "variants": [
@@ -12126,6 +12345,11 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/102-operation-table.jpg",
+        "/catalogue-media-hq/93-operation-table.jpg",
+        "/catalogue-media-hq/103-operating-table.jpg",
+        "/catalogue-media-hq/104-operating-table.jpg",
+        "/catalogue-media-hq/table.jpeg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image17.jpeg"
       ],
@@ -12208,6 +12432,90 @@
       ]
     },
     {
+      "slug": "hydraulic-surgical-operating-table",
+      "name": "Hydraulic Surgical Operating Table",
+      "categorySlug": "hospital-furniture",
+      "sectionSerials": [],
+      "subheading": "",
+      "summary": "Available in 1 model option.",
+      "description": "Deluxe OT Table is suitable for all kind of surgeries,i.e. general surgery neurology , urolology, gynecology , laparoscopy and other. The base & column of the table is made of high quality medical stainless steel (grade - 304) Non-reflecting surface , antibacterial & easy to clean. provide with Height adjustment,Lateral Tilts, Trendeleburg, and Flex -Reflex Chair Position & Kidney Bridge Position. Specification Length of Table : Width of table Top : Minimum Height(with out mattress) : Maximum Height(with out mattress) : Trendelenburg Reverse Trendelenburg Lateral Tilt Back Section Head Section Leg Section Castors Standard Accessories Precision Made Hydraulic System with a single lever action Hydraulic lift controlled a foot pedal Stainless Fittings Detachable , Head ,Leg Section Five Section Stainless steel top gives anatomic adaptation to the patient body Built in Kidney bridge and large perineal cut-out for drainage All the operating postions including Proctology, Lithotomy, Chair, Flex, Reflex, Trendeleburg and Reverse Trendeleburg, Lateral Tilt ETC. can be obtained from either side of the table by working of different handles",
+      "highlights": [
+        "Deluxe OT Table is suitable for all kind of surgeries,i.e. general surgery neurology , urolology, gynecology , laparoscopy and other. The base & column of the table is made of high quality medical stainless steel (grade - 304) Non-reflecting surface , antibacterial & easy to clean. provide with Height adjustment,Lateral Tilts, Trendeleburg, and Flex -Reflex Chair Position & Kidney Bridge Position.",
+        "Specification",
+        "Length of Table :",
+        "Width of table Top :",
+        "Minimum Height(with out mattress) :",
+        "Maximum Height(with out mattress) :"
+      ],
+      "notes": [],
+      "images": [
+        "/catalogue-media-hq/103-operating-table.jpg",
+        "/catalogue-media-hq/104-operating-table.jpg",
+        "/catalogue-media-hq/102-operation-table.jpg",
+        "/catalogue-media-hq/93-operation-table.jpg",
+        "/catalogue-media-hq/table.jpeg"
+      ],
+      "variants": [
+        {
+          "model": "OTH-1SS",
+          "slug": "oth-1ss",
+          "label": "OTH-1SS",
+          "attributes": [
+            {
+              "label": "Model",
+              "value": "OTH-1SS"
+            },
+            {
+              "label": "s no",
+              "value": "38"
+            }
+          ],
+          "descriptionLines": [
+            "Deluxe OT Table is suitable for all kind of surgeries,i.e. general surgery neurology , urolology, gynecology , laparoscopy and other. The base & column of the table is made of high quality medical stainless steel (grade - 304) Non-reflecting surface , antibacterial & easy to clean. provide with Height adjustment,Lateral Tilts, Trendeleburg, and Flex -Reflex Chair Position & Kidney Bridge Position.",
+            "Specification",
+            "Length of Table :",
+            "Width of table Top :",
+            "Minimum Height(with out mattress) :",
+            "Maximum Height(with out mattress) :",
+            "Trendelenburg",
+            "Reverse Trendelenburg",
+            "Lateral Tilt",
+            "Back Section",
+            "Head Section",
+            "Leg Section",
+            "Castors",
+            "Standard Accessories",
+            "Precision Made Hydraulic System with a single lever action Hydraulic lift controlled a foot pedal",
+            "Stainless Fittings",
+            "Detachable , Head ,Leg Section",
+            "Five Section Stainless steel top gives anatomic adaptation to the patient body",
+            "Built in Kidney bridge and large perineal cut-out for drainage",
+            "All the operating postions including Proctology, Lithotomy, Chair, Flex, Reflex, Trendeleburg and Reverse",
+            "Trendeleburg, Lateral Tilt ETC. can be obtained from either side of the table by working of different handles"
+          ],
+          "images": [],
+          "sourceRefs": [
+            {
+              "workbook": "Hospital furniture  specs-2 part (1).xlsx",
+              "sheet": "Hospital Furniture",
+              "model": "OTH-1SS"
+            }
+          ]
+        }
+      ],
+      "sourceRefs": [
+        {
+          "workbook": "Hospital furniture  specs-2 part (1).xlsx",
+          "sheet": "Hospital Furniture",
+          "model": "OTH-1SS"
+        }
+      ],
+      "tableColumns": [
+        "Model",
+        "s no"
+      ]
+    },
+    {
       "slug": "icu-bed-electric",
       "name": "ICU Bed Electric",
       "categorySlug": "hospital-furniture",
@@ -12233,11 +12541,16 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/12-icu-bed.jpg",
+        "/catalogue-media-hq/13-icu-bed.jpg",
+        "/catalogue-media-hq/14-icu-bed.jpg",
+        "/catalogue-media-hq/15-icu-bed.jpg",
+        "/catalogue-media-hq/16-icu-bed.jpg",
+        "/catalogue-media-hq/17-icu-bed.jpg",
+        "/catalogue-media-hq/18-icu-bed.jpg",
+        "/catalogue-media-hq/19-icu-bed.jpg",
         "/catalogue-media/image1.jpeg",
-        "/catalogue-media/image124.png",
-        "/catalogue-media/image19.jpeg",
-        "/catalogue-media/image125.png",
-        "/catalogue-media/image126.png"
+        "/catalogue-media/image124.png"
       ],
       "variants": [
         {
@@ -12596,6 +12909,14 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/12-icu-bed.jpg",
+        "/catalogue-media-hq/13-icu-bed.jpg",
+        "/catalogue-media-hq/14-icu-bed.jpg",
+        "/catalogue-media-hq/15-icu-bed.jpg",
+        "/catalogue-media-hq/16-icu-bed.jpg",
+        "/catalogue-media-hq/17-icu-bed.jpg",
+        "/catalogue-media-hq/18-icu-bed.jpg",
+        "/catalogue-media-hq/19-icu-bed.jpg",
         "/catalogue-media/image127.png",
         "/catalogue-media/image128.png"
       ],
@@ -12754,6 +13075,9 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/82-labour-delivery-room-bed.jpg",
+        "/catalogue-media-hq/83-labour-delivery-room-bed.jpg",
+        "/catalogue-media-hq/84-delivery-bed.jpg",
         "/catalogue-media/image6.jpeg",
         "/catalogue-media/image7.jpeg"
       ],
@@ -12835,7 +13159,11 @@
         "Back section adjustment through crank mechanism"
       ],
       "notes": [],
-      "images": [],
+      "images": [
+        "/catalogue-media-hq/82-labour-delivery-room-bed.jpg",
+        "/catalogue-media-hq/83-labour-delivery-room-bed.jpg",
+        "/catalogue-media-hq/84-delivery-bed.jpg"
+      ],
       "variants": [
         {
           "model": "DBH-1",
@@ -12905,6 +13233,8 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/86-labour-table.jpg",
+        "/catalogue-media-hq/table.jpeg",
         "/catalogue-media/image138.jpeg"
       ],
       "variants": [
@@ -12991,6 +13321,9 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/86-labour-table.jpg",
+        "/catalogue-media-hq/85-obstetric-table.jpg",
+        "/catalogue-media-hq/table.jpeg",
         "/catalogue-media/image8.jpeg"
       ],
       "variants": [
@@ -13067,7 +13400,12 @@
         "10 cms thick, 32/40 density foam mattress"
       ],
       "notes": [],
-      "images": [],
+      "images": [
+        "/catalogue-media-hq/28-hospital-bed.jpg",
+        "/catalogue-media-hq/33-mattress.jpg",
+        "/catalogue-media-hq/34-mattress.jpg",
+        "/catalogue-media-hq/35-mattress.jpg"
+      ],
       "variants": [
         {
           "model": "A. MPB-1",
@@ -13160,6 +13498,9 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/33-mattress.jpg",
+        "/catalogue-media-hq/34-mattress.jpg",
+        "/catalogue-media-hq/35-mattress.jpg",
         "/catalogue-media/image3.jpeg"
       ],
       "variants": [
@@ -13233,6 +13574,7 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/32-motorized-backrest.jpg",
         "/catalogue-media/image26.jpeg"
       ],
       "variants": [
@@ -13307,6 +13649,11 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/102-operation-table.jpg",
+        "/catalogue-media-hq/93-operation-table.jpg",
+        "/catalogue-media-hq/103-operating-table.jpg",
+        "/catalogue-media-hq/104-operating-table.jpg",
+        "/catalogue-media-hq/table.jpeg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image14.jpeg"
       ],
@@ -13400,6 +13747,8 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/29-opd-couch.jpg",
+        "/catalogue-media-hq/30-opd-couch-chair.jpg",
         "/catalogue-media/image23.jpeg"
       ],
       "variants": [
@@ -13482,6 +13831,8 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/30-opd-couch-chair.jpg",
+        "/catalogue-media-hq/29-opd-couch.jpg",
         "/catalogue-media/image24.jpeg"
       ],
       "variants": [
@@ -13562,6 +13913,8 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/31-pediatric-bed.jpg",
+        "/catalogue-media-hq/suction-ss-plain.jpg",
         "/catalogue-media/image25.jpeg"
       ],
       "variants": [
@@ -13648,6 +14001,8 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/95-spica-table.jpg",
+        "/catalogue-media-hq/table.jpeg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image16.jpeg"
       ],
@@ -13723,7 +14078,9 @@
         "Base fitted with 50 mm dia castors"
       ],
       "notes": [],
-      "images": [],
+      "images": [
+        "/catalogue-media-hq/77-surgeon-chair.jpg"
+      ],
       "variants": [
         {
           "model": "SC-1",
@@ -13784,6 +14141,14 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/24-fowler-bed.jpg",
+        "/catalogue-media-hq/25-fowler-bed.jpg",
+        "/catalogue-media-hq/26-fowler-bed.jpg",
+        "/catalogue-media-hq/27-fowler-bed.jpg",
+        "/catalogue-media-hq/33-mattress.jpg",
+        "/catalogue-media-hq/34-mattress.jpg",
+        "/catalogue-media-hq/35-mattress.jpg",
+        "/catalogue-media-hq/28-hospital-bed.jpg",
         "/catalogue-media/image4.jpeg"
       ],
       "variants": [
@@ -13857,7 +14222,12 @@
         "Two section cushioned top"
       ],
       "notes": [],
-      "images": [],
+      "images": [
+        "/catalogue-media-hq/84-delivery-bed.jpg",
+        "/catalogue-media-hq/82-labour-delivery-room-bed.jpg",
+        "/catalogue-media-hq/83-labour-delivery-room-bed.jpg",
+        "/catalogue-media-hq/85-obstetric-table.jpg"
+      ],
       "variants": [
         {
           "model": "ODB-1",
@@ -13919,7 +14289,10 @@
         "Also available in full Stainless Steel"
       ],
       "notes": [],
-      "images": [],
+      "images": [
+        "/catalogue-media-hq/96-ward-equipments.jpg",
+        "/catalogue-media-hq/97-ward-equipments.jpg"
+      ],
       "variants": [
         {
           "model": "WAC-1",
@@ -13980,7 +14353,10 @@
         "Brake handles provided"
       ],
       "notes": [],
-      "images": [],
+      "images": [
+        "/catalogue-media-hq/96-ward-equipments.jpg",
+        "/catalogue-media-hq/97-ward-equipments.jpg"
+      ],
       "variants": [
         {
           "model": "WC-1F",
@@ -14041,6 +14417,8 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/96-ward-equipments.jpg",
+        "/catalogue-media-hq/97-ward-equipments.jpg",
         "/catalogue-media/image62.png"
       ],
       "variants": [
@@ -14093,6 +14471,8 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/bedpan.jpg",
+        "/catalogue-media-hq/bedpan-2.jpg",
         "/catalogue-media/image82.png",
         "/catalogue-media/image83.png"
       ],
@@ -14190,6 +14570,8 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/bedpan.jpg",
+        "/catalogue-media-hq/bedpan-2.jpg",
         "/catalogue-media/image113.png"
       ],
       "variants": [
@@ -14257,7 +14639,10 @@
         "Bed Pan Female Seamless welded without cover"
       ],
       "notes": [],
-      "images": [],
+      "images": [
+        "/catalogue-media-hq/bedpan.jpg",
+        "/catalogue-media-hq/bedpan-2.jpg"
+      ],
       "variants": [
         {
           "model": "BPSL-F",
@@ -14313,6 +14698,8 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/bedpan.jpg",
+        "/catalogue-media-hq/bedpan-2.jpg",
         "/catalogue-media/image96.png"
       ],
       "variants": [
@@ -14382,7 +14769,10 @@
         "Bed Pan Female without cover"
       ],
       "notes": [],
-      "images": [],
+      "images": [
+        "/catalogue-media-hq/bedpan.jpg",
+        "/catalogue-media-hq/bedpan-2.jpg"
+      ],
       "variants": [
         {
           "model": "BP-F",
@@ -14448,7 +14838,10 @@
         "Bed Pan Male with cover"
       ],
       "notes": [],
-      "images": [],
+      "images": [
+        "/catalogue-media-hq/bedpan.jpg",
+        "/catalogue-media-hq/bedpan-2.jpg"
+      ],
       "variants": [
         {
           "model": "BP-MWC",
@@ -14515,6 +14908,8 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/bedpan.jpg",
+        "/catalogue-media-hq/bedpan-2.jpg",
         "/catalogue-media/image97.png"
       ],
       "variants": [
@@ -14567,6 +14962,8 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/bedpan.jpg",
+        "/catalogue-media-hq/bedpan-2.jpg",
         "/catalogue-media/image84.png"
       ],
       "variants": [
@@ -15006,6 +15403,8 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/bedpan.jpg",
+        "/catalogue-media-hq/bedpan-2.jpg",
         "/catalogue-media/image62.png"
       ],
       "variants": [
@@ -15117,6 +15516,8 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/bedpan.jpg",
+        "/catalogue-media-hq/bedpan-2.jpg",
         "/catalogue-media/image92.png"
       ],
       "variants": [
@@ -15310,6 +15711,8 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/bedpan.jpg",
+        "/catalogue-media-hq/bedpan-2.jpg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image78.png"
       ],
@@ -16293,6 +16696,8 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/bedpan.jpg",
+        "/catalogue-media-hq/bedpan-2.jpg",
         "/catalogue-media/image77.png"
       ],
       "variants": [
@@ -16732,6 +17137,8 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/bedpan.jpg",
+        "/catalogue-media-hq/bedpan-2.jpg",
         "/catalogue-media/image94.jpeg"
       ],
       "variants": [
@@ -16884,6 +17291,8 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/bedpan.jpg",
+        "/catalogue-media-hq/bedpan-2.jpg",
         "/catalogue-media/image93.png"
       ],
       "variants": [
@@ -17036,6 +17445,8 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/bedpan.jpg",
+        "/catalogue-media-hq/bedpan-2.jpg",
         "/catalogue-media/image89.png"
       ],
       "variants": [
@@ -17270,6 +17681,8 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/bedpan.jpg",
+        "/catalogue-media-hq/bedpan-2.jpg",
         "/catalogue-media/image87.png"
       ],
       "variants": [
@@ -17570,6 +17983,8 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/bedpan.jpg",
+        "/catalogue-media-hq/bedpan-2.jpg",
         "/catalogue-media/image86.png"
       ],
       "variants": [
@@ -17870,6 +18285,8 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/bedpan.jpg",
+        "/catalogue-media-hq/bedpan-2.jpg",
         "/catalogue-media/image85.png",
         "/catalogue-media/image62.png"
       ],
@@ -18230,6 +18647,8 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/bedpan.jpg",
+        "/catalogue-media-hq/bedpan-2.jpg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image79.png"
       ],
@@ -18829,6 +19248,8 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/bedpan.jpg",
+        "/catalogue-media-hq/bedpan-2.jpg",
         "/catalogue-media/image114.png"
       ],
       "variants": [
@@ -19042,6 +19463,8 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/42-mayo-s-instrument-trolley-ss.jpg",
+        "/catalogue-media-hq/43-mayo-s-instrument-trolley-ss.jpg",
         "/catalogue-media/image81.png"
       ],
       "variants": [
@@ -19276,6 +19699,8 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/bedpan.jpg",
+        "/catalogue-media-hq/bedpan-2.jpg",
         "/catalogue-media/image88.png"
       ],
       "variants": [
@@ -19387,6 +19812,8 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/bedpan.jpg",
+        "/catalogue-media-hq/bedpan-2.jpg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image90.png"
       ],
@@ -19499,6 +19926,8 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/bedpan.jpg",
+        "/catalogue-media-hq/bedpan-2.jpg",
         "/catalogue-media/image80.png"
       ],
       "variants": [
@@ -19774,6 +20203,8 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/bedpan.jpg",
+        "/catalogue-media-hq/bedpan-2.jpg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image91.png"
       ],
@@ -19840,6 +20271,8 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/bedpan.jpg",
+        "/catalogue-media-hq/bedpan-2.jpg",
         "/catalogue-media/image95.png"
       ],
       "variants": [
@@ -20186,14 +20619,16 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/113-ot-light.jpg",
+        "/catalogue-media-hq/114-ot-light.jpg",
+        "/catalogue-media-hq/115-ot-light.jpg",
+        "/catalogue-media-hq/116-ot-light.jpg",
+        "/catalogue-media-hq/117-ot-light.jpg",
+        "/catalogue-media-hq/118-ot-light.jpg",
+        "/catalogue-media-hq/119-ot-light.jpg",
+        "/catalogue-media-hq/120-ot-light.jpg",
         "/catalogue-media/image62.png",
-        "/catalogue-media/image156.png",
-        "/catalogue-media/image157.png",
-        "/catalogue-media/image158.png",
-        "/catalogue-media/image159.png",
-        "/catalogue-media/image160.png",
-        "/catalogue-media/image161.png",
-        "/catalogue-media/image162.png"
+        "/catalogue-media/image156.png"
       ],
       "variants": [
         {
@@ -20435,20 +20870,16 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/113-ot-light.jpg",
+        "/catalogue-media-hq/114-ot-light.jpg",
+        "/catalogue-media-hq/115-ot-light.jpg",
+        "/catalogue-media-hq/116-ot-light.jpg",
+        "/catalogue-media-hq/117-ot-light.jpg",
+        "/catalogue-media-hq/118-ot-light.jpg",
+        "/catalogue-media-hq/119-ot-light.jpg",
+        "/catalogue-media-hq/120-ot-light.jpg",
         "/catalogue-media/image62.png",
-        "/catalogue-media/image172.png",
-        "/catalogue-media/image173.png",
-        "/catalogue-media/image174.png",
-        "/catalogue-media/image175.png",
-        "/catalogue-media/image176.png",
-        "/catalogue-media/image177.png",
-        "/catalogue-media/image178.png",
-        "/catalogue-media/image179.png",
-        "/catalogue-media/image180.png",
-        "/catalogue-media/image181.png",
-        "/catalogue-media/image182.png",
-        "/catalogue-media/image183.png",
-        "/catalogue-media/image184.png"
+        "/catalogue-media/image172.png"
       ],
       "variants": [
         {
@@ -20877,24 +21308,16 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/113-ot-light.jpg",
+        "/catalogue-media-hq/114-ot-light.jpg",
+        "/catalogue-media-hq/115-ot-light.jpg",
+        "/catalogue-media-hq/116-ot-light.jpg",
+        "/catalogue-media-hq/117-ot-light.jpg",
+        "/catalogue-media-hq/118-ot-light.jpg",
+        "/catalogue-media-hq/119-ot-light.jpg",
+        "/catalogue-media-hq/120-ot-light.jpg",
         "/catalogue-media/image62.png",
-        "/catalogue-media/image185.png",
-        "/catalogue-media/image186.png",
-        "/catalogue-media/image187.png",
-        "/catalogue-media/image188.png",
-        "/catalogue-media/image189.png",
-        "/catalogue-media/image190.png",
-        "/catalogue-media/image191.png",
-        "/catalogue-media/image192.png",
-        "/catalogue-media/image193.png",
-        "/catalogue-media/image194.png",
-        "/catalogue-media/image195.png",
-        "/catalogue-media/image148.png",
-        "/catalogue-media/image137.png",
-        "/catalogue-media/image136.png",
-        "/catalogue-media/image133.png",
-        "/catalogue-media/image132.png",
-        "/catalogue-media/image131.png"
+        "/catalogue-media/image185.png"
       ],
       "variants": [
         {
@@ -21495,18 +21918,16 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/113-ot-light.jpg",
+        "/catalogue-media-hq/114-ot-light.jpg",
+        "/catalogue-media-hq/115-ot-light.jpg",
+        "/catalogue-media-hq/116-ot-light.jpg",
+        "/catalogue-media-hq/117-ot-light.jpg",
+        "/catalogue-media-hq/118-ot-light.jpg",
+        "/catalogue-media-hq/119-ot-light.jpg",
+        "/catalogue-media-hq/120-ot-light.jpg",
         "/catalogue-media/image163.png",
-        "/catalogue-media/image164.png",
-        "/catalogue-media/image165.png",
-        "/catalogue-media/image166.png",
-        "/catalogue-media/image167.png",
-        "/catalogue-media/image168.png",
-        "/catalogue-media/image169.png",
-        "/catalogue-media/image170.png",
-        "/catalogue-media/image62.png",
-        "/catalogue-media/image171.png",
-        "/catalogue-media/image130.png",
-        "/catalogue-media/image129.png"
+        "/catalogue-media/image164.png"
       ],
       "variants": [
         {
@@ -21905,7 +22326,16 @@
         "Colour Reduction Index 93 RA"
       ],
       "notes": [],
-      "images": [],
+      "images": [
+        "/catalogue-media-hq/113-ot-light.jpg",
+        "/catalogue-media-hq/114-ot-light.jpg",
+        "/catalogue-media-hq/115-ot-light.jpg",
+        "/catalogue-media-hq/116-ot-light.jpg",
+        "/catalogue-media-hq/117-ot-light.jpg",
+        "/catalogue-media-hq/118-ot-light.jpg",
+        "/catalogue-media-hq/119-ot-light.jpg",
+        "/catalogue-media-hq/120-ot-light.jpg"
+      ],
       "variants": [
         {
           "model": "OTL-3",
@@ -22462,6 +22892,8 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/50-recovery-trolley.jpg",
+        "/catalogue-media-hq/53-recovery-trolley.jpg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image56.jpeg",
         "/catalogue-media/image59.jpeg"
@@ -22604,7 +23036,12 @@
         "Gross wt. 6 Kg, Net wt. 5 Kg"
       ],
       "notes": [],
-      "images": [],
+      "images": [
+        "/catalogue-media-hq/54-folding-stretcher.jpg",
+        "/catalogue-media-hq/51-stretcher.jpg",
+        "/catalogue-media-hq/52-stretcher.jpg",
+        "/catalogue-media-hq/56-ambulance-stretcher.jpg"
+      ],
       "variants": [
         {
           "model": "FSA-1 , FSA-2, FSA-3 & FSA-4",
@@ -22671,7 +23108,9 @@
         "Gross weight : 12 kg"
       ],
       "notes": [],
-      "images": [],
+      "images": [
+        "/catalogue-media-hq/55-spine-board.jpg"
+      ],
       "variants": [
         {
           "model": "SB-1",
@@ -22743,6 +23182,13 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/51-stretcher.jpg",
+        "/catalogue-media-hq/52-stretcher.jpg",
+        "/catalogue-media-hq/33-mattress.jpg",
+        "/catalogue-media-hq/34-mattress.jpg",
+        "/catalogue-media-hq/35-mattress.jpg",
+        "/catalogue-media-hq/54-folding-stretcher.jpg",
+        "/catalogue-media-hq/56-ambulance-stretcher.jpg",
         "/catalogue-media/image58.jpeg"
       ],
       "variants": [
@@ -22829,6 +23275,10 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/51-stretcher.jpg",
+        "/catalogue-media-hq/52-stretcher.jpg",
+        "/catalogue-media-hq/54-folding-stretcher.jpg",
+        "/catalogue-media-hq/56-ambulance-stretcher.jpg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image57.jpeg"
       ],
@@ -22913,6 +23363,9 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/bowl-sterilizer.jpeg",
+        "/catalogue-media-hq/bowl-sterilizer.png",
+        "/catalogue-media-hq/sterilizer.jpg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image76.png"
       ],
@@ -23111,6 +23564,10 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/sterilizer.jpg",
+        "/catalogue-media-hq/bowl-sterilizer.jpeg",
+        "/catalogue-media-hq/bowl-sterilizer.png",
+        "/catalogue-media-hq/eto-sterilizer.png",
         "/catalogue-media/image75.png"
       ],
       "variants": [
@@ -23289,6 +23746,10 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/sterilizer.jpg",
+        "/catalogue-media-hq/bowl-sterilizer.jpeg",
+        "/catalogue-media-hq/bowl-sterilizer.png",
+        "/catalogue-media-hq/eto-sterilizer.png",
         "/catalogue-media/image62.png",
         "/catalogue-media/image73.png"
       ],
@@ -23811,6 +24272,10 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/sterilizer.jpg",
+        "/catalogue-media-hq/bowl-sterilizer.jpeg",
+        "/catalogue-media-hq/bowl-sterilizer.png",
+        "/catalogue-media-hq/eto-sterilizer.png",
         "/catalogue-media/image74.png"
       ],
       "variants": [
@@ -24479,6 +24944,10 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/bowl-sterilizer.jpeg",
+        "/catalogue-media-hq/bowl-sterilizer.png",
+        "/catalogue-media-hq/eto-sterilizer.png",
+        "/catalogue-media-hq/sterilizer.jpg",
         "/catalogue-media/image72.png"
       ],
       "variants": [
@@ -25152,6 +25621,10 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/56-ambulance-stretcher.jpg",
+        "/catalogue-media-hq/51-stretcher.jpg",
+        "/catalogue-media-hq/52-stretcher.jpg",
+        "/catalogue-media-hq/54-folding-stretcher.jpg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image134.png"
       ],
@@ -25237,6 +25710,9 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/suction-deluxe.png",
+        "/catalogue-media-hq/suction-life-line-ss.jpg",
+        "/catalogue-media-hq/suction-ss-plain.jpg",
         "/catalogue-media/image119.png"
       ],
       "variants": [
@@ -25320,6 +25796,9 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/suction-deluxe.png",
+        "/catalogue-media-hq/suction-life-line-ss.jpg",
+        "/catalogue-media-hq/suction-ss-plain.jpg",
         "/catalogue-media/image99.png"
       ],
       "variants": [
@@ -25398,7 +25877,16 @@
         "Jar fitted with over flow float"
       ],
       "notes": [],
-      "images": [],
+      "images": [
+        "/catalogue-media-hq/suction-life-line-ss.jpg",
+        "/catalogue-media-hq/1-suction1.jpg",
+        "/catalogue-media-hq/10-suction-acce10.jpg",
+        "/catalogue-media-hq/11-suction-acce11.jpg",
+        "/catalogue-media-hq/2-suction2.jpg",
+        "/catalogue-media-hq/3-suction3.jpg",
+        "/catalogue-media-hq/4-suction4.jpg",
+        "/catalogue-media-hq/5-suction5.jpg"
+      ],
       "variants": [
         {
           "model": "FS-V",
@@ -25460,7 +25948,16 @@
         "A carry handle fixed to the base enables easy transportation"
       ],
       "notes": [],
-      "images": [],
+      "images": [
+        "/catalogue-media-hq/suction-life-line-ss.jpg",
+        "/catalogue-media-hq/1-suction1.jpg",
+        "/catalogue-media-hq/10-suction-acce10.jpg",
+        "/catalogue-media-hq/11-suction-acce11.jpg",
+        "/catalogue-media-hq/2-suction2.jpg",
+        "/catalogue-media-hq/3-suction3.jpg",
+        "/catalogue-media-hq/4-suction4.jpg",
+        "/catalogue-media-hq/5-suction5.jpg"
+      ],
       "variants": [
         {
           "model": "FS-DB",
@@ -25519,7 +26016,16 @@
         "Glass Jar"
       ],
       "notes": [],
-      "images": [],
+      "images": [
+        "/catalogue-media-hq/10-suction-acce10.jpg",
+        "/catalogue-media-hq/11-suction-acce11.jpg",
+        "/catalogue-media-hq/6-suction-acce6.jpg",
+        "/catalogue-media-hq/7-suction-acce7.jpg",
+        "/catalogue-media-hq/8-suction-acce8.jpg",
+        "/catalogue-media-hq/9-suction-acce9.jpg",
+        "/catalogue-media-hq/1-suction1.jpg",
+        "/catalogue-media-hq/2-suction2.jpg"
+      ],
       "variants": [
         {
           "model": "SJG-1000",
@@ -25702,7 +26208,16 @@
         "Polycarbonate Jar"
       ],
       "notes": [],
-      "images": [],
+      "images": [
+        "/catalogue-media-hq/10-suction-acce10.jpg",
+        "/catalogue-media-hq/11-suction-acce11.jpg",
+        "/catalogue-media-hq/6-suction-acce6.jpg",
+        "/catalogue-media-hq/7-suction-acce7.jpg",
+        "/catalogue-media-hq/8-suction-acce8.jpg",
+        "/catalogue-media-hq/9-suction-acce9.jpg",
+        "/catalogue-media-hq/1-suction1.jpg",
+        "/catalogue-media-hq/2-suction2.jpg"
+      ],
       "variants": [
         {
           "model": "SJP-1000",
@@ -25864,7 +26379,16 @@
         "Technical Specification:"
       ],
       "notes": [],
-      "images": [],
+      "images": [
+        "/catalogue-media-hq/suction-ss-plain.jpg",
+        "/catalogue-media-hq/suction.jpg",
+        "/catalogue-media-hq/suction-2.jpg",
+        "/catalogue-media-hq/10-suction-acce10.jpg",
+        "/catalogue-media-hq/11-suction-acce11.jpg",
+        "/catalogue-media-hq/6-suction-acce6.jpg",
+        "/catalogue-media-hq/7-suction-acce7.jpg",
+        "/catalogue-media-hq/8-suction-acce8.jpg"
+      ],
       "variants": [
         {
           "model": "SE-P",
@@ -25930,10 +26454,16 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/suction.jpg",
+        "/catalogue-media-hq/suction-2.jpg",
+        "/catalogue-media-hq/10-suction-acce10.jpg",
+        "/catalogue-media-hq/11-suction-acce11.jpg",
+        "/catalogue-media-hq/6-suction-acce6.jpg",
+        "/catalogue-media-hq/7-suction-acce7.jpg",
+        "/catalogue-media-hq/8-suction-acce8.jpg",
+        "/catalogue-media-hq/9-suction-acce9.jpg",
         "/catalogue-media/image62.png",
-        "/catalogue-media/image98.png",
-        "/catalogue-media/image120.png",
-        "/catalogue-media/image122.png"
+        "/catalogue-media/image98.png"
       ],
       "variants": [
         {
@@ -26140,6 +26670,14 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/suction-deluxe.png",
+        "/catalogue-media-hq/suction.jpg",
+        "/catalogue-media-hq/suction-2.jpg",
+        "/catalogue-media-hq/10-suction-acce10.jpg",
+        "/catalogue-media-hq/11-suction-acce11.jpg",
+        "/catalogue-media-hq/6-suction-acce6.jpg",
+        "/catalogue-media-hq/7-suction-acce7.jpg",
+        "/catalogue-media-hq/8-suction-acce8.jpg",
         "/catalogue-media/image117.png",
         "/catalogue-media/image121.png"
       ],
@@ -26229,6 +26767,14 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/suction-deluxe.png",
+        "/catalogue-media-hq/suction.jpg",
+        "/catalogue-media-hq/suction-2.jpg",
+        "/catalogue-media-hq/10-suction-acce10.jpg",
+        "/catalogue-media-hq/11-suction-acce11.jpg",
+        "/catalogue-media-hq/6-suction-acce6.jpg",
+        "/catalogue-media-hq/7-suction-acce7.jpg",
+        "/catalogue-media-hq/8-suction-acce8.jpg",
         "/catalogue-media/image123.png"
       ],
       "variants": [
@@ -26319,7 +26865,16 @@
         "Panel fitted with bactrial filter, Vacuum Gauge, ON/OFF Switch cum indicator Vacuum Control Knob"
       ],
       "notes": [],
-      "images": [],
+      "images": [
+        "/catalogue-media-hq/suction-deluxe.png",
+        "/catalogue-media-hq/suction.jpg",
+        "/catalogue-media-hq/suction-2.jpg",
+        "/catalogue-media-hq/10-suction-acce10.jpg",
+        "/catalogue-media-hq/11-suction-acce11.jpg",
+        "/catalogue-media-hq/6-suction-acce6.jpg",
+        "/catalogue-media-hq/7-suction-acce7.jpg",
+        "/catalogue-media-hq/8-suction-acce8.jpg"
+      ],
       "variants": [
         {
           "model": "SE-50D",
@@ -26397,7 +26952,10 @@
         "Mounted on six bullet legs for sturdy performance"
       ],
       "notes": [],
-      "images": [],
+      "images": [
+        "/catalogue-media-hq/101-autopsy-table.jpg",
+        "/catalogue-media-hq/table.jpeg"
+      ],
       "variants": [
         {
           "model": "ATSS-1",
@@ -26463,6 +27021,9 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/111-baby-bassinet.jpg",
+        "/catalogue-media-hq/79-baby-bassinet.jpg",
+        "/catalogue-media-hq/80-baby-bassinet.jpg",
         "/catalogue-media/image50.jpeg"
       ],
       "variants": [
@@ -26540,6 +27101,9 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/111-baby-bassinet.jpg",
+        "/catalogue-media-hq/79-baby-bassinet.jpg",
+        "/catalogue-media-hq/80-baby-bassinet.jpg",
         "/catalogue-media/image51.jpeg"
       ],
       "variants": [
@@ -26619,6 +27183,7 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/78-baby-cradle.jpg",
         "/catalogue-media/image49.jpeg"
       ],
       "variants": [
@@ -26699,6 +27264,8 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/47-bed-side-screen.jpg",
+        "/catalogue-media-hq/48-bed-side-screen.jpg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image35.jpeg"
       ],
@@ -26779,6 +27346,8 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/47-bed-side-screen.jpg",
+        "/catalogue-media-hq/48-bed-side-screen.jpg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image36.jpeg"
       ],
@@ -26851,7 +27420,12 @@
         "1 Rectangular frame work mounted on 5 cms castors. 2 Finish : Pre-treated and Epoxy Powder Coated"
       ],
       "notes": [],
-      "images": [],
+      "images": [
+        "/catalogue-media-hq/39-cardiac-table.jpg",
+        "/catalogue-media-hq/40-cardiac-table.jpg",
+        "/catalogue-media-hq/41-cardiac-table.jpg",
+        "/catalogue-media-hq/table.jpeg"
+      ],
       "variants": [
         {
           "model": "CTG-1",
@@ -26907,6 +27481,10 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/39-cardiac-table.jpg",
+        "/catalogue-media-hq/40-cardiac-table.jpg",
+        "/catalogue-media-hq/41-cardiac-table.jpg",
+        "/catalogue-media-hq/table.jpeg",
         "/catalogue-media/image27.jpeg",
         "/catalogue-media/image28.jpeg"
       ],
@@ -26982,6 +27560,10 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/39-cardiac-table.jpg",
+        "/catalogue-media-hq/40-cardiac-table.jpg",
+        "/catalogue-media-hq/41-cardiac-table.jpg",
+        "/catalogue-media-hq/table.jpeg",
         "/catalogue-media/image29.jpeg"
       ],
       "variants": [
@@ -27055,6 +27637,7 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/58-crash-cart.jpg",
         "/catalogue-media/image62.png"
       ],
       "variants": [
@@ -27110,6 +27693,7 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/58-crash-cart.jpg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image150.jpeg"
       ],
@@ -27201,6 +27785,13 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/96-ward-equipments.jpg",
+        "/catalogue-media-hq/97-ward-equipments.jpg",
+        "/catalogue-media-hq/62-dressing-trolley.jpg",
+        "/catalogue-media-hq/61-utility-trolley.jpg",
+        "/catalogue-media-hq/63-trolley.jpg",
+        "/catalogue-media-hq/64-trolley.jpg",
+        "/catalogue-media-hq/65-trolley.jpg",
         "/catalogue-media/image40.jpeg",
         "/catalogue-media/image41.jpeg"
       ],
@@ -27281,7 +27872,16 @@
         "With 5 to 6 bowls, 1 tray and 1 shelf for keeping trays"
       ],
       "notes": [],
-      "images": [],
+      "images": [
+        "/catalogue-media-hq/98-food-trolley.jpg",
+        "/catalogue-media-hq/99-food-trolley.jpg",
+        "/catalogue-media-hq/61-utility-trolley.jpg",
+        "/catalogue-media-hq/63-trolley.jpg",
+        "/catalogue-media-hq/64-trolley.jpg",
+        "/catalogue-media-hq/65-trolley.jpg",
+        "/catalogue-media-hq/96-ward-equipments.jpg",
+        "/catalogue-media-hq/97-ward-equipments.jpg"
+      ],
       "variants": [
         {
           "model": "FTE-1",
@@ -27354,6 +27954,11 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/59-medicine-trolley.jpg",
+        "/catalogue-media-hq/60-medicine-trolley.jpg",
+        "/catalogue-media-hq/63-trolley.jpg",
+        "/catalogue-media-hq/64-trolley.jpg",
+        "/catalogue-media-hq/65-trolley.jpg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image196.jpeg"
       ],
@@ -27442,6 +28047,8 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/65-foot-step.jpg",
+        "/catalogue-media-hq/66-foot-step.jpg",
         "/catalogue-media/image151.jpeg"
       ],
       "variants": [
@@ -27528,6 +28135,8 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/65-foot-step.jpg",
+        "/catalogue-media-hq/66-foot-step.jpg",
         "/catalogue-media/image42.jpeg"
       ],
       "variants": [
@@ -27588,84 +28197,6 @@
       ]
     },
     {
-      "slug": "hydraulic-surgical-operating-table",
-      "name": "Hydraulic Surgical Operating Table",
-      "categorySlug": "ward-equipments",
-      "sectionSerials": [],
-      "subheading": "",
-      "summary": "Available in 1 model option.",
-      "description": "Deluxe OT Table is suitable for all kind of surgeries,i.e. general surgery neurology , urolology, gynecology , laparoscopy and other. The base & column of the table is made of high quality medical stainless steel (grade - 304) Non-reflecting surface , antibacterial & easy to clean. provide with Height adjustment,Lateral Tilts, Trendeleburg, and Flex -Reflex Chair Position & Kidney Bridge Position. Specification Length of Table : Width of table Top : Minimum Height(with out mattress) : Maximum Height(with out mattress) : Trendelenburg Reverse Trendelenburg Lateral Tilt Back Section Head Section Leg Section Castors Standard Accessories Precision Made Hydraulic System with a single lever action Hydraulic lift controlled a foot pedal Stainless Fittings Detachable , Head ,Leg Section Five Section Stainless steel top gives anatomic adaptation to the patient body Built in Kidney bridge and large perineal cut-out for drainage All the operating postions including Proctology, Lithotomy, Chair, Flex, Reflex, Trendeleburg and Reverse Trendeleburg, Lateral Tilt ETC. can be obtained from either side of the table by working of different handles",
-      "highlights": [
-        "Deluxe OT Table is suitable for all kind of surgeries,i.e. general surgery neurology , urolology, gynecology , laparoscopy and other. The base & column of the table is made of high quality medical stainless steel (grade - 304) Non-reflecting surface , antibacterial & easy to clean. provide with Height adjustment,Lateral Tilts, Trendeleburg, and Flex -Reflex Chair Position & Kidney Bridge Position.",
-        "Specification",
-        "Length of Table :",
-        "Width of table Top :",
-        "Minimum Height(with out mattress) :",
-        "Maximum Height(with out mattress) :"
-      ],
-      "notes": [],
-      "images": [],
-      "variants": [
-        {
-          "model": "OTH-1SS",
-          "slug": "oth-1ss",
-          "label": "OTH-1SS",
-          "attributes": [
-            {
-              "label": "Model",
-              "value": "OTH-1SS"
-            },
-            {
-              "label": "s no",
-              "value": "38"
-            }
-          ],
-          "descriptionLines": [
-            "Deluxe OT Table is suitable for all kind of surgeries,i.e. general surgery neurology , urolology, gynecology , laparoscopy and other. The base & column of the table is made of high quality medical stainless steel (grade - 304) Non-reflecting surface , antibacterial & easy to clean. provide with Height adjustment,Lateral Tilts, Trendeleburg, and Flex -Reflex Chair Position & Kidney Bridge Position.",
-            "Specification",
-            "Length of Table :",
-            "Width of table Top :",
-            "Minimum Height(with out mattress) :",
-            "Maximum Height(with out mattress) :",
-            "Trendelenburg",
-            "Reverse Trendelenburg",
-            "Lateral Tilt",
-            "Back Section",
-            "Head Section",
-            "Leg Section",
-            "Castors",
-            "Standard Accessories",
-            "Precision Made Hydraulic System with a single lever action Hydraulic lift controlled a foot pedal",
-            "Stainless Fittings",
-            "Detachable , Head ,Leg Section",
-            "Five Section Stainless steel top gives anatomic adaptation to the patient body",
-            "Built in Kidney bridge and large perineal cut-out for drainage",
-            "All the operating postions including Proctology, Lithotomy, Chair, Flex, Reflex, Trendeleburg and Reverse",
-            "Trendeleburg, Lateral Tilt ETC. can be obtained from either side of the table by working of different handles"
-          ],
-          "images": [],
-          "sourceRefs": [
-            {
-              "workbook": "Hospital furniture  specs-2 part (1).xlsx",
-              "sheet": "Hospital Furniture",
-              "model": "OTH-1SS"
-            }
-          ]
-        }
-      ],
-      "sourceRefs": [
-        {
-          "workbook": "Hospital furniture  specs-2 part (1).xlsx",
-          "sheet": "Hospital Furniture",
-          "model": "OTH-1SS"
-        }
-      ],
-      "tableColumns": [
-        "Model",
-        "s no"
-      ]
-    },
-    {
       "slug": "i-v-stand",
       "name": "I.V. Stand",
       "categorySlug": "ward-equipments",
@@ -27685,6 +28216,7 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/46-iv-stand.jpg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image34.jpeg"
       ],
@@ -27765,7 +28297,12 @@
         "Optimum bed dimensions ensure optimum work space for the nursing staff"
       ],
       "notes": [],
-      "images": [],
+      "images": [
+        "/catalogue-media-hq/109-infant-warmer.jpg",
+        "/catalogue-media-hq/infant-warmer-deluxe.jpeg",
+        "/catalogue-media-hq/infant-warmer-deluxe-2.jpeg",
+        "/catalogue-media-hq/infant-warmer-new.jpg"
+      ],
       "variants": [
         {
           "model": "IW-1",
@@ -27836,6 +28373,7 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/81-instrument-cabinet.jpg",
         "/catalogue-media/image52.jpeg"
       ],
       "variants": [
@@ -27910,7 +28448,13 @@
         "Finish : S.S. frame with S.S. shelves"
       ],
       "notes": [],
-      "images": [],
+      "images": [
+        "/catalogue-media-hq/42-mayo-s-instrument-trolley-ss.jpg",
+        "/catalogue-media-hq/43-mayo-s-instrument-trolley-ss.jpg",
+        "/catalogue-media-hq/63-trolley.jpg",
+        "/catalogue-media-hq/64-trolley.jpg",
+        "/catalogue-media-hq/65-trolley.jpg"
+      ],
       "variants": [
         {
           "model": "IT-1SS",
@@ -27973,6 +28517,7 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/49-kick-bowel.jpg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image37.jpeg"
       ],
@@ -28053,6 +28598,10 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/57-laparoscopic.jpg",
+        "/catalogue-media-hq/63-trolley.jpg",
+        "/catalogue-media-hq/64-trolley.jpg",
+        "/catalogue-media-hq/65-trolley.jpg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image149.jpeg"
       ],
@@ -28140,6 +28689,11 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/59-medicine-trolley.jpg",
+        "/catalogue-media-hq/60-medicine-trolley.jpg",
+        "/catalogue-media-hq/63-trolley.jpg",
+        "/catalogue-media-hq/64-trolley.jpg",
+        "/catalogue-media-hq/65-trolley.jpg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image38.jpeg"
       ],
@@ -28218,6 +28772,11 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/42-mayo-s-instrument-trolley-ss.jpg",
+        "/catalogue-media-hq/43-mayo-s-instrument-trolley-ss.jpg",
+        "/catalogue-media-hq/63-trolley.jpg",
+        "/catalogue-media-hq/64-trolley.jpg",
+        "/catalogue-media-hq/65-trolley.jpg",
         "/catalogue-media/image30.jpeg"
       ],
       "variants": [
@@ -28291,7 +28850,14 @@
         "S.S. frame with S.S. top"
       ],
       "notes": [],
-      "images": [],
+      "images": [
+        "/catalogue-media-hq/42-mayo-s-instrument-trolley-ss.jpg",
+        "/catalogue-media-hq/43-mayo-s-instrument-trolley-ss.jpg",
+        "/catalogue-media-hq/63-trolley.jpg",
+        "/catalogue-media-hq/64-trolley.jpg",
+        "/catalogue-media-hq/65-trolley.jpg",
+        "/catalogue-media-hq/table.jpeg"
+      ],
       "variants": [
         {
           "model": "MTOB-1",
@@ -28353,6 +28919,10 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/36-medicine-cupboard.jpg",
+        "/catalogue-media-hq/37-medicine-cupboard.jpg",
+        "/catalogue-media-hq/38-medicine-cupboard.jpg",
+        "/catalogue-media-hq/75-patient-s-revolving-stool-ss.jpg",
         "/catalogue-media/image55.jpeg"
       ],
       "variants": [
@@ -28432,6 +29002,10 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/36-medicine-cupboard.jpg",
+        "/catalogue-media-hq/37-medicine-cupboard.jpg",
+        "/catalogue-media-hq/38-medicine-cupboard.jpg",
+        "/catalogue-media-hq/75-patient-s-revolving-stool-ss.jpg",
         "/catalogue-media/image53.jpeg",
         "/catalogue-media/image54.jpeg"
       ],
@@ -28513,7 +29087,12 @@
         "Optional"
       ],
       "notes": [],
-      "images": [],
+      "images": [
+        "/catalogue-media-hq/36-medicine-cupboard.jpg",
+        "/catalogue-media-hq/37-medicine-cupboard.jpg",
+        "/catalogue-media-hq/38-medicine-cupboard.jpg",
+        "/catalogue-media-hq/75-patient-s-revolving-stool-ss.jpg"
+      ],
       "variants": [
         {
           "model": "BSL-1D",
@@ -28577,7 +29156,10 @@
         "Also available in S.S Frame work (PRS-1SS)"
       ],
       "notes": [],
-      "images": [],
+      "images": [
+        "/catalogue-media-hq/75-patient-s-revolving-stool-ss.jpg",
+        "/catalogue-media-hq/76-patient-stool.jpg"
+      ],
       "variants": [
         {
           "model": "PRS-1MS",
@@ -28638,6 +29220,11 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/61-utility-trolley.jpg",
+        "/catalogue-media-hq/96-ward-equipments.jpg",
+        "/catalogue-media-hq/97-ward-equipments.jpg",
+        "/catalogue-media-hq/75-patient-s-revolving-stool-ss.jpg",
+        "/catalogue-media-hq/76-patient-stool.jpg",
         "/catalogue-media/image60.emf",
         "/catalogue-media/image61.emf",
         "/catalogue-media/image46.jpeg"
@@ -28723,6 +29310,11 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/61-utility-trolley.jpg",
+        "/catalogue-media-hq/96-ward-equipments.jpg",
+        "/catalogue-media-hq/97-ward-equipments.jpg",
+        "/catalogue-media-hq/75-patient-s-revolving-stool-ss.jpg",
+        "/catalogue-media-hq/76-patient-stool.jpg",
         "/catalogue-media/image45.jpeg"
       ],
       "variants": [
@@ -28799,6 +29391,10 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/110-phototherapy-unit.jpg",
+        "/catalogue-media-hq/111-baby-bassinet.jpg",
+        "/catalogue-media-hq/79-baby-bassinet.jpg",
+        "/catalogue-media-hq/80-baby-bassinet.jpg",
         "/catalogue-media/image47.jpeg"
       ],
       "variants": [
@@ -28872,7 +29468,12 @@
         "Also available in M.S. Frame work and Laminated Shelves"
       ],
       "notes": [],
-      "images": [],
+      "images": [
+        "/catalogue-media-hq/111-baby-bassinet.jpg",
+        "/catalogue-media-hq/79-baby-bassinet.jpg",
+        "/catalogue-media-hq/80-baby-bassinet.jpg",
+        "/catalogue-media-hq/110-phototherapy-unit.jpg"
+      ],
       "variants": [
         {
           "model": "PUDS-1",
@@ -28933,7 +29534,14 @@
         "Also available in Complete S.S"
       ],
       "notes": [],
-      "images": [],
+      "images": [
+        "/catalogue-media-hq/61-utility-trolley.jpg",
+        "/catalogue-media-hq/63-trolley.jpg",
+        "/catalogue-media-hq/64-trolley.jpg",
+        "/catalogue-media-hq/65-trolley.jpg",
+        "/catalogue-media-hq/96-ward-equipments.jpg",
+        "/catalogue-media-hq/97-ward-equipments.jpg"
+      ],
       "variants": [
         {
           "model": "LT-1",
@@ -29003,7 +29611,12 @@
         "(B) For B type cylinder"
       ],
       "notes": [],
-      "images": [],
+      "images": [
+        "/catalogue-media-hq/74-trolley-oxygen-cylinder.jpg",
+        "/catalogue-media-hq/63-trolley.jpg",
+        "/catalogue-media-hq/64-trolley.jpg",
+        "/catalogue-media-hq/65-trolley.jpg"
+      ],
       "variants": [
         {
           "model": "OCT-1S & OCT-1L",
@@ -29066,6 +29679,10 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/61-utility-trolley.jpg",
+        "/catalogue-media-hq/63-trolley.jpg",
+        "/catalogue-media-hq/64-trolley.jpg",
+        "/catalogue-media-hq/65-trolley.jpg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image39.jpeg"
       ],
@@ -29146,6 +29763,8 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/44-wash-basin-stand.jpg",
+        "/catalogue-media-hq/45-wash-basin-stand.jpg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image31.jpeg",
         "/catalogue-media/image32.jpeg"
@@ -29230,6 +29849,8 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/44-wash-basin-stand.jpg",
+        "/catalogue-media-hq/45-wash-basin-stand.jpg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image33.jpeg"
       ],
@@ -29307,6 +29928,8 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/71-waste-bin.jpg",
+        "/catalogue-media-hq/72-waste-bin.jpg",
         "/catalogue-media/image43.jpeg",
         "/catalogue-media/image44.jpeg",
         "/catalogue-media/image62.png"
@@ -29520,6 +30143,7 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/112-x-ray-illuminator.jpg",
         "/catalogue-media/image62.png"
       ],
       "variants": [
@@ -29602,7 +30226,9 @@
         "Separate On/Off switch for each film"
       ],
       "notes": [],
-      "images": [],
+      "images": [
+        "/catalogue-media-hq/112-x-ray-illuminator.jpg"
+      ],
       "variants": [
         {
           "model": "XV-004",
@@ -29675,6 +30301,7 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/112-x-ray-illuminator.jpg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image116.jpeg"
       ],
@@ -29763,6 +30390,7 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/112-x-ray-illuminator.jpg",
         "/catalogue-media/image62.png"
       ],
       "variants": [
@@ -29843,6 +30471,7 @@
       ],
       "notes": [],
       "images": [
+        "/catalogue-media-hq/112-x-ray-illuminator.jpg",
         "/catalogue-media/image62.png"
       ],
       "variants": [

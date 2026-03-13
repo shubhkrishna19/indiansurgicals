@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import re
+import shutil
 import unicodedata
 import zipfile
 from pathlib import Path
@@ -16,6 +17,9 @@ SOURCE_DIR = ROOT / "Company Info"
 GENERATED_DIR = ROOT / "src" / "data" / "generated"
 OUTPUT_JSON = GENERATED_DIR / "catalogue-source.json"
 MEDIA_DIR = ROOT / "public" / "catalogue-media"
+HQ_SOURCE_DIR = ROOT / "indian surgicals product images high quality"
+HQ_MEDIA_DIR = ROOT / "public" / "catalogue-media-hq"
+IMAGE_REPORT_JSON = GENERATED_DIR / "catalogue-image-report.json"
 
 
 CATEGORY_CONFIG = [
@@ -167,6 +171,150 @@ NS = {
 }
 
 
+IMAGE_TOKEN_STOPWORDS = {
+    "all",
+    "and",
+    "body",
+    "compact",
+    "copy",
+    "deluxe",
+    "electric",
+    "electrical",
+    "equipment",
+    "film",
+    "fix",
+    "fixed",
+    "fold",
+    "folding",
+    "for",
+    "four",
+    "frame",
+    "heavy",
+    "hospital",
+    "hydraulic",
+    "india",
+    "indian",
+    "industries",
+    "life",
+    "manual",
+    "mechanical",
+    "metal",
+    "mobile",
+    "model",
+    "new",
+    "non",
+    "only",
+    "part",
+    "plain",
+    "portable",
+    "semi",
+    "single",
+    "solid",
+    "ss",
+    "std",
+    "surface",
+    "table",
+    "top",
+    "tray",
+    "twin",
+    "two",
+    "type",
+    "unit",
+    "with",
+}
+
+
+FAMILY_IMAGE_QUERY_RULES = [
+    (["wing nut"], ["autoclave wing nut type"]),
+    (["p type", "pressure cooker"], ["autoclave p type"]),
+    (["digital controller", "controller"], ["autoclave p type digital", "p type with controller"]),
+    (["double wall"], ["autoclave double wall"]),
+    (["horizontal rectangular"], ["autoclave horizontal rectangular"]),
+    (["fully automatic"], ["autoclave fully automatic", "fully automatic"]),
+    (["table top", "front loading"], ["table top autoclave"]),
+    (["bowl and utensils sterilizer", "bowl sterilizer"], ["bowl sterilizer"]),
+    (["instrument sterilizer", "sterilizers"], ["sterilizer"]),
+    (["vacuum extractor"], ["suction deluxe", "suction life line ss", "suction ss plain"]),
+    (["suction unit"], ["suction", "suction deluxe"]),
+    (["suction apparatus"], ["suction", "suction apparatus"]),
+    (["slow suction", "pediatric"], ["suction ss plain", "suction"]),
+    (["foot operated"], ["suction", "suction life line ss"]),
+    (["glass jar", "polycarbonate jar"], ["suction acce", "suction"]),
+    (["x ray viewer", "x-ray viewer", "illuminator"], ["x-ray illuminator"]),
+    (["icu bed"], ["icu bed"]),
+    (["fowler bed"], ["fowler bed"]),
+    (["semi fowler"], ["fowler bed", "hospital bed"]),
+    (["hospital bed"], ["hospital bed"]),
+    (["opd couch chair", "opd couch/chair"], ["opd couch-chair"]),
+    (["opd couch"], ["opd couch"]),
+    (["pediatric bed"], ["pediatric bed"]),
+    (["motorized backrest", "recliner"], ["motorized backrest"]),
+    (["mattress"], ["mattress"]),
+    (["medicine cupboard", "medicine cupbard"], ["medicine cupboard"]),
+    (["cardiac table"], ["cardiac table"]),
+    (["mayo", "instrument trolley"], ["mayo instrument trolley", "mayo's instrument trolley"]),
+    (["wash basin stand"], ["wash basin stand"]),
+    (["i v stand", "iv stand"], ["iv stand"]),
+    (["bed side screen"], ["bed side screen"]),
+    (["kick bowl", "kick bowel"], ["kick bowel", "kick bowl"]),
+    (["recovery trolley"], ["recovery trolley"]),
+    (["folding stretcher"], ["folding stretcher"]),
+    (["spine board"], ["spine board"]),
+    (["ambulance stretcher"], ["ambulance stretcher"]),
+    (["stretcher"], ["stretcher"]),
+    (["laparoscopic", "monitor trolley"], ["laparoscopic"]),
+    (["crash cart"], ["crash cart"]),
+    (["medicine trolley"], ["medicine trolley"]),
+    (["utility trolley"], ["utility trolley"]),
+    (["oxygen cylinder"], ["oxygen cylinder"]),
+    (["foot step"], ["foot step"]),
+    (["dustbin"], ["dustbin"]),
+    (["waste bin"], ["waste bin"]),
+    (["biomedical waste trolley"], ["biomedical waste trolley"]),
+    (["revolving stool"], ["revolving stool", "patient stool"]),
+    (["patient stool"], ["patient stool"]),
+    (["surgeon chair"], ["surgeon chair"]),
+    (["baby cradle"], ["baby cradle"]),
+    (["baby bassinet"], ["baby bassinet"]),
+    (["instrument cabinet"], ["instrument cabinet"]),
+    (["labour delivery room bed"], ["labour delivery room bed"]),
+    (["delivery bed"], ["delivery bed"]),
+    (["obstetric"], ["obstetric table"]),
+    (["labour table"], ["labour table"]),
+    (["gynecological couch", "gynaecological couch"], ["gynecological couch"]),
+    (["blood chair", "blood transfusion"], ["blood transfusion chair"]),
+    (["dialysis chair"], ["dialysis chair"]),
+    (["examination couch"], ["examination couch", "examination table"]),
+    (["gynaec examination table", "gynaecological examination"], ["gynaec examination table", "examination table"]),
+    (["operation table", "c arm compatible"], ["operation table", "operating table"]),
+    (["operating table"], ["operating table", "operation table"]),
+    (["spica table"], ["spica table"]),
+    (["mortuary trolley"], ["mortuary trolley"]),
+    (["autopsy table"], ["autopsy table"]),
+    (["bariatric"], ["bariatric table"]),
+    (["infant warmer"], ["infant warmer"]),
+    (["phototherapy"], ["phototherapy unit", "baby bassinet"]),
+    (["ot light"], ["ot light", "pic"]),
+    (["examination light", "examination lights"], ["ot light", "pic"]),
+    (["bed pan"], ["bedpan"]),
+]
+
+
+CATEGORY_IMAGE_FALLBACKS = {
+    "autoclaves": ["autoclave"],
+    "sterilizers": ["sterilizer"],
+    "hospital-hollowares": ["bedpan"],
+    "suction-units": ["suction"],
+    "needle-destroyers": [],
+    "fumigators-foggers": [],
+    "x-ray-illuminators": ["x-ray illuminator"],
+    "hospital-furniture": ["ward equipments"],
+    "ward-equipments": ["ward equipments", "utility trolley"],
+    "patient-transfer-trolleys": ["stretcher", "recovery trolley"],
+    "operation-theater-lights": ["ot light", "pic"],
+}
+
+
 def clean_text(value: Any) -> str:
     if value is None:
         return ""
@@ -240,6 +388,213 @@ def unique_preserve(items: list[str]) -> list[str]:
         seen.add(key)
         result.append(cleaned)
     return result
+
+
+def tokenize_text(value: str) -> list[str]:
+    return [token for token in normalize_key(value).split() if token and token not in IMAGE_TOKEN_STOPWORDS]
+
+
+def slugify_filename(value: str) -> str:
+    return slugify(re.sub(r"\.[A-Za-z0-9]+$", "", clean_text(value)))
+
+
+def strip_copy_suffix(value: str) -> str:
+    text = clean_text(value)
+    text = re.sub(r"\bcopy\b(?:\s*\(\d+\))?", "", text, flags=re.IGNORECASE)
+    text = re.sub(r"\s+-\s*$", "", text)
+    return clean_text(text)
+
+
+def build_hq_label(filename: str) -> str:
+    stem = Path(filename).stem
+    stem = re.sub(r"^\d+\s*[- ]*", "", stem).strip()
+    stem = strip_copy_suffix(stem)
+    stem = re.sub(r"\s*\.+\s*$", "", stem)
+    return humanize_title(stem)
+
+
+def infer_category_from_text(text: str) -> str:
+    normalized = normalize_key(text)
+    if "autoclave" in normalized:
+        return "autoclaves"
+    if "steriliz" in normalized:
+        return "sterilizers"
+    if any(
+        term in normalized for term in ("bed pan", "bedpan", "kidney tray", "dressing drum", "gallipot", "holloware")
+    ):
+        return "hospital-hollowares"
+    if "suction" in normalized or "vacuum extractor" in normalized:
+        return "suction-units"
+    if "needle destroyer" in normalized:
+        return "needle-destroyers"
+    if "fumigator" in normalized or "fogger" in normalized or "disinfector" in normalized:
+        return "fumigators-foggers"
+    if "x ray" in normalized or "x-ray" in normalized or "illuminator" in normalized:
+        return "x-ray-illuminators"
+    if "patient transfer" in normalized or "stretcher" in normalized or "spine board" in normalized:
+        return "patient-transfer-trolleys"
+    if "light" in normalized or "examination" in normalized:
+        return "operation-theater-lights"
+    if any(
+        term in normalized
+        for term in ("bed", "delivery table", "operation table", "operating table", "couch", "chair")
+    ):
+        return "hospital-furniture"
+    return "ward-equipments"
+
+
+def build_family_image_queries(category_slug: str, family_name: str, subheading: str) -> tuple[list[str], bool]:
+    normalized = normalize_key(" ".join([family_name, subheading]))
+    queries: list[str] = []
+    for needles, mapped_queries in FAMILY_IMAGE_QUERY_RULES:
+        if any(needle in normalized for needle in needles):
+            queries.extend(mapped_queries)
+    if queries:
+        return unique_preserve(queries), False
+    return unique_preserve(CATEGORY_IMAGE_FALLBACKS.get(category_slug, [])), True
+
+
+def hq_image_matches_query(image: dict[str, Any], query: str) -> bool:
+    normalized_query = normalize_key(query)
+    if not normalized_query:
+        return False
+    if normalized_query in image["normalizedLabel"]:
+        return True
+    query_tokens = normalized_query.split()
+    image_tokens = image["tokens"]
+    return all(token in image_tokens for token in query_tokens)
+
+
+def score_hq_image_for_family(
+    image: dict[str, Any],
+    category_slug: str,
+    family_name: str,
+    subheading: str,
+    queries: list[str],
+) -> float:
+    normalized_family = normalize_key(" ".join([family_name, subheading]))
+    family_tokens = set(tokenize_text(normalized_family))
+    score = 0.0
+
+    if image["categorySlug"] == category_slug:
+        score += 1.25
+    elif category_slug in {"hospital-furniture", "ward-equipments"} and image["categorySlug"] in {
+        "hospital-furniture",
+        "ward-equipments",
+    }:
+        score += 0.55
+    elif image["categorySlug"] != category_slug:
+        score -= 1.0
+
+    if image["normalizedLabel"] == normalize_key(family_name):
+        score += 4.0
+    elif image["normalizedLabel"] and image["normalizedLabel"] in normalized_family:
+        score += 2.4
+
+    overlap = len(family_tokens & image["tokens"])
+    if overlap:
+        score += min(2.8, overlap * 0.65)
+
+    for query in queries:
+        if hq_image_matches_query(image, query):
+            score += 1.6
+
+    if "pic" in image["normalizedLabel"] and category_slug == "operation-theater-lights":
+        score += 1.2
+
+    if image["serial"] is not None:
+        score += 0.02
+
+    return score
+
+
+def sync_high_quality_media() -> list[dict[str, Any]]:
+    if not HQ_SOURCE_DIR.exists():
+        return []
+
+    HQ_MEDIA_DIR.mkdir(parents=True, exist_ok=True)
+    for existing in HQ_MEDIA_DIR.iterdir():
+        if existing.is_file():
+            existing.unlink()
+
+    image_records: list[dict[str, Any]] = []
+    used_targets: set[str] = set()
+
+    for source_path in sorted(HQ_SOURCE_DIR.iterdir()):
+        if not source_path.is_file():
+            continue
+
+        extension = source_path.suffix.lower()
+        if extension not in {".jpg", ".jpeg", ".png", ".webp"}:
+            continue
+
+        label = build_hq_label(source_path.name)
+        if not label:
+            continue
+        match = re.match(r"^(\d+)", source_path.stem)
+        serial = int(match.group(1)) if match else None
+
+        base_name = slugify_filename(source_path.name)
+        target_name = f"{base_name}{extension}"
+        duplicate_index = 2
+        while target_name in used_targets:
+            target_name = f"{base_name}-{duplicate_index}{extension}"
+            duplicate_index += 1
+        used_targets.add(target_name)
+
+        target_path = HQ_MEDIA_DIR / target_name
+        shutil.copyfile(source_path, target_path)
+
+        normalized_label = normalize_key(label)
+        image_records.append(
+            {
+                "originalName": source_path.name,
+                "label": label,
+                "normalizedLabel": normalized_label,
+                "tokens": set(tokenize_text(label)),
+                "serial": serial,
+                "path": f"/catalogue-media-hq/{target_name}",
+                "categorySlug": infer_category_from_text(label),
+            }
+        )
+
+    return image_records
+
+
+def collect_hq_family_images(
+    category_slug: str,
+    family_name: str,
+    subheading: str,
+    hq_images: list[dict[str, Any]],
+    limit: int = 8,
+) -> list[str]:
+    queries, used_category_fallback = build_family_image_queries(category_slug, family_name, subheading)
+    normalized_family = normalize_key(" ".join([family_name, subheading]))
+    family_tokens = set(tokenize_text(normalized_family))
+    ranked: list[tuple[float, str]] = []
+
+    for image in hq_images:
+        query_hits = sum(1 for query in queries if hq_image_matches_query(image, query))
+        overlap = len(family_tokens & image["tokens"])
+        exact_match = image["normalizedLabel"] == normalize_key(family_name)
+        family_contains_label = bool(image["normalizedLabel"] and image["normalizedLabel"] in normalized_family)
+
+        if used_category_fallback:
+            if query_hits == 0 and overlap < 2 and not exact_match and not family_contains_label:
+                continue
+        elif query_hits == 0 and overlap < 2 and not exact_match and not family_contains_label:
+            continue
+
+        score = score_hq_image_for_family(image, category_slug, family_name, subheading, queries)
+        if query_hits:
+            score += min(2.4, query_hits * 0.95)
+        if score < 2.15:
+            continue
+        ranked.append((score, image["path"]))
+
+    ranked.sort(key=lambda item: item[0], reverse=True)
+    ordered = [path for _, path in ranked]
+    return unique_preserve(ordered[:limit])
 
 
 def is_page_marker(text: str) -> bool:
@@ -620,28 +975,7 @@ def infer_category_from_spec(spec_record: dict[str, Any]) -> str:
             spec_record.get("productName", ""),
         ]
     )
-    normalized = normalize_key(combined)
-    if "autoclave" in normalized:
-        return "autoclaves"
-    if "steriliz" in normalized:
-        return "sterilizers"
-    if "holloware" in normalized or "dressing drum" in normalized or "kidney tray" in normalized:
-        return "hospital-hollowares"
-    if "suction" in normalized:
-        return "suction-units"
-    if "needle destroyer" in normalized:
-        return "needle-destroyers"
-    if "fumigator" in normalized or "fogger" in normalized or "disinfector" in normalized:
-        return "fumigators-foggers"
-    if "x ray" in normalized or "illuminator" in normalized:
-        return "x-ray-illuminators"
-    if "patient transfer" in normalized or "stretcher" in normalized:
-        return "patient-transfer-trolleys"
-    if "light" in normalized or "examination" in normalized:
-        return "operation-theater-lights"
-    if any(term in normalized for term in ("bed", "delivery table", "operation table", "couch", "chair")):
-        return "hospital-furniture"
-    return "ward-equipments"
+    return infer_category_from_text(combined)
 
 
 def first_meaningful_attribute_value(variant: dict[str, Any]) -> str:
@@ -700,7 +1034,8 @@ def merge_attributes(primary: list[dict[str, str]], secondary: list[dict[str, st
     return merged
 
 
-def build_catalogue() -> dict[str, Any]:
+def build_catalogue() -> tuple[dict[str, Any], dict[str, Any]]:
+    hq_images = sync_high_quality_media()
     image_anchors = extract_catalogue_media()
     spec_records = parse_spec_workbooks()
     sections, master_variants = parse_master_sections(image_anchors)
@@ -827,6 +1162,7 @@ def build_catalogue() -> dict[str, Any]:
         )
 
     family_list = sorted(families.values(), key=lambda item: (item["categorySlug"], item["name"]))
+    image_report: list[dict[str, Any]] = []
     for family in family_list:
         family["variants"].sort(key=lambda item: item["model"])
         if not family["summary"]:
@@ -851,8 +1187,23 @@ def build_catalogue() -> dict[str, Any]:
                 if attribute["label"] not in labels:
                     labels.append(attribute["label"])
         family["tableColumns"] = ["Model"] + labels
-        family["images"] = unique_preserve(family["images"])
+        hq_family_images = collect_hq_family_images(
+            family["categorySlug"],
+            family["name"],
+            family.get("subheading", ""),
+            hq_images,
+        )
+        family["images"] = unique_preserve(hq_family_images + family["images"])[:10]
         family["notes"] = unique_preserve(family["notes"])
+        image_report.append(
+            {
+                "family": family["name"],
+                "categorySlug": family["categorySlug"],
+                "matchedHqImages": len(hq_family_images),
+                "finalImages": len(family["images"]),
+                "images": family["images"][:8],
+            }
+        )
 
     categories: list[dict[str, Any]] = []
     for category in CATEGORY_CONFIG:
@@ -870,8 +1221,9 @@ def build_catalogue() -> dict[str, Any]:
             }
         )
 
-    return {
+    catalogue = {
         "sourceFiles": [MASTER_WORKBOOK.name] + [workbook.name for workbook in SPEC_WORKBOOKS],
+        "approvedImageSource": HQ_SOURCE_DIR.name if HQ_SOURCE_DIR.exists() else "",
         "categories": categories,
         "families": family_list,
         "sections": [
@@ -884,13 +1236,22 @@ def build_catalogue() -> dict[str, Any]:
             for section in sections
         ],
     }
+    report = {
+        "importedHighQualityImages": len(hq_images),
+        "familiesWithImages": sum(1 for family in family_list if family["images"]),
+        "familiesWithoutImages": [family["name"] for family in family_list if not family["images"]],
+        "families": image_report,
+    }
+    return catalogue, report
 
 
 def main() -> None:
     GENERATED_DIR.mkdir(parents=True, exist_ok=True)
-    catalogue = build_catalogue()
+    catalogue, image_report = build_catalogue()
     OUTPUT_JSON.write_text(json.dumps(catalogue, indent=2), encoding="utf-8")
+    IMAGE_REPORT_JSON.write_text(json.dumps(image_report, indent=2), encoding="utf-8")
     print(f"Wrote {OUTPUT_JSON}")
+    print(f"Wrote {IMAGE_REPORT_JSON}")
     print(f"Categories: {len(catalogue['categories'])}")
     print(f"Families: {len(catalogue['families'])}")
 
