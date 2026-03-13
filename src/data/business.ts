@@ -41,7 +41,7 @@ export const business: BusinessProfile = {
   brand: "Indian Surgical Industries",
   brandMark: "LIFE EQUIP",
   tagline:
-    "manufacturer of Autoclaves, Sterilisers, Hospital Furniture, Hollowares, Suction Machine, OT Equipment, X-Ray Illuminators, Fumigator/Fogger, Instrument Trays, Kidney Trays",
+    "Manufacturer of Autoclaves, Sterilisers, Hospital Furniture, Hollowares, Suction Machine, OT Equipment, X-Ray Illuminators, Fumigator/Fogger, Instrument Trays, Kidney Trays",
   shortDescription:
     "Indian Surgical Industries manufactures sterilization equipment, autoclaves, sterilizers, hospital hollowares, suction units, X-ray illuminators, hospital furniture, operation theater equipment, and allied products.",
   story: [
