@@ -1,5 +1,5 @@
 ---
-import { business, hasPublicContactDetails } from "../data/business";
+import { business } from "../data/business";
 import { getAllCategories } from "../data/catalogue";
 
 const categories = getAllCategories();
@@ -10,7 +10,7 @@ const year = new Date().getFullYear();
   <div class="container site-footer__grid">
     <section class="site-footer__intro">
       <span class="site-footer__mark">
-        <img src="/life-equip-logo.svg" alt={`${business.brandMark} logo`} />
+        <img src="/life-equip-logo.png" alt={`${business.brandMark} logo`} />
       </span>
       <h2>{business.brand}</h2>
       <p>{business.shortDescription}</p>
@@ -40,17 +40,21 @@ const year = new Date().getFullYear();
     </section>
 
     <section>
-      <h3>Business Notes</h3>
+      <h3>Contact</h3>
       <ul class="site-footer__notes">
-        <li>{business.experienceClaim} manufacturing heritage</li>
-        <li>{business.manufacturingBase}</li>
-        <li>{business.marketPresence}</li>
-        <li>{business.quoteOnlyNote}</li>
-        <li>
-          {hasPublicContactDetails()
-            ? "Public contact channels are live on the contact page."
-            : business.contactNote}
-        </li>
+        {business.contact.addressLines.map((line) => (
+          <li>{line}</li>
+        ))}
+        {business.contact.phones.map((phone) => (
+          <li><a href={`tel:${phone}`}>{phone}</a></li>
+        ))}
+        {business.contact.telephones.map((phone) => (
+          <li><a href={`tel:${phone}`}>{phone}</a></li>
+        ))}
+        {business.contact.emails.map((email) => (
+          <li><a href={`mailto:${email}`}>{email}</a></li>
+        ))}
+        <li>{business.contact.website}</li>
       </ul>
     </section>
   </div>
@@ -127,6 +131,7 @@ const year = new Date().getFullYear();
   }
 
   .site-footer__links a,
+  .site-footer__notes a,
   .site-footer__notes li {
     color: var(--color-text-muted);
     font-size: 0.93rem;

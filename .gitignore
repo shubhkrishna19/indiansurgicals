@@ -30,3 +30,4 @@ node_modules
 # Local source workbooks and brochures
 Company Info/
 __pycache__/
+tmp_logo_extract/

@@ -3,12 +3,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import CategoryCard from "../components/CategoryCard.astro";
 import ProductCard from "../components/ProductCard.astro";
 import SectionTitle from "../components/SectionTitle.astro";
-import { business } from "../data/business";
+import { business, getPrimaryContactHref } from "../data/business";
 import { getAllCategories, getCatalogueStats, getFeaturedFamilies } from "../data/catalogue";
 
 const categories = getAllCategories();
 const stats = getCatalogueStats();
 const featuredFamilies = getFeaturedFamilies(9);
+const primaryContactHref = getPrimaryContactHref();
 ---
 
 <BaseLayout
@@ -135,16 +136,73 @@ const featuredFamilies = getFeaturedFamilies(9);
     </div>
   </section>
 
+  <section class="section section--trust">
+    <div class="container">
+      <div class="trust-shell panel">
+        <div class="trust-shell__intro">
+          <SectionTitle
+            kicker="Leadership And Confidence"
+            title="A strong place for achievements, market leadership signals, and customer proof."
+            subtitle="This section is positioned near the end of the homepage so future review copy, awards, institutional proof, and leadership signals close the page with authority."
+            align="left"
+          />
+        </div>
+
+        <div class="leadership-grid">
+          {business.leadershipHighlights.map((item) => (
+            <article class="leadership-card">
+              <strong>{item.value}</strong>
+              <h3>{item.label}</h3>
+              <p>{item.note}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+
+      <div class="review-block">
+        <div class="review-block__intro">
+          <span class="eyebrow">Customer Reviews</span>
+          <h2>Customer confidence belongs here, right before the homepage closes.</h2>
+          <p>
+            Placeholder cards are live now. When you send the exact approved review copy, names, and
+            locations, this block can be updated without moving the layout again.
+          </p>
+        </div>
+
+        <div class="review-grid">
+          {business.testimonialPlaceholders.map((item) => (
+            <article class="review-card panel">
+              <div class="review-card__meta">
+                <div class="review-card__avatar" aria-hidden="true">{item.name.charAt(0)}</div>
+                <div>
+                  <strong>{item.name}</strong>
+                  <span>{item.role}</span>
+                  <small>{item.location}</small>
+                </div>
+              </div>
+
+              <p class="review-card__stars">★★★★★</p>
+              <blockquote>{item.quote}</blockquote>
+            </article>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section section--cta">
     <div class="container cta panel">
       <div>
-        <span class="eyebrow">Public Contact Layer Pending</span>
-        <h2>Catalogue, structure, and product data are live first. Final contact publishing comes next.</h2>
+        <span class="eyebrow">Works And Enquiries</span>
+        <h2>Speak with Indian Surgical Industries for quotations, product selection, and works-level contact.</h2>
       </div>
-      <p>{business.contactNote}</p>
+      <p>
+        {business.quoteOnlyNote} {business.contact.addressLines.join(", ")}. Primary contact:
+        {" "}{business.contact.phones[0]} | {business.contact.email}
+      </p>
       <div class="cta__actions">
-        <a href="/products" class="button button--primary">Explore product families</a>
-        <a href="/contact" class="button button--secondary">Open contact page</a>
+        <a href={primaryContactHref} class="button button--primary">Request quotation</a>
+        <a href="/contact" class="button button--secondary">View full contact details</a>
       </div>
     </div>
   </section>
@@ -276,6 +334,12 @@ const featuredFamilies = getFeaturedFamilies(9);
     background: linear-gradient(180deg, rgba(25, 77, 128, 0.04), rgba(25, 77, 128, 0.01));
   }
 
+  .section--trust {
+    background:
+      radial-gradient(circle at top right, rgba(201, 111, 40, 0.08), transparent 28%),
+      linear-gradient(180deg, rgba(25, 77, 128, 0.04), rgba(25, 77, 128, 0.01));
+  }
+
   .split {
     display: grid;
     grid-template-columns: 1.05fr 1fr;
@@ -309,6 +373,105 @@ const featuredFamilies = getFeaturedFamilies(9);
     color: var(--color-text-muted);
     line-height: 1.7;
     font-size: 0.93rem;
+  }
+
+  .trust-shell {
+    display: grid;
+    gap: 1.25rem;
+    padding: 1.45rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .leadership-grid,
+  .review-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .leadership-card {
+    display: grid;
+    gap: 0.7rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(84, 96, 109, 0.12);
+  }
+
+  .leadership-card strong {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--color-primary);
+  }
+
+  .leadership-card h3 {
+    font-size: 1rem;
+  }
+
+  .leadership-card p,
+  .review-block__intro p,
+  .review-card blockquote {
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .review-block {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .review-block__intro {
+    display: grid;
+    gap: 0.75rem;
+    max-width: 50rem;
+  }
+
+  .review-block__intro h2 {
+    font-size: clamp(1.9rem, 4vw, 3rem);
+    max-width: 16ch;
+  }
+
+  .review-card {
+    display: grid;
+    gap: 0.95rem;
+    padding: 1.2rem;
+  }
+
+  .review-card__meta {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+  }
+
+  .review-card__avatar {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(25, 77, 128, 0.12), rgba(201, 111, 40, 0.16));
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+  }
+
+  .review-card__meta div {
+    display: grid;
+    gap: 0.15rem;
+  }
+
+  .review-card__meta span,
+  .review-card__meta small {
+    color: var(--color-text-muted);
+  }
+
+  .review-card__stars {
+    margin: 0;
+    letter-spacing: 0.2em;
+    color: var(--color-accent);
+    font-size: 0.95rem;
   }
 
   .section--cta {
@@ -348,7 +511,9 @@ const featuredFamilies = getFeaturedFamilies(9);
     .hero__metrics,
     .category-grid,
     .family-grid,
-    .focus-grid {
+    .focus-grid,
+    .leadership-grid,
+    .review-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
@@ -357,7 +522,9 @@ const featuredFamilies = getFeaturedFamilies(9);
     .hero__metrics,
     .category-grid,
     .family-grid,
-    .focus-grid {
+    .focus-grid,
+    .leadership-grid,
+    .review-grid {
       grid-template-columns: 1fr;
     }
   }

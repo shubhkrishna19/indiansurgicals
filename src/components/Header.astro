@@ -1,5 +1,5 @@
 ---
-import { business } from "../data/business";
+import { business, getPrimaryContactHref } from "../data/business";
 
 const currentPath = Astro.url.pathname;
 const navItems = [
@@ -8,6 +8,8 @@ const navItems = [
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
+const contactSummary = `Call ${business.contact.phones[0]} | Email ${business.contact.email}`;
+const primaryContactHref = getPrimaryContactHref();
 
 function isActive(href: string) {
   if (href === "/") {
@@ -21,18 +23,18 @@ function isActive(href: string) {
   <div class="site-header__notice">
     <div class="container site-header__notice-inner">
       <span>{business.experienceClaim} manufacturing legacy</span>
-      <span>{business.quoteOnlyNote}</span>
+      <span>{contactSummary}</span>
     </div>
   </div>
 
   <div class="container site-header__bar">
     <a href="/" class="site-header__brand">
       <span class="site-header__mark">
-        <img src="/life-equip-logo.svg" alt={`${business.brandMark} logo`} />
+        <img src="/life-equip-logo.png" alt={`${business.brandMark} logo`} />
       </span>
       <span class="site-header__brand-copy">
         <strong>{business.brand}</strong>
-        <small>Industrial medical equipment catalogue</small>
+        <small>{business.tagline}</small>
       </span>
     </a>
 
@@ -44,7 +46,7 @@ function isActive(href: string) {
       ))}
     </nav>
 
-    <a href="/contact" class="site-header__cta">Request details</a>
+    <a href={primaryContactHref} class="site-header__cta">Request quotation</a>
   </div>
 </header>
 
@@ -122,6 +124,7 @@ function isActive(href: string) {
   .site-header__brand-copy small {
     color: var(--color-text-muted);
     font-size: 0.8rem;
+    max-width: 28rem;
   }
 
   .site-header__nav {
@@ -192,6 +195,10 @@ function isActive(href: string) {
       justify-content: space-between;
       overflow-x: auto;
       padding-bottom: 0.3rem;
+    }
+
+    .site-header__brand-copy small {
+      max-width: none;
     }
   }
 

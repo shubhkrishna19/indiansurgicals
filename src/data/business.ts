@@ -13,10 +13,20 @@ export interface BusinessProfile {
   quoteOnlyNote: string;
   contactNote: string;
   contactReady: boolean;
+  leadershipHighlights: { value: string; label: string; note: string }[];
+  testimonialPlaceholders: {
+    name: string;
+    role: string;
+    location: string;
+    quote: string;
+  }[];
   contact: {
     phones: string[];
+    telephones: string[];
     whatsappNumber: string;
     email: string;
+    emails: string[];
+    website: string;
     addressLines: string[];
   };
   heroMetrics: { label: string; value: string }[];
@@ -56,13 +66,65 @@ export const business: BusinessProfile = {
   quoteOnlyNote:
     "All products on this website are catalogue products only. Pricing is shared on request based on model, quantity, and dispatch requirements.",
   contactNote:
-    "Official public contact details will be added shortly. The catalogue, company profile, and product range are live for review now.",
-  contactReady: false,
+    "Works address, phone numbers, and email contacts are now published. The public website field is intentionally shown as example.com for now.",
+  contactReady: true,
+  leadershipHighlights: [
+    {
+      value: "40+ years",
+      label: "Manufacturing continuity",
+      note: "A long-standing operating base across sterilization, utility, patient care, and OT support products.",
+    },
+    {
+      value: "170+",
+      label: "Product families",
+      note: "One structured catalogue spanning family-level pages and model-specific specification views.",
+    },
+    {
+      value: "11",
+      label: "Core business sections",
+      note: "From autoclaves and sterilizers to hospital furniture, ward equipment, and OT lighting.",
+    },
+    {
+      value: "ISO / CE",
+      label: "Quality-led positioning",
+      note: "Presentation aligned to institutional procurement expectations and long-range product confidence.",
+    },
+  ],
+  testimonialPlaceholders: [
+    {
+      name: "Institutional Review Placeholder",
+      role: "Procurement leadership",
+      location: "Hospital network",
+      quote:
+        "Approved customer review text will be placed here to highlight purchase confidence, product consistency, and post-sale satisfaction.",
+    },
+    {
+      name: "Dealer Feedback Placeholder",
+      role: "Channel partner",
+      location: "Domestic market",
+      quote:
+        "This placeholder is reserved for a future dealer or distributor review about range depth, service support, and repeat business trust.",
+    },
+    {
+      name: "Export Buyer Placeholder",
+      role: "International buyer",
+      location: "Global market",
+      quote:
+        "A final approved quote can be inserted here later to present export confidence, quality perception, and long-term product reliability.",
+    },
+  ],
   contact: {
-    phones: [],
-    whatsappNumber: "",
-    email: "",
-    addressLines: ["Noida, Uttar Pradesh, India"],
+    phones: ["+91-9350042221", "+91-9999941419"],
+    telephones: ["+91-120-4240656"],
+    whatsappNumber: "919350042221",
+    email: "info@indiansurgical.com",
+    emails: ["info@indiansurgical.com", "indiansurgical@gmail.com"],
+    website: "example.com",
+    addressLines: [
+      "Works: A-49, Sector-64, Phase-III",
+      "Gautam Budh Nagar, Noida, U.P.-201301",
+      "India",
+    ],
   },
   heroMetrics: [
     { label: "Years of manufacturing", value: "40+" },
