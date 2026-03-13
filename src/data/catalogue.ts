@@ -12,6 +12,14 @@ export interface CatalogueCategory {
   gallery: string[];
 }
 
+export interface CatalogueExports {
+  generatedAt: string;
+  previewPath: string;
+  workbookPath: string;
+  workbookName: string;
+  sheets: string[];
+}
+
 export interface FamilyAttribute {
   label: string;
   value: string;
@@ -56,6 +64,7 @@ export const catalogueCategories = [...(source.categories as CatalogueCategory[]
 );
 
 export const catalogueFamilies = source.families as ProductFamily[];
+export const catalogueExports = source.exports as CatalogueExports;
 
 const categoryBySlug = new Map(catalogueCategories.map((category) => [category.slug, category]));
 const familyByKey = new Map(
@@ -72,6 +81,10 @@ export function getAllCategories(): CatalogueCategory[] {
 
 export function getAllFamilies(): ProductFamily[] {
   return catalogueFamilies;
+}
+
+export function getCatalogueExports(): CatalogueExports {
+  return catalogueExports;
 }
 
 export function getFamiliesByCategory(categorySlug: string): ProductFamily[] {

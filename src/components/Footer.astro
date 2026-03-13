@@ -1,9 +1,10 @@
 ---
-import { business } from "../data/business";
+import { business, getWhatsAppLink } from "../data/business";
 import { getAllCategories } from "../data/catalogue";
 
 const categories = getAllCategories();
 const year = new Date().getFullYear();
+const whatsappLink = getWhatsAppLink();
 ---
 
 <footer class="site-footer">
@@ -19,6 +20,19 @@ const year = new Date().getFullYear();
           <li>{item}</li>
         ))}
       </ul>
+
+      <div class="site-footer__socials">
+        <a href={whatsappLink} class="site-footer__social" target="_blank" rel="noreferrer">WhatsApp</a>
+        <a
+          href={business.socialLinks.instagram}
+          class="site-footer__social"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Instagram
+        </a>
+        <span class="site-footer__social site-footer__social--placeholder">Twitter</span>
+      </div>
     </section>
 
     <section>
@@ -34,7 +48,9 @@ const year = new Date().getFullYear();
       <h3>Company</h3>
       <ul class="site-footer__links">
         <li><a href="/about">About the manufacturer</a></li>
+        <li><a href="/get-quote">Get quote and contact</a></li>
         <li><a href="/products">Browse all product families</a></li>
+        <li><a href="/catalogue-preview">Open catalogue preview</a></li>
         <li><a href="/contact">Contact and enquiry status</a></li>
       </ul>
     </section>
@@ -58,6 +74,22 @@ const year = new Date().getFullYear();
       </ul>
     </section>
   </div>
+
+  <section class="container site-footer__shipping" aria-label="Supported global shipment countries">
+    <div class="site-footer__shipping-copy">
+      <h3>Supported Global Shipment Countries</h3>
+      <p>
+        Indian Surgical Industries supports shipment and export-led product enquiries across the
+        following markets for institutional, dealer, and procurement-led requirements.
+      </p>
+    </div>
+
+    <ul class="site-footer__shipping-list">
+      {business.globalShipmentCountries.map((country) => (
+        <li>{country}</li>
+      ))}
+    </ul>
+  </section>
 
   <div class="container site-footer__bottom">
     <span>(c) {year} {business.brand}. All rights reserved.</span>
@@ -154,6 +186,32 @@ const year = new Date().getFullYear();
     font-weight: 700;
   }
 
+  .site-footer__socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin-top: 1rem;
+  }
+
+  .site-footer__social {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    padding: 0.55rem 0.9rem;
+    background: rgba(11, 27, 43, 0.92);
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .site-footer__social--placeholder {
+    background: rgba(84, 96, 109, 0.14);
+    color: var(--color-text-muted);
+  }
+
   .site-footer__bottom {
     display: flex;
     justify-content: space-between;
@@ -163,6 +221,50 @@ const year = new Date().getFullYear();
     border-top: 1px solid rgba(84, 96, 109, 0.14);
     color: var(--color-text-muted);
     font-size: 0.82rem;
+  }
+
+  .site-footer__shipping {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2.2rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid rgba(84, 96, 109, 0.14);
+  }
+
+  .site-footer__shipping-copy {
+    display: grid;
+    gap: 0.55rem;
+    max-width: 58rem;
+  }
+
+  .site-footer__shipping-copy h3 {
+    margin: 0;
+  }
+
+  .site-footer__shipping-copy p {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 0.94rem;
+    line-height: 1.65;
+  }
+
+  .site-footer__shipping-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .site-footer__shipping-list li {
+    border-radius: 999px;
+    padding: 0.48rem 0.82rem;
+    background: rgba(25, 77, 128, 0.07);
+    color: var(--color-primary);
+    font-size: 0.8rem;
+    font-weight: 600;
+    line-height: 1.2;
   }
 
   @media (max-width: 960px) {

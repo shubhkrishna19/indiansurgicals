@@ -1,0 +1,179 @@
+---
+import { getCatalogueExports, getCatalogueStats } from "../data/catalogue";
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  compact?: boolean;
+}
+
+const {
+  title = "Download a structured public catalogue workbook or open a concise preview.",
+  subtitle = "The workbook is generated from the same normalized data driving the website, so category order, family grouping, and model coverage stay aligned.",
+  compact = false,
+} = Astro.props;
+
+const catalogueExports = getCatalogueExports();
+const stats = getCatalogueStats();
+const generatedDate = new Date(catalogueExports.generatedAt);
+const generatedLabel = Number.isNaN(generatedDate.getTime())
+  ? catalogueExports.generatedAt
+  : generatedDate.toLocaleDateString("en-IN", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+    });
+---
+
+<section class:list={["catalogue-download panel", { "catalogue-download--compact": compact }]}>
+  <div class="catalogue-download__copy">
+    <span class="catalogue-download__kicker">Catalogue Export</span>
+    <h2>{title}</h2>
+    <p>{subtitle}</p>
+  </div>
+
+  <div class="catalogue-download__actions">
+    <a href={catalogueExports.previewPath} class="button button--primary">Open preview</a>
+    <a
+      href={catalogueExports.workbookPath}
+      class="button button--secondary"
+      download={catalogueExports.workbookName}
+    >
+      Download workbook (.xlsx)
+    </a>
+  </div>
+
+  <div class="catalogue-download__meta">
+    <article>
+      <strong>{stats.categoryCount}</strong>
+      <span>categories</span>
+    </article>
+    <article>
+      <strong>{stats.familyCount}</strong>
+      <span>families</span>
+    </article>
+    <article>
+      <strong>{stats.variantCount}</strong>
+      <span>model variants</span>
+    </article>
+    <article>
+      <strong>{generatedLabel}</strong>
+      <span>latest export date</span>
+    </article>
+  </div>
+
+  <div class="catalogue-download__sheets">
+    {catalogueExports.sheets.map((sheet) => (
+      <span>{sheet}</span>
+    ))}
+  </div>
+</section>
+
+<style>
+  .catalogue-download {
+    display: grid;
+    gap: 1.2rem;
+    padding: 1.35rem;
+    background:
+      radial-gradient(circle at top right, rgba(201, 111, 40, 0.12), transparent 24%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(244, 247, 249, 0.96));
+  }
+
+  .catalogue-download__copy {
+    display: grid;
+    gap: 0.7rem;
+    max-width: 54rem;
+  }
+
+  .catalogue-download__kicker {
+    color: var(--color-primary);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .catalogue-download__copy h2,
+  .catalogue-download__copy p {
+    margin: 0;
+  }
+
+  .catalogue-download__copy h2 {
+    font-size: clamp(1.7rem, 3vw, 2.5rem);
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+  }
+
+  .catalogue-download__copy p {
+    color: var(--color-text-muted);
+    line-height: 1.75;
+  }
+
+  .catalogue-download__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+  }
+
+  .catalogue-download__meta {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.85rem;
+  }
+
+  .catalogue-download__meta article {
+    display: grid;
+    gap: 0.28rem;
+    padding: 0.9rem 1rem;
+    border-radius: 1rem;
+    background: rgba(25, 77, 128, 0.06);
+  }
+
+  .catalogue-download__meta strong {
+    font-size: 1.08rem;
+  }
+
+  .catalogue-download__meta span {
+    color: var(--color-text-muted);
+    font-size: 0.82rem;
+  }
+
+  .catalogue-download__sheets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .catalogue-download__sheets span {
+    border-radius: 999px;
+    padding: 0.46rem 0.8rem;
+    background: rgba(11, 27, 43, 0.08);
+    color: var(--color-text);
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+
+  .catalogue-download--compact {
+    padding: 1.1rem;
+  }
+
+  .catalogue-download--compact .catalogue-download__copy h2 {
+    font-size: clamp(1.4rem, 2.4vw, 1.95rem);
+  }
+
+  @media (max-width: 900px) {
+    .catalogue-download__meta {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 640px) {
+    .catalogue-download__actions {
+      display: grid;
+    }
+
+    .catalogue-download__meta {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

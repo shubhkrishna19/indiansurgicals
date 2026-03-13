@@ -10,6 +10,7 @@ export interface BusinessProfile {
   certifications: string[];
   focusAreas: string[];
   customerSegments: string[];
+  globalShipmentCountries: string[];
   quoteOnlyNote: string;
   contactNote: string;
   contactReady: boolean;
@@ -29,6 +30,10 @@ export interface BusinessProfile {
     website: string;
     addressLines: string[];
   };
+  socialLinks: {
+    instagram: string;
+    twitter: string;
+  };
   heroMetrics: { label: string; value: string }[];
 }
 
@@ -36,7 +41,7 @@ export const business: BusinessProfile = {
   brand: "Indian Surgical Industries",
   brandMark: "LIFE EQUIP",
   tagline:
-    "Manufacturer of sterilization systems, hospital furniture, hollowares, suction units, and OT equipment.",
+    "manufacturer of Autoclaves, Sterilisers, Hospital Furniture, Hollowares, Suction Machine, OT Equipment, X-Ray Illuminators, Fumigator/Fogger, Instrument Trays, Kidney Trays",
   shortDescription:
     "Indian Surgical Industries manufactures sterilization equipment, autoclaves, sterilizers, hospital hollowares, suction units, X-ray illuminators, hospital furniture, operation theater equipment, and allied products.",
   story: [
@@ -62,6 +67,38 @@ export const business: BusinessProfile = {
     "Government medical colleges and hospitals",
     "Medical research institutions",
     "Institutional procurement teams",
+  ],
+  globalShipmentCountries: [
+    "United States",
+    "Germany",
+    "Netherlands",
+    "Mexico",
+    "China",
+    "Ireland",
+    "Switzerland",
+    "Belgium",
+    "Italy",
+    "France",
+    "United Kingdom",
+    "Spain",
+    "Japan",
+    "South Korea",
+    "Singapore",
+    "Taiwan",
+    "Nepal",
+    "Canada",
+    "Sweden",
+    "Denmark",
+    "Israel",
+    "Costa Rica",
+    "Dominican Republic",
+    "Malaysia",
+    "Thailand",
+    "Sri Lanka",
+    "Bhutan",
+    "Bangladesh",
+    "Nigeria",
+    "Myanmar",
   ],
   quoteOnlyNote:
     "All products on this website are catalogue products only. Pricing is shared on request based on model, quantity, and dispatch requirements.",
@@ -117,14 +154,18 @@ export const business: BusinessProfile = {
     phones: ["+91-9350042221", "+91-9999941419"],
     telephones: ["+91-120-4240656"],
     whatsappNumber: "919350042221",
-    email: "info@indiansurgical.com",
-    emails: ["info@indiansurgical.com", "indiansurgical@gmail.com"],
+    email: "indiansurgical@gmail.com",
+    emails: ["indiansurgical@gmail.com", "info@indiansurgical.com"],
     website: "example.com",
     addressLines: [
       "Works: A-49, Sector-64, Phase-III",
       "Gautam Budh Nagar, Noida, U.P.-201301",
       "India",
     ],
+  },
+  socialLinks: {
+    instagram: "https://www.instagram.com/indiansurgicalindustries?igsh=MTYxMXhqOTZxaXRhMQ==",
+    twitter: "#",
   },
   heroMetrics: [
     { label: "Years of manufacturing", value: "40+" },

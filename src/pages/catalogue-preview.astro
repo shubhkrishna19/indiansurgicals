@@ -1,0 +1,275 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CatalogueDownloadPanel from "../components/CatalogueDownloadPanel.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import { business } from "../data/business";
+import { getAllCategories, getCatalogueExports, getFamiliesByCategory } from "../data/catalogue";
+
+const categories = getAllCategories();
+const catalogueExports = getCatalogueExports();
+---
+
+<BaseLayout
+  title="Catalogue Preview"
+  description="Preview the public catalogue export for Indian Surgical Industries and download the structured workbook."
+>
+  <section class="section preview-hero">
+    <div class="container preview-hero__grid">
+      <div class="preview-hero__copy">
+        <span class="eyebrow">Catalogue Preview</span>
+        <h1>A concise export surface for circulation, shortlist review, and category-level product understanding.</h1>
+        <p>
+          This preview is designed for public viewing while the workbook gives a clean downloadable file for
+          distributors, hospitals, institutions, and marketing sharing. It follows the same normalized
+          business structure as the live website.
+        </p>
+      </div>
+
+      <aside class="preview-hero__aside panel">
+        <p class="preview-hero__aside-kicker">Commercial mode</p>
+        <h2>Public specifications, direct quotations.</h2>
+        <p>{business.quoteOnlyNote}</p>
+        <a href={catalogueExports.workbookPath} download={catalogueExports.workbookName} class="button button--primary">
+          Download workbook
+        </a>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <CatalogueDownloadPanel compact={false} />
+    </div>
+  </section>
+
+  <section class="section section--band">
+    <div class="container">
+      <SectionTitle
+        kicker="Category Matrix"
+        title="The export is arranged by the real business sections."
+        subtitle="This keeps the public preview, website navigation, and downloadable workbook aligned for circulation and future collateral design."
+        align="left"
+      />
+
+      <div class="preview-table panel">
+        <div class="preview-table__wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Families</th>
+                <th>Model Variants</th>
+                <th>Public Summary</th>
+              </tr>
+            </thead>
+            <tbody>
+              {categories.map((category) => (
+                <tr>
+                  <td><a href={`/products/${category.slug}`}>{category.name}</a></td>
+                  <td>{category.familyCount}</td>
+                  <td>{category.variantCount}</td>
+                  <td>{category.summary}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionTitle
+        kicker="Preview Cut"
+        title="Representative families from each category."
+        subtitle="This page stays concise by showing only a focused cut, while the workbook carries the complete family and model matrix."
+        align="left"
+      />
+
+      <div class="preview-category-grid">
+        {categories.map((category) => {
+          const families = getFamiliesByCategory(category.slug).slice(0, 4);
+          return (
+            <article class="preview-category panel">
+              <div class="preview-category__head">
+                <div>
+                  <span>{category.name}</span>
+                  <h2>{category.familyCount} families</h2>
+                </div>
+                <a href={`/products/${category.slug}`}>Open section</a>
+              </div>
+
+              <ul>
+                {families.map((family) => (
+                  <li>
+                    <a href={`/products/${family.categorySlug}/${family.slug}`}>{family.name}</a>
+                    <small>{family.variants.length} model{family.variants.length === 1 ? "" : "s"}</small>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .preview-hero {
+    padding-top: 4.4rem;
+  }
+
+  .preview-hero__grid {
+    display: grid;
+    grid-template-columns: 1.28fr 0.82fr;
+    gap: 1.6rem;
+    align-items: start;
+  }
+
+  .preview-hero__copy {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .preview-hero__copy h1 {
+    font-size: clamp(2.5rem, 5vw, 4.4rem);
+    line-height: 0.95;
+    letter-spacing: -0.05em;
+    max-width: 12ch;
+  }
+
+  .preview-hero__copy p {
+    margin: 0;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+    max-width: 56rem;
+  }
+
+  .preview-hero__aside {
+    display: grid;
+    gap: 0.9rem;
+    padding: 1.25rem;
+  }
+
+  .preview-hero__aside-kicker {
+    margin: 0;
+    color: var(--color-primary);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .preview-table {
+    padding: 0.9rem;
+  }
+
+  .preview-table__wrap {
+    overflow-x: auto;
+  }
+
+  .preview-table table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .preview-table th,
+  .preview-table td {
+    padding: 0.95rem 1rem;
+    border-bottom: 1px solid rgba(84, 96, 109, 0.12);
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .preview-table th {
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+  }
+
+  .preview-table td {
+    color: var(--color-text-muted);
+    line-height: 1.65;
+  }
+
+  .preview-category-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .preview-category {
+    display: grid;
+    gap: 1rem;
+    padding: 1.15rem;
+  }
+
+  .preview-category__head {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: start;
+  }
+
+  .preview-category__head span {
+    display: inline-block;
+    color: var(--color-primary);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.35rem;
+  }
+
+  .preview-category__head h2 {
+    margin: 0;
+    font-size: 1.25rem;
+  }
+
+  .preview-category__head a {
+    color: var(--color-primary);
+    font-weight: 700;
+  }
+
+  .preview-category ul {
+    display: grid;
+    gap: 0.85rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .preview-category li {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.8rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid rgba(84, 96, 109, 0.12);
+  }
+
+  .preview-category small {
+    color: var(--color-text-muted);
+    white-space: nowrap;
+  }
+
+  .section--band {
+    background: linear-gradient(180deg, rgba(25, 77, 128, 0.04), rgba(25, 77, 128, 0.01));
+  }
+
+  @media (max-width: 920px) {
+    .preview-hero__grid,
+    .preview-category-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .preview-category li,
+    .preview-category__head {
+      flex-direction: column;
+    }
+  }
+</style>

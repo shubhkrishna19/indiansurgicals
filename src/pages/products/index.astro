@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import CatalogueDownloadPanel from "../../components/CatalogueDownloadPanel.astro";
 import ProductCard from "../../components/ProductCard.astro";
 import SectionTitle from "../../components/SectionTitle.astro";
 import { getAllCategories, getAllFamilies } from "../../data/catalogue";
@@ -19,6 +20,12 @@ const families = getAllFamilies();
         title="Search families, compare sections, and move into model-level specification pages."
         subtitle="Every card below represents a product family. Open it to read the full overview and inspect available models, capacities, sizes, and other attributes."
         align="left"
+      />
+
+      <CatalogueDownloadPanel
+        compact={true}
+        title="Need a catalogue file for circulation or review?"
+        subtitle="Use the public preview for quick presentation and the workbook for a structured downloadable cut of the same catalogue."
       />
 
       <div class="catalogue-toolbar panel">
@@ -109,6 +116,7 @@ const families = getAllFamilies();
     display: grid;
     gap: 1rem;
     padding: 1.2rem;
+    margin-top: 1.2rem;
     margin-bottom: 1.4rem;
   }
 

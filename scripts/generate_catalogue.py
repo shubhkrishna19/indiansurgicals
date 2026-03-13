@@ -5,11 +5,14 @@ import re
 import shutil
 import unicodedata
 import zipfile
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 import xml.etree.ElementTree as ET
 
-from openpyxl import load_workbook
+from openpyxl import Workbook, load_workbook
+from openpyxl.styles import Alignment, Font, PatternFill
+from openpyxl.utils import get_column_letter
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -20,6 +23,10 @@ MEDIA_DIR = ROOT / "public" / "catalogue-media"
 HQ_SOURCE_DIR = ROOT / "indian surgicals product images high quality"
 HQ_MEDIA_DIR = ROOT / "public" / "catalogue-media-hq"
 IMAGE_REPORT_JSON = GENERATED_DIR / "catalogue-image-report.json"
+DOWNLOADS_DIR = ROOT / "public" / "downloads"
+EXPORT_WORKBOOK = DOWNLOADS_DIR / "indian-surgical-industries-catalogue.xlsx"
+EXPORT_PREVIEW_PATH = "/catalogue-preview"
+EXPORT_WORKBOOK_PATH = f"/downloads/{EXPORT_WORKBOOK.name}"
 
 
 CATEGORY_CONFIG = [
@@ -388,6 +395,230 @@ def unique_preserve(items: list[str]) -> list[str]:
         seen.add(key)
         result.append(cleaned)
     return result
+
+
+def join_compact(items: list[str], limit: int | None = None, separator: str = " | ") -> str:
+    values = unique_preserve(items)
+    if limit is not None:
+        values = values[:limit]
+    return separator.join(values)
+
+
+def format_attribute_pairs(attributes: list[dict[str, str]], limit: int | None = None) -> str:
+    pairs = []
+    for attribute in attributes:
+        label = clean_text(attribute.get("label", ""))
+        value = clean_text(attribute.get("value", ""))
+        if not label or not value or normalize_key(label) == "model":
+            continue
+        pairs.append(f"{label}: {value}")
+    return join_compact(pairs, limit=limit)
+
+
+def style_sheet_title(sheet: Any, row: int, title: str, end_column: int = 8) -> None:
+    sheet.merge_cells(start_row=row, start_column=1, end_row=row, end_column=end_column)
+    cell = sheet.cell(row=row, column=1, value=title)
+    cell.font = Font(name="Calibri", size=16, bold=True, color="FFFFFF")
+    cell.fill = PatternFill("solid", fgColor="194D80")
+    cell.alignment = Alignment(horizontal="left", vertical="center")
+
+
+def style_sheet_subtitle(sheet: Any, row: int, text: str, end_column: int = 8) -> None:
+    sheet.merge_cells(start_row=row, start_column=1, end_row=row, end_column=end_column)
+    cell = sheet.cell(row=row, column=1, value=text)
+    cell.font = Font(name="Calibri", size=10, italic=True, color="3F4B59")
+    cell.fill = PatternFill("solid", fgColor="EEF3F7")
+    cell.alignment = Alignment(horizontal="left", vertical="center", wrap_text=True)
+
+
+def style_table_header(row: Any, fill_color: str = "C96F28") -> None:
+    for cell in row:
+        cell.font = Font(name="Calibri", size=11, bold=True, color="FFFFFF")
+        cell.fill = PatternFill("solid", fgColor=fill_color)
+        cell.alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
+
+
+def autosize_sheet(sheet: Any, min_width: int = 12, max_width: int = 42) -> None:
+    for column_cells in sheet.columns:
+        column_index = column_cells[0].column
+        max_length = 0
+        for cell in column_cells:
+            value = clean_text(cell.value)
+            if value:
+                max_length = max(max_length, len(value))
+        sheet.column_dimensions[get_column_letter(column_index)].width = min(max(max_length + 2, min_width), max_width)
+
+
+def style_body_cells(sheet: Any, start_row: int, end_row: int) -> None:
+    for row in sheet.iter_rows(min_row=start_row, max_row=end_row):
+        for cell in row:
+            cell.alignment = Alignment(vertical="top", wrap_text=True)
+
+
+def write_catalogue_workbook(catalogue: dict[str, Any], generated_at: str) -> None:
+    DOWNLOADS_DIR.mkdir(parents=True, exist_ok=True)
+
+    workbook = Workbook()
+    overview = workbook.active
+    overview.title = "Overview"
+    categories_sheet = workbook.create_sheet("Categories")
+    families_sheet = workbook.create_sheet("Families")
+    models_sheet = workbook.create_sheet("Models")
+
+    family_count = len(catalogue["families"])
+    variant_count = sum(len(family["variants"]) for family in catalogue["families"])
+
+    style_sheet_title(overview, 1, "Indian Surgical Industries Public Catalogue", end_column=6)
+    style_sheet_subtitle(
+        overview,
+        2,
+        "Structured export arranged for distributors, institutions, marketing circulation, and quick range review. All products are quote only.",
+        end_column=6,
+    )
+
+    overview.cell(row=4, column=1, value="Generated")
+    overview.cell(row=4, column=2, value=generated_at)
+    overview.cell(row=5, column=1, value="Categories")
+    overview.cell(row=5, column=2, value=len(catalogue["categories"]))
+    overview.cell(row=6, column=1, value="Product families")
+    overview.cell(row=6, column=2, value=family_count)
+    overview.cell(row=7, column=1, value="Model variants")
+    overview.cell(row=7, column=2, value=variant_count)
+    overview.cell(row=8, column=1, value="Download")
+    overview.cell(row=8, column=2, value=EXPORT_WORKBOOK_PATH)
+    overview.cell(row=9, column=1, value="Preview")
+    overview.cell(row=9, column=2, value=EXPORT_PREVIEW_PATH)
+
+    for cell in overview["A4":"A9"]:
+        for item in cell:
+            item.font = Font(name="Calibri", bold=True, color="194D80")
+
+    overview.append([])
+    overview.append(["Category", "Families", "Model Variants", "Summary"])
+    style_table_header(overview[11], fill_color="194D80")
+    for category in catalogue["categories"]:
+        overview.append(
+            [
+                category["name"],
+                category["familyCount"],
+                category["variantCount"],
+                category["summary"],
+            ]
+        )
+    style_body_cells(overview, 12, overview.max_row)
+    overview.freeze_panes = "A11"
+    autosize_sheet(overview, min_width=14, max_width=46)
+
+    style_sheet_title(categories_sheet, 1, "Category Index", end_column=5)
+    style_sheet_subtitle(
+        categories_sheet,
+        2,
+        "Concise public-facing category summary for quick buyer navigation and marketing overview.",
+        end_column=5,
+    )
+    categories_sheet.append([])
+    categories_sheet.append(["Category", "Families", "Model Variants", "Representative Families", "Category Summary"])
+    style_table_header(categories_sheet[4], fill_color="194D80")
+    for category in catalogue["categories"]:
+        related_families = [family for family in catalogue["families"] if family["categorySlug"] == category["slug"]]
+        categories_sheet.append(
+            [
+                category["name"],
+                category["familyCount"],
+                category["variantCount"],
+                join_compact([family["name"] for family in related_families], limit=5),
+                category["summary"],
+            ]
+        )
+    style_body_cells(categories_sheet, 5, categories_sheet.max_row)
+    categories_sheet.freeze_panes = "A4"
+    autosize_sheet(categories_sheet, min_width=14, max_width=46)
+
+    style_sheet_title(families_sheet, 1, "Product Families", end_column=9)
+    style_sheet_subtitle(
+        families_sheet,
+        2,
+        "Family-level export intended for public viewing, advertisement circulation, and shortlist building before quotation discussion.",
+        end_column=9,
+    )
+    families_sheet.append([])
+    families_sheet.append(
+        [
+            "Category",
+            "Product Family",
+            "Subheading",
+            "Models",
+            "Summary",
+            "Highlights",
+            "Representative Models",
+            "Image Count",
+            "Website Path",
+        ]
+    )
+    style_table_header(families_sheet[4], fill_color="194D80")
+    for family in catalogue["families"]:
+        families_sheet.append(
+            [
+                next(
+                    (category["name"] for category in catalogue["categories"] if category["slug"] == family["categorySlug"]),
+                    family["categorySlug"],
+                ),
+                family["name"],
+                family.get("subheading", ""),
+                len(family["variants"]),
+                family["summary"],
+                join_compact(family.get("highlights", []), limit=3),
+                join_compact([variant["model"] for variant in family["variants"]], limit=8),
+                len(family.get("images", [])),
+                f"/products/{family['categorySlug']}/{family['slug']}",
+            ]
+        )
+    style_body_cells(families_sheet, 5, families_sheet.max_row)
+    families_sheet.freeze_panes = "A4"
+    autosize_sheet(families_sheet, min_width=14, max_width=48)
+
+    style_sheet_title(models_sheet, 1, "Model Matrix", end_column=7)
+    style_sheet_subtitle(
+        models_sheet,
+        2,
+        "Model-level specification export for catalogue comparison, lead qualification, and product understanding without public pricing.",
+        end_column=7,
+    )
+    models_sheet.append([])
+    models_sheet.append(
+        [
+            "Category",
+            "Product Family",
+            "Model",
+            "Key Specifications",
+            "Supporting Notes",
+            "Image Count",
+            "Website Path",
+        ]
+    )
+    style_table_header(models_sheet[4], fill_color="194D80")
+    for family in catalogue["families"]:
+        category_name = next(
+            (category["name"] for category in catalogue["categories"] if category["slug"] == family["categorySlug"]),
+            family["categorySlug"],
+        )
+        for variant in family["variants"]:
+            models_sheet.append(
+                [
+                    category_name,
+                    family["name"],
+                    variant["model"],
+                    format_attribute_pairs(variant.get("attributes", []), limit=8),
+                    join_compact(variant.get("descriptionLines", []), limit=3),
+                    len(variant.get("images", [])),
+                    f"/products/{family['categorySlug']}/{family['slug']}",
+                ]
+            )
+    style_body_cells(models_sheet, 5, models_sheet.max_row)
+    models_sheet.freeze_panes = "A4"
+    autosize_sheet(models_sheet, min_width=14, max_width=52)
+
+    workbook.save(EXPORT_WORKBOOK)
 
 
 def tokenize_text(value: str) -> list[str]:
@@ -1035,6 +1266,7 @@ def merge_attributes(primary: list[dict[str, str]], secondary: list[dict[str, st
 
 
 def build_catalogue() -> tuple[dict[str, Any], dict[str, Any]]:
+    generated_at = datetime.now().astimezone().replace(microsecond=0).isoformat()
     hq_images = sync_high_quality_media()
     image_anchors = extract_catalogue_media()
     spec_records = parse_spec_workbooks()
@@ -1224,6 +1456,13 @@ def build_catalogue() -> tuple[dict[str, Any], dict[str, Any]]:
     catalogue = {
         "sourceFiles": [MASTER_WORKBOOK.name] + [workbook.name for workbook in SPEC_WORKBOOKS],
         "approvedImageSource": HQ_SOURCE_DIR.name if HQ_SOURCE_DIR.exists() else "",
+        "exports": {
+            "generatedAt": generated_at,
+            "previewPath": EXPORT_PREVIEW_PATH,
+            "workbookPath": EXPORT_WORKBOOK_PATH,
+            "workbookName": EXPORT_WORKBOOK.name,
+            "sheets": ["Overview", "Categories", "Families", "Models"],
+        },
         "categories": categories,
         "families": family_list,
         "sections": [
@@ -1248,8 +1487,10 @@ def build_catalogue() -> tuple[dict[str, Any], dict[str, Any]]:
 def main() -> None:
     GENERATED_DIR.mkdir(parents=True, exist_ok=True)
     catalogue, image_report = build_catalogue()
+    write_catalogue_workbook(catalogue, catalogue["exports"]["generatedAt"])
     OUTPUT_JSON.write_text(json.dumps(catalogue, indent=2), encoding="utf-8")
     IMAGE_REPORT_JSON.write_text(json.dumps(image_report, indent=2), encoding="utf-8")
+    print(f"Wrote {EXPORT_WORKBOOK}")
     print(f"Wrote {OUTPUT_JSON}")
     print(f"Wrote {IMAGE_REPORT_JSON}")
     print(f"Categories: {len(catalogue['categories'])}")

@@ -1,15 +1,51 @@
 ---
-import { business, getPrimaryContactHref } from "../data/business";
+import { business } from "../data/business";
+import { getAllCategories } from "../data/catalogue";
 
 const currentPath = Astro.url.pathname;
-const navItems = [
-  { href: "/", label: "Home" },
-  { href: "/products", label: "Catalogue" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
-];
+const categories = getAllCategories();
 const contactSummary = `Call ${business.contact.phones[0]} | Email ${business.contact.email}`;
-const primaryContactHref = getPrimaryContactHref();
+
+const catalogueMenu = [
+  {
+    href: "/products",
+    label: "Browse full catalogue",
+    note: `${categories.length} core product sections`,
+  },
+  ...categories.map((category) => ({
+    href: `/products/${category.slug}`,
+    label: category.name,
+    note: `${category.familyCount} families`,
+  })),
+  {
+    href: "/catalogue-preview",
+    label: "Catalogue preview and download",
+    note: "Preview page and workbook export",
+  },
+];
+
+const aboutMenu = [
+  {
+    href: "/about",
+    label: "About the manufacturer",
+    note: `${business.experienceClaim} manufacturing background`,
+  },
+  {
+    href: "/get-quote",
+    label: "Get quote and contact",
+    note: "Fast WhatsApp, call, and email options",
+  },
+  {
+    href: "/contact",
+    label: "Contact and enquiry desk",
+    note: "Works address, phones, and email contacts",
+  },
+  {
+    href: "/catalogue-preview",
+    label: "Public catalogue preview",
+    note: "Shareable product overview for circulation",
+  },
+];
 
 function isActive(href: string) {
   if (href === "/") {
@@ -17,6 +53,9 @@ function isActive(href: string) {
   }
   return currentPath.startsWith(href);
 }
+
+const isCatalogueActive = currentPath.startsWith("/products") || currentPath.startsWith("/catalogue-preview");
+const isAboutActive = currentPath.startsWith("/about");
 ---
 
 <header class="site-header">
@@ -39,14 +78,55 @@ function isActive(href: string) {
     </a>
 
     <nav class="site-header__nav" aria-label="Primary">
-      {navItems.map((item) => (
-        <a href={item.href} class:list={["site-header__link", { "is-active": isActive(item.href) }]}>
-          {item.label}
-        </a>
-      ))}
+      <a href="/" class:list={["site-header__link", { "is-active": isActive("/") }]}>
+        Home
+      </a>
+
+      <details class:list={["site-header__menu", { "is-active": isCatalogueActive }]}>
+        <summary class="site-header__summary">
+          Catalogue
+          <span class="site-header__chevron" aria-hidden="true"></span>
+        </summary>
+
+        <div class="site-header__dropdown site-header__dropdown--catalogue">
+          <div class="site-header__dropdown-grid site-header__dropdown-grid--catalogue">
+            {catalogueMenu.map((item) => (
+              <a href={item.href} class="site-header__dropdown-link">
+                <strong>{item.label}</strong>
+                <small>{item.note}</small>
+              </a>
+            ))}
+          </div>
+        </div>
+      </details>
+
+      <details class:list={["site-header__menu", { "is-active": isAboutActive }]}>
+        <summary class="site-header__summary">
+          About
+          <span class="site-header__chevron" aria-hidden="true"></span>
+        </summary>
+
+        <div class="site-header__dropdown">
+          <div class="site-header__dropdown-grid">
+            {aboutMenu.map((item) => (
+              <a href={item.href} class="site-header__dropdown-link">
+                <strong>{item.label}</strong>
+                <small>{item.note}</small>
+              </a>
+            ))}
+          </div>
+        </div>
+      </details>
+
+      <a href="/contact" class:list={["site-header__link", { "is-active": isActive("/contact") }]}>
+        Contact
+      </a>
     </nav>
 
-    <a href={primaryContactHref} class="site-header__cta">Request quotation</a>
+      <a href="/get-quote" class="site-header__cta">
+        <span class="site-header__cta-kicker">Quote-only support</span>
+        <strong>Get Quote</strong>
+      </a>
   </div>
 </header>
 
@@ -133,13 +213,31 @@ function isActive(href: string) {
     gap: 1.2rem;
   }
 
+  .site-header__menu {
+    position: relative;
+  }
+
+  .site-header__summary,
   .site-header__link {
     position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
     color: var(--color-text-muted);
     font-size: 0.92rem;
     font-weight: 600;
   }
 
+  .site-header__summary {
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .site-header__summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .site-header__summary::after,
   .site-header__link::after {
     content: "";
     position: absolute;
@@ -156,27 +254,141 @@ function isActive(href: string) {
       transform 160ms ease;
   }
 
+  .site-header__chevron {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-right: 1.7px solid currentColor;
+    border-bottom: 1.7px solid currentColor;
+    transform: rotate(45deg) translateY(-1px);
+    transition: transform 180ms ease;
+  }
+
   .site-header__link:hover,
+  .site-header__summary:hover,
   .site-header__link.is-active {
     color: var(--color-text);
   }
 
   .site-header__link:hover::after,
-  .site-header__link.is-active::after {
+  .site-header__summary:hover::after,
+  .site-header__link.is-active::after,
+  .site-header__menu.is-active > .site-header__summary::after,
+  .site-header__menu[open] > .site-header__summary::after {
     opacity: 1;
     transform: scaleX(1);
   }
 
+  .site-header__menu.is-active > .site-header__summary,
+  .site-header__menu[open] > .site-header__summary {
+    color: var(--color-text);
+  }
+
+  .site-header__menu[open] > .site-header__summary .site-header__chevron,
+  .site-header__menu:hover > .site-header__summary .site-header__chevron,
+  .site-header__menu:focus-within > .site-header__summary .site-header__chevron {
+    transform: rotate(225deg) translateY(1px);
+  }
+
+  .site-header__dropdown {
+    position: absolute;
+    top: calc(100% + 1rem);
+    left: 50%;
+    width: min(24rem, calc(100vw - 2rem));
+    padding: 0.95rem;
+    border: 1px solid rgba(84, 96, 109, 0.14);
+    border-radius: 1.1rem;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.99), rgba(245, 248, 250, 0.98));
+    box-shadow: 0 22px 42px rgba(11, 27, 43, 0.16);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translate(-50%, -0.35rem);
+    transition:
+      opacity 180ms ease,
+      transform 180ms ease,
+      visibility 180ms ease;
+  }
+
+  .site-header__dropdown--catalogue {
+    width: min(44rem, calc(100vw - 2rem));
+  }
+
+  .site-header__dropdown-grid {
+    display: grid;
+    gap: 0.6rem;
+  }
+
+  .site-header__dropdown-grid--catalogue {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .site-header__dropdown-link {
+    display: grid;
+    gap: 0.2rem;
+    padding: 0.8rem 0.9rem;
+    border-radius: 0.9rem;
+    border: 1px solid transparent;
+    background: rgba(25, 77, 128, 0.03);
+    transition:
+      border-color 160ms ease,
+      background 160ms ease,
+      transform 160ms ease;
+  }
+
+  .site-header__dropdown-link:hover,
+  .site-header__dropdown-link:focus-visible {
+    border-color: rgba(25, 77, 128, 0.16);
+    background: rgba(25, 77, 128, 0.08);
+    transform: translateY(-2px);
+  }
+
+  .site-header__dropdown-link strong {
+    font-size: 0.88rem;
+    line-height: 1.3;
+  }
+
+  .site-header__dropdown-link small {
+    color: var(--color-text-muted);
+    font-size: 0.76rem;
+    line-height: 1.45;
+  }
+
+  .site-header__menu:hover .site-header__dropdown,
+  .site-header__menu:focus-within .site-header__dropdown,
+  .site-header__menu[open] .site-header__dropdown {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+  }
+
   .site-header__cta {
-    display: inline-flex;
-    align-items: center;
-    border-radius: 999px;
-    padding: 0.8rem 1.1rem;
-    background: var(--color-primary);
+    display: grid;
+    gap: 0.12rem;
+    border-radius: 1.05rem;
+    padding: 0.72rem 1rem 0.78rem;
+    background:
+      linear-gradient(135deg, rgba(25, 77, 128, 1), rgba(14, 52, 90, 0.96)),
+      var(--color-primary);
     color: white;
-    font-size: 0.86rem;
+    box-shadow:
+      0 14px 24px rgba(25, 77, 128, 0.22),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    text-align: left;
+  }
+
+  .site-header__cta-kicker {
+    font-size: 0.66rem;
     font-weight: 700;
-    box-shadow: 0 14px 24px rgba(25, 77, 128, 0.22);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.72);
+  }
+
+  .site-header__cta strong {
+    font-size: 1rem;
+    line-height: 1;
   }
 
   @media (max-width: 920px) {
@@ -192,13 +404,60 @@ function isActive(href: string) {
     .site-header__nav {
       order: 3;
       width: 100%;
-      justify-content: space-between;
-      overflow-x: auto;
-      padding-bottom: 0.3rem;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
     }
 
     .site-header__brand-copy small {
       max-width: none;
+    }
+
+    .site-header__menu {
+      min-width: 0;
+    }
+
+    .site-header__summary,
+    .site-header__link {
+      justify-content: space-between;
+      width: 100%;
+      padding: 0.82rem 0.95rem;
+      border: 1px solid rgba(84, 96, 109, 0.14);
+      border-radius: 0.95rem;
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .site-header__summary::after,
+    .site-header__link::after {
+      display: none;
+    }
+
+    .site-header__link.is-active,
+    .site-header__menu.is-active > .site-header__summary {
+      border-color: rgba(25, 77, 128, 0.24);
+      background: rgba(25, 77, 128, 0.08);
+    }
+
+    .site-header__dropdown,
+    .site-header__dropdown--catalogue {
+      position: static;
+      width: 100%;
+      margin-top: 0.55rem;
+      padding: 0.75rem;
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: none;
+      display: none;
+      box-shadow: none;
+    }
+
+    .site-header__menu[open] .site-header__dropdown {
+      display: block;
+    }
+
+    .site-header__dropdown-grid--catalogue {
+      grid-template-columns: 1fr;
     }
   }
 
@@ -211,7 +470,11 @@ function isActive(href: string) {
 
     .site-header__cta {
       width: 100%;
-      justify-content: center;
+      text-align: center;
+    }
+
+    .site-header__nav {
+      grid-template-columns: 1fr;
     }
   }
 </style>
