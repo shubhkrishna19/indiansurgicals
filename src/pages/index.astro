@@ -269,10 +269,19 @@ const primaryContactHref = getPrimaryContactHref();
     padding-top: 4.4rem;
     padding-bottom: 4.4rem;
     background:
-      linear-gradient(115deg, rgba(8, 29, 51, 0.78) 0%, rgba(19, 74, 123, 0.62) 42%, rgba(223, 241, 255, 0.26) 100%),
-      linear-gradient(180deg, rgba(245, 248, 250, 0.16), rgba(245, 248, 250, 0.08)),
-      url("/otroom.jpeg") center/cover no-repeat;
+      linear-gradient(115deg, rgba(8, 29, 51, 0.8) 0%, rgba(19, 74, 123, 0.58) 42%, rgba(223, 241, 255, 0.14) 100%),
+      linear-gradient(180deg, rgba(245, 248, 250, 0.08), rgba(245, 248, 250, 0.02));
     overflow: hidden;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 18% 22%, rgba(255, 255, 255, 0.12), transparent 18%),
+      linear-gradient(90deg, rgba(7, 31, 53, 0.26), transparent 48%);
+    pointer-events: none;
   }
 
   .hero::after {

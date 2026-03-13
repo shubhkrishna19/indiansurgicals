@@ -82,8 +82,8 @@ const isAboutActive = currentPath.startsWith("/about");
         Home
       </a>
 
-      <details class:list={["site-header__menu", { "is-active": isCatalogueActive }]}>
-        <summary class="site-header__summary">
+      <details class:list={["site-header__menu", { "is-active": isCatalogueActive }]} data-nav-menu>
+        <summary class="site-header__summary" data-nav-summary>
           Catalogue
           <span class="site-header__chevron" aria-hidden="true"></span>
         </summary>
@@ -100,8 +100,8 @@ const isAboutActive = currentPath.startsWith("/about");
         </div>
       </details>
 
-      <details class:list={["site-header__menu", { "is-active": isAboutActive }]}>
-        <summary class="site-header__summary">
+      <details class:list={["site-header__menu", { "is-active": isAboutActive }]} data-nav-menu>
+        <summary class="site-header__summary" data-nav-summary>
           About
           <span class="site-header__chevron" aria-hidden="true"></span>
         </summary>
@@ -129,6 +129,76 @@ const isAboutActive = currentPath.startsWith("/about");
       </a>
   </div>
 </header>
+
+<script>
+  const desktopNav = window.matchMedia("(min-width: 921px)");
+  const menus = Array.from(
+    document.querySelectorAll<HTMLDetailsElement>("[data-nav-menu]"),
+  );
+
+  const closeMenus = (except?: HTMLDetailsElement | null) => {
+    menus.forEach((menu) => {
+      if (menu !== except) {
+        menu.removeAttribute("open");
+      }
+    });
+  };
+
+  menus.forEach((menu) => {
+    const summary = menu.querySelector("[data-nav-summary]");
+    if (!summary) return;
+
+    menu.addEventListener("pointerenter", () => {
+      if (!desktopNav.matches) return;
+      closeMenus(menu);
+      menu.setAttribute("open", "");
+    });
+
+    menu.addEventListener("pointerleave", () => {
+      if (!desktopNav.matches) return;
+      menu.removeAttribute("open");
+    });
+
+    menu.addEventListener("focusin", () => {
+      if (!desktopNav.matches) return;
+      closeMenus(menu);
+      menu.setAttribute("open", "");
+    });
+
+    menu.addEventListener("focusout", (event) => {
+      if (!desktopNav.matches) return;
+      const nextTarget = (event as FocusEvent).relatedTarget;
+      if (nextTarget instanceof Node && menu.contains(nextTarget)) return;
+      menu.removeAttribute("open");
+    });
+
+    summary.addEventListener("click", (event) => {
+      if (!desktopNav.matches) return;
+      event.preventDefault();
+      const willOpen = !menu.hasAttribute("open");
+      closeMenus(menu);
+      if (willOpen) {
+        menu.setAttribute("open", "");
+      } else {
+        menu.removeAttribute("open");
+      }
+    });
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!desktopNav.matches) return;
+    const target = event.target;
+    if (!(target instanceof Node)) return;
+    if (menus.some((menu) => menu.contains(target))) return;
+    closeMenus();
+  });
+
+  desktopNav.addEventListener("change", (event) => {
+    if (!event.matches) {
+      closeMenus();
+    }
+  });
+</script>
 
 <style>
   .site-header {

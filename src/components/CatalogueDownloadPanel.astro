@@ -8,7 +8,7 @@ interface Props {
 }
 
 const {
-  title = "Download a structured public catalogue workbook or open a concise preview.",
+  title = "Download a structured public catalogue or open a concise preview.",
   subtitle = "The workbook is generated from the same normalized data driving the website, so category order, family grouping, and model coverage stay aligned.",
   compact = false,
 } = Astro.props;
@@ -39,7 +39,7 @@ const generatedLabel = Number.isNaN(generatedDate.getTime())
       class="button button--secondary"
       download={catalogueExports.workbookName}
     >
-      Download workbook (.xlsx)
+      Download catalogue (.xlsx)
     </a>
   </div>
 

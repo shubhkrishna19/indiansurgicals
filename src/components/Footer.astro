@@ -5,6 +5,9 @@ import { getAllCategories } from "../data/catalogue";
 const categories = getAllCategories();
 const year = new Date().getFullYear();
 const whatsappLink = getWhatsAppLink();
+const showWebsiteInFooter =
+  business.contact.website &&
+  business.contact.website.trim().toLowerCase() !== "example.com";
 ---
 
 <footer class="site-footer">
@@ -33,6 +36,17 @@ const whatsappLink = getWhatsAppLink();
         </a>
         <span class="site-footer__social site-footer__social--placeholder">Twitter</span>
       </div>
+
+      {showWebsiteInFooter && (
+        <a
+          href={`https://${business.contact.website}`}
+          class="site-footer__website"
+          target="_blank"
+          rel="noreferrer"
+        >
+          {business.contact.website}
+        </a>
+      )}
     </section>
 
     <section>
@@ -70,7 +84,6 @@ const whatsappLink = getWhatsAppLink();
         {business.contact.emails.map((email) => (
           <li><a href={`mailto:${email}`}>{email}</a></li>
         ))}
-        <li>{business.contact.website}</li>
       </ul>
     </section>
   </div>
@@ -210,6 +223,17 @@ const whatsappLink = getWhatsAppLink();
   .site-footer__social--placeholder {
     background: rgba(84, 96, 109, 0.14);
     color: var(--color-text-muted);
+  }
+
+  .site-footer__website {
+    display: inline-flex;
+    margin-top: 0.9rem;
+    color: var(--color-text);
+    font-size: 0.94rem;
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: rgba(25, 77, 128, 0.3);
+    text-underline-offset: 0.18rem;
   }
 
   .site-footer__bottom {

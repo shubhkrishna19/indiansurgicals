@@ -103,7 +103,7 @@ export const business: BusinessProfile = {
   quoteOnlyNote:
     "All products on this website are catalogue products only. Pricing is shared on request based on model, quantity, and dispatch requirements.",
   contactNote:
-    "Works address, phone numbers, and email contacts are now published. The public website field is intentionally shown as example.com for now.",
+    "Works address, phone numbers, email contacts, and website details are now published for public enquiries.",
   contactReady: true,
   leadershipHighlights: [
     {
@@ -156,7 +156,7 @@ export const business: BusinessProfile = {
     whatsappNumber: "919350042221",
     email: "indiansurgical@gmail.com",
     emails: ["indiansurgical@gmail.com", "info@indiansurgical.com"],
-    website: "example.com",
+    website: "Lifelinemedicalsystem.com",
     addressLines: [
       "Works: A-49, Sector-64, Phase-III",
       "Gautam Budh Nagar, Noida, U.P.-201301",
