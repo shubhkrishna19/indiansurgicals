@@ -29,7 +29,7 @@ const whatsappLink = getWhatsAppLink();
             <strong>{business.contact.phones[0]}</strong>
             <span>Primary mobile</span>
           </article>
-          <article class="quote-chip panel">
+          <article class="quote-chip quote-chip--email panel">
             <strong>{business.contact.email}</strong>
             <span>Primary email</span>
           </article>
@@ -202,7 +202,7 @@ const whatsappLink = getWhatsAppLink();
 
   .quote-hero__highlights {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr) minmax(0, 0.95fr);
     gap: 0.9rem;
   }
 
@@ -216,6 +216,14 @@ const whatsappLink = getWhatsAppLink();
     font-size: 1rem;
     line-height: 1.35;
     word-break: break-word;
+  }
+
+  .quote-chip--email strong {
+    white-space: nowrap;
+    word-break: normal;
+    overflow-wrap: normal;
+    font-size: clamp(0.86rem, 1vw, 1rem);
+    letter-spacing: -0.02em;
   }
 
   .quote-chip span {

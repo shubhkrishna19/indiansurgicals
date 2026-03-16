@@ -8,13 +8,13 @@
   "exports": {
     "generatedAt": "2026-03-13T17:09:06+05:30",
     "previewPath": "/catalogue-preview",
-    "workbookPath": "/downloads/indian-surgical-industries-catalogue.xlsx",
-    "workbookName": "indian-surgical-industries-catalogue.xlsx",
+    "workbookPath": "/downloads/indian-surgical-industries-official-catalogue.pdf",
+    "workbookName": "indian-surgical-industries-official-catalogue.pdf",
     "sheets": [
-      "Overview",
-      "Categories",
-      "Families",
-      "Models"
+      "Official PDF",
+      "72 pages",
+      "Approx. 8 MB",
+      "Company-approved catalogue"
     ]
   },
   "categories": [

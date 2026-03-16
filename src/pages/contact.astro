@@ -7,6 +7,7 @@ import { getAllCategories } from "../data/catalogue";
 const contactReady = hasPublicContactDetails();
 const categories = getAllCategories();
 const primaryContactHref = getPrimaryContactHref();
+const otherWebsiteHref = business.contact.website ? `https://${business.contact.website}` : "";
 ---
 
 <BaseLayout
@@ -109,7 +110,7 @@ const primaryContactHref = getPrimaryContactHref();
 
           <article class="panel contact-card">
             <span>Website</span>
-            <p>{business.contact.website}</p>
+            <a href={otherWebsiteHref} target="_blank" rel="noreferrer">Visit Our Other Website</a>
           </article>
         </div>
       ) : (

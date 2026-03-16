@@ -20,7 +20,7 @@ const catalogueMenu = [
   {
     href: "/catalogue-preview",
     label: "Catalogue preview and download",
-    note: "Preview page and workbook export",
+    note: "Preview page and official catalogue PDF",
   },
 ];
 
@@ -135,13 +135,37 @@ const isAboutActive = currentPath.startsWith("/about");
   const menus = Array.from(
     document.querySelectorAll<HTMLDetailsElement>("[data-nav-menu]"),
   );
+  const closeTimers = new WeakMap<HTMLDetailsElement, number>();
 
   const closeMenus = (except?: HTMLDetailsElement | null) => {
     menus.forEach((menu) => {
       if (menu !== except) {
+        const timer = closeTimers.get(menu);
+        if (timer) {
+          window.clearTimeout(timer);
+        }
         menu.removeAttribute("open");
       }
     });
+  };
+
+  const cancelClose = (menu: HTMLDetailsElement) => {
+    const timer = closeTimers.get(menu);
+    if (timer) {
+      window.clearTimeout(timer);
+      closeTimers.delete(menu);
+    }
+  };
+
+  const scheduleClose = (menu: HTMLDetailsElement) => {
+    cancelClose(menu);
+    closeTimers.set(
+      menu,
+      window.setTimeout(() => {
+        menu.removeAttribute("open");
+        closeTimers.delete(menu);
+      }, 180),
+    );
   };
 
   menus.forEach((menu) => {
@@ -150,17 +174,19 @@ const isAboutActive = currentPath.startsWith("/about");
 
     menu.addEventListener("pointerenter", () => {
       if (!desktopNav.matches) return;
+      cancelClose(menu);
       closeMenus(menu);
       menu.setAttribute("open", "");
     });
 
     menu.addEventListener("pointerleave", () => {
       if (!desktopNav.matches) return;
-      menu.removeAttribute("open");
+      scheduleClose(menu);
     });
 
     menu.addEventListener("focusin", () => {
       if (!desktopNav.matches) return;
+      cancelClose(menu);
       closeMenus(menu);
       menu.setAttribute("open", "");
     });
@@ -169,12 +195,13 @@ const isAboutActive = currentPath.startsWith("/about");
       if (!desktopNav.matches) return;
       const nextTarget = (event as FocusEvent).relatedTarget;
       if (nextTarget instanceof Node && menu.contains(nextTarget)) return;
-      menu.removeAttribute("open");
+      scheduleClose(menu);
     });
 
     summary.addEventListener("click", (event) => {
       if (!desktopNav.matches) return;
       event.preventDefault();
+      cancelClose(menu);
       const willOpen = !menu.hasAttribute("open");
       closeMenus(menu);
       if (willOpen) {
@@ -285,6 +312,8 @@ const isAboutActive = currentPath.startsWith("/about");
 
   .site-header__menu {
     position: relative;
+    padding-bottom: 0.8rem;
+    margin-bottom: -0.8rem;
   }
 
   .site-header__summary,
@@ -361,7 +390,7 @@ const isAboutActive = currentPath.startsWith("/about");
 
   .site-header__dropdown {
     position: absolute;
-    top: calc(100% + 1rem);
+    top: calc(100% + 0.3rem);
     left: 50%;
     width: min(24rem, calc(100vw - 2rem));
     padding: 0.95rem;
@@ -378,6 +407,15 @@ const isAboutActive = currentPath.startsWith("/about");
       opacity 180ms ease,
       transform 180ms ease,
       visibility 180ms ease;
+  }
+
+  .site-header__dropdown::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -0.85rem;
+    height: 0.85rem;
   }
 
   .site-header__dropdown--catalogue {
@@ -485,6 +523,8 @@ const isAboutActive = currentPath.startsWith("/about");
 
     .site-header__menu {
       min-width: 0;
+      padding-bottom: 0;
+      margin-bottom: 0;
     }
 
     .site-header__summary,

@@ -186,7 +186,7 @@ const primaryContactHref = getPrimaryContactHref();
     <div class="container">
       <CatalogueDownloadPanel
         title="Add a shareable catalogue layer on top of the website."
-        subtitle="Open the concise public preview or download the structured workbook for circulation, distributor review, institutional sharing, and future collateral preparation."
+        subtitle="Open the concise public preview or download the official 72-page catalogue PDF for circulation, distributor review, institutional sharing, and future collateral preparation."
       />
     </div>
   </section>
@@ -219,24 +219,25 @@ const primaryContactHref = getPrimaryContactHref();
           <span class="eyebrow">Customer Reviews</span>
           <h2>Customer confidence belongs here, right before the homepage closes.</h2>
           <p>
-            Placeholder cards are live now. When you send the exact approved review copy, names, and
-            locations, this block can be updated without moving the layout again.
+            Feedback from hospital procurement teams, channel partners, and export-side buyers helps
+            close the homepage with real confidence around quality, service response, and commercial reliability.
           </p>
         </div>
 
         <div class="review-grid">
-          {business.testimonialPlaceholders.map((item) => (
+          {business.testimonials.map((item) => (
             <article class="review-card panel">
               <div class="review-card__meta">
                 <div class="review-card__avatar" aria-hidden="true">{item.name.charAt(0)}</div>
                 <div>
                   <strong>{item.name}</strong>
                   <span>{item.role}</span>
-                  <small>{item.location}</small>
+                  {item.location && <small>{item.location}</small>}
                 </div>
               </div>
 
               <p class="review-card__stars">★★★★★</p>
+              <p class="review-card__stars-fixed">{"\u2605".repeat(item.rating)}</p>
               <blockquote>{item.quote}</blockquote>
             </article>
           ))}
@@ -673,6 +674,10 @@ const primaryContactHref = getPrimaryContactHref();
   }
 
   .review-card__stars {
+    display: none;
+  }
+
+  .review-card__stars-fixed {
     margin: 0;
     letter-spacing: 0.2em;
     color: var(--color-accent);

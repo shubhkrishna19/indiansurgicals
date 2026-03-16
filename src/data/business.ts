@@ -15,10 +15,11 @@ export interface BusinessProfile {
   contactNote: string;
   contactReady: boolean;
   leadershipHighlights: { value: string; label: string; note: string }[];
-  testimonialPlaceholders: {
+  testimonials: {
     name: string;
     role: string;
-    location: string;
+    location?: string;
+    rating: number;
     quote: string;
   }[];
   contact: {
@@ -33,6 +34,7 @@ export interface BusinessProfile {
   socialLinks: {
     instagram: string;
     twitter: string;
+    youtube: string;
   };
   heroMetrics: { label: string; value: string }[];
 }
@@ -127,27 +129,29 @@ export const business: BusinessProfile = {
       note: "Presentation aligned to institutional procurement expectations and long-range product confidence.",
     },
   ],
-  testimonialPlaceholders: [
+  testimonials: [
     {
-      name: "Institutional Review Placeholder",
-      role: "Procurement leadership",
-      location: "Hospital network",
+      name: "Institutional Review",
+      role: "Hospital Procurement",
+      location: "Procurement Head - Multi-Specialty Hospital Network",
+      rating: 5,
       quote:
-        "Approved customer review text will be placed here to highlight purchase confidence, product consistency, and post-sale satisfaction.",
+        "We have been sourcing sterilisation and suction equipment from this manufacturer for several years. The autoclaves and OT equipment have proven reliable in daily hospital use, and the service support has been prompt whenever required. Their consistent quality and practical design make them a dependable supplier for hospital procurement.",
     },
     {
-      name: "Dealer Feedback Placeholder",
-      role: "Channel partner",
-      location: "Domestic market",
+      name: "Dealer / Distributor Feedback",
+      role: "Medical Equipment Distributor",
+      location: "North India",
+      rating: 5,
       quote:
-        "This placeholder is reserved for a future dealer or distributor review about range depth, service support, and repeat business trust.",
+        "As a channel partner supplying hospitals and clinics, we value manufacturers who maintain consistent product quality and timely deliveries. Their range of autoclaves, suction machines, and hospital furniture has strong demand in the market, and the after-sales support helps us maintain long-term relationships with our customers.",
     },
     {
-      name: "Export Buyer Placeholder",
-      role: "International buyer",
-      location: "Global market",
+      name: "Export Buyer Feedback",
+      role: "International Medical Equipment Buyer",
+      rating: 5,
       quote:
-        "A final approved quote can be inserted here later to present export confidence, quality perception, and long-term product reliability.",
+        "We selected this company as a manufacturing partner because of their strong production capability and product reliability. Their sterilisation and hospital equipment range meets international buyer expectations in terms of build quality, packaging, and documentation. We look forward to expanding our cooperation in global markets.",
     },
   ],
   contact: {
@@ -165,7 +169,8 @@ export const business: BusinessProfile = {
   },
   socialLinks: {
     instagram: "https://www.instagram.com/indiansurgicalindustries?igsh=MTYxMXhqOTZxaXRhMQ==",
-    twitter: "#",
+    twitter: "https://x.com/indiansurgical?s=21",
+    youtube: "https://www.youtube.com/@IndianSurgicalIndustries",
   },
   heroMetrics: [
     { label: "Years of manufacturing", value: "40+" },

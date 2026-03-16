@@ -8,8 +8,8 @@ interface Props {
 }
 
 const {
-  title = "Download a structured public catalogue or open a concise preview.",
-  subtitle = "The workbook is generated from the same normalized data driving the website, so category order, family grouping, and model coverage stay aligned.",
+  title = "Download the official company catalogue or open a concise web preview.",
+  subtitle = "The website preview is driven by the same normalized data, while the download button now serves the approved 72-page company catalogue PDF for public circulation.",
   compact = false,
 } = Astro.props;
 
@@ -27,7 +27,7 @@ const generatedLabel = Number.isNaN(generatedDate.getTime())
 
 <section class:list={["catalogue-download panel", { "catalogue-download--compact": compact }]}>
   <div class="catalogue-download__copy">
-    <span class="catalogue-download__kicker">Catalogue Export</span>
+    <span class="catalogue-download__kicker">Official Catalogue</span>
     <h2>{title}</h2>
     <p>{subtitle}</p>
   </div>
@@ -39,7 +39,7 @@ const generatedLabel = Number.isNaN(generatedDate.getTime())
       class="button button--secondary"
       download={catalogueExports.workbookName}
     >
-      Download catalogue (.xlsx)
+      Download official catalogue (PDF)
     </a>
   </div>
 
@@ -58,7 +58,7 @@ const generatedLabel = Number.isNaN(generatedDate.getTime())
     </article>
     <article>
       <strong>{generatedLabel}</strong>
-      <span>latest export date</span>
+      <span>site data refreshed</span>
     </article>
   </div>
 
