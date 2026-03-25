@@ -6,13 +6,11 @@ import SectionTitle from "../components/SectionTitle.astro";
 import { business, getPrimaryContactHref } from "../data/business";
 import {
   getAllCategories,
-  getCatalogueStats,
   getFamiliesByCategory,
   type ProductFamily,
 } from "../data/catalogue";
 
 const categories = getAllCategories();
-const stats = getCatalogueStats();
 const categoryNames = new Map(categories.map((category) => [category.slug, category.name]));
 const showcaseFamilies = categories
   .reduce<ProductFamily[]>((collection, category) => {
@@ -69,37 +67,6 @@ const primaryContactHref = getPrimaryContactHref();
           ))}
         </div>
       </div>
-
-      <aside class="hero__panel panel">
-        <p class="hero__panel-kicker">Catalogue Scope</p>
-        <dl class="hero__statlist">
-          <div>
-            <dt>Categories</dt>
-            <dd>{stats.categoryCount}</dd>
-          </div>
-          <div>
-            <dt>Product families</dt>
-            <dd>{stats.familyCount}</dd>
-          </div>
-          <div>
-            <dt>Model variants</dt>
-            <dd>{stats.variantCount}</dd>
-          </div>
-          <div>
-            <dt>Commercial mode</dt>
-            <dd>Quote only</dd>
-          </div>
-        </dl>
-
-        <div class="hero__panel-copy">
-          <h2>Legacy manufacturing, modern presentation.</h2>
-          <p>
-            The website is now structured around normalized catalogue data rather than placeholder
-            brochure cards, so each family can later feed better PDFs, sales decks, and updated product
-            collateral as well.
-          </p>
-        </div>
-      </aside>
     </div>
   </section>
 
@@ -298,14 +265,14 @@ const primaryContactHref = getPrimaryContactHref();
     position: relative;
     z-index: 1;
     display: grid;
-    grid-template-columns: 1.35fr 0.95fr;
-    gap: 2rem;
+    grid-template-columns: 1fr;
     align-items: start;
   }
 
   .hero__content {
     display: grid;
     gap: 1.4rem;
+    max-width: 76rem;
     padding: 1.6rem;
     background:
       linear-gradient(180deg, rgba(6, 26, 44, 0.66), rgba(10, 39, 64, 0.74)),
@@ -369,64 +336,6 @@ const primaryContactHref = getPrimaryContactHref();
   .hero__metric span {
     color: rgba(223, 235, 245, 0.84);
     font-size: 0.87rem;
-  }
-
-  .hero__panel {
-    display: grid;
-    gap: 1.2rem;
-    padding: 1.4rem;
-    background:
-      radial-gradient(circle at top right, rgba(201, 111, 40, 0.22), transparent 28%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(231, 241, 248, 0.84));
-    backdrop-filter: blur(14px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    box-shadow: 0 24px 60px rgba(8, 29, 51, 0.16);
-  }
-
-  .hero__panel-kicker {
-    color: rgba(14, 62, 104, 0.96);
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-  }
-
-  .hero__statlist {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
-    margin: 0;
-  }
-
-  .hero__statlist div {
-    padding-bottom: 1rem;
-    border-bottom: 1px solid rgba(84, 96, 109, 0.14);
-  }
-
-  .hero__statlist dt {
-    color: var(--color-text-muted);
-    font-size: 0.82rem;
-    margin-bottom: 0.35rem;
-  }
-
-  .hero__statlist dd {
-    margin: 0;
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-  }
-
-  .hero__panel-copy {
-    display: grid;
-    gap: 0.8rem;
-  }
-
-  .hero__panel-copy h2 {
-    font-size: 1.6rem;
-  }
-
-  .hero__panel-copy p {
-    color: var(--color-text-muted);
-    line-height: 1.7;
   }
 
   .hero .eyebrow {
@@ -753,8 +662,7 @@ const primaryContactHref = getPrimaryContactHref();
       padding-bottom: 2.8rem;
     }
 
-    .hero__content,
-    .hero__panel {
+    .hero__content {
       padding: 1.2rem;
     }
 
