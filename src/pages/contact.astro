@@ -90,7 +90,7 @@ const otherWebsiteHref = business.contact.website ? `https://${business.contact.
         )}
 
         {business.contact.emails.length > 0 && (
-          <article class="panel contact-card">
+          <article class="panel contact-card contact-card--email">
             <span>Email</span>
             {business.contact.emails.map((email) => (
               <a href={`mailto:${email}`}>{email}</a>
@@ -249,6 +249,14 @@ const otherWebsiteHref = business.contact.website ? `https://${business.contact.
     word-break: break-word;
   }
 
+  .contact-card--email a {
+    white-space: nowrap;
+    word-break: normal;
+    overflow-wrap: normal;
+    font-size: clamp(0.84rem, 0.95vw, 0.98rem);
+    letter-spacing: -0.015em;
+  }
+
   .contact-card p,
   .status-card p {
     margin: 0;
@@ -308,6 +316,10 @@ const otherWebsiteHref = business.contact.website ? `https://${business.contact.
     .status-grid,
     .process-grid {
       grid-template-columns: 1fr;
+    }
+
+    .contact-card--email a {
+      white-space: normal;
     }
   }
 </style>
