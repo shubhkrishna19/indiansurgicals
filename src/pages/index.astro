@@ -80,8 +80,8 @@ const primaryContactHref = getPrimaryContactHref();
     <div class="container">
       <SectionTitle
         kicker="Major Product Categories"
-        title="Browse by Product Category"
-        subtitle="Select the required product group and open the relevant product range directly."
+        title="Start with a Product Category"
+        subtitle="Choose the relevant product group and move directly into the matching range."
         align="left"
       />
 
@@ -93,39 +93,12 @@ const primaryContactHref = getPrimaryContactHref();
     </div>
   </section>
 
-  <section class="section section--band">
-    <div class="container split">
-      <div class="split__copy">
-        <SectionTitle
-          kicker="Company Positioning"
-          title="A manufacturing-led medical equipment business with depth across sterilization, utility, and patient care."
-          subtitle={business.story[0]}
-          align="left"
-        />
-        <div class="story-list">
-          {business.story.slice(1).map((line) => (
-            <p>{line}</p>
-          ))}
-        </div>
-      </div>
-
-      <div class="focus-grid">
-        {business.focusAreas.map((item) => (
-          <article class="focus-card panel">
-            <h3>{item}</h3>
-            <p>Manufactured for hospitals, clinics, institutions, distributors, and export enquiries.</p>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-
   <section class="section section--explore">
     <div class="container">
       <SectionTitle
-        kicker="Explore Our Products"
-        title="Explore our Products"
-        subtitle="A representative selection from our manufacturing range to help buyers identify the right product group and move into detailed specifications."
+        kicker="Featured Product Families"
+        title="Representative Products Across the Range"
+        subtitle="A quick view of key product families across sterilization, hollowares, suction, furniture, ward equipment, transfer systems, and OT support."
         align="center"
       />
 
@@ -515,41 +488,6 @@ const primaryContactHref = getPrimaryContactHref();
       linear-gradient(180deg, rgba(25, 77, 128, 0.04), rgba(25, 77, 128, 0.01));
   }
 
-  .split {
-    display: grid;
-    grid-template-columns: 1.05fr 1fr;
-    gap: 2rem;
-  }
-
-  .story-list {
-    display: grid;
-    gap: 1rem;
-    color: var(--color-text-muted);
-    line-height: 1.8;
-  }
-
-  .focus-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
-  }
-
-  .focus-card {
-    display: grid;
-    gap: 0.8rem;
-    padding: 1.2rem;
-  }
-
-  .focus-card h3 {
-    font-size: 1.04rem;
-  }
-
-  .focus-card p {
-    color: var(--color-text-muted);
-    line-height: 1.7;
-    font-size: 0.93rem;
-  }
-
   .trust-shell {
     display: grid;
     gap: 1.25rem;
@@ -688,8 +626,7 @@ const primaryContactHref = getPrimaryContactHref();
   }
 
   @media (max-width: 1100px) {
-    .hero__grid,
-    .split {
+    .hero__grid {
       grid-template-columns: 1fr;
     }
 
@@ -699,7 +636,6 @@ const primaryContactHref = getPrimaryContactHref();
     }
 
     .hero__metrics,
-    .focus-grid,
     .leadership-grid,
     .review-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -722,7 +658,6 @@ const primaryContactHref = getPrimaryContactHref();
 
     .hero__metrics,
     .showcase-grid,
-    .focus-grid,
     .leadership-grid,
     .review-grid {
       grid-template-columns: 1fr;
