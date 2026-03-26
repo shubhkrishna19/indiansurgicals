@@ -161,11 +161,7 @@ export const business: BusinessProfile = {
     email: "indiansurgical@gmail.com",
     emails: ["indiansurgical@gmail.com", "info@indiansurgical.com"],
     website: "Lifelinemedicalsystem.com",
-    addressLines: [
-      "Works: A-49, Sector-64, Phase-III",
-      "Gautam Budh Nagar, Noida, U.P.-201301",
-      "India",
-    ],
+    addressLines: [],
   },
   socialLinks: {
     instagram: "https://www.instagram.com/indiansurgicalindustries?igsh=MTYxMXhqOTZxaXRhMQ==",

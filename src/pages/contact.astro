@@ -11,13 +11,13 @@ const otherWebsiteHref = business.contact.website ? `https://${business.contact.
 
 <BaseLayout
   title="Contact And Enquiries"
-  description="Contact Indian Surgical Industries for quotations, product guidance, works enquiries, and direct buying communication."
+  description="Contact Indian Surgical Industries for quotations, product guidance, and direct buying communication."
 >
   <section class="section contact-hero">
     <div class="container contact-hero__grid">
       <div class="contact-hero__content" data-parallax-group>
         <span class="eyebrow" data-parallax-speed="0.08">Contact And Enquiries</span>
-        <h1 data-parallax-speed="0.16">Contact the team for quotations, product guidance, and works enquiries.</h1>
+        <h1 data-parallax-speed="0.16">Contact the team for quotations, product guidance, and direct buying communication.</h1>
         <p class="contact-hero__copy">{business.quoteOnlyNote}</p>
         <p class="contact-hero__copy">
           Use the published mobile numbers, telephone line, WhatsApp, and email contacts below for direct
@@ -97,11 +97,6 @@ const otherWebsiteHref = business.contact.website ? `https://${business.contact.
             ))}
           </article>
         )}
-
-        <article class="panel contact-card">
-          <span>Works Address</span>
-          <p>{business.contact.addressLines.join(", ")}</p>
-        </article>
 
         <article class="panel contact-card">
           <span>Website</span>
