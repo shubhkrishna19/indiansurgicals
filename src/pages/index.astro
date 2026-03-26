@@ -11,7 +11,6 @@ import {
 } from "../data/catalogue";
 
 const categories = getAllCategories();
-const sliderCategories = [...categories, ...categories];
 const categoryNames = new Map(categories.map((category) => [category.slug, category.name]));
 const showcaseFamilies = categories
   .reduce<ProductFamily[]>((collection, category) => {
@@ -81,24 +80,15 @@ const primaryContactHref = getPrimaryContactHref();
     <div class="container">
       <SectionTitle
         kicker="Major Product Categories"
-        title="Product Categories"
-        subtitle="Choose the relevant category and move directly to the matching product families, models, and specifications."
+        title="Browse by Product Category"
+        subtitle="Select the required product group and open the relevant product range directly."
         align="left"
       />
 
-      <div class="category-slider">
-        <div class="category-slider__track">
-          <div class="category-slider__group">
-            {categories.map((category) => (
-              <CategoryCard category={category} />
-            ))}
-          </div>
-          <div class="category-slider__group category-slider__group--clone" aria-hidden="true">
-            {sliderCategories.slice(categories.length).map((category) => (
-              <CategoryCard category={category} inert={true} />
-            ))}
-          </div>
-        </div>
+      <div class="category-strip">
+        {categories.map((category) => (
+          <CategoryCard category={category} />
+        ))}
       </div>
     </div>
   </section>
@@ -388,55 +378,24 @@ const primaryContactHref = getPrimaryContactHref();
       radial-gradient(circle at top left, rgba(25, 77, 128, 0.05), transparent 48%);
   }
 
-  .category-slider {
-    position: relative;
+  .category-strip {
+    display: flex;
+    gap: 1rem;
     margin-top: 1.5rem;
-    overflow: hidden;
-    mask-image: linear-gradient(90deg, transparent 0, black 7%, black 93%, transparent 100%);
-    -webkit-mask-image: linear-gradient(90deg, transparent 0, black 7%, black 93%, transparent 100%);
+    overflow-x: auto;
+    padding-bottom: 0.45rem;
+    scrollbar-width: none;
+    scroll-snap-type: x proximity;
   }
 
-  .category-slider::before,
-  .category-slider::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 5rem;
-    z-index: 1;
-    pointer-events: none;
+  .category-strip::-webkit-scrollbar {
+    display: none;
   }
 
-  .category-slider::before {
-    left: 0;
-    background: linear-gradient(90deg, rgba(245, 248, 250, 1), rgba(245, 248, 250, 0));
-  }
-
-  .category-slider::after {
-    right: 0;
-    background: linear-gradient(270deg, rgba(245, 248, 250, 1), rgba(245, 248, 250, 0));
-  }
-
-  .category-slider__track {
-    display: flex;
-    gap: 1.2rem;
-    width: max-content;
-    animation: category-marquee 42s linear infinite;
-    will-change: transform;
-  }
-
-  .category-slider:hover .category-slider__track {
-    animation-play-state: paused;
-  }
-
-  .category-slider__group {
-    display: flex;
-    gap: 1.2rem;
-  }
-
-  .category-slider__group :global(.category-card) {
-    width: clamp(210px, 17vw, 245px);
+  .category-strip :global(.category-card) {
+    width: clamp(220px, 16vw, 250px);
     flex: 0 0 auto;
+    scroll-snap-align: start;
   }
 
   .section--explore {
@@ -544,16 +503,6 @@ const primaryContactHref = getPrimaryContactHref();
     display: flex;
     justify-content: center;
     margin-top: 1.5rem;
-  }
-
-  @keyframes category-marquee {
-    from {
-      transform: translateX(0);
-    }
-
-    to {
-      transform: translateX(calc(-50% - 0.6rem));
-    }
   }
 
   .section--band {
@@ -758,33 +707,6 @@ const primaryContactHref = getPrimaryContactHref();
 
     .showcase-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  @media (max-width: 900px) {
-    .category-slider {
-      overflow-x: auto;
-      padding-bottom: 0.4rem;
-      mask-image: none;
-      -webkit-mask-image: none;
-      scrollbar-width: none;
-    }
-
-    .category-slider::-webkit-scrollbar {
-      display: none;
-    }
-
-    .category-slider::before,
-    .category-slider::after {
-      display: none;
-    }
-
-    .category-slider__track {
-      animation: none;
-    }
-
-    .category-slider__group--clone {
-      display: none;
     }
   }
 
