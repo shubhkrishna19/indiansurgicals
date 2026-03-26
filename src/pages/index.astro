@@ -190,20 +190,15 @@ const primaryContactHref = getPrimaryContactHref();
 
   <section class="section section--cta">
       <div class="container cta panel">
-      <div>
-        <span class="eyebrow">Enquiries And Quotations</span>
-        <h2>Contact Indian Surgical Industries for model selection, quantities, and quotations.</h2>
+        <div>
+          <span class="eyebrow">Enquiries And Quotations</span>
+          <h2>Contact Indian Surgical Industries for model selection, quantities, and quotations.</h2>
+        </div>
+        <div class="cta__actions">
+          <a href={primaryContactHref} class="button button--primary">Request a quote</a>
+        </div>
       </div>
-      <p>
-        Share the product family, model, quantity, and dispatch location for a faster response.
-        Works address: {business.contact.addressLines.join(", ")}. Primary contact: {business.contact.phones[0]} | {business.contact.email}
-      </p>
-      <div class="cta__actions">
-        <a href={primaryContactHref} class="button button--primary">Request a quote</a>
-        <a href="/contact" class="button button--secondary">View full contact details</a>
-      </div>
-    </div>
-  </section>
+    </section>
 </BaseLayout>
 
 <script is:inline>
