@@ -8,8 +8,8 @@ interface Props {
 }
 
 const {
-  title = "Download the official company catalogue or open a concise web preview.",
-  subtitle = "The website preview is driven by the same normalized data, while the download button now serves the approved 72-page company catalogue PDF for public circulation.",
+  title = "Open the online catalogue or download the official company catalogue.",
+  subtitle = "View the product range online or download the approved 72-page company catalogue PDF for product reference and enquiries.",
   compact = false,
 } = Astro.props;
 
@@ -58,7 +58,7 @@ const generatedLabel = Number.isNaN(generatedDate.getTime())
     </article>
     <article>
       <strong>{generatedLabel}</strong>
-      <span>site data refreshed</span>
+      <span>catalogue updated</span>
     </article>
   </div>
 

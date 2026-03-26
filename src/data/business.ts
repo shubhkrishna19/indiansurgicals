@@ -105,7 +105,7 @@ export const business: BusinessProfile = {
   quoteOnlyNote:
     "All products on this website are catalogue products only. Pricing is shared on request based on model, quantity, and dispatch requirements.",
   contactNote:
-    "Works address, phone numbers, email contacts, and website details are now published for public enquiries.",
+    "For quotations and product enquiries, please use the published works address, phone numbers, WhatsApp, and email contacts.",
   contactReady: true,
   leadershipHighlights: [
     {
@@ -116,7 +116,7 @@ export const business: BusinessProfile = {
     {
       value: "170+",
       label: "Product families",
-      note: "One structured catalogue spanning family-level pages and model-specific specification views.",
+      note: "A wide product range covering sterilization, furniture, ward utility, transfer systems, and OT support.",
     },
     {
       value: "11",
@@ -126,7 +126,7 @@ export const business: BusinessProfile = {
     {
       value: "ISO / CE",
       label: "Quality-led positioning",
-      note: "Presentation aligned to institutional procurement expectations and long-range product confidence.",
+      note: "Quality-focused manufacturing aligned with institutional, dealer, and export requirements.",
     },
   ],
   testimonials: [

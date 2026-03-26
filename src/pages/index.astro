@@ -11,6 +11,7 @@ import {
 } from "../data/catalogue";
 
 const categories = getAllCategories();
+const sliderCategories = [...categories, ...categories];
 const categoryNames = new Map(categories.map((category) => [category.slug, category.name]));
 const showcaseFamilies = categories
   .reduce<ProductFamily[]>((collection, category) => {
@@ -33,7 +34,7 @@ const primaryContactHref = getPrimaryContactHref();
 
 <BaseLayout
   title="Industrial Medical Equipment Catalogue"
-  description="Indian Surgical Industries presents a modern web catalogue for autoclaves, sterilizers, hollowares, hospital furniture, OT lights, transfer equipment, and allied medical products."
+  description="Indian Surgical Industries manufactures autoclaves, sterilizers, hospital hollowares, hospital furniture, suction units, OT equipment, and allied medical products."
 >
   <section class="hero section">
     <div class="container hero__grid">
@@ -59,12 +60,18 @@ const primaryContactHref = getPrimaryContactHref();
         </div>
 
         <div class="hero__metrics">
-          {business.heroMetrics.map((metric) => (
-            <article class="hero__metric panel">
-              <strong>{metric.value}</strong>
-              <span>{metric.label}</span>
-            </article>
-          ))}
+          {business.heroMetrics.map((metric) =>
+            metric.label === "Commercial model" ? (
+              <a href="/get-quote" class="hero__metric hero__metric--cta panel">
+                <strong>{metric.value}</strong>
+              </a>
+            ) : (
+              <article class="hero__metric panel">
+                <strong>{metric.value}</strong>
+                <span>{metric.label}</span>
+              </article>
+            ),
+          )}
         </div>
       </div>
     </div>
@@ -74,15 +81,24 @@ const primaryContactHref = getPrimaryContactHref();
     <div class="container">
       <SectionTitle
         kicker="Major Product Categories"
-        title="Explore Our Major Product Categories"
-        subtitle="Start with the product group that matches your requirement, then open the relevant catalogue page for detailed models and specifications."
+        title="Product Categories"
+        subtitle="Choose the relevant category and move directly to the matching product families, models, and specifications."
         align="left"
       />
 
-      <div class="category-grid">
-        {categories.map((category) => (
-          <CategoryCard category={category} />
-        ))}
+      <div class="category-slider">
+        <div class="category-slider__track">
+          <div class="category-slider__group">
+            {categories.map((category) => (
+              <CategoryCard category={category} />
+            ))}
+          </div>
+          <div class="category-slider__group category-slider__group--clone" aria-hidden="true">
+            {sliderCategories.slice(categories.length).map((category) => (
+              <CategoryCard category={category} inert={true} />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -107,7 +123,7 @@ const primaryContactHref = getPrimaryContactHref();
         {business.focusAreas.map((item) => (
           <article class="focus-card panel">
             <h3>{item}</h3>
-            <p>Part of the current digital catalogue prepared for web presentation and future export collateral.</p>
+            <p>Manufactured for hospitals, clinics, institutions, distributors, and export enquiries.</p>
           </article>
         ))}
       </div>
@@ -119,7 +135,7 @@ const primaryContactHref = getPrimaryContactHref();
       <SectionTitle
         kicker="Explore Our Products"
         title="Explore our Products"
-        subtitle="A representative cross-section of our manufacturing range, arranged for quick discovery so buyers can move from first impression to detailed specifications without friction."
+        subtitle="A representative selection from our manufacturing range to help buyers identify the right product group and move into detailed specifications."
         align="center"
       />
 
@@ -152,8 +168,8 @@ const primaryContactHref = getPrimaryContactHref();
   <section class="section section--band">
     <div class="container">
       <CatalogueDownloadPanel
-        title="Add a shareable catalogue layer on top of the website."
-        subtitle="Open the concise public preview or download the official 72-page catalogue PDF for circulation, distributor review, institutional sharing, and future collateral preparation."
+        title="Download the official company catalogue."
+        subtitle="Open the online catalogue or download the official 72-page company catalogue PDF for product reference, distributor sharing, and institutional enquiries."
       />
     </div>
   </section>
@@ -164,8 +180,8 @@ const primaryContactHref = getPrimaryContactHref();
         <div class="trust-shell__intro">
           <SectionTitle
             kicker="Leadership And Confidence"
-            title="A strong place for achievements, market leadership signals, and customer proof."
-            subtitle="This section is positioned near the end of the homepage so future review copy, awards, institutional proof, and leadership signals close the page with authority."
+            title="Trusted by hospitals, channel partners, and buyers across markets."
+            subtitle="Our manufacturing background, product range, and customer experience reflect long-standing confidence in the business."
             align="left"
           />
         </div>
@@ -184,10 +200,10 @@ const primaryContactHref = getPrimaryContactHref();
       <div class="review-block">
         <div class="review-block__intro">
           <span class="eyebrow">Customer Reviews</span>
-          <h2>Customer confidence belongs here, right before the homepage closes.</h2>
+          <h2>What customers say about working with us.</h2>
           <p>
-            Feedback from hospital procurement teams, channel partners, and export-side buyers helps
-            close the homepage with real confidence around quality, service response, and commercial reliability.
+            Feedback from procurement teams, distributors, and international buyers reflects confidence in
+            product quality, service support, and long-term business reliability.
           </p>
         </div>
 
@@ -217,7 +233,7 @@ const primaryContactHref = getPrimaryContactHref();
     <div class="container cta panel">
       <div>
         <span class="eyebrow">Works And Enquiries</span>
-        <h2>Speak with Indian Surgical Industries for quotations, product selection, and works-level contact.</h2>
+        <h2>Contact Indian Surgical Industries for product selection and quotations.</h2>
       </div>
       <p>
         {business.quoteOnlyNote} {business.contact.addressLines.join(", ")}. Primary contact:
@@ -338,6 +354,30 @@ const primaryContactHref = getPrimaryContactHref();
     font-size: 0.87rem;
   }
 
+  .hero__metric--cta {
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+    background: linear-gradient(135deg, rgba(201, 111, 40, 0.94), rgba(229, 141, 63, 0.92));
+    border-color: rgba(255, 255, 255, 0.14);
+    box-shadow: 0 18px 34px rgba(201, 111, 40, 0.28);
+    transition:
+      transform 180ms ease,
+      box-shadow 180ms ease,
+      filter 180ms ease;
+  }
+
+  .hero__metric--cta:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 40px rgba(201, 111, 40, 0.34);
+    filter: saturate(1.05);
+  }
+
+  .hero__metric--cta strong {
+    font-size: 1.45rem;
+    text-align: center;
+  }
+
   .hero .eyebrow {
     color: rgba(228, 241, 249, 0.88);
   }
@@ -348,10 +388,55 @@ const primaryContactHref = getPrimaryContactHref();
       radial-gradient(circle at top left, rgba(25, 77, 128, 0.05), transparent 48%);
   }
 
-  .category-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+  .category-slider {
+    position: relative;
+    margin-top: 1.5rem;
+    overflow: hidden;
+    mask-image: linear-gradient(90deg, transparent 0, black 7%, black 93%, transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, black 7%, black 93%, transparent 100%);
+  }
+
+  .category-slider::before,
+  .category-slider::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 5rem;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .category-slider::before {
+    left: 0;
+    background: linear-gradient(90deg, rgba(245, 248, 250, 1), rgba(245, 248, 250, 0));
+  }
+
+  .category-slider::after {
+    right: 0;
+    background: linear-gradient(270deg, rgba(245, 248, 250, 1), rgba(245, 248, 250, 0));
+  }
+
+  .category-slider__track {
+    display: flex;
     gap: 1.2rem;
+    width: max-content;
+    animation: category-marquee 42s linear infinite;
+    will-change: transform;
+  }
+
+  .category-slider:hover .category-slider__track {
+    animation-play-state: paused;
+  }
+
+  .category-slider__group {
+    display: flex;
+    gap: 1.2rem;
+  }
+
+  .category-slider__group :global(.category-card) {
+    width: clamp(210px, 17vw, 245px);
+    flex: 0 0 auto;
   }
 
   .section--explore {
@@ -459,6 +544,16 @@ const primaryContactHref = getPrimaryContactHref();
     display: flex;
     justify-content: center;
     margin-top: 1.5rem;
+  }
+
+  @keyframes category-marquee {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(calc(-50% - 0.6rem));
+    }
   }
 
   .section--band {
@@ -638,7 +733,6 @@ const primaryContactHref = getPrimaryContactHref();
   }
 
   @media (max-width: 1280px) {
-    .category-grid,
     .showcase-grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
@@ -662,9 +756,35 @@ const primaryContactHref = getPrimaryContactHref();
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .category-grid,
     .showcase-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 900px) {
+    .category-slider {
+      overflow-x: auto;
+      padding-bottom: 0.4rem;
+      mask-image: none;
+      -webkit-mask-image: none;
+      scrollbar-width: none;
+    }
+
+    .category-slider::-webkit-scrollbar {
+      display: none;
+    }
+
+    .category-slider::before,
+    .category-slider::after {
+      display: none;
+    }
+
+    .category-slider__track {
+      animation: none;
+    }
+
+    .category-slider__group--clone {
+      display: none;
     }
   }
 
@@ -679,7 +799,6 @@ const primaryContactHref = getPrimaryContactHref();
     }
 
     .hero__metrics,
-    .category-grid,
     .showcase-grid,
     .focus-grid,
     .leadership-grid,
