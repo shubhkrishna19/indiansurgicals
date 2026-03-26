@@ -1,9 +1,10 @@
 ---
 import { business } from "../data/business";
-import { getAllCategories } from "../data/catalogue";
+import { getAllCategories, getCatalogueExports } from "../data/catalogue";
 
 const currentPath = Astro.url.pathname;
 const categories = getAllCategories();
+const catalogueExports = getCatalogueExports();
 const contactSummary = `Call ${business.contact.phones[0]} | Email ${business.contact.email}`;
 
 const catalogueMenu = [
@@ -18,9 +19,10 @@ const catalogueMenu = [
     note: `${category.familyCount} product families`,
   })),
   {
-    href: "/catalogue-preview",
-    label: "Official catalogue PDF",
-    note: "Online catalogue and downloadable company PDF",
+    href: catalogueExports.workbookPath,
+    label: "Download official catalogue PDF",
+    note: "Direct download of the approved company catalogue",
+    download: true,
   },
 ];
 
@@ -41,9 +43,10 @@ const aboutMenu = [
     note: "Works address and published contact details",
   },
   {
-    href: "/catalogue-preview",
-    label: "Catalogue overview",
-    note: "Online viewing and official PDF access",
+    href: catalogueExports.workbookPath,
+    label: "Download official catalogue PDF",
+    note: "Direct PDF download for offline reference",
+    download: true,
   },
 ];
 
@@ -54,7 +57,7 @@ function isActive(href: string) {
   return currentPath.startsWith(href);
 }
 
-const isCatalogueActive = currentPath.startsWith("/products") || currentPath.startsWith("/catalogue-preview");
+const isCatalogueActive = currentPath.startsWith("/products");
 const isAboutActive = currentPath.startsWith("/about");
 ---
 
@@ -91,7 +94,7 @@ const isAboutActive = currentPath.startsWith("/about");
         <div class="site-header__dropdown site-header__dropdown--catalogue">
           <div class="site-header__dropdown-grid site-header__dropdown-grid--catalogue">
             {catalogueMenu.map((item) => (
-              <a href={item.href} class="site-header__dropdown-link">
+              <a href={item.href} class="site-header__dropdown-link" download={item.download ? true : undefined}>
                 <strong>{item.label}</strong>
                 <small>{item.note}</small>
               </a>
@@ -109,7 +112,7 @@ const isAboutActive = currentPath.startsWith("/about");
         <div class="site-header__dropdown">
           <div class="site-header__dropdown-grid">
             {aboutMenu.map((item) => (
-              <a href={item.href} class="site-header__dropdown-link">
+              <a href={item.href} class="site-header__dropdown-link" download={item.download ? true : undefined}>
                 <strong>{item.label}</strong>
                 <small>{item.note}</small>
               </a>

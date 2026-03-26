@@ -1,240 +1,49 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import SectionTitle from "../components/SectionTitle.astro";
-import { getAllCategories, getFamiliesByCategory } from "../data/catalogue";
-
-const categories = getAllCategories();
 ---
 
 <BaseLayout
-  title="Catalogue Preview"
-  description="Review the Indian Surgical Industries product range online and download the official 72-page catalogue PDF."
+  title="Redirecting To Catalogue"
+  description="Redirecting to the full online product catalogue."
 >
-  <section class="section preview-hero">
-    <div class="container preview-hero__grid">
-      <div class="preview-hero__copy" data-parallax-group>
-        <span class="eyebrow" data-parallax-speed="0.08">Online Catalogue</span>
-        <h1 data-parallax-speed="0.16">View the product range online and download the official catalogue PDF.</h1>
-        <p>
-          Review the company range online for a quick shortlist, or download the official PDF for offline reference.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--band">
-    <div class="container">
-      <SectionTitle
-        kicker="Product Categories"
-        title="The range is arranged by the company's major product categories."
-        subtitle="Open the category most relevant to your requirement and move into the right product families from there."
-        align="left"
-      />
-
-      <div class="preview-table panel">
-        <div class="preview-table__wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Category</th>
-                <th>Families</th>
-                <th>Model Variants</th>
-                <th>Category Overview</th>
-              </tr>
-            </thead>
-            <tbody>
-              {categories.map((category) => (
-                <tr>
-                  <td><a href={`/products/${category.slug}`}>{category.name}</a></td>
-                  <td>{category.familyCount}</td>
-                  <td>{category.variantCount}</td>
-                  <td>{category.summary}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <SectionTitle
-        kicker="Range Snapshot"
-        title="Selected products from each category."
-        subtitle="Use these entries to move quickly into the right category or open the full catalogue for the complete range."
-        align="left"
-      />
-
-      <div class="preview-category-grid">
-        {categories.map((category) => {
-          const families = getFamiliesByCategory(category.slug).slice(0, 4);
-          return (
-            <article class="preview-category panel">
-              <div class="preview-category__head">
-                <div>
-                  <span>{category.name}</span>
-                  <h2>{category.familyCount} families</h2>
-                </div>
-                <a href={`/products/${category.slug}`}>View category</a>
-              </div>
-
-              <ul>
-                {families.map((family) => (
-                  <li>
-                    <a href={`/products/${family.categorySlug}/${family.slug}`}>{family.name}</a>
-                    <small>{family.variants.length} model{family.variants.length === 1 ? "" : "s"}</small>
-                  </li>
-                ))}
-              </ul>
-            </article>
-          );
-        })}
-      </div>
+  <meta http-equiv="refresh" content="0; url=/products" />
+  <section class="section redirect-page">
+    <div class="container redirect-page__panel panel">
+      <span class="eyebrow">Redirecting</span>
+      <h1>Opening the full product catalogue.</h1>
+      <p>The online catalogue is now part of the main catalogue page for a cleaner browsing flow.</p>
+      <a href="/products" class="button button--primary">Open full catalogue</a>
     </div>
   </section>
 </BaseLayout>
 
 <style>
-  .preview-hero {
-    padding-top: 4.4rem;
-  }
-
-  .preview-hero__grid {
+  .redirect-page {
+    min-height: 60vh;
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.6rem;
-    align-items: start;
+    align-items: center;
   }
 
-  .preview-hero__copy {
+  .redirect-page__panel {
     display: grid;
     gap: 1rem;
+    max-width: 46rem;
+    padding: 1.5rem;
   }
 
-  .preview-hero__copy h1 {
-    font-size: clamp(2.5rem, 5vw, 4.4rem);
-    line-height: 0.95;
-    letter-spacing: -0.05em;
-    max-width: 12ch;
-  }
-
-  .preview-hero__copy p {
+  .redirect-page__panel h1,
+  .redirect-page__panel p {
     margin: 0;
+  }
+
+  .redirect-page__panel h1 {
+    font-size: clamp(2.2rem, 4vw, 3.6rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+
+  .redirect-page__panel p {
     color: var(--color-text-muted);
-    line-height: 1.8;
-    max-width: 56rem;
-  }
-
-  .preview-table {
-    padding: 0.9rem;
-  }
-
-  .preview-table__wrap {
-    overflow-x: auto;
-  }
-
-  .preview-table table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-
-  .preview-table th,
-  .preview-table td {
-    padding: 0.95rem 1rem;
-    border-bottom: 1px solid rgba(84, 96, 109, 0.12);
-    text-align: left;
-    vertical-align: top;
-  }
-
-  .preview-table th {
-    font-size: 0.82rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--color-primary);
-  }
-
-  .preview-table td {
-    color: var(--color-text-muted);
-    line-height: 1.65;
-  }
-
-  .preview-category-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
-  }
-
-  .preview-category {
-    display: grid;
-    gap: 1rem;
-    padding: 1.15rem;
-  }
-
-  .preview-category__head {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    align-items: start;
-  }
-
-  .preview-category__head span {
-    display: inline-block;
-    color: var(--color-primary);
-    font-size: 0.76rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin-bottom: 0.35rem;
-  }
-
-  .preview-category__head h2 {
-    margin: 0;
-    font-size: 1.25rem;
-  }
-
-  .preview-category__head a {
-    color: var(--color-primary);
-    font-weight: 700;
-  }
-
-  .preview-category ul {
-    display: grid;
-    gap: 0.85rem;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .preview-category li {
-    display: flex;
-    justify-content: space-between;
-    gap: 0.8rem;
-    padding-top: 0.85rem;
-    border-top: 1px solid rgba(84, 96, 109, 0.12);
-  }
-
-  .preview-category small {
-    color: var(--color-text-muted);
-    white-space: nowrap;
-  }
-
-  .section--band {
-    background: linear-gradient(180deg, rgba(25, 77, 128, 0.04), rgba(25, 77, 128, 0.01));
-  }
-
-  @media (max-width: 920px) {
-    .preview-hero__grid,
-    .preview-category-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .preview-category li,
-    .preview-category__head {
-      flex-direction: column;
-    }
+    line-height: 1.75;
   }
 </style>

@@ -1,8 +1,9 @@
 ---
 import { business, getWhatsAppLink } from "../data/business";
-import { getAllCategories } from "../data/catalogue";
+import { getAllCategories, getCatalogueExports } from "../data/catalogue";
 
 const categories = getAllCategories();
+const catalogueExports = getCatalogueExports();
 const year = new Date().getFullYear();
 const whatsappLink = getWhatsAppLink();
 const otherWebsiteHref = business.contact.website ? `https://${business.contact.website}` : "";
@@ -124,7 +125,7 @@ const showWebsiteInFooter =
         <li><a href="/about">About the manufacturer</a></li>
         <li><a href="/get-quote">Request a quotation</a></li>
         <li><a href="/products">Browse full product range</a></li>
-        <li><a href="/catalogue-preview">View online catalogue</a></li>
+        <li><a href={catalogueExports.workbookPath} download>Download official catalogue PDF</a></li>
         <li><a href="/contact">Contact and enquiries</a></li>
       </ul>
     </section>
