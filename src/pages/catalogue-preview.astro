@@ -11,23 +11,22 @@ const catalogueExports = getCatalogueExports();
 
 <BaseLayout
   title="Catalogue Preview"
-  description="Preview the public catalogue surface for Indian Surgical Industries and download the official 72-page catalogue PDF."
+  description="Review the Indian Surgical Industries product range online and download the official 72-page catalogue PDF."
 >
   <section class="section preview-hero">
     <div class="container preview-hero__grid">
       <div class="preview-hero__copy" data-parallax-group>
         <span class="eyebrow" data-parallax-speed="0.08">Online Catalogue</span>
-        <h1 data-parallax-speed="0.16">Review the product range online and download the official company catalogue.</h1>
+        <h1 data-parallax-speed="0.16">Review the product range online and download the official catalogue PDF.</h1>
         <p>
-          This page gives hospitals, distributors, institutions, and export buyers a clean online view of
-          the company range, while the official PDF provides the approved downloadable catalogue for sharing
-          and internal reference.
+          Review the company range online for a quick shortlist. Download the official PDF for sharing,
+          approvals, and offline reference.
         </p>
       </div>
 
       <aside class="preview-hero__aside panel">
         <p class="preview-hero__aside-kicker">Official Company Catalogue</p>
-        <h2>Product details online, quotations direct from the team.</h2>
+        <h2>Online viewing for selection. Direct contact for quotations.</h2>
         <p>{business.quoteOnlyNote}</p>
         <a href={catalogueExports.workbookPath} download={catalogueExports.workbookName} class="button button--primary">
           Download official catalogue
@@ -45,9 +44,9 @@ const catalogueExports = getCatalogueExports();
   <section class="section section--band">
     <div class="container">
       <SectionTitle
-        kicker="Category Matrix"
-        title="The catalogue is arranged by the company’s major product categories."
-        subtitle="Use this view to understand the range quickly and move into the most relevant section for your buying requirement."
+        kicker="Product Categories"
+        title="The range is arranged by the company's major product categories."
+        subtitle="Open the category most relevant to your requirement and move into the right product families from there."
         align="left"
       />
 
@@ -59,7 +58,7 @@ const catalogueExports = getCatalogueExports();
                 <th>Category</th>
                 <th>Families</th>
                 <th>Model Variants</th>
-                <th>Public Summary</th>
+                <th>Category Overview</th>
               </tr>
             </thead>
             <tbody>
@@ -82,8 +81,8 @@ const catalogueExports = getCatalogueExports();
     <div class="container">
       <SectionTitle
         kicker="Range Snapshot"
-        title="Representative products from each category."
-        subtitle="This page stays concise for quick review, while the full website and official PDF carry the broader product range."
+        title="Selected products from each category."
+        subtitle="Use these entries to move quickly into the right category or open the full catalogue for the complete range."
         align="left"
       />
 
@@ -97,7 +96,7 @@ const catalogueExports = getCatalogueExports();
                   <span>{category.name}</span>
                   <h2>{category.familyCount} families</h2>
                 </div>
-                <a href={`/products/${category.slug}`}>Open section</a>
+                <a href={`/products/${category.slug}`}>View category</a>
               </div>
 
               <ul>

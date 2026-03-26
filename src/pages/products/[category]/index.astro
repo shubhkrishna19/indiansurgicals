@@ -24,18 +24,18 @@ const subheadings = [...new Set(families.map((family) => family.subheading).filt
 
       <div class="category-hero__panel panel">
         <div class="category-hero__copy" data-parallax-group>
-          <span class="eyebrow" data-parallax-speed="0.08">Product Category</span>
+          <span class="eyebrow" data-parallax-speed="0.08">Category</span>
           <h1>{category.name}</h1>
           <p data-parallax-speed="0.1">{category.intro}</p>
         </div>
 
         <dl class="category-hero__stats">
           <div>
-            <dt>Families</dt>
+            <dt>Product families</dt>
             <dd>{category.familyCount}</dd>
           </div>
           <div>
-            <dt>Model variants</dt>
+            <dt>Listed models</dt>
             <dd>{category.variantCount}</dd>
           </div>
         </dl>
@@ -47,8 +47,8 @@ const subheadings = [...new Set(families.map((family) => family.subheading).filt
     <div class="container">
       <SectionTitle
         kicker="Available Product Families"
-        title={`${category.name} product range`}
-        subtitle="Open the relevant family to review product photos, available models, and enquiry-ready specifications."
+        title={`${category.name} range`}
+        subtitle="Open the relevant family to review product photos, listed models, and enquiry-ready details."
       />
 
       {subheadings.length > 0 && (

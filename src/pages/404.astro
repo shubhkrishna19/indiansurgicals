@@ -7,21 +7,20 @@ const categories = getAllCategories().slice(0, 6);
 
 <BaseLayout
   title="Page Not Found"
-  description="The requested page could not be found. Return to the Indian Surgical Industries catalogue or browse a business section."
+  description="The requested page is not available. Return to the Indian Surgical Industries homepage, product range, or contact page."
 >
   <section class="section error-page">
     <div class="container error-page__content">
       <span class="eyebrow">404</span>
-      <h1>The page you requested is not available.</h1>
+      <h1>This page is not available.</h1>
       <p>
-        Use the catalogue navigation below to move back into the main Indian Surgical Industries product
-        sections, or return to the homepage.
+        Return to the homepage, browse the product range, or open a major category below.
       </p>
 
       <div class="error-page__actions">
         <a href="/" class="button button--primary">Return home</a>
-        <a href="/products" class="button button--secondary">Open full catalogue</a>
-        <a href="/contact" class="button button--secondary">Open contact page</a>
+        <a href="/products" class="button button--secondary">View product range</a>
+        <a href="/contact" class="button button--secondary">Contact the team</a>
       </div>
     </div>
   </section>

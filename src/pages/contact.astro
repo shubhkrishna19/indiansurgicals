@@ -17,7 +17,7 @@ const otherWebsiteHref = business.contact.website ? `https://${business.contact.
     <div class="container contact-hero__grid">
       <div class="contact-hero__content" data-parallax-group>
         <span class="eyebrow" data-parallax-speed="0.08">Contact And Enquiries</span>
-        <h1 data-parallax-speed="0.16">Speak with the team for quotations, product selection, and works enquiries.</h1>
+        <h1 data-parallax-speed="0.16">Contact the team for quotations, product guidance, and works enquiries.</h1>
         <p class="contact-hero__copy">{business.quoteOnlyNote}</p>
         <p class="contact-hero__copy">
           Use the published mobile numbers, telephone line, WhatsApp, and email contacts below for direct
@@ -26,7 +26,7 @@ const otherWebsiteHref = business.contact.website ? `https://${business.contact.
 
         <div class="contact-hero__actions">
           <a href={primaryContactHref} class="button button--primary">Contact now</a>
-          <a href="/products" class="button button--secondary">Browse the catalogue</a>
+          <a href="/products" class="button button--secondary">View product range</a>
         </div>
       </div>
 
@@ -58,8 +58,8 @@ const otherWebsiteHref = business.contact.website ? `https://${business.contact.
     <div class="container">
       <SectionTitle
         kicker="Direct Contact Channels"
-        title="Choose the easiest route to reach the business."
-        subtitle="Use WhatsApp for faster discussion, call for urgent requirements, or email the shortlisted product family and model details."
+        title="Choose the best contact channel for your requirement."
+        subtitle="Use WhatsApp for fast discussion, call for urgent requirements, or email your shortlisted product family and model details."
         align="left"
       />
 
@@ -116,19 +116,19 @@ const otherWebsiteHref = business.contact.website ? `https://${business.contact.
       <div>
         <SectionTitle
           kicker="Best Way To Enquire"
-          title="A clearer shortlist leads to a faster quotation."
-          subtitle="Start with the relevant category, open the right family page, and share the shortlisted model name or image reference when you contact the team."
+          title="A better shortlist leads to a quicker response."
+          subtitle="Share the relevant category, product family, and model reference so the team can guide you faster."
           align="left"
         />
 
         <ol class="process-list">
           <li>
             <strong>Open the relevant product category.</strong>
-            Begin with the section that matches your requirement, such as autoclaves, hollowares, suction units, furniture, or OT equipment.
+            Begin with the category that matches your requirement, such as autoclaves, hollowares, suction units, furniture, or OT equipment.
           </li>
           <li>
             <strong>Shortlist the matching family.</strong>
-            Each family page brings together images, product overview, and the available model lineup in one place.
+            Shortlist the product family that best matches your capacity, size, or application requirement.
           </li>
           <li>
             <strong>Share the model and quantity.</strong>
@@ -138,7 +138,7 @@ const otherWebsiteHref = business.contact.website ? `https://${business.contact.
       </div>
 
       <aside class="panel section-list">
-        <h2>Catalogue sections</h2>
+        <h2>Product categories</h2>
         <ul>
           {categories.map((category) => (
             <li><a href={`/products/${category.slug}`}>{category.name}</a></li>

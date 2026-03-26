@@ -9,20 +9,20 @@ const stats = getCatalogueStats();
 ---
 
 <BaseLayout
-  title="About The Company"
+  title="About Indian Surgical Industries"
   description="Indian Surgical Industries is a legacy medical equipment manufacturer with 40+ years of experience across sterilization systems, hollowares, hospital furniture, OT equipment, and allied product lines."
 >
   <section class="section about-hero">
     <div class="container about-hero__grid">
       <div class="about-hero__content" data-parallax-group>
         <span class="eyebrow" data-parallax-speed="0.08">{business.brandMark}</span>
-        <h1 data-parallax-speed="0.16">Indian Surgical Industries is a manufacturing-led medical equipment business with more than four decades of operating depth.</h1>
+        <h1 data-parallax-speed="0.16">Indian Surgical Industries has been manufacturing medical and hospital equipment for more than four decades.</h1>
         <p class="about-hero__copy" data-parallax-speed="0.1">{business.story[0]}</p>
         <p class="about-hero__copy" data-parallax-speed="0.08">{business.story[1]}</p>
 
         <div class="about-hero__actions" data-parallax-speed="0.08">
-          <a href="/products" class="button button--primary">Browse the catalogue</a>
-          <a href="/contact" class="button button--secondary">Open contact page</a>
+          <a href="/products" class="button button--primary">View product range</a>
+          <a href="/contact" class="button button--secondary">Contact the team</a>
         </div>
 
         <ul class="about-hero__tags" data-parallax-speed="0.06">
@@ -40,7 +40,7 @@ const stats = getCatalogueStats();
             <dd>{business.experienceClaim}</dd>
           </div>
           <div>
-            <dt>Catalogue sections</dt>
+            <dt>Product categories</dt>
             <dd>{stats.categoryCount}</dd>
           </div>
           <div>
@@ -75,16 +75,16 @@ const stats = getCatalogueStats();
     <div class="container narrative-grid">
       <div>
         <SectionTitle
-          kicker="Business Narrative"
-          title="Built around sterilization, ward utility, patient care, and OT support."
+          kicker="Manufacturing Profile"
+          title="Built for sterilization, patient care, ward utility, and OT support."
           subtitle={business.story[2]}
           align="left"
         />
         <div class="narrative-copy">
           <p>{business.story[3]}</p>
           <p>
-            The company range is built to help hospitals, distributors, procurement teams, and export buyers
-            review relevant products quickly and move into direct quotation discussion with clarity.
+            The company works with hospitals, distributors, procurement teams, and export buyers looking
+            for dependable supply, practical product selection, and direct quotation support.
           </p>
         </div>
       </div>
@@ -114,9 +114,9 @@ const stats = getCatalogueStats();
   <section class="section">
     <div class="container">
       <SectionTitle
-        kicker="Catalogue Coverage"
-        title="The product range is organized by major business categories."
-        subtitle="Each category leads into the relevant product families so buyers can move from broad requirement to exact product page without confusion."
+        kicker="Product Categories"
+        title="Major product categories across the company range."
+        subtitle="Open the category that matches your requirement to review the relevant product families."
         align="left"
       />
 
@@ -136,14 +136,14 @@ const stats = getCatalogueStats();
     <div class="container cta panel">
       <div>
         <span class="eyebrow">Quotation Support</span>
-        <h2>Product details stay public for evaluation, while quotations are shared directly based on model, quantity, and dispatch needs.</h2>
+        <h2>Product details are public for review, while quotations are shared directly against model, quantity, and dispatch requirement.</h2>
       </div>
       <p>
-        {business.quoteOnlyNote} Buyers can review the full range, compare models, and contact the team
-        directly for quotations and commercial discussion.
+        {business.quoteOnlyNote} Review the relevant products first, then contact the team with the model,
+        quantity, and dispatch requirement.
       </p>
       <div class="cta__actions">
-        <a href="/products" class="button button--primary">Explore product range</a>
+        <a href="/products" class="button button--primary">View product range</a>
         <a href="/contact" class="button button--secondary">View contact details</a>
       </div>
     </div>

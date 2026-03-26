@@ -17,20 +17,20 @@ const families = getAllFamilies();
     <div class="container">
       <SectionTitle
         kicker="Full Catalogue"
-        title="Browse by category, shortlist the right family, and open the matching models."
-        subtitle="Every card below leads to a product family page with photos, key specifications, and the available model lineup for faster buying decisions."
+        title="Browse the full product range by category, family, and model."
+        subtitle="Each card opens a product family with photos, key details, and listed models to help you shortlist faster."
         align="left"
       />
 
       <CatalogueDownloadPanel
         compact={true}
-        title="Need the official company catalogue?"
-        subtitle="Open the online catalogue for quick browsing or download the approved company PDF for internal circulation and buying discussions."
+        title="Need the official company catalogue PDF?"
+        subtitle="View the range online for quick review or download the approved company PDF for sharing and internal reference."
       />
 
       <div class="catalogue-toolbar panel">
         <div class="catalogue-toolbar__search">
-          <label for="catalogue-search">Search the catalogue</label>
+          <label for="catalogue-search">Search products</label>
           <input id="catalogue-search" type="search" placeholder="Search by family, category, or model" />
         </div>
 
@@ -42,7 +42,7 @@ const families = getAllFamilies();
         </div>
 
         <p class="catalogue-toolbar__count">
-          <strong id="catalogue-count">{families.length}</strong> product families
+          <strong id="catalogue-count">{families.length}</strong> product families available
         </p>
       </div>
 
@@ -59,8 +59,8 @@ const families = getAllFamilies();
       </div>
 
       <div class="catalogue-empty panel" id="catalogue-empty" hidden>
-        <h2>No products found for this search.</h2>
-        <p>Try a broader search term or switch back to all categories.</p>
+        <h2>No matching products found.</h2>
+        <p>Try a broader keyword or switch back to all categories.</p>
       </div>
     </div>
   </section>

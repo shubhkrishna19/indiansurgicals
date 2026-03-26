@@ -16,7 +16,7 @@ const whatsappLink = getWhatsAppLink();
     <div class="container quote-hero__grid">
       <div class="quote-hero__content" data-parallax-group>
         <span class="eyebrow" data-parallax-speed="0.08">Get Quote</span>
-        <h1 data-parallax-speed="0.16">Get direct quotation support from Indian Surgical Industries.</h1>
+        <h1 data-parallax-speed="0.16">Request a quotation directly from Indian Surgical Industries.</h1>
         <p class="quote-hero__copy" data-parallax-speed="0.1">{business.quoteOnlyNote}</p>
 
         <div class="quote-hero__actions" data-parallax-speed="0.08">
@@ -68,15 +68,15 @@ const whatsappLink = getWhatsAppLink();
     <div class="container">
       <SectionTitle
         kicker="Contact Channels"
-        title="Choose the easiest route to connect with the team."
-        subtitle="Use WhatsApp for fast discussion, call for urgent buying requirements, or email your shortlisted models and quantities."
+        title="Choose the fastest route to request a quote."
+        subtitle="Use WhatsApp for fast discussion, call for urgent requirements, or email your shortlisted models and quantities."
         align="left"
       />
 
       <div class="quote-grid">
         <article class="panel quote-card">
           <span>WhatsApp</span>
-          <h2>Start a direct quote conversation</h2>
+          <h2>Start on WhatsApp</h2>
           <p>Best for quick model confirmation, quantity discussion, and follow-up on urgent institutional requirements.</p>
           <a href={whatsappLink}>Open WhatsApp</a>
         </article>
@@ -84,7 +84,7 @@ const whatsappLink = getWhatsAppLink();
         <article class="panel quote-card">
           <span>Mobile Numbers</span>
           <h2>Call the sales contact line</h2>
-          <p>Use the published mobile numbers for immediate coordination and quotation support.</p>
+          <p>Use the published mobile numbers for immediate coordination, product discussion, and quotation support.</p>
           {business.contact.phones.map((phone) => (
             <a href={`tel:${phone}`}>{phone}</a>
           ))}
@@ -92,7 +92,7 @@ const whatsappLink = getWhatsAppLink();
 
         <article class="panel quote-card">
           <span>Telephone</span>
-          <h2>Reach the works line</h2>
+          <h2>Reach the works office</h2>
           <p>Use the telephone line for general calling and office-level product communication.</p>
           {business.contact.telephones.map((phone) => (
             <a href={`tel:${phone}`}>{phone}</a>
@@ -110,9 +110,9 @@ const whatsappLink = getWhatsAppLink();
 
         <article class="panel quote-card">
           <span>Works Address</span>
-          <h2>Manufacturing and works contact base</h2>
+          <h2>Manufacturing and works address</h2>
           <p>{business.contact.addressLines.join(", ")}</p>
-          <a href="/contact">Open the full contact page</a>
+          <a href="/contact">View contact details</a>
         </article>
       </div>
     </div>
@@ -123,8 +123,8 @@ const whatsappLink = getWhatsAppLink();
       <div>
         <SectionTitle
           kicker="Before You Contact"
-          title="A cleaner enquiry gets a faster quotation."
-          subtitle="Send the right details once so the team can respond with the correct family, model, and commercial guidance."
+          title="Send the right details for a faster quote."
+          subtitle="Share the key requirement once so the team can respond with the right family, model, and commercial guidance."
           align="left"
         />
 
@@ -132,7 +132,7 @@ const whatsappLink = getWhatsAppLink();
           <article class="panel quote-step">
             <strong>01</strong>
             <h3>Share the product family or model</h3>
-            <p>Mention the exact family page or model variant you shortlisted from the catalogue.</p>
+            <p>Mention the exact product family or model variant you shortlisted from the catalogue.</p>
           </article>
 
           <article class="panel quote-step">
@@ -150,14 +150,14 @@ const whatsappLink = getWhatsAppLink();
       </div>
 
       <aside class="panel quote-sections">
-        <h2>Open a product section first</h2>
-        <p>Browse a section before contacting so your enquiry starts with a clearer shortlist.</p>
+        <h2>Browse a category first</h2>
+        <p>If you are still comparing options, open the closest category and shortlist the relevant family first.</p>
         <ul>
           {categories.slice(0, 8).map((category) => (
             <li><a href={`/products/${category.slug}`}>{category.name}</a></li>
           ))}
         </ul>
-        <a href="/products" class="button button--secondary">Browse full catalogue</a>
+        <a href="/products" class="button button--secondary">View full product range</a>
       </aside>
     </div>
   </section>

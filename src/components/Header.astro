@@ -9,7 +9,7 @@ const contactSummary = `Call ${business.contact.phones[0]} | Email ${business.co
 const catalogueMenu = [
   {
     href: "/products",
-    label: "Browse full catalogue",
+    label: "Full product catalogue",
     note: `${categories.length} major product categories`,
   },
   ...categories.map((category) => ({
@@ -19,8 +19,8 @@ const catalogueMenu = [
   })),
   {
     href: "/catalogue-preview",
-    label: "Catalogue preview and download",
-    note: "Online catalogue and official company PDF",
+    label: "Official catalogue PDF",
+    note: "Online catalogue and downloadable company PDF",
   },
 ];
 
@@ -32,7 +32,7 @@ const aboutMenu = [
   },
   {
     href: "/get-quote",
-    label: "Get quote and contact",
+    label: "Get quotation support",
     note: "WhatsApp, phone, and email enquiry options",
   },
   {
@@ -42,8 +42,8 @@ const aboutMenu = [
   },
   {
     href: "/catalogue-preview",
-    label: "Catalogue preview",
-    note: "Quick online access to the full product range",
+    label: "Catalogue overview",
+    note: "Online viewing and official PDF access",
   },
 ];
 
@@ -124,7 +124,7 @@ const isAboutActive = currentPath.startsWith("/about");
     </nav>
 
       <a href="/get-quote" class="site-header__cta">
-        <span class="site-header__cta-kicker">Quote-only support</span>
+        <span class="site-header__cta-kicker">Quick enquiry support</span>
         <strong>Get Quote</strong>
       </a>
   </div>

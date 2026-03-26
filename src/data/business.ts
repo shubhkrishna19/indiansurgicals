@@ -45,12 +45,12 @@ export const business: BusinessProfile = {
   tagline:
     "Manufacturer of Autoclaves, Sterilisers, Hospital Furniture, Hollowares, Suction Machine, OT Equipment, X-Ray Illuminators, Fumigator/Fogger, Instrument Trays, Kidney Trays",
   shortDescription:
-    "Indian Surgical Industries manufactures sterilization equipment, autoclaves, sterilizers, hospital hollowares, suction units, X-ray illuminators, hospital furniture, operation theater equipment, and allied products.",
+    "Manufacturer of autoclaves, sterilizers, hospital hollowares, suction units, hospital furniture, OT equipment, X-ray illuminators, and allied medical products.",
   story: [
-    "Indian Surgical Industries has been manufacturing medical and hospital utility equipment for more than four decades.",
-    "The company serves hospitals, clinics, nursing homes, medical colleges, research institutions, and procurement teams with a wide product range across sterilization, patient care, ward utility, and OT support.",
-    "Its product portfolio covers fully automatic and manual autoclaves, instrument sterilizers, hollowares, suction systems, patient care beds, ward utility furniture, transfer solutions, and OT lighting.",
-    "The business positions itself around user-friendly manufacturing, dependable quality, evolving design, and long-term customer satisfaction.",
+    "Indian Surgical Industries has been manufacturing medical and hospital equipment for more than four decades.",
+    "The company supplies hospitals, clinics, nursing homes, medical colleges, research institutions, and procurement teams across sterilization, patient care, ward utility, and OT support requirements.",
+    "The product range covers fully automatic and manual autoclaves, instrument sterilizers, hollowares, suction systems, patient care beds, ward utility furniture, transfer solutions, and OT lighting.",
+    "The business is built around dependable quality, practical design, manufacturing continuity, and long-term customer confidence.",
   ],
   manufacturingBase: "Noida, Uttar Pradesh, India",
   marketPresence:
@@ -103,9 +103,9 @@ export const business: BusinessProfile = {
     "Myanmar",
   ],
   quoteOnlyNote:
-    "All products on this website are catalogue products only. Pricing is shared on request based on model, quantity, and dispatch requirements.",
+    "All products listed here are supplied on quotation. Pricing is shared on request based on model, quantity, and dispatch requirements.",
   contactNote:
-    "For quotations and product enquiries, please use the published works address, phone numbers, WhatsApp, and email contacts.",
+    "For quotations, model confirmation, and dispatch discussion, please use the published phone numbers, WhatsApp, and email contacts.",
   contactReady: true,
   leadershipHighlights: [
     {
@@ -116,17 +116,17 @@ export const business: BusinessProfile = {
     {
       value: "170+",
       label: "Product families",
-      note: "A wide product range covering sterilization, furniture, ward utility, transfer systems, and OT support.",
+      note: "A broad manufacturing range across sterilization, furniture, ward utility, transfer systems, and OT support.",
     },
     {
       value: "11",
-      label: "Core business sections",
+      label: "Major product categories",
       note: "From autoclaves and sterilizers to hospital furniture, ward equipment, and OT lighting.",
     },
     {
       value: "ISO / CE",
-      label: "Quality-led positioning",
-      note: "Quality-focused manufacturing aligned with institutional, dealer, and export requirements.",
+      label: "Quality certifications",
+      note: "Manufacturing aligned with institutional, dealer, and export requirements.",
     },
   ],
   testimonials: [
@@ -175,8 +175,8 @@ export const business: BusinessProfile = {
   heroMetrics: [
     { label: "Years of manufacturing", value: "40+" },
     { label: "Product families", value: "170+" },
-    { label: "Core catalogue categories", value: "11" },
-    { label: "Commercial model", value: "Get a quote now" },
+    { label: "Product categories", value: "11" },
+    { label: "Quality certifications", value: "ISO / CE" },
   ],
 };
 

@@ -43,14 +43,13 @@ const primaryContactHref = getPrimaryContactHref();
         <h1 data-parallax-speed="0.16">Greetings from Indian Surgical Industries!</h1>
         <div class="hero__copy hero__copy--stacked" data-parallax-speed="0.12">
           <p>
-            We are a leading Manufacturing Company of Medical and Surgical Equipments. We
-            are an ISO Certified Organization.
+            We are a leading manufacturer of medical and surgical equipment and an ISO
+            certified organization.
           </p>
           <p>
-            We provide products keeping in mind the latest technology, knowledge and best
-            possible resources available along with continuously updating ourselves as per
-            the market standards. Our Manufacturing process is a blend of tradition,
-            innovative capabilities, modern machinery and experienced craftsmen.
+            Our range is built around dependable performance, practical design, and
+            manufacturing experience across sterilization, ward utility, patient care, and
+            OT support products.
           </p>
         </div>
 
@@ -60,18 +59,12 @@ const primaryContactHref = getPrimaryContactHref();
         </div>
 
         <div class="hero__metrics" data-parallax-speed="0.08">
-          {business.heroMetrics.map((metric) =>
-            metric.label === "Commercial model" ? (
-              <a href="/get-quote" class="hero__metric hero__metric--cta panel">
-                <strong>{metric.value}</strong>
-              </a>
-            ) : (
-              <article class="hero__metric panel">
-                <strong>{metric.value}</strong>
-                <span>{metric.label}</span>
-              </article>
-            ),
-          )}
+          {business.heroMetrics.map((metric) => (
+            <article class="hero__metric panel">
+              <strong>{metric.value}</strong>
+              <span>{metric.label}</span>
+            </article>
+          ))}
         </div>
       </div>
     </div>
@@ -82,7 +75,7 @@ const primaryContactHref = getPrimaryContactHref();
       <SectionTitle
         kicker="Major Product Categories"
         title="Choose the Product Category You Need"
-        subtitle="Start with the product group that matches your hospital, dealer, distributor, or institutional requirement."
+        subtitle="Start with the equipment group that matches your requirement and move directly to the relevant products."
         align="left"
       />
 
@@ -104,7 +97,7 @@ const primaryContactHref = getPrimaryContactHref();
       <SectionTitle
         kicker="Explore Our Products"
         title="Featured Products Across Our Range"
-        subtitle="A quick view of high-demand equipment families across our manufacturing catalogue."
+        subtitle="Selected product families from across the company range for quick review and enquiry."
         align="center"
       />
 
@@ -128,7 +121,7 @@ const primaryContactHref = getPrimaryContactHref();
       </div>
 
       <div class="showcase-cta">
-        <a href="/products" class="button button--secondary">Browse the complete range</a>
+        <a href="/products" class="button button--secondary">View complete product range</a>
       </div>
     </div>
   </section>
@@ -137,7 +130,7 @@ const primaryContactHref = getPrimaryContactHref();
     <div class="container">
       <CatalogueDownloadPanel
         title="Download the official company catalogue."
-        subtitle="Open the online catalogue or download the official 72-page company catalogue PDF for internal approvals, distributor sharing, and institutional buying discussions."
+        subtitle="View the range online or download the official 72-page company catalogue PDF for approvals, internal review, and buyer sharing."
       />
     </div>
   </section>
@@ -147,9 +140,9 @@ const primaryContactHref = getPrimaryContactHref();
       <div class="trust-shell panel">
         <div class="trust-shell__intro">
           <SectionTitle
-            kicker="Leadership And Confidence"
-            title="Trusted by hospitals, channel partners, and buyers across markets."
-            subtitle="Our manufacturing background, product range, and customer experience reflect long-standing confidence in the business."
+            kicker="Why Buyers Trust Us"
+            title="Preferred by hospitals, channel partners, and institutional buyers."
+            subtitle="A long manufacturing track record, broad product range, and dependable support help buyers source with confidence."
             align="left"
           />
         </div>
@@ -168,10 +161,10 @@ const primaryContactHref = getPrimaryContactHref();
       <div class="review-block">
         <div class="review-block__intro">
           <span class="eyebrow">Customer Reviews</span>
-          <h2>What customers say about working with us.</h2>
+          <h2>What buyers say about working with us.</h2>
           <p>
             Feedback from procurement teams, distributors, and international buyers reflects confidence in
-            product quality, service support, and long-term business reliability.
+            product quality, service support, and long-term supply reliability.
           </p>
         </div>
 
@@ -186,8 +179,6 @@ const primaryContactHref = getPrimaryContactHref();
                   {item.location && <small>{item.location}</small>}
                 </div>
               </div>
-
-              <p class="review-card__stars">★★★★★</p>
               <p class="review-card__stars-fixed">{"\u2605".repeat(item.rating)}</p>
               <blockquote>{item.quote}</blockquote>
             </article>
@@ -198,17 +189,17 @@ const primaryContactHref = getPrimaryContactHref();
   </section>
 
   <section class="section section--cta">
-    <div class="container cta panel">
+      <div class="container cta panel">
       <div>
-        <span class="eyebrow">Works And Enquiries</span>
-        <h2>Contact Indian Surgical Industries for product selection and quotations.</h2>
+        <span class="eyebrow">Enquiries And Quotations</span>
+        <h2>Contact Indian Surgical Industries for model selection, quantities, and quotations.</h2>
       </div>
       <p>
-        {business.quoteOnlyNote} {business.contact.addressLines.join(", ")}. Primary contact:
-        {" "}{business.contact.phones[0]} | {business.contact.email}
+        Share the product family, model, quantity, and dispatch location for a faster response.
+        Works address: {business.contact.addressLines.join(", ")}. Primary contact: {business.contact.phones[0]} | {business.contact.email}
       </p>
       <div class="cta__actions">
-        <a href={primaryContactHref} class="button button--primary">Request quotation</a>
+        <a href={primaryContactHref} class="button button--primary">Request a quote</a>
         <a href="/contact" class="button button--secondary">View full contact details</a>
       </div>
     </div>
