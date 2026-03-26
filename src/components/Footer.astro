@@ -150,11 +150,6 @@ const credentialBadges = [...business.credentialBadges, ...business.credentialBa
     </section>
   </div>
 
-  <div class="container site-footer__bottom">
-    <span>(c) {year} {business.brand}. All rights reserved.</span>
-    <span>Manufacturer of medical and surgical equipment from Noida, India.</span>
-  </div>
-
   <div class="site-footer__trust">
     <div class="site-footer__trust-track">
       {credentialBadges.map((badge, index) => (
@@ -164,6 +159,11 @@ const credentialBadges = [...business.credentialBadges, ...business.credentialBa
         </article>
       ))}
     </div>
+  </div>
+
+  <div class="container site-footer__bottom">
+    <span>(c) {year} {business.brand}. All rights reserved.</span>
+    <span>Manufacturer of medical and surgical equipment from Noida, India.</span>
   </div>
 </footer>
 
