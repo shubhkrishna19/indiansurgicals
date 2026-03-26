@@ -161,7 +161,7 @@ const primaryContactHref = getPrimaryContactHref();
       <div class="review-block">
         <div class="review-block__intro">
           <span class="eyebrow">Customer Reviews</span>
-          <h2>What buyers say about working with us.</h2>
+          <h2>What buyers say about working <span class="review-block__nowrap">with us.</span></h2>
           <p>
             Feedback from procurement teams, distributors, and international buyers reflects confidence in
             product quality, service support, and long-term supply reliability.
@@ -714,6 +714,10 @@ const primaryContactHref = getPrimaryContactHref();
   .review-block__intro h2 {
     font-size: clamp(1.9rem, 4vw, 3rem);
     max-width: 16ch;
+  }
+
+  .review-block__nowrap {
+    white-space: nowrap;
   }
 
   .review-card {
