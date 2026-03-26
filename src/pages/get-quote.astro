@@ -99,7 +99,7 @@ const whatsappLink = getWhatsAppLink();
           ))}
         </article>
 
-        <article class="panel quote-card">
+        <article class="panel quote-card quote-card--email">
           <span>Email</span>
           <h2>Share your shortlist by email</h2>
           <p>Useful for distributor requirements, institutional lists, and model-by-model enquiry references.</p>
@@ -306,6 +306,14 @@ const whatsappLink = getWhatsAppLink();
     word-break: break-word;
   }
 
+  .quote-card--email a {
+    white-space: nowrap;
+    word-break: normal;
+    overflow-wrap: normal;
+    font-size: clamp(0.84rem, 0.92vw, 0.98rem);
+    letter-spacing: -0.015em;
+  }
+
   .quote-guide {
     display: grid;
     grid-template-columns: 1.15fr 0.85fr;
@@ -354,6 +362,10 @@ const whatsappLink = getWhatsAppLink();
     .quote-grid,
     .quote-steps {
       grid-template-columns: 1fr;
+    }
+
+    .quote-card--email a {
+      white-space: normal;
     }
   }
 </style>
