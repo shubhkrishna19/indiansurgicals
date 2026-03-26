@@ -15,24 +15,17 @@ const { category } = Astro.props;
     ) : (
       <div class="category-card__placeholder"></div>
     )}
-    <span class="category-card__count">{category.familyCount} families</span>
   </div>
 
   <div class="category-card__body">
-    <p class="category-card__eyebrow">Catalogue Category</p>
     <h3>{category.name}</h3>
-    <p class="category-card__summary">{category.summary}</p>
-    <div class="category-card__meta">
-      <span>{category.variantCount} model variants</span>
-      <span>Open section</span>
-    </div>
   </div>
 </a>
 
 <style>
   .category-card {
-    display: grid;
-    grid-template-rows: auto 1fr;
+    display: flex;
+    flex-direction: column;
     border: 1px solid var(--color-line);
     border-radius: 1.4rem;
     overflow: hidden;
@@ -54,7 +47,7 @@ const { category } = Astro.props;
 
   .category-card__media {
     position: relative;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 1 / 1;
     background:
       radial-gradient(circle at top left, rgba(201, 111, 40, 0.22), transparent 40%),
       linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(243, 247, 249, 0.98));
@@ -75,56 +68,19 @@ const { category } = Astro.props;
       linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.25) 50%, transparent 100%);
   }
 
-  .category-card__count {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    display: inline-flex;
-    align-items: center;
-    border-radius: 999px;
-    padding: 0.45rem 0.8rem;
-    background: rgba(11, 27, 43, 0.88);
-    color: white;
-    font-size: 0.76rem;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
-
   .category-card__body {
-    display: grid;
-    gap: 0.9rem;
-    padding: 1.3rem;
-  }
-
-  .category-card__eyebrow {
-    margin: 0;
-    color: var(--color-primary);
-    font-size: 0.74rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 5.4rem;
+    padding: 1.05rem 1.15rem 1.15rem;
+    text-align: center;
   }
 
   .category-card h3 {
     margin: 0;
-    font-size: 1.3rem;
-    line-height: 1.1;
-  }
-
-  .category-card__summary {
-    margin: 0;
-    color: var(--color-text-muted);
-    font-size: 0.96rem;
-    line-height: 1.6;
-  }
-
-  .category-card__meta {
-    display: flex;
-    justify-content: space-between;
-    gap: 0.8rem;
-    padding-top: 0.95rem;
-    border-top: 1px solid rgba(84, 96, 109, 0.16);
-    color: var(--color-text-muted);
-    font-size: 0.84rem;
+    font-size: 1.05rem;
+    line-height: 1.25;
+    text-wrap: balance;
   }
 </style>
