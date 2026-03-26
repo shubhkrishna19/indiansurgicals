@@ -5,11 +5,15 @@ import re
 import shutil
 import unicodedata
 import zipfile
+from difflib import SequenceMatcher
+from html import unescape
 from datetime import datetime
 from pathlib import Path
 from typing import Any
+from urllib.parse import unquote, urljoin, urlsplit
 import xml.etree.ElementTree as ET
 
+import requests
 from openpyxl import Workbook, load_workbook
 from openpyxl.styles import Alignment, Font, PatternFill
 from openpyxl.utils import get_column_letter
@@ -19,14 +23,56 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE_DIR = ROOT / "Company Info"
 GENERATED_DIR = ROOT / "src" / "data" / "generated"
 OUTPUT_JSON = GENERATED_DIR / "catalogue-source.json"
+INDIAMART_JSON = GENERATED_DIR / "indiamart-source.json"
 MEDIA_DIR = ROOT / "public" / "catalogue-media"
 HQ_SOURCE_DIR = ROOT / "indian surgicals product images high quality"
 HQ_MEDIA_DIR = ROOT / "public" / "catalogue-media-hq"
+INDIAMART_MEDIA_DIR = ROOT / "public" / "catalogue-media-indiamart"
 IMAGE_REPORT_JSON = GENERATED_DIR / "catalogue-image-report.json"
 DOWNLOADS_DIR = ROOT / "public" / "downloads"
 EXPORT_WORKBOOK = DOWNLOADS_DIR / "indian-surgical-industries-catalogue.xlsx"
 EXPORT_PREVIEW_PATH = "/catalogue-preview"
 EXPORT_WORKBOOK_PATH = f"/downloads/{EXPORT_WORKBOOK.name}"
+INDIAMART_BASE_URL = "https://www.indiamart.com/indiansurgicalindustries/"
+INDIAMART_CATEGORY_PAGES = [
+    "autoclaves-and-sterilizers.html",
+    "hospital-furnitures.html",
+    "hospital-hollowares.html",
+    "hospital-utensils.html",
+    "hospital-bed.html",
+    "operation-tables.html",
+    "operation-theatre-lights.html",
+    "patient-transfer-trolleys.html",
+    "stainless-steel-tray.html",
+    "suction-machines.html",
+    "vertical-autoclave.html",
+    "ward-equipments.html",
+]
+INDIAMART_PAGE_CATEGORY_MAP = {
+    "autoclaves-and-sterilizers.html": "autoclaves",
+    "hospital-bed.html": "hospital-furniture",
+    "hospital-furnitures.html": "hospital-furniture",
+    "hospital-hollowares.html": "hospital-hollowares",
+    "hospital-utensils.html": "hospital-hollowares",
+    "operation-tables.html": "hospital-furniture",
+    "operation-theatre-lights.html": "operation-theater-lights",
+    "patient-transfer-trolleys.html": "patient-transfer-trolleys",
+    "stainless-steel-tray.html": "hospital-hollowares",
+    "suction-machines.html": "suction-units",
+    "vertical-autoclave.html": "autoclaves",
+    "ward-equipments.html": "ward-equipments",
+}
+CANONICAL_FAMILY_MERGES = {
+    "Dressing Drums Seamless Jointless": "Dressing Drum Seamless (Jointless)",
+    "Dressing Jar (SS)": "Dressing Jar S/S",
+    "Dressing Drums Jointed (SS)": "Dressing Drum Jointed",
+    "Instrument Sterilizers Electrical (Jointed) with Tray Lifting and Thermostat.": (
+        "Instrument Sterilizers Electrical jointed with Tray lifting Thermostat"
+    ),
+    "Bowl and Utensils Sterilizer (SS)": "Bowls And Utensils Sterilizer S/S",
+    "Instrument Sterilizers Non-Electrical Jointed (SS)": "Instrument Sterilizer Non Electrical Jointed",
+    "Instruments Sterlilzers Electrical (SS)": "Instrument Sterilizers Electrical",
+}
 
 
 CATEGORY_CONFIG = [
@@ -342,6 +388,82 @@ def normalize_key(value: str) -> str:
 
 def slugify(value: str) -> str:
     return re.sub(r"-{2,}", "-", re.sub(r"[^a-z0-9]+", "-", clean_text(value).lower()).strip("-")) or "item"
+
+
+def strip_html(value: str) -> str:
+    if not value:
+        return ""
+    cleaned = re.sub(r"<br\s*/?>", "\n", value, flags=re.I)
+    cleaned = re.sub(r"</tr>", "\n", cleaned, flags=re.I)
+    cleaned = re.sub(r"</td>", "\t", cleaned, flags=re.I)
+    cleaned = re.sub(r"<[^>]+>", " ", cleaned)
+    return clean_text(unescape(cleaned))
+
+
+def parse_indiamart_description(html_value: str) -> list[str]:
+    if not html_value:
+        return []
+    cells = re.findall(r"<td[^>]*>(.*?)</td>", html_value, flags=re.I | re.S)
+    lines = [clean_text(unescape(re.sub(r"<[^>]+>", " ", cell))) for cell in cells]
+    if lines and normalize_key(lines[0]) == "description":
+        lines = lines[1:]
+    return unique_preserve([line for line in lines if line])
+
+
+def build_name_aliases(name: str, model: str = "") -> list[str]:
+    aliases = [normalize_key(name)]
+    normalized_model = normalize_key(model)
+    if normalized_model and aliases[0].startswith(f"{normalized_model} "):
+        aliases.append(aliases[0][len(normalized_model) + 1 :].strip())
+    stripped = normalize_key(re.sub(r"^[A-Za-z0-9./()'-]+\s+", "", name).strip())
+    if stripped and stripped != aliases[0]:
+        aliases.append(stripped)
+    return unique_preserve([alias for alias in aliases if alias])
+
+
+def build_token_signature(name: str) -> str:
+    return " ".join(sorted(set(tokenize_text(name))))
+
+
+def indiamart_session() -> requests.Session:
+    session = requests.Session()
+    session.headers.update(
+        {
+            "User-Agent": (
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0 Safari/537.36"
+            ),
+            "Accept-Language": "en-US,en;q=0.9",
+        }
+    )
+    return session
+
+
+def cache_indiamart_image(session: requests.Session, product_id: str, image_url: str) -> str:
+    suffix = Path(unquote(urlsplit(image_url).path)).suffix.lower()
+    if suffix not in {".jpg", ".jpeg", ".png", ".webp"}:
+        suffix = ".jpg"
+    target = INDIAMART_MEDIA_DIR / f"{product_id}{suffix}"
+    if not target.exists():
+        response = session.get(image_url, timeout=30)
+        response.raise_for_status()
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(response.content)
+    return f"/catalogue-media-indiamart/{target.name}"
+
+
+def sync_indiamart_media(session: requests.Session, products: list[dict[str, Any]]) -> None:
+    for product in products:
+        images = product.get("images", [])
+        if not images:
+            continue
+        first_image = clean_text(images[0])
+        if not first_image.startswith("http"):
+            continue
+        try:
+            product["images"] = [cache_indiamart_image(session, product["productId"], first_image)]
+        except requests.RequestException:
+            continue
 
 
 def humanize_title(value: str) -> str:
@@ -664,14 +786,150 @@ def infer_category_from_text(text: str) -> str:
         return "x-ray-illuminators"
     if "patient transfer" in normalized or "stretcher" in normalized or "spine board" in normalized:
         return "patient-transfer-trolleys"
-    if "light" in normalized or "examination" in normalized:
-        return "operation-theater-lights"
     if any(
         term in normalized
-        for term in ("bed", "delivery table", "operation table", "operating table", "couch", "chair")
+        for term in (
+            "bed",
+            "delivery table",
+            "operation table",
+            "operating table",
+            "couch",
+            "coach",
+            "chair",
+            "examination table",
+            "gynaec examination table",
+            "gynec examination couch",
+        )
     ):
         return "hospital-furniture"
+    if "light" in normalized or "examination" in normalized:
+        return "operation-theater-lights"
     return "ward-equipments"
+
+
+def infer_indiamart_category(page_name: str, product_name: str, attributes: list[dict[str, str]]) -> str:
+    page_category = INDIAMART_PAGE_CATEGORY_MAP.get(page_name, "")
+    combined = " ".join(
+        [product_name, page_name.replace(".html", "").replace("-", " ")]
+        + [f"{attribute['label']} {attribute['value']}" for attribute in attributes]
+    )
+    inferred = infer_category_from_text(combined)
+    if page_name == "autoclaves-and-sterilizers.html":
+        return inferred
+    if page_name in {"hospital-utensils.html", "stainless-steel-tray.html"}:
+        return "hospital-hollowares"
+    if page_name == "operation-tables.html":
+        return "hospital-furniture"
+    if page_category:
+        if inferred == "ward-equipments" and page_category != "ward-equipments":
+            return page_category
+        return inferred if inferred == page_category or inferred != "ward-equipments" else page_category
+    return inferred
+
+
+def fetch_indiamart_detail(
+    session: requests.Session, product_url: str, source_page: str
+) -> dict[str, Any] | None:
+    response = session.get(product_url, timeout=30)
+    response.raise_for_status()
+    match = re.search(
+        r'<script id="__NEXT_DATA__" type="application/json">(.*?)</script>',
+        response.text,
+        re.S,
+    )
+    if not match:
+        return None
+
+    payload = json.loads(match.group(1))
+    data = payload["props"]["pageProps"]["serviceRes"]["Data"][0]
+    product_name = clean_text(data.get("PC_ITEM_NAME") or data.get("PC_ITEM_DISPLAY_NAME") or "")
+    if not product_name:
+        return None
+
+    attributes: list[dict[str, str]] = []
+    model = ""
+    for item in data.get("ISQ", []):
+        label = clean_text(item.get("FK_IM_SPEC_MASTER_DESC", ""))
+        value = clean_text(item.get("SUPPLIER_RESPONSE_DETAIL", ""))
+        if not label or not value:
+            continue
+        attributes.append({"label": label, "value": value})
+        if normalize_key(label) == "model no":
+            model = value
+
+    image_candidates = []
+    for candidate in (
+        clean_text(data.get("PC_ITEM_IMG_ORIGINAL", "")),
+        clean_text(data.get("PC_ITEM_IMG_1000x1000", "")),
+        clean_text(data.get("PC_IMG_SMALL_600X600", "")),
+        clean_text(data.get("PC_ITEM_IMG_SMALL", "")),
+    ):
+        if candidate.startswith("http"):
+            image_candidates = [candidate]
+            break
+    description_lines = parse_indiamart_description(data.get("PC_ITEM_DESC_SMALL", ""))
+    category_slug = infer_indiamart_category(source_page, product_name, attributes)
+    product_id_match = re.search(r"-(\d+)\.html(?:\?|$)", product_url)
+    product_id = product_id_match.group(1) if product_id_match else slugify(product_name)
+
+    return {
+        "productId": product_id,
+        "name": product_name,
+        "slug": slugify(product_name),
+        "model": model,
+        "modelKey": normalize_key(model),
+        "normalizedName": normalize_key(product_name),
+        "nameAliases": build_name_aliases(product_name, model),
+        "tokens": tokenize_text(product_name),
+        "categorySlug": category_slug,
+        "sourcePage": source_page,
+        "sourceUrl": product_url,
+        "images": image_candidates,
+        "attributes": merge_attributes(
+            ([{"label": "Model", "value": model}] if model else []),
+            [{"label": attribute["label"], "value": attribute["value"]} for attribute in attributes],
+        ),
+        "descriptionLines": description_lines,
+        "summary": description_lines[0] if description_lines else "",
+    }
+
+
+def fetch_indiamart_catalogue() -> dict[str, Any]:
+    session = indiamart_session()
+    products_by_id: dict[str, dict[str, Any]] = {}
+    pages: list[dict[str, Any]] = []
+
+    for page_name in INDIAMART_CATEGORY_PAGES:
+        url = urljoin(INDIAMART_BASE_URL, page_name)
+        response = session.get(url, timeout=30)
+        response.raise_for_status()
+        detail_urls = unique_preserve(
+            re.findall(r'https://www\.indiamart\.com/proddetail/[^"\']+\.html', response.text)
+        )
+        pages.append({"page": page_name, "detailCount": len(detail_urls)})
+        for product_url in detail_urls:
+            product_id_match = re.search(r"-(\d+)\.html(?:\?|$)", product_url)
+            product_id = product_id_match.group(1) if product_id_match else product_url
+            if product_id in products_by_id:
+                products_by_id[product_id]["sourcePages"] = unique_preserve(
+                    products_by_id[product_id].get("sourcePages", []) + [page_name]
+                )
+                continue
+            record = fetch_indiamart_detail(session, product_url, page_name)
+            if not record:
+                continue
+            record["sourcePages"] = [page_name]
+            products_by_id[record["productId"]] = record
+
+    sync_indiamart_media(session, list(products_by_id.values()))
+    result = {
+        "generatedAt": datetime.now().astimezone().replace(microsecond=0).isoformat(),
+        "pages": pages,
+        "products": sorted(products_by_id.values(), key=lambda item: (item["categorySlug"], item["name"])),
+    }
+    GENERATED_DIR.mkdir(parents=True, exist_ok=True)
+    INDIAMART_JSON.write_text(json.dumps(result, indent=2, ensure_ascii=False), encoding="utf-8")
+    return result
 
 
 def build_family_image_queries(category_slug: str, family_name: str, subheading: str) -> tuple[list[str], bool]:
@@ -1265,10 +1523,418 @@ def merge_attributes(primary: list[dict[str, str]], secondary: list[dict[str, st
     return merged
 
 
+def build_indiamart_indexes(products: list[dict[str, Any]]) -> tuple[dict[str, list[dict[str, Any]]], dict[str, list[dict[str, Any]]]]:
+    by_model: dict[str, list[dict[str, Any]]] = {}
+    by_name: dict[str, list[dict[str, Any]]] = {}
+    for product in products:
+        if product.get("modelKey"):
+            by_model.setdefault(product["modelKey"], []).append(product)
+        for alias in product.get("nameAliases", [product["normalizedName"]]):
+            by_name.setdefault(alias, []).append(product)
+    return by_model, by_name
+
+
+def unique_indiamart_products(products: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    seen: set[str] = set()
+    result: list[dict[str, Any]] = []
+    for product in products:
+        product_id = clean_text(product.get("productId", ""))
+        if not product_id or product_id in seen:
+            continue
+        seen.add(product_id)
+        result.append(product)
+    return result
+
+
+def unique_families(families: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    seen: set[int] = set()
+    result: list[dict[str, Any]] = []
+    for family in families:
+        pointer = id(family)
+        if pointer in seen:
+            continue
+        seen.add(pointer)
+        result.append(family)
+    return result
+
+
+def attach_indiamart_product_to_family(family: dict[str, Any], product: dict[str, Any]) -> None:
+    target_variant = max(
+        family["variants"],
+        key=lambda variant: score_indiamart_match(family, variant, product),
+    )
+    target_variant["displayName"] = target_variant.get("displayName") or product["name"]
+    target_variant["productUrl"] = target_variant.get("productUrl") or product["sourceUrl"]
+    target_variant["images"] = unique_preserve(target_variant.get("images", []) + product.get("images", []))
+    target_variant["descriptionLines"] = unique_preserve(
+        target_variant.get("descriptionLines", []) + product.get("descriptionLines", [])
+    )
+    target_variant["attributes"] = merge_attributes(
+        target_variant.get("attributes", []), product.get("attributes", [])
+    )
+    target_variant["sourceRefs"] = target_variant.get("sourceRefs", []) + [
+        {"workbook": "IndiaMART", "sheet": product["sourcePage"], "model": product["productId"]}
+    ]
+    family["images"] = unique_preserve(family.get("images", []) + product.get("images", []))[:10]
+    family["sourceRefs"] = family.get("sourceRefs", []) + [
+        {"workbook": "IndiaMART", "sheet": product["sourcePage"], "model": product["productId"]}
+    ]
+
+
+def add_family_to_lookup(
+    family_lookup: dict[tuple[str, str], list[dict[str, Any]]],
+    family: dict[str, Any],
+) -> None:
+    seed_model = family["variants"][0]["model"] if family.get("variants") else ""
+    for alias in build_name_aliases(family["name"], seed_model):
+        family_lookup.setdefault((family["categorySlug"], alias), []).append(family)
+
+
+def infer_family_category_override(family: dict[str, Any]) -> str:
+    evidence = [family["name"]]
+    for variant in family.get("variants", [])[:3]:
+        evidence.extend(
+            [
+                variant.get("displayName", ""),
+                variant.get("label", ""),
+                variant.get("model", ""),
+            ]
+        )
+    return infer_category_from_text(" ".join(value for value in evidence if value))
+
+
+def family_variant_to_indiamart_product(
+    family: dict[str, Any],
+    variant: dict[str, Any],
+    ref: dict[str, Any],
+) -> dict[str, Any]:
+    return {
+        "productId": clean_text(ref.get("model", "")) or slugify(family["name"]),
+        "name": family["name"],
+        "slug": slugify(family["name"]),
+        "model": variant.get("model", ""),
+        "modelKey": normalize_key(variant.get("model", "")),
+        "normalizedName": normalize_key(family["name"]),
+        "nameAliases": build_name_aliases(family["name"], variant.get("model", "")),
+        "tokens": tokenize_text(family["name"]),
+        "categorySlug": family["categorySlug"],
+        "sourcePage": clean_text(ref.get("sheet", "")),
+        "sourceUrl": variant.get("productUrl", ""),
+        "images": unique_preserve(variant.get("images", []) + family.get("images", []))[:10],
+        "attributes": merge_attributes([], variant.get("attributes", [])),
+        "descriptionLines": unique_preserve(
+            variant.get("descriptionLines", []) + ([family.get("description", "")] if family.get("description") else [])
+        ),
+        "summary": family.get("summary", ""),
+    }
+
+
+def merge_canonical_family_duplicates(families: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    removed_family_ids: set[int] = set()
+
+    for workbook_name, canonical_name in CANONICAL_FAMILY_MERGES.items():
+        workbook_family = next(
+            (family for family in families if family["name"] == workbook_name and id(family) not in removed_family_ids),
+            None,
+        )
+        canonical_family = next(
+            (family for family in families if family["name"] == canonical_name and id(family) not in removed_family_ids),
+            None,
+        )
+        if not workbook_family or not canonical_family:
+            continue
+
+        workbook_family["name"] = canonical_name
+        if canonical_family.get("summary"):
+            workbook_family["summary"] = canonical_family["summary"]
+        if canonical_family.get("description"):
+            workbook_family["description"] = canonical_family["description"]
+        workbook_family["highlights"] = unique_preserve(
+            canonical_family.get("highlights", []) + workbook_family.get("highlights", [])
+        )
+        workbook_family["notes"] = unique_preserve(
+            workbook_family.get("notes", []) + canonical_family.get("notes", [])
+        )
+        workbook_family["images"] = unique_preserve(
+            canonical_family.get("images", []) + workbook_family.get("images", [])
+        )[:10]
+        workbook_family["sourceRefs"] = workbook_family.get("sourceRefs", []) + canonical_family.get("sourceRefs", [])
+        workbook_family["tableColumns"] = unique_preserve(
+            workbook_family.get("tableColumns", []) + canonical_family.get("tableColumns", [])
+        )
+
+        for variant in canonical_family.get("variants", []):
+            indiamart_refs = [ref for ref in variant.get("sourceRefs", []) if ref.get("workbook") == "IndiaMART"]
+            if not indiamart_refs:
+                continue
+            for ref in indiamart_refs:
+                attach_indiamart_product_to_family(
+                    workbook_family,
+                    family_variant_to_indiamart_product(canonical_family, variant, ref),
+                )
+
+        removed_family_ids.add(id(canonical_family))
+
+    return [family for family in families if id(family) not in removed_family_ids]
+
+
+def image_priority(image_path: str) -> tuple[int, str]:
+    if image_path.startswith("/catalogue-media-indiamart/"):
+        return (0, image_path)
+    if image_path.startswith("/catalogue-media-hq/"):
+        return (1, image_path)
+    if image_path.startswith("/catalogue-media/"):
+        return (2, image_path)
+    if image_path.startswith("http"):
+        return (3, image_path)
+    return (4, image_path)
+
+
+def prioritize_images(images: list[str]) -> list[str]:
+    return sorted(unique_preserve(images), key=image_priority)
+
+
+def score_indiamart_match(
+    family: dict[str, Any], variant: dict[str, Any], product: dict[str, Any]
+) -> int:
+    score = 0
+    family_name = normalize_key(family["name"])
+    family_aliases = set(build_name_aliases(family["name"], variant["model"]))
+    variant_model = normalize_key(variant["model"])
+    family_tokens = set(tokenize_text(" ".join([family["name"], family.get("subheading", ""), variant["model"]])))
+    product_tokens = set(product.get("tokens", []))
+
+    if variant_model and product.get("modelKey") == variant_model:
+        score += 14
+    if product["normalizedName"] == family_name or product["normalizedName"] in family_aliases:
+        score += 12
+    elif product["normalizedName"] in family_name or family_name in product["normalizedName"]:
+        score += 7
+    elif any(alias and (alias in product["normalizedName"] or product["normalizedName"] in alias) for alias in family_aliases):
+        score += 6
+    if product["categorySlug"] == family["categorySlug"]:
+        score += 4
+    overlap = len(family_tokens & product_tokens)
+    score += min(overlap, 6)
+    if family["variants"] and len(family["variants"]) == 1:
+        score += 2
+    return score
+
+
+def ensure_unique_family_slug(family: dict[str, Any], families_by_key: dict[tuple[str, str], dict[str, Any]], suffix: str) -> None:
+    desired_slug = slugify(family["name"])
+    key = (family["categorySlug"], desired_slug)
+    if key not in families_by_key or families_by_key[key] is family:
+        family["slug"] = desired_slug
+        return
+    family["slug"] = f"{desired_slug}-{suffix}"
+
+
+def enrich_catalogue_with_indiamart(
+    families: list[dict[str, Any]],
+    indiamart_products: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    if not indiamart_products:
+        return families
+
+    by_model, by_name = build_indiamart_indexes(indiamart_products)
+    matched_ids: set[str] = set()
+
+    for family in families:
+        family_matches: list[tuple[int, dict[str, Any], dict[str, Any]]] = []
+        family_aliases = build_name_aliases(family["name"])
+        for variant in family["variants"]:
+            name_candidates: list[dict[str, Any]] = []
+            for alias in family_aliases:
+                name_candidates.extend(by_name.get(alias, []))
+            candidates = unique_indiamart_products(by_model.get(normalize_key(variant["model"]), []) + name_candidates)
+            best_match: dict[str, Any] | None = None
+            best_score = 0
+            for candidate in candidates:
+                score = score_indiamart_match(family, variant, candidate)
+                if score > best_score:
+                    best_score = score
+                    best_match = candidate
+            if not best_match or best_score < 9:
+                continue
+
+            matched_ids.add(best_match["productId"])
+            variant["displayName"] = best_match["name"]
+            variant["productUrl"] = best_match["sourceUrl"]
+            variant["images"] = unique_preserve(best_match["images"] + variant.get("images", []))
+            variant["descriptionLines"] = unique_preserve(
+                best_match.get("descriptionLines", []) + variant.get("descriptionLines", [])
+            )
+            variant["attributes"] = merge_attributes(variant.get("attributes", []), best_match.get("attributes", []))
+            variant["sourceRefs"] = variant.get("sourceRefs", []) + [
+                {
+                    "workbook": "IndiaMART",
+                    "sheet": best_match["sourcePage"],
+                    "model": best_match["productId"],
+                }
+            ]
+            family_matches.append((best_score, variant, best_match))
+
+        if not family_matches:
+            continue
+
+        category_votes = [match["categorySlug"] for _, _, match in family_matches if match.get("categorySlug")]
+        if category_votes:
+            top_category = max(set(category_votes), key=category_votes.count)
+            if category_votes.count(top_category) == len(category_votes):
+                family["categorySlug"] = top_category
+
+        if len(family["variants"]) == 1:
+            _, variant, match = max(family_matches, key=lambda item: item[0])
+            family["name"] = match["name"]
+            family["summary"] = match.get("summary") or family.get("summary", "")
+            if match.get("descriptionLines"):
+                family["description"] = " ".join(match["descriptionLines"])
+            family["subheading"] = ""
+
+        family["images"] = unique_preserve(
+            [image for variant in family["variants"] for image in variant.get("images", [])] + family.get("images", [])
+        )[:10]
+        family["notes"] = unique_preserve(family.get("notes", []))
+        if not family.get("highlights") and family.get("summary"):
+            family["highlights"] = [family["summary"]]
+
+    existing_keys = {(family["categorySlug"], normalize_key(family["name"])) for family in families}
+    family_lookup: dict[tuple[str, str], list[dict[str, Any]]] = {}
+    for family in families:
+        add_family_to_lookup(family_lookup, family)
+
+    for product in indiamart_products:
+        if product["productId"] in matched_ids:
+            continue
+        fallback_candidates: list[dict[str, Any]] = []
+        for alias in product.get("nameAliases", [product["normalizedName"]]):
+            fallback_candidates.extend(family_lookup.get((product["categorySlug"], alias), []))
+        fallback_families = unique_families(fallback_candidates)
+        if not fallback_families:
+            product_signature = build_token_signature(product["name"])
+            fuzzy_candidates: list[dict[str, Any]] = []
+            for family in families:
+                if family["categorySlug"] != product["categorySlug"]:
+                    continue
+                family_signature = build_token_signature(family["name"])
+                similarity = SequenceMatcher(
+                    None,
+                    normalize_key(product["name"]),
+                    normalize_key(family["name"]),
+                ).ratio()
+                if (
+                    product_signature
+                    and family_signature == product_signature
+                    or similarity >= 0.82
+                ):
+                    fuzzy_candidates.append(family)
+            fallback_families = unique_families(fuzzy_candidates)
+        if not fallback_families:
+            continue
+
+        target_family = max(
+            fallback_families,
+            key=lambda family: max(
+                score_indiamart_match(family, variant, product) for variant in family.get("variants", [])
+            ),
+        )
+        target_variant = max(
+            target_family["variants"],
+            key=lambda variant: score_indiamart_match(target_family, variant, product),
+        )
+        if score_indiamart_match(target_family, target_variant, product) < 9:
+            continue
+
+        matched_ids.add(product["productId"])
+        attach_indiamart_product_to_family(target_family, product)
+
+    for product in indiamart_products:
+        product_key = (product["categorySlug"], product["normalizedName"])
+        if product["productId"] in matched_ids:
+            continue
+        if product_key in existing_keys:
+            duplicate_candidates: list[dict[str, Any]] = []
+            for alias in product.get("nameAliases", [product["normalizedName"]]):
+                duplicate_candidates.extend(family_lookup.get((product["categorySlug"], alias), []))
+            duplicate_families = unique_families(duplicate_candidates)
+            if duplicate_families:
+                target_family = max(
+                    duplicate_families,
+                    key=lambda family: max(
+                        score_indiamart_match(family, variant, product) for variant in family.get("variants", [])
+                    ),
+                )
+                matched_ids.add(product["productId"])
+                attach_indiamart_product_to_family(target_family, product)
+            continue
+        new_family = {
+            "slug": slugify(product["name"]),
+            "name": product["name"],
+            "categorySlug": product["categorySlug"],
+            "sectionSerials": [],
+            "subheading": "",
+            "summary": product.get("summary", "") or (
+                f"IndiaMART listed product from Indian Surgical Industries."
+            ),
+            "description": " ".join(product.get("descriptionLines", []))
+            or f"{product['name']} is listed in the public IndiaMART product catalogue.",
+            "highlights": unique_preserve(product.get("descriptionLines", [])[:6])
+            or [f"Source: IndiaMART public listing ({product['sourcePage']})."],
+            "notes": [],
+            "images": product.get("images", [])[:10],
+            "variants": [
+                {
+                    "model": product.get("model") or product["name"],
+                    "slug": slugify(product.get("model") or product["name"]),
+                    "label": product.get("model") or product["name"],
+                    "displayName": product["name"],
+                    "productUrl": product["sourceUrl"],
+                    "attributes": merge_attributes([], product.get("attributes", [])),
+                    "descriptionLines": product.get("descriptionLines", []),
+                    "images": product.get("images", [])[:10],
+                    "sourceRefs": [
+                        {
+                            "workbook": "IndiaMART",
+                            "sheet": product["sourcePage"],
+                            "model": product["productId"],
+                        }
+                    ],
+                }
+            ],
+            "sourceRefs": [
+                {
+                    "workbook": "IndiaMART",
+                    "sheet": product["sourcePage"],
+                    "model": product["productId"],
+                }
+            ],
+            "tableColumns": ["Model"] + [attribute["label"] for attribute in product.get("attributes", []) if attribute["label"] != "Model"],
+        }
+        families.append(new_family)
+        existing_keys.add(product_key)
+        add_family_to_lookup(family_lookup, new_family)
+
+    for family in families:
+        inferred_category = infer_family_category_override(family)
+        if inferred_category != "ward-equipments":
+            family["categorySlug"] = inferred_category
+
+    families = merge_canonical_family_duplicates(families)
+
+    families_by_key = {(family["categorySlug"], family["slug"]): family for family in families}
+    for family in families:
+        ensure_unique_family_slug(family, families_by_key, family["variants"][0]["slug"])
+        families_by_key[(family["categorySlug"], family["slug"])] = family
+
+    return families
+
+
 def build_catalogue() -> tuple[dict[str, Any], dict[str, Any]]:
     generated_at = datetime.now().astimezone().replace(microsecond=0).isoformat()
     hq_images = sync_high_quality_media()
     image_anchors = extract_catalogue_media()
+    indiamart_catalogue = fetch_indiamart_catalogue()
     spec_records = parse_spec_workbooks()
     sections, master_variants = parse_master_sections(image_anchors)
     section_lookup = {section["serial"]: section for section in sections}
@@ -1394,6 +2060,8 @@ def build_catalogue() -> tuple[dict[str, Any], dict[str, Any]]:
         )
 
     family_list = sorted(families.values(), key=lambda item: (item["categorySlug"], item["name"]))
+    family_list = enrich_catalogue_with_indiamart(family_list, indiamart_catalogue.get("products", []))
+    family_list = sorted(family_list, key=lambda item: (item["categorySlug"], item["name"]))
     image_report: list[dict[str, Any]] = []
     for family in family_list:
         family["variants"].sort(key=lambda item: item["model"])
@@ -1425,8 +2093,12 @@ def build_catalogue() -> tuple[dict[str, Any], dict[str, Any]]:
             family.get("subheading", ""),
             hq_images,
         )
-        family["images"] = unique_preserve(hq_family_images + family["images"])[:10]
+        family["images"] = prioritize_images(family["images"] + hq_family_images)[:10]
         family["notes"] = unique_preserve(family["notes"])
+        for variant in family["variants"]:
+            variant["images"] = prioritize_images(variant.get("images", []) + family["images"])[:10]
+            if variant.get("descriptionLines"):
+                variant["descriptionLines"] = unique_preserve(variant["descriptionLines"])
         image_report.append(
             {
                 "family": family["name"],
@@ -1455,6 +2127,7 @@ def build_catalogue() -> tuple[dict[str, Any], dict[str, Any]]:
 
     catalogue = {
         "sourceFiles": [MASTER_WORKBOOK.name] + [workbook.name for workbook in SPEC_WORKBOOKS],
+        "externalSources": [INDIAMART_BASE_URL],
         "approvedImageSource": HQ_SOURCE_DIR.name if HQ_SOURCE_DIR.exists() else "",
         "exports": {
             "generatedAt": generated_at,
@@ -1474,6 +2147,11 @@ def build_catalogue() -> tuple[dict[str, Any], dict[str, Any]]:
             }
             for section in sections
         ],
+        "indiamart": {
+            "generatedAt": indiamart_catalogue.get("generatedAt", ""),
+            "pageCount": len(indiamart_catalogue.get("pages", [])),
+            "productCount": len(indiamart_catalogue.get("products", [])),
+        },
     }
     report = {
         "importedHighQualityImages": len(hq_images),
@@ -1492,6 +2170,7 @@ def main() -> None:
     IMAGE_REPORT_JSON.write_text(json.dumps(image_report, indent=2), encoding="utf-8")
     print(f"Wrote {EXPORT_WORKBOOK}")
     print(f"Wrote {OUTPUT_JSON}")
+    print(f"Wrote {INDIAMART_JSON}")
     print(f"Wrote {IMAGE_REPORT_JSON}")
     print(f"Categories: {len(catalogue['categories'])}")
     print(f"Families: {len(catalogue['families'])}")

@@ -24,7 +24,7 @@ const relatedFamilies = getRelatedFamilies(family, 4);
 const activeVariant = family.variants[0];
 const matrixColumns = family.tableColumns.length > 0 ? family.tableColumns : ["Model"];
 const galleryImages = Array.from(
-  new Set([...(family.images.length > 0 ? family.images : []), ...(activeVariant?.images ?? [])]),
+  new Set([...(activeVariant?.images ?? []), ...(family.images.length > 0 ? family.images : [])]),
 );
 const detailNotes = [...family.highlights, ...family.notes].filter(Boolean).slice(0, 6);
 
@@ -148,6 +148,8 @@ function getAttributeValue(
           <button
             class:list={["variant-switcher__button", { "is-active": index === 0 }]}
             data-model-target={variant.slug}
+            data-model-images={JSON.stringify(Array.from(new Set([...(variant.images ?? []), ...family.images])))}
+            data-model-name={variant.displayName ?? family.name}
             role="tab"
             aria-selected={index === 0 ? "true" : "false"}
           >
@@ -166,7 +168,10 @@ function getAttributeValue(
             <div class="variant-panel__header">
               <div>
                 <p class="variant-panel__eyebrow">Model</p>
-                <h2>{variant.model}</h2>
+                <h2>{variant.displayName ?? variant.model}</h2>
+                {variant.displayName && variant.displayName !== variant.model && (
+                  <p class="variant-panel__model-code">Model: {variant.model}</p>
+                )}
               </div>
               <span class="variant-panel__tag">{family.name}</span>
             </div>
@@ -226,6 +231,8 @@ function getAttributeValue(
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
       const target = button.getAttribute("data-model-target");
+      const images = JSON.parse(button.getAttribute("data-model-images") ?? "[]");
+      const name = button.getAttribute("data-model-name") ?? "";
       buttons.forEach((candidate) => {
         candidate.classList.remove("is-active");
         candidate.setAttribute("aria-selected", "false");
@@ -237,6 +244,15 @@ function getAttributeValue(
       });
       button.classList.add("is-active");
       button.setAttribute("aria-selected", "true");
+
+      const gallery = document.querySelector("[data-product-gallery]");
+      if (gallery) {
+        gallery.dispatchEvent(
+          new CustomEvent("gallery:update", {
+            detail: { images, name },
+          }),
+        );
+      }
     });
   });
 </script>
@@ -411,6 +427,12 @@ function getAttributeValue(
   .variant-panel__header h2 {
     margin-top: 0.35rem;
     font-size: 2rem;
+  }
+
+  .variant-panel__model-code {
+    margin: 0.35rem 0 0;
+    color: var(--color-text-muted);
+    font-size: 0.92rem;
   }
 
   .variant-panel__tag {

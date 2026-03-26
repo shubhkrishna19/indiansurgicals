@@ -37,6 +37,8 @@ export interface ProductVariant {
   model: string;
   slug: string;
   label: string;
+  displayName?: string;
+  productUrl?: string;
   attributes: FamilyAttribute[];
   descriptionLines: string[];
   images: string[];

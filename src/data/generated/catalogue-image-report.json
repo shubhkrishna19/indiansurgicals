@@ -1,21 +1,37 @@
 {
   "importedHighQualityImages": 172,
-  "familiesWithImages": 170,
+  "familiesWithImages": 256,
   "familiesWithoutImages": [],
   "families": [
+    {
+      "family": "Auto Exhaust Vertical Autoclave",
+      "categorySlug": "autoclaves",
+      "matchedHqImages": 8,
+      "finalImages": 9,
+      "images": [
+        "/catalogue-media-indiamart/23758544662.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
+        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave-p-type.jpg",
+        "/catalogue-media-hq/autoclave-wing-nut-type.jpg"
+      ]
+    },
     {
       "family": "Autoclave Aluminium 'P' Type",
       "categorySlug": "autoclaves",
       "matchedHqImages": 4,
       "finalImages": 7,
       "images": [
+        "/catalogue-media-hq/autoclave-2.jpg",
         "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
         "/catalogue-media-hq/autoclave-p-type.jpg",
         "/catalogue-media-hq/autoclave.jpg",
-        "/catalogue-media-hq/autoclave-2.jpg",
-        "/catalogue-media/image62.png",
         "/catalogue-media/image110.png",
-        "/catalogue-media/image146.png"
+        "/catalogue-media/image146.png",
+        "/catalogue-media/image62.png"
       ]
     },
     {
@@ -24,10 +40,10 @@
       "matchedHqImages": 5,
       "finalImages": 6,
       "images": [
+        "/catalogue-media-hq/autoclave-2.jpg",
         "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
         "/catalogue-media-hq/autoclave-p-type.jpg",
         "/catalogue-media-hq/autoclave.jpg",
-        "/catalogue-media-hq/autoclave-2.jpg",
         "/catalogue-media-hq/p-type-with-controller.jpg",
         "/catalogue-media/image111.png"
       ]
@@ -38,10 +54,10 @@
       "matchedHqImages": 4,
       "finalImages": 5,
       "images": [
-        "/catalogue-media-hq/autoclave-double-wall.jpg",
-        "/catalogue-media-hq/autoclave.jpg",
         "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
         "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
+        "/catalogue-media-hq/autoclave.jpg",
         "/catalogue-media/image71.png"
       ]
     },
@@ -51,52 +67,20 @@
       "matchedHqImages": 4,
       "finalImages": 5,
       "images": [
+        "/catalogue-media-hq/autoclave-2.jpg",
         "/catalogue-media-hq/autoclave-fully-automatic.jpg",
         "/catalogue-media-hq/autoclave.jpg",
-        "/catalogue-media-hq/autoclave-2.jpg",
         "/catalogue-media-hq/fully-automatic-1.png",
         "/catalogue-media/image152.png"
       ]
     },
     {
-      "family": "Autoclave Horizontal Cylindrical, Triple Wall ,Fully Automatic with PLC Based, HMI, touch panel & printer",
-      "categorySlug": "autoclaves",
-      "matchedHqImages": 6,
-      "finalImages": 9,
-      "images": [
-        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
-        "/catalogue-media-hq/autoclave.jpg",
-        "/catalogue-media-hq/autoclave-2.jpg",
-        "/catalogue-media-hq/fully-automatic-1.png",
-        "/catalogue-media-hq/autoclave-double-wall.jpg",
-        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
-        "/catalogue-media/image62.png",
-        "/catalogue-media/image142.png"
-      ]
-    },
-    {
-      "family": "Autoclave Horizontal Rectangular, Triple Wall ,Fully Automatic with PLC, HMI , Printer with Pre & Post Vacuum & Water Feed Pump.",
-      "categorySlug": "autoclaves",
-      "matchedHqImages": 6,
-      "finalImages": 8,
-      "images": [
-        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
-        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
-        "/catalogue-media-hq/autoclave.jpg",
-        "/catalogue-media-hq/autoclave-2.jpg",
-        "/catalogue-media-hq/fully-automatic-1.png",
-        "/catalogue-media-hq/autoclave-double-wall.jpg",
-        "/catalogue-media/image62.png",
-        "/catalogue-media/image141.png"
-      ]
-    },
-    {
-      "family": "Autoclave Portable",
+      "family": "Autoclave Horizontal Cylindrical Triple Wall",
       "categorySlug": "autoclaves",
       "matchedHqImages": 8,
-      "finalImages": 10,
+      "finalImages": 9,
       "images": [
-        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-indiamart/26097168730.jpeg",
         "/catalogue-media-hq/autoclave-2.jpg",
         "/catalogue-media-hq/autoclave-double-wall.jpg",
         "/catalogue-media-hq/autoclave-fully-automatic.jpg",
@@ -107,15 +91,119 @@
       ]
     },
     {
+      "family": "Autoclave Horizontal Cylindrical, Triple Wall ,Fully Automatic with PLC Based, HMI, touch panel & printer",
+      "categorySlug": "autoclaves",
+      "matchedHqImages": 6,
+      "finalImages": 9,
+      "images": [
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
+        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/fully-automatic-1.png",
+        "/catalogue-media/image142.png",
+        "/catalogue-media/image143.png"
+      ]
+    },
+    {
+      "family": "Autoclave Horizontal Rectangular, Triple Wall ,Fully Automatic with PLC, HMI , Printer with Pre & Post Vacuum & Water Feed Pump.",
+      "categorySlug": "autoclaves",
+      "matchedHqImages": 6,
+      "finalImages": 8,
+      "images": [
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
+        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/fully-automatic-1.png",
+        "/catalogue-media/image141.png",
+        "/catalogue-media/image62.png"
+      ]
+    },
+    {
+      "family": "Autoclave P Type Aluminium Digital",
+      "categorySlug": "autoclaves",
+      "matchedHqImages": 4,
+      "finalImages": 5,
+      "images": [
+        "/catalogue-media-indiamart/26097083473.jpeg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave-p-type.jpg",
+        "/catalogue-media-hq/autoclave.jpg"
+      ]
+    },
+    {
+      "family": "Autoclave Portable",
+      "categorySlug": "autoclaves",
+      "matchedHqImages": 8,
+      "finalImages": 10,
+      "images": [
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
+        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave-p-type.jpg",
+        "/catalogue-media-hq/autoclave-wing-nut-type.jpg",
+        "/catalogue-media-hq/autoclave.jpg"
+      ]
+    },
+    {
       "family": "Autoclave Portable Aluminium Six Wing Nut Type",
+      "categorySlug": "autoclaves",
+      "matchedHqImages": 3,
+      "finalImages": 5,
+      "images": [
+        "/catalogue-media-indiamart/27300291833.jpeg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-wing-nut-type.jpg",
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media/image108.png"
+      ]
+    },
+    {
+      "family": "Autoclave Portable Cooker Type",
+      "categorySlug": "autoclaves",
+      "matchedHqImages": 8,
+      "finalImages": 9,
+      "images": [
+        "/catalogue-media-indiamart/27294448262.jpeg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
+        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave-p-type.jpg",
+        "/catalogue-media-hq/autoclave-wing-nut-type.jpg"
+      ]
+    },
+    {
+      "family": "Autoclave Portable Pressure Cooker double drums",
+      "categorySlug": "autoclaves",
+      "matchedHqImages": 5,
+      "finalImages": 6,
+      "images": [
+        "/catalogue-media-indiamart/27294448330.jpeg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave-p-type.jpg",
+        "/catalogue-media-hq/autoclave.jpg"
+      ]
+    },
+    {
+      "family": "Autoclave Portable Stainless Steel Six Wing Nut Type",
       "categorySlug": "autoclaves",
       "matchedHqImages": 3,
       "finalImages": 4,
       "images": [
-        "/catalogue-media-hq/autoclave-wing-nut-type.jpg",
-        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-indiamart/27289599597.jpeg",
         "/catalogue-media-hq/autoclave-2.jpg",
-        "/catalogue-media/image108.png"
+        "/catalogue-media-hq/autoclave-wing-nut-type.jpg",
+        "/catalogue-media-hq/autoclave.jpg"
       ]
     },
     {
@@ -124,10 +212,10 @@
       "matchedHqImages": 4,
       "finalImages": 5,
       "images": [
+        "/catalogue-media-hq/autoclave-2.jpg",
         "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
         "/catalogue-media-hq/autoclave-p-type.jpg",
         "/catalogue-media-hq/autoclave.jpg",
-        "/catalogue-media-hq/autoclave-2.jpg",
         "/catalogue-media/image147.png"
       ]
     },
@@ -137,40 +225,57 @@
       "matchedHqImages": 8,
       "finalImages": 9,
       "images": [
-        "/catalogue-media-hq/autoclave.jpg",
         "/catalogue-media-hq/autoclave-2.jpg",
         "/catalogue-media-hq/autoclave-double-wall.jpg",
-        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
         "/catalogue-media-hq/autoclave-fully-automatic.jpg",
+        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
         "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
         "/catalogue-media-hq/autoclave-p-type.jpg",
-        "/catalogue-media-hq/autoclave-wing-nut-type.jpg"
+        "/catalogue-media-hq/autoclave-wing-nut-type.jpg",
+        "/catalogue-media-hq/autoclave.jpg"
       ]
     },
     {
       "family": "Autoclave Triple Wall Horizontal Rectangular",
       "categorySlug": "autoclaves",
       "matchedHqImages": 4,
-      "finalImages": 5,
+      "finalImages": 6,
       "images": [
-        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
-        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-indiamart/26097237633.jpeg",
         "/catalogue-media-hq/autoclave-2.jpg",
         "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
+        "/catalogue-media-hq/autoclave.jpg",
         "/catalogue-media/image140.png"
+      ]
+    },
+    {
+      "family": "Autoclave Triple Wall Vertical Hi-Pressure Nut Locking with Digital Controller",
+      "categorySlug": "autoclaves",
+      "matchedHqImages": 6,
+      "finalImages": 7,
+      "images": [
+        "/catalogue-media-indiamart/27575322588.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave-wing-nut-type.jpg",
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/p-type-with-controller.jpg"
       ]
     },
     {
       "family": "Autoclave Vertical Double Wall S/S Combined",
       "categorySlug": "autoclaves",
       "matchedHqImages": 3,
-      "finalImages": 5,
+      "finalImages": 6,
       "images": [
+        "/catalogue-media-indiamart/26097286012.jpeg",
+        "/catalogue-media-hq/autoclave-2.jpg",
         "/catalogue-media-hq/autoclave-double-wall.jpg",
         "/catalogue-media-hq/autoclave.jpg",
-        "/catalogue-media-hq/autoclave-2.jpg",
-        "/catalogue-media/image62.png",
-        "/catalogue-media/image112.png"
+        "/catalogue-media/image112.png",
+        "/catalogue-media/image62.png"
       ]
     },
     {
@@ -179,11 +284,11 @@
       "matchedHqImages": 5,
       "finalImages": 6,
       "images": [
-        "/catalogue-media-hq/autoclave-double-wall.jpg",
-        "/catalogue-media-hq/autoclave.jpg",
         "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
         "/catalogue-media-hq/autoclave-fully-automatic.jpg",
         "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave.jpg",
         "/catalogue-media/image62.png"
       ]
     },
@@ -193,11 +298,11 @@
       "matchedHqImages": 6,
       "finalImages": 7,
       "images": [
+        "/catalogue-media-hq/autoclave-2.jpg",
         "/catalogue-media-hq/autoclave-double-wall.jpg",
         "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
-        "/catalogue-media-hq/autoclave.jpg",
-        "/catalogue-media-hq/autoclave-2.jpg",
         "/catalogue-media-hq/autoclave-wing-nut-type.jpg",
+        "/catalogue-media-hq/autoclave.jpg",
         "/catalogue-media-hq/p-type-with-controller.jpg",
         "/catalogue-media/image64.jpeg"
       ]
@@ -208,9 +313,9 @@
       "matchedHqImages": 3,
       "finalImages": 4,
       "images": [
+        "/catalogue-media-hq/autoclave-2.jpg",
         "/catalogue-media-hq/autoclave-double-wall.jpg",
         "/catalogue-media-hq/autoclave.jpg",
-        "/catalogue-media-hq/autoclave-2.jpg",
         "/catalogue-media/image67.jpeg"
       ]
     },
@@ -218,15 +323,16 @@
       "family": "Autoclave Vertical Double wall SS Radial Locking with Digital controller.",
       "categorySlug": "autoclaves",
       "matchedHqImages": 5,
-      "finalImages": 7,
+      "finalImages": 9,
       "images": [
+        "/catalogue-media-indiamart/23804592697.jpg",
+        "/catalogue-media-indiamart/26097286191.jpeg",
+        "/catalogue-media-hq/autoclave-2.jpg",
         "/catalogue-media-hq/autoclave-double-wall.jpg",
         "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
         "/catalogue-media-hq/autoclave.jpg",
-        "/catalogue-media-hq/autoclave-2.jpg",
         "/catalogue-media-hq/p-type-with-controller.jpg",
-        "/catalogue-media/image62.png",
-        "/catalogue-media/image68.jpeg"
+        "/catalogue-media/image62.png"
       ]
     },
     {
@@ -235,51 +341,20 @@
       "matchedHqImages": 3,
       "finalImages": 5,
       "images": [
+        "/catalogue-media-hq/autoclave-2.jpg",
         "/catalogue-media-hq/autoclave-double-wall.jpg",
         "/catalogue-media-hq/autoclave.jpg",
-        "/catalogue-media-hq/autoclave-2.jpg",
-        "/catalogue-media/image63.jpeg",
-        "/catalogue-media/image112.png"
+        "/catalogue-media/image112.png",
+        "/catalogue-media/image63.jpeg"
       ]
     },
     {
-      "family": "Autoclave Vertical Triple Wall Hi- Pressure Nut Locking",
-      "categorySlug": "autoclaves",
-      "matchedHqImages": 8,
-      "finalImages": 10,
-      "images": [
-        "/catalogue-media-hq/autoclave.jpg",
-        "/catalogue-media-hq/autoclave-2.jpg",
-        "/catalogue-media-hq/autoclave-double-wall.jpg",
-        "/catalogue-media-hq/autoclave-wing-nut-type.jpg",
-        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
-        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
-        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
-        "/catalogue-media-hq/autoclave-p-type.jpg"
-      ]
-    },
-    {
-      "family": "Autoclave Vertical Triple Wall Radial locking with Steam storag & Vacuum drying Feature(Semi Automatic)",
-      "categorySlug": "autoclaves",
-      "matchedHqImages": 5,
-      "finalImages": 7,
-      "images": [
-        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
-        "/catalogue-media-hq/autoclave.jpg",
-        "/catalogue-media-hq/autoclave-2.jpg",
-        "/catalogue-media-hq/fully-automatic-1.png",
-        "/catalogue-media-hq/autoclave-double-wall.jpg",
-        "/catalogue-media/image62.png",
-        "/catalogue-media/image139.png"
-      ]
-    },
-    {
-      "family": "Autoclave Vertical Triple Wall with Steam Storage",
+      "family": "Autoclave Vertical Stainless Steel Economy Model",
       "categorySlug": "autoclaves",
       "matchedHqImages": 8,
       "finalImages": 9,
       "images": [
-        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-indiamart/26097083548.jpeg",
         "/catalogue-media-hq/autoclave-2.jpg",
         "/catalogue-media-hq/autoclave-double-wall.jpg",
         "/catalogue-media-hq/autoclave-fully-automatic.jpg",
@@ -290,15 +365,93 @@
       ]
     },
     {
+      "family": "Autoclave Vertical Stainless Steel Nut Locking",
+      "categorySlug": "autoclaves",
+      "matchedHqImages": 8,
+      "finalImages": 9,
+      "images": [
+        "/catalogue-media-indiamart/23804646712.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
+        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave-p-type.jpg",
+        "/catalogue-media-hq/autoclave-wing-nut-type.jpg"
+      ]
+    },
+    {
+      "family": "Autoclave Vertical Triple Wall Hi- Pressure Nut Locking",
+      "categorySlug": "autoclaves",
+      "matchedHqImages": 8,
+      "finalImages": 10,
+      "images": [
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
+        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave-p-type.jpg",
+        "/catalogue-media-hq/autoclave-wing-nut-type.jpg",
+        "/catalogue-media-hq/autoclave.jpg"
+      ]
+    },
+    {
+      "family": "Autoclave Vertical Triple Wall Radial locking with Steam storag & Vacuum drying Feature(Semi Automatic)",
+      "categorySlug": "autoclaves",
+      "matchedHqImages": 5,
+      "finalImages": 8,
+      "images": [
+        "/catalogue-media-indiamart/27300292212.jpeg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/fully-automatic-1.png",
+        "/catalogue-media/image139.png",
+        "/catalogue-media/image62.png"
+      ]
+    },
+    {
+      "family": "Autoclave Vertical Triple Wall With Digital Controller And Vacuum Drying Option , Radial Type",
+      "categorySlug": "autoclaves",
+      "matchedHqImages": 5,
+      "finalImages": 6,
+      "images": [
+        "/catalogue-media-indiamart/26097084191.jpeg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/p-type-with-controller.jpg"
+      ]
+    },
+    {
+      "family": "Autoclave Vertical Triple Wall with Steam Storage",
+      "categorySlug": "autoclaves",
+      "matchedHqImages": 8,
+      "finalImages": 9,
+      "images": [
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
+        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave-p-type.jpg",
+        "/catalogue-media-hq/autoclave-wing-nut-type.jpg",
+        "/catalogue-media-hq/autoclave.jpg"
+      ]
+    },
+    {
       "family": "Autoclave Vertical Triple wall SS Radial Locking with Digital controller",
       "categorySlug": "autoclaves",
       "matchedHqImages": 5,
       "finalImages": 6,
       "images": [
-        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
-        "/catalogue-media-hq/autoclave.jpg",
         "/catalogue-media-hq/autoclave-2.jpg",
         "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave.jpg",
         "/catalogue-media-hq/p-type-with-controller.jpg",
         "/catalogue-media/image69.png"
       ]
@@ -309,14 +462,14 @@
       "matchedHqImages": 8,
       "finalImages": 10,
       "images": [
-        "/catalogue-media-hq/autoclave.jpg",
         "/catalogue-media-hq/autoclave-2.jpg",
         "/catalogue-media-hq/autoclave-double-wall.jpg",
         "/catalogue-media-hq/autoclave-fully-automatic.jpg",
         "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
         "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
         "/catalogue-media-hq/autoclave-p-type.jpg",
-        "/catalogue-media-hq/autoclave-wing-nut-type.jpg"
+        "/catalogue-media-hq/autoclave-wing-nut-type.jpg",
+        "/catalogue-media-hq/autoclave.jpg"
       ]
     },
     {
@@ -325,7 +478,36 @@
       "matchedHqImages": 8,
       "finalImages": 9,
       "images": [
-        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
+        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave-p-type.jpg",
+        "/catalogue-media-hq/autoclave-wing-nut-type.jpg",
+        "/catalogue-media-hq/autoclave.jpg"
+      ]
+    },
+    {
+      "family": "Autoclaves Portable Stainless Steel Pressure Cooker Type \"P\" Type",
+      "categorySlug": "autoclaves",
+      "matchedHqImages": 4,
+      "finalImages": 5,
+      "images": [
+        "/catalogue-media-indiamart/27294448691.jpeg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave-p-type.jpg",
+        "/catalogue-media-hq/autoclave.jpg"
+      ]
+    },
+    {
+      "family": "Bowls (SS)",
+      "categorySlug": "autoclaves",
+      "matchedHqImages": 8,
+      "finalImages": 10,
+      "images": [
+        "/catalogue-media-indiamart/23827727697.jpeg",
         "/catalogue-media-hq/autoclave-2.jpg",
         "/catalogue-media-hq/autoclave-double-wall.jpg",
         "/catalogue-media-hq/autoclave-fully-automatic.jpg",
@@ -339,13 +521,14 @@
       "family": "Cylindrical Horizontal Autoclave Double Wall (Semi Automatic)",
       "categorySlug": "autoclaves",
       "matchedHqImages": 5,
-      "finalImages": 5,
+      "finalImages": 6,
       "images": [
-        "/catalogue-media-hq/autoclave-double-wall.jpg",
-        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-indiamart/27300292730.jpeg",
         "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
         "/catalogue-media-hq/autoclave-fully-automatic.jpg",
-        "/catalogue-media-hq/autoclave-horizontal-rectangular.png"
+        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
+        "/catalogue-media-hq/autoclave.jpg"
       ]
     },
     {
@@ -354,7 +537,23 @@
       "matchedHqImages": 8,
       "finalImages": 8,
       "images": [
-        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
+        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave-p-type.jpg",
+        "/catalogue-media-hq/autoclave-wing-nut-type.jpg",
+        "/catalogue-media-hq/autoclave.jpg"
+      ]
+    },
+    {
+      "family": "Dental Autoclave",
+      "categorySlug": "autoclaves",
+      "matchedHqImages": 8,
+      "finalImages": 9,
+      "images": [
+        "/catalogue-media-indiamart/27300292391.jpeg",
         "/catalogue-media-hq/autoclave-2.jpg",
         "/catalogue-media-hq/autoclave-double-wall.jpg",
         "/catalogue-media-hq/autoclave-fully-automatic.jpg",
@@ -365,14 +564,163 @@
       ]
     },
     {
-      "family": "Table top front loading Autoclave ( N Class )",
+      "family": "Digital Controller Double Walled Vertical Autoclave",
+      "categorySlug": "autoclaves",
+      "matchedHqImages": 5,
+      "finalImages": 6,
+      "images": [
+        "/catalogue-media-indiamart/23804585188.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/p-type-with-controller.jpg"
+      ]
+    },
+    {
+      "family": "Digital Controller Triple Wall Vertical Autoclave",
+      "categorySlug": "autoclaves",
+      "matchedHqImages": 5,
+      "finalImages": 6,
+      "images": [
+        "/catalogue-media-indiamart/23804644173.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/p-type-with-controller.jpg"
+      ]
+    },
+    {
+      "family": "Digital Triple Wall Vertical Autoclave",
+      "categorySlug": "autoclaves",
+      "matchedHqImages": 8,
+      "finalImages": 9,
+      "images": [
+        "/catalogue-media-indiamart/23818293312.png",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
+        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave-p-type.jpg",
+        "/catalogue-media-hq/autoclave-wing-nut-type.jpg"
+      ]
+    },
+    {
+      "family": "Double Wall Vertical Autoclave",
       "categorySlug": "autoclaves",
       "matchedHqImages": 3,
       "finalImages": 4,
       "images": [
-        "/catalogue-media-hq/table-top-autoclave.jpeg",
-        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-indiamart/23804651391.jpeg",
         "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave.jpg"
+      ]
+    },
+    {
+      "family": "Economy Vertical Autoclave",
+      "categorySlug": "autoclaves",
+      "matchedHqImages": 8,
+      "finalImages": 9,
+      "images": [
+        "/catalogue-media-indiamart/23802516512.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
+        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave-p-type.jpg",
+        "/catalogue-media-hq/autoclave-wing-nut-type.jpg"
+      ]
+    },
+    {
+      "family": "Electric Cum Gas Vertical Autoclave",
+      "categorySlug": "autoclaves",
+      "matchedHqImages": 8,
+      "finalImages": 9,
+      "images": [
+        "/catalogue-media-indiamart/23804655055.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
+        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave-p-type.jpg",
+        "/catalogue-media-hq/autoclave-wing-nut-type.jpg"
+      ]
+    },
+    {
+      "family": "Enmacan (SS)",
+      "categorySlug": "autoclaves",
+      "matchedHqImages": 8,
+      "finalImages": 10,
+      "images": [
+        "/catalogue-media-indiamart/23827727697.jpeg",
+        "/catalogue-media-indiamart/26097133691.jpeg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
+        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave-p-type.jpg"
+      ]
+    },
+    {
+      "family": "Radial Steam Storage Vertical Autoclave",
+      "categorySlug": "autoclaves",
+      "matchedHqImages": 8,
+      "finalImages": 9,
+      "images": [
+        "/catalogue-media-indiamart/23758552030.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
+        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave-p-type.jpg",
+        "/catalogue-media-hq/autoclave-wing-nut-type.jpg"
+      ]
+    },
+    {
+      "family": "Steam Storage Vertical Autoclave",
+      "categorySlug": "autoclaves",
+      "matchedHqImages": 8,
+      "finalImages": 9,
+      "images": [
+        "/catalogue-media-indiamart/23804588933.jpeg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
+        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave-p-type.jpg",
+        "/catalogue-media-hq/autoclave-wing-nut-type.jpg"
+      ]
+    },
+    {
+      "family": "Table Top Autoclave Front Loading (b Class) With Vacuum And Dry",
+      "categorySlug": "autoclaves",
+      "matchedHqImages": 3,
+      "finalImages": 4,
+      "images": [
+        "/catalogue-media-indiamart/26097167948.jpeg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/table-top-autoclave.jpeg"
+      ]
+    },
+    {
+      "family": "Table top front loading Autoclave ( N Class )",
+      "categorySlug": "autoclaves",
+      "matchedHqImages": 3,
+      "finalImages": 5,
+      "images": [
+        "/catalogue-media-indiamart/23815483488.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/table-top-autoclave.jpeg",
         "/catalogue-media/image62.png"
       ]
     },
@@ -382,9 +730,9 @@
       "matchedHqImages": 3,
       "finalImages": 4,
       "images": [
-        "/catalogue-media-hq/table-top-autoclave.jpeg",
-        "/catalogue-media-hq/autoclave.jpg",
         "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/table-top-autoclave.jpeg",
         "/catalogue-media/image154.jpeg"
       ]
     },
@@ -392,43 +740,113 @@
       "family": "Triple Wall Vertical Hi-Pressure Nut Locking",
       "categorySlug": "autoclaves",
       "matchedHqImages": 8,
-      "finalImages": 9,
+      "finalImages": 10,
       "images": [
+        "/catalogue-media-indiamart/24451961488.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
         "/catalogue-media-hq/autoclave-double-wall.jpg",
-        "/catalogue-media-hq/autoclave-wing-nut-type.jpg",
-        "/catalogue-media-hq/autoclave.jpg",
         "/catalogue-media-hq/autoclave-fully-automatic.jpg",
         "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
         "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
         "/catalogue-media-hq/autoclave-p-type.jpg",
-        "/catalogue-media-hq/autoclave-2.jpg"
+        "/catalogue-media-hq/autoclave-wing-nut-type.jpg"
       ]
     },
     {
       "family": "Triple Wall Vertical Hi-Pressure Nut Steam Storage & Vacuum Drying Feature",
       "categorySlug": "autoclaves",
       "matchedHqImages": 8,
-      "finalImages": 8,
+      "finalImages": 9,
       "images": [
+        "/catalogue-media-indiamart/27300291948.jpeg",
+        "/catalogue-media-hq/autoclave-2.jpg",
         "/catalogue-media-hq/autoclave-double-wall.jpg",
-        "/catalogue-media-hq/autoclave-wing-nut-type.jpg",
-        "/catalogue-media-hq/autoclave.jpg",
         "/catalogue-media-hq/autoclave-fully-automatic.jpg",
         "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
         "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
         "/catalogue-media-hq/autoclave-p-type.jpg",
-        "/catalogue-media-hq/autoclave-2.jpg"
+        "/catalogue-media-hq/autoclave-wing-nut-type.jpg"
+      ]
+    },
+    {
+      "family": "Triple Wall Wing Nut Vertical Autoclave",
+      "categorySlug": "autoclaves",
+      "matchedHqImages": 4,
+      "finalImages": 5,
+      "images": [
+        "/catalogue-media-indiamart/23758552233.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-wing-nut-type.jpg",
+        "/catalogue-media-hq/autoclave.jpg"
+      ]
+    },
+    {
+      "family": "Vertical Autoclave",
+      "categorySlug": "autoclaves",
+      "matchedHqImages": 8,
+      "finalImages": 9,
+      "images": [
+        "/catalogue-media-indiamart/26097049973.jpeg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
+        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave-p-type.jpg",
+        "/catalogue-media-hq/autoclave-wing-nut-type.jpg"
       ]
     },
     {
       "family": "Vertical Autoclave Radial Locking Double Wall",
       "categorySlug": "autoclaves",
       "matchedHqImages": 3,
-      "finalImages": 3,
+      "finalImages": 5,
       "images": [
+        "/catalogue-media-indiamart/23802526533.jpg",
+        "/catalogue-media-indiamart/26097084048.jpeg",
+        "/catalogue-media-hq/autoclave-2.jpg",
         "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave.jpg"
+      ]
+    },
+    {
+      "family": "Vertical Autoclave Stainless Steel Nut Locking Double wall",
+      "categorySlug": "autoclaves",
+      "matchedHqImages": 4,
+      "finalImages": 5,
+      "images": [
+        "/catalogue-media-indiamart/26097237562.jpeg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-wing-nut-type.jpg",
+        "/catalogue-media-hq/autoclave.jpg"
+      ]
+    },
+    {
+      "family": "Vertical Autoclave double wall with digital controller",
+      "categorySlug": "autoclaves",
+      "matchedHqImages": 5,
+      "finalImages": 6,
+      "images": [
+        "/catalogue-media-indiamart/23829851491.jpeg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
         "/catalogue-media-hq/autoclave.jpg",
-        "/catalogue-media-hq/autoclave-2.jpg"
+        "/catalogue-media-hq/p-type-with-controller.jpg"
+      ]
+    },
+    {
+      "family": "Vertical Double Wall Radial Lock Autoclave",
+      "categorySlug": "autoclaves",
+      "matchedHqImages": 3,
+      "finalImages": 4,
+      "images": [
+        "/catalogue-media-indiamart/23804582948.jpg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave.jpg"
       ]
     },
     {
@@ -442,6 +860,15 @@
       ]
     },
     {
+      "family": "SS Aerosol Fumigator",
+      "categorySlug": "fumigators-foggers",
+      "matchedHqImages": 0,
+      "finalImages": 1,
+      "images": [
+        "/catalogue-media-indiamart/23817075262.jpg"
+      ]
+    },
+    {
       "family": "ULV Micro Fogger",
       "categorySlug": "fumigators-foggers",
       "matchedHqImages": 0,
@@ -451,14 +878,52 @@
       ]
     },
     {
-      "family": "Blood Chair",
+      "family": "AB-1 Attendent Bed",
       "categorySlug": "hospital-furniture",
-      "matchedHqImages": 1,
+      "matchedHqImages": 2,
+      "finalImages": 4,
+      "images": [
+        "/catalogue-media-indiamart/27094767088.jpg",
+        "/catalogue-media-hq/96-ward-equipments.jpg",
+        "/catalogue-media-hq/97-ward-equipments.jpg",
+        "/catalogue-media/image23.jpeg"
+      ]
+    },
+    {
+      "family": "BSS - 3F Bed Side Screen (3 Panels)",
+      "categorySlug": "hospital-furniture",
+      "matchedHqImages": 2,
+      "finalImages": 5,
+      "images": [
+        "/catalogue-media-indiamart/27093442797.jpg",
+        "/catalogue-media-hq/47-bed-side-screen.jpg",
+        "/catalogue-media-hq/48-bed-side-screen.jpg",
+        "/catalogue-media/image35.jpeg",
+        "/catalogue-media/image62.png"
+      ]
+    },
+    {
+      "family": "BSS-4F Bed Side Screen (4 Panels)",
+      "categorySlug": "hospital-furniture",
+      "matchedHqImages": 2,
+      "finalImages": 5,
+      "images": [
+        "/catalogue-media-indiamart/27093376555.jpg",
+        "/catalogue-media-hq/47-bed-side-screen.jpg",
+        "/catalogue-media-hq/48-bed-side-screen.jpg",
+        "/catalogue-media/image36.jpeg",
+        "/catalogue-media/image62.png"
+      ]
+    },
+    {
+      "family": "Bed Side Screen Three Fold",
+      "categorySlug": "hospital-furniture",
+      "matchedHqImages": 2,
       "finalImages": 3,
       "images": [
-        "/catalogue-media-hq/88-blood-transfusion-chair.jpg",
-        "/catalogue-media/image62.png",
-        "/catalogue-media/image10.jpeg"
+        "/catalogue-media-indiamart/26097084312.jpeg",
+        "/catalogue-media-hq/47-bed-side-screen.jpg",
+        "/catalogue-media-hq/48-bed-side-screen.jpg"
       ]
     },
     {
@@ -468,12 +933,12 @@
       "finalImages": 7,
       "images": [
         "/catalogue-media-hq/102-operation-table.jpg",
-        "/catalogue-media-hq/93-operation-table.jpg",
         "/catalogue-media-hq/103-operating-table.jpg",
         "/catalogue-media-hq/104-operating-table.jpg",
+        "/catalogue-media-hq/93-operation-table.jpg",
         "/catalogue-media-hq/table.jpeg",
-        "/catalogue-media/image62.png",
-        "/catalogue-media/image135.png"
+        "/catalogue-media/image135.png",
+        "/catalogue-media/image62.png"
       ]
     },
     {
@@ -483,26 +948,27 @@
       "finalImages": 7,
       "images": [
         "/catalogue-media-hq/102-operation-table.jpg",
-        "/catalogue-media-hq/93-operation-table.jpg",
         "/catalogue-media-hq/103-operating-table.jpg",
         "/catalogue-media-hq/104-operating-table.jpg",
+        "/catalogue-media-hq/93-operation-table.jpg",
         "/catalogue-media-hq/table.jpeg",
-        "/catalogue-media/image62.png",
-        "/catalogue-media/image135.png"
+        "/catalogue-media/image135.png",
+        "/catalogue-media/image62.png"
       ]
     },
     {
-      "family": "C-ARM Compatible Hydraulic Operation Table",
+      "family": "C-ARM Compatible Hydraulic Operating Table",
       "categorySlug": "hospital-furniture",
       "matchedHqImages": 5,
-      "finalImages": 7,
+      "finalImages": 9,
       "images": [
+        "/catalogue-media-indiamart/26097105833.jpeg",
+        "/catalogue-media-indiamart/27095968933.jpg",
         "/catalogue-media-hq/102-operation-table.jpg",
-        "/catalogue-media-hq/93-operation-table.jpg",
         "/catalogue-media-hq/103-operating-table.jpg",
         "/catalogue-media-hq/104-operating-table.jpg",
+        "/catalogue-media-hq/93-operation-table.jpg",
         "/catalogue-media-hq/table.jpeg",
-        "/catalogue-media/image62.png",
         "/catalogue-media/image18.jpeg"
       ]
     },
@@ -513,88 +979,110 @@
       "finalImages": 7,
       "images": [
         "/catalogue-media-hq/102-operation-table.jpg",
-        "/catalogue-media-hq/93-operation-table.jpg",
         "/catalogue-media-hq/103-operating-table.jpg",
         "/catalogue-media-hq/104-operating-table.jpg",
+        "/catalogue-media-hq/93-operation-table.jpg",
         "/catalogue-media-hq/table.jpeg",
-        "/catalogue-media/image62.png",
-        "/catalogue-media/image18.jpeg"
+        "/catalogue-media/image18.jpeg",
+        "/catalogue-media/image62.png"
+      ]
+    },
+    {
+      "family": "Delivery Bed (Hydraullic)",
+      "categorySlug": "hospital-furniture",
+      "matchedHqImages": 3,
+      "finalImages": 4,
+      "images": [
+        "/catalogue-media-indiamart/26097203333.jpeg",
+        "/catalogue-media-hq/82-labour-delivery-room-bed.jpg",
+        "/catalogue-media-hq/83-labour-delivery-room-bed.jpg",
+        "/catalogue-media-hq/84-delivery-bed.jpg"
       ]
     },
     {
       "family": "Delivery Table Mechanical",
       "categorySlug": "hospital-furniture",
       "matchedHqImages": 4,
-      "finalImages": 6,
+      "finalImages": 7,
       "images": [
+        "/catalogue-media-indiamart/26097133588.jpeg",
         "/catalogue-media-hq/94-delivery-table.jpg",
         "/catalogue-media-hq/96-ward-equipments.jpg",
         "/catalogue-media-hq/97-ward-equipments.jpg",
         "/catalogue-media-hq/table.jpeg",
-        "/catalogue-media/image62.png",
-        "/catalogue-media/image15.jpeg"
+        "/catalogue-media/image15.jpeg",
+        "/catalogue-media/image62.png"
       ]
     },
     {
-      "family": "Dialysis Chair",
+      "family": "EC-1G Gynaec Examination Table",
       "categorySlug": "hospital-furniture",
-      "matchedHqImages": 1,
-      "finalImages": 1,
+      "matchedHqImages": 3,
+      "finalImages": 6,
       "images": [
-        "/catalogue-media-hq/89-dialysis-chair.jpg"
+        "/catalogue-media-indiamart/27095920312.jpg",
+        "/catalogue-media-hq/92-gynaec-examination-table.jpg",
+        "/catalogue-media-hq/examination-table.png",
+        "/catalogue-media-hq/table.jpeg",
+        "/catalogue-media/image13.jpeg",
+        "/catalogue-media/image62.png"
+      ]
+    },
+    {
+      "family": "Emergency & Recovery Trolley Hydraulic",
+      "categorySlug": "hospital-furniture",
+      "matchedHqImages": 5,
+      "finalImages": 10,
+      "images": [
+        "/catalogue-media-indiamart/27094285962.jpg",
+        "/catalogue-media-indiamart/27094342297.jpg",
+        "/catalogue-media-hq/50-recovery-trolley.jpg",
+        "/catalogue-media-hq/53-recovery-trolley.jpg",
+        "/catalogue-media-hq/63-trolley.jpg",
+        "/catalogue-media-hq/64-trolley.jpg",
+        "/catalogue-media-hq/65-trolley.jpg",
+        "/catalogue-media/image56.jpeg"
       ]
     },
     {
       "family": "Examination Couch",
       "categorySlug": "hospital-furniture",
       "matchedHqImages": 4,
-      "finalImages": 7,
+      "finalImages": 9,
       "images": [
+        "/catalogue-media-indiamart/26097168897.jpeg",
+        "/catalogue-media-indiamart/27095909697.jpg",
         "/catalogue-media-hq/90-examination-couch.jpg",
         "/catalogue-media-hq/91-examination-couch.jpg",
         "/catalogue-media-hq/92-gynaec-examination-table.jpg",
         "/catalogue-media-hq/examination-table.png",
-        "/catalogue-media/image62.png",
         "/catalogue-media/image11.jpeg",
         "/catalogue-media/image12.jpeg"
+      ]
+    },
+    {
+      "family": "Foot Step Single",
+      "categorySlug": "hospital-furniture",
+      "matchedHqImages": 2,
+      "finalImages": 3,
+      "images": [
+        "/catalogue-media-indiamart/26097167512.jpeg",
+        "/catalogue-media-hq/65-foot-step.jpg",
+        "/catalogue-media-hq/66-foot-step.jpg"
       ]
     },
     {
       "family": "Four Section Mattress for Fowler / I.C.U. Beds",
       "categorySlug": "hospital-furniture",
       "matchedHqImages": 3,
-      "finalImages": 5,
+      "finalImages": 6,
       "images": [
+        "/catalogue-media-indiamart/27094895555.jpg",
         "/catalogue-media-hq/33-mattress.jpg",
         "/catalogue-media-hq/34-mattress.jpg",
         "/catalogue-media-hq/35-mattress.jpg",
         "/catalogue-media/image5.jpeg",
         "/catalogue-media/image62.png"
-      ]
-    },
-    {
-      "family": "Fowler Bed Electric",
-      "categorySlug": "hospital-furniture",
-      "matchedHqImages": 4,
-      "finalImages": 4,
-      "images": [
-        "/catalogue-media-hq/24-fowler-bed.jpg",
-        "/catalogue-media-hq/25-fowler-bed.jpg",
-        "/catalogue-media-hq/26-fowler-bed.jpg",
-        "/catalogue-media-hq/27-fowler-bed.jpg"
-      ]
-    },
-    {
-      "family": "Gynaec Examination Table",
-      "categorySlug": "hospital-furniture",
-      "matchedHqImages": 3,
-      "finalImages": 5,
-      "images": [
-        "/catalogue-media-hq/92-gynaec-examination-table.jpg",
-        "/catalogue-media-hq/examination-table.png",
-        "/catalogue-media-hq/table.jpeg",
-        "/catalogue-media/image62.png",
-        "/catalogue-media/image13.jpeg"
       ]
     },
     {
@@ -608,35 +1096,29 @@
       ]
     },
     {
-      "family": "Hospital Bed (STANDARD)",
-      "categorySlug": "hospital-furniture",
-      "matchedHqImages": 1,
-      "finalImages": 2,
-      "images": [
-        "/catalogue-media-hq/28-hospital-bed.jpg",
-        "/catalogue-media/image22.jpeg"
-      ]
-    },
-    {
-      "family": "Hospital Fowler Bed",
+      "family": "HFB-1 Hospital Fowler Bed",
       "categorySlug": "hospital-furniture",
       "matchedHqImages": 4,
-      "finalImages": 6,
+      "finalImages": 9,
       "images": [
+        "/catalogue-media-indiamart/23802541130.jpg",
+        "/catalogue-media-indiamart/26097237433.jpeg",
+        "/catalogue-media-indiamart/27094725055.jpg",
         "/catalogue-media-hq/24-fowler-bed.jpg",
         "/catalogue-media-hq/25-fowler-bed.jpg",
         "/catalogue-media-hq/26-fowler-bed.jpg",
         "/catalogue-media-hq/27-fowler-bed.jpg",
-        "/catalogue-media/image2.jpeg",
-        "/catalogue-media/image20.jpeg"
+        "/catalogue-media/image2.jpeg"
       ]
     },
     {
-      "family": "Hospital Fowler Bed Mechanical",
+      "family": "HFBE-1 Fowler Bed Electric",
       "categorySlug": "hospital-furniture",
       "matchedHqImages": 4,
-      "finalImages": 4,
+      "finalImages": 6,
       "images": [
+        "/catalogue-media-indiamart/26097168097.jpeg",
+        "/catalogue-media-indiamart/27094718448.jpg",
         "/catalogue-media-hq/24-fowler-bed.jpg",
         "/catalogue-media-hq/25-fowler-bed.jpg",
         "/catalogue-media-hq/26-fowler-bed.jpg",
@@ -644,11 +1126,37 @@
       ]
     },
     {
-      "family": "Hospital Semi Fowler Bed",
+      "family": "HFBM-1 Hospital Fowler Bed Mechanical",
+      "categorySlug": "hospital-furniture",
+      "matchedHqImages": 4,
+      "finalImages": 5,
+      "images": [
+        "/catalogue-media-indiamart/27094714033.jpg",
+        "/catalogue-media-hq/24-fowler-bed.jpg",
+        "/catalogue-media-hq/25-fowler-bed.jpg",
+        "/catalogue-media-hq/26-fowler-bed.jpg",
+        "/catalogue-media-hq/27-fowler-bed.jpg"
+      ]
+    },
+    {
+      "family": "HPB-1 Hospital Bed",
+      "categorySlug": "hospital-furniture",
+      "matchedHqImages": 1,
+      "finalImages": 4,
+      "images": [
+        "/catalogue-media-indiamart/23802542833.jpg",
+        "/catalogue-media-indiamart/27094756862.jpg",
+        "/catalogue-media-hq/28-hospital-bed.jpg",
+        "/catalogue-media/image22.jpeg"
+      ]
+    },
+    {
+      "family": "HSFB-1 Hospital Semi Fowler Bed",
       "categorySlug": "hospital-furniture",
       "matchedHqImages": 5,
-      "finalImages": 6,
+      "finalImages": 7,
       "images": [
+        "/catalogue-media-indiamart/27094750191.jpg",
         "/catalogue-media-hq/24-fowler-bed.jpg",
         "/catalogue-media-hq/25-fowler-bed.jpg",
         "/catalogue-media-hq/26-fowler-bed.jpg",
@@ -658,29 +1166,107 @@
       ]
     },
     {
+      "family": "Hospital Bed Semi Fowler With Abs Panel And Wheels",
+      "categorySlug": "hospital-furniture",
+      "matchedHqImages": 5,
+      "finalImages": 6,
+      "images": [
+        "/catalogue-media-indiamart/26097168548.jpeg",
+        "/catalogue-media-hq/24-fowler-bed.jpg",
+        "/catalogue-media-hq/25-fowler-bed.jpg",
+        "/catalogue-media-hq/26-fowler-bed.jpg",
+        "/catalogue-media-hq/27-fowler-bed.jpg",
+        "/catalogue-media-hq/28-hospital-bed.jpg"
+      ]
+    },
+    {
+      "family": "Hospital Bed plain",
+      "categorySlug": "hospital-furniture",
+      "matchedHqImages": 1,
+      "finalImages": 2,
+      "images": [
+        "/catalogue-media-indiamart/26097236188.jpeg",
+        "/catalogue-media-hq/28-hospital-bed.jpg"
+      ]
+    },
+    {
+      "family": "Hospital Chair",
+      "categorySlug": "hospital-furniture",
+      "matchedHqImages": 2,
+      "finalImages": 5,
+      "images": [
+        "/catalogue-media-indiamart/26097235973.jpeg",
+        "/catalogue-media-hq/96-ward-equipments.jpg",
+        "/catalogue-media-hq/97-ward-equipments.jpg",
+        "/catalogue-media/image10.jpeg",
+        "/catalogue-media/image62.png"
+      ]
+    },
+    {
+      "family": "Hospital Chair",
+      "categorySlug": "hospital-furniture",
+      "matchedHqImages": 2,
+      "finalImages": 3,
+      "images": [
+        "/catalogue-media-indiamart/26097235973.jpeg",
+        "/catalogue-media-hq/96-ward-equipments.jpg",
+        "/catalogue-media-hq/97-ward-equipments.jpg"
+      ]
+    },
+    {
+      "family": "Hospital Fowler Bed Abs Panel With Collapsible Side Rails",
+      "categorySlug": "hospital-furniture",
+      "matchedHqImages": 6,
+      "finalImages": 7,
+      "images": [
+        "/catalogue-media-indiamart/26097168433.jpeg",
+        "/catalogue-media-hq/24-fowler-bed.jpg",
+        "/catalogue-media-hq/25-fowler-bed.jpg",
+        "/catalogue-media-hq/26-fowler-bed.jpg",
+        "/catalogue-media-hq/27-fowler-bed.jpg",
+        "/catalogue-media-hq/47-bed-side-screen.jpg",
+        "/catalogue-media-hq/48-bed-side-screen.jpg"
+      ]
+    },
+    {
+      "family": "Hospital Fowler Bed Metal Panels",
+      "categorySlug": "hospital-furniture",
+      "matchedHqImages": 4,
+      "finalImages": 5,
+      "images": [
+        "/catalogue-media-indiamart/26097168212.jpeg",
+        "/catalogue-media-hq/24-fowler-bed.jpg",
+        "/catalogue-media-hq/25-fowler-bed.jpg",
+        "/catalogue-media-hq/26-fowler-bed.jpg",
+        "/catalogue-media-hq/27-fowler-bed.jpg"
+      ]
+    },
+    {
       "family": "Hydraulic Operation Table Side End Control",
       "categorySlug": "hospital-furniture",
       "matchedHqImages": 5,
-      "finalImages": 7,
+      "finalImages": 8,
       "images": [
+        "/catalogue-media-indiamart/27095953848.jpg",
         "/catalogue-media-hq/102-operation-table.jpg",
-        "/catalogue-media-hq/93-operation-table.jpg",
         "/catalogue-media-hq/103-operating-table.jpg",
         "/catalogue-media-hq/104-operating-table.jpg",
+        "/catalogue-media-hq/93-operation-table.jpg",
         "/catalogue-media-hq/table.jpeg",
-        "/catalogue-media/image62.png",
-        "/catalogue-media/image17.jpeg"
+        "/catalogue-media/image17.jpeg",
+        "/catalogue-media/image62.png"
       ]
     },
     {
       "family": "Hydraulic Surgical Operating Table",
       "categorySlug": "hospital-furniture",
       "matchedHqImages": 5,
-      "finalImages": 5,
+      "finalImages": 6,
       "images": [
+        "/catalogue-media-indiamart/27095977473.jpg",
+        "/catalogue-media-hq/102-operation-table.jpg",
         "/catalogue-media-hq/103-operating-table.jpg",
         "/catalogue-media-hq/104-operating-table.jpg",
-        "/catalogue-media-hq/102-operation-table.jpg",
         "/catalogue-media-hq/93-operation-table.jpg",
         "/catalogue-media-hq/table.jpeg"
       ]
@@ -691,14 +1277,14 @@
       "matchedHqImages": 8,
       "finalImages": 10,
       "images": [
+        "/catalogue-media-indiamart/27094422712.jpg",
+        "/catalogue-media-indiamart/27094446012.jpg",
+        "/catalogue-media-indiamart/27094450591.jpg",
+        "/catalogue-media-indiamart/27094492348.jpg",
+        "/catalogue-media-indiamart/27094698873.jpg",
         "/catalogue-media-hq/12-icu-bed.jpg",
         "/catalogue-media-hq/13-icu-bed.jpg",
-        "/catalogue-media-hq/14-icu-bed.jpg",
-        "/catalogue-media-hq/15-icu-bed.jpg",
-        "/catalogue-media-hq/16-icu-bed.jpg",
-        "/catalogue-media-hq/17-icu-bed.jpg",
-        "/catalogue-media-hq/18-icu-bed.jpg",
-        "/catalogue-media-hq/19-icu-bed.jpg"
+        "/catalogue-media-hq/14-icu-bed.jpg"
       ]
     },
     {
@@ -707,14 +1293,61 @@
       "matchedHqImages": 8,
       "finalImages": 10,
       "images": [
+        "/catalogue-media-indiamart/27094702962.jpg",
+        "/catalogue-media-indiamart/27094711730.jpg",
+        "/catalogue-media-hq/12-icu-bed.jpg",
+        "/catalogue-media-hq/13-icu-bed.jpg",
+        "/catalogue-media-hq/14-icu-bed.jpg",
+        "/catalogue-media-hq/15-icu-bed.jpg",
+        "/catalogue-media-hq/16-icu-bed.jpg",
+        "/catalogue-media-hq/17-icu-bed.jpg"
+      ]
+    },
+    {
+      "family": "Icu Bed Chair Position",
+      "categorySlug": "hospital-furniture",
+      "matchedHqImages": 8,
+      "finalImages": 9,
+      "images": [
+        "/catalogue-media-indiamart/26097106530.jpeg",
         "/catalogue-media-hq/12-icu-bed.jpg",
         "/catalogue-media-hq/13-icu-bed.jpg",
         "/catalogue-media-hq/14-icu-bed.jpg",
         "/catalogue-media-hq/15-icu-bed.jpg",
         "/catalogue-media-hq/16-icu-bed.jpg",
         "/catalogue-media-hq/17-icu-bed.jpg",
-        "/catalogue-media-hq/18-icu-bed.jpg",
-        "/catalogue-media-hq/19-icu-bed.jpg"
+        "/catalogue-media-hq/18-icu-bed.jpg"
+      ]
+    },
+    {
+      "family": "Icu Bed Mechanical With Abs Panels And Abs Rails",
+      "categorySlug": "hospital-furniture",
+      "matchedHqImages": 8,
+      "finalImages": 9,
+      "images": [
+        "/catalogue-media-indiamart/26097184755.jpeg",
+        "/catalogue-media-hq/12-icu-bed.jpg",
+        "/catalogue-media-hq/13-icu-bed.jpg",
+        "/catalogue-media-hq/14-icu-bed.jpg",
+        "/catalogue-media-hq/15-icu-bed.jpg",
+        "/catalogue-media-hq/16-icu-bed.jpg",
+        "/catalogue-media-hq/17-icu-bed.jpg",
+        "/catalogue-media-hq/18-icu-bed.jpg"
+      ]
+    },
+    {
+      "family": "LM-1 Laparoscopic Monitor Trolley",
+      "categorySlug": "hospital-furniture",
+      "matchedHqImages": 4,
+      "finalImages": 7,
+      "images": [
+        "/catalogue-media-indiamart/27094366862.jpg",
+        "/catalogue-media-hq/57-laparoscopic.jpg",
+        "/catalogue-media-hq/63-trolley.jpg",
+        "/catalogue-media-hq/64-trolley.jpg",
+        "/catalogue-media-hq/65-trolley.jpg",
+        "/catalogue-media/image149.jpeg",
+        "/catalogue-media/image62.png"
       ]
     },
     {
@@ -745,11 +1378,26 @@
       "family": "Labour Table",
       "categorySlug": "hospital-furniture",
       "matchedHqImages": 2,
-      "finalImages": 3,
+      "finalImages": 4,
       "images": [
+        "/catalogue-media-indiamart/26097203188.jpeg",
         "/catalogue-media-hq/86-labour-table.jpg",
         "/catalogue-media-hq/table.jpeg",
         "/catalogue-media/image138.jpeg"
+      ]
+    },
+    {
+      "family": "MPB-1 Mattress for Hospital Beds",
+      "categorySlug": "hospital-furniture",
+      "matchedHqImages": 4,
+      "finalImages": 6,
+      "images": [
+        "/catalogue-media-indiamart/27094877833.jpg",
+        "/catalogue-media-hq/28-hospital-bed.jpg",
+        "/catalogue-media-hq/33-mattress.jpg",
+        "/catalogue-media-hq/34-mattress.jpg",
+        "/catalogue-media-hq/35-mattress.jpg",
+        "/catalogue-media/image3.jpeg"
       ]
     },
     {
@@ -758,8 +1406,8 @@
       "matchedHqImages": 3,
       "finalImages": 4,
       "images": [
-        "/catalogue-media-hq/86-labour-table.jpg",
         "/catalogue-media-hq/85-obstetric-table.jpg",
+        "/catalogue-media-hq/86-labour-table.jpg",
         "/catalogue-media-hq/table.jpeg",
         "/catalogue-media/image8.jpeg"
       ]
@@ -768,8 +1416,9 @@
       "family": "Mattress For Hospital Beds",
       "categorySlug": "hospital-furniture",
       "matchedHqImages": 4,
-      "finalImages": 4,
+      "finalImages": 5,
       "images": [
+        "/catalogue-media-indiamart/27094877833.jpg",
         "/catalogue-media-hq/28-hospital-bed.jpg",
         "/catalogue-media-hq/33-mattress.jpg",
         "/catalogue-media-hq/34-mattress.jpg",
@@ -777,15 +1426,14 @@
       ]
     },
     {
-      "family": "Mattress for Plain Bed",
+      "family": "Medical And Doctor Stool",
       "categorySlug": "hospital-furniture",
-      "matchedHqImages": 3,
-      "finalImages": 4,
+      "matchedHqImages": 2,
+      "finalImages": 3,
       "images": [
-        "/catalogue-media-hq/33-mattress.jpg",
-        "/catalogue-media-hq/34-mattress.jpg",
-        "/catalogue-media-hq/35-mattress.jpg",
-        "/catalogue-media/image3.jpeg"
+        "/catalogue-media-indiamart/26097236430.jpeg",
+        "/catalogue-media-hq/96-ward-equipments.jpg",
+        "/catalogue-media-hq/97-ward-equipments.jpg"
       ]
     },
     {
@@ -799,72 +1447,91 @@
       ]
     },
     {
-      "family": "Operation Table",
-      "categorySlug": "hospital-furniture",
-      "matchedHqImages": 5,
-      "finalImages": 7,
-      "images": [
-        "/catalogue-media-hq/102-operation-table.jpg",
-        "/catalogue-media-hq/93-operation-table.jpg",
-        "/catalogue-media-hq/103-operating-table.jpg",
-        "/catalogue-media-hq/104-operating-table.jpg",
-        "/catalogue-media-hq/table.jpeg",
-        "/catalogue-media/image62.png",
-        "/catalogue-media/image14.jpeg"
-      ]
-    },
-    {
-      "family": "Patient's OPD Couch",
+      "family": "OPDC-1 Patient's OPD Couch/ Chair",
       "categorySlug": "hospital-furniture",
       "matchedHqImages": 2,
-      "finalImages": 3,
+      "finalImages": 4,
       "images": [
+        "/catalogue-media-indiamart/27094774633.jpg",
         "/catalogue-media-hq/29-opd-couch.jpg",
         "/catalogue-media-hq/30-opd-couch-chair.jpg",
-        "/catalogue-media/image23.jpeg"
-      ]
-    },
-    {
-      "family": "Patient's OPD Couch/Chair",
-      "categorySlug": "hospital-furniture",
-      "matchedHqImages": 2,
-      "finalImages": 3,
-      "images": [
-        "/catalogue-media-hq/30-opd-couch-chair.jpg",
-        "/catalogue-media-hq/29-opd-couch.jpg",
         "/catalogue-media/image24.jpeg"
       ]
     },
     {
-      "family": "Pediatric Bed",
+      "family": "Operation Table",
+      "categorySlug": "hospital-furniture",
+      "matchedHqImages": 5,
+      "finalImages": 8,
+      "images": [
+        "/catalogue-media-indiamart/27095927855.jpg",
+        "/catalogue-media-hq/102-operation-table.jpg",
+        "/catalogue-media-hq/103-operating-table.jpg",
+        "/catalogue-media-hq/104-operating-table.jpg",
+        "/catalogue-media-hq/93-operation-table.jpg",
+        "/catalogue-media-hq/table.jpeg",
+        "/catalogue-media/image14.jpeg",
+        "/catalogue-media/image62.png"
+      ]
+    },
+    {
+      "family": "Operation Table Manual , Hi Low",
+      "categorySlug": "hospital-furniture",
+      "matchedHqImages": 5,
+      "finalImages": 6,
+      "images": [
+        "/catalogue-media-indiamart/26097285912.jpeg",
+        "/catalogue-media-hq/102-operation-table.jpg",
+        "/catalogue-media-hq/103-operating-table.jpg",
+        "/catalogue-media-hq/104-operating-table.jpg",
+        "/catalogue-media-hq/93-operation-table.jpg",
+        "/catalogue-media-hq/table.jpeg"
+      ]
+    },
+    {
+      "family": "PDB-1 Pediatric Bed",
       "categorySlug": "hospital-furniture",
       "matchedHqImages": 2,
-      "finalImages": 3,
+      "finalImages": 5,
       "images": [
+        "/catalogue-media-indiamart/26097236630.jpeg",
+        "/catalogue-media-indiamart/27094858997.jpg",
         "/catalogue-media-hq/31-pediatric-bed.jpg",
         "/catalogue-media-hq/suction-ss-plain.jpg",
         "/catalogue-media/image25.jpeg"
       ]
     },
     {
-      "family": "Spica Table",
+      "family": "SC-1 Surgeon Chair",
       "categorySlug": "hospital-furniture",
-      "matchedHqImages": 2,
-      "finalImages": 4,
+      "matchedHqImages": 1,
+      "finalImages": 2,
       "images": [
-        "/catalogue-media-hq/95-spica-table.jpg",
-        "/catalogue-media-hq/table.jpeg",
-        "/catalogue-media/image62.png",
-        "/catalogue-media/image16.jpeg"
+        "/catalogue-media-indiamart/27093656755.jpg",
+        "/catalogue-media-hq/77-surgeon-chair.jpg"
       ]
     },
     {
-      "family": "Surgeon Chair",
+      "family": "Stainless Steel I.V Stand With Plastic Base",
       "categorySlug": "hospital-furniture",
       "matchedHqImages": 1,
-      "finalImages": 1,
+      "finalImages": 2,
       "images": [
-        "/catalogue-media-hq/77-surgeon-chair.jpg"
+        "/catalogue-media-indiamart/26097202355.jpeg",
+        "/catalogue-media-hq/46-iv-stand.jpg"
+      ]
+    },
+    {
+      "family": "TRAP-1 Hospital Bed Mattress",
+      "categorySlug": "hospital-furniture",
+      "matchedHqImages": 4,
+      "finalImages": 5,
+      "images": [
+        "/catalogue-media-indiamart/27094887430.jpg",
+        "/catalogue-media-hq/28-hospital-bed.jpg",
+        "/catalogue-media-hq/33-mattress.jpg",
+        "/catalogue-media-hq/34-mattress.jpg",
+        "/catalogue-media-hq/35-mattress.jpg"
       ]
     },
     {
@@ -877,10 +1544,10 @@
         "/catalogue-media-hq/25-fowler-bed.jpg",
         "/catalogue-media-hq/26-fowler-bed.jpg",
         "/catalogue-media-hq/27-fowler-bed.jpg",
+        "/catalogue-media-hq/28-hospital-bed.jpg",
         "/catalogue-media-hq/33-mattress.jpg",
         "/catalogue-media-hq/34-mattress.jpg",
-        "/catalogue-media-hq/35-mattress.jpg",
-        "/catalogue-media-hq/28-hospital-bed.jpg"
+        "/catalogue-media-hq/35-mattress.jpg"
       ]
     },
     {
@@ -889,30 +1556,45 @@
       "matchedHqImages": 4,
       "finalImages": 4,
       "images": [
-        "/catalogue-media-hq/84-delivery-bed.jpg",
         "/catalogue-media-hq/82-labour-delivery-room-bed.jpg",
         "/catalogue-media-hq/83-labour-delivery-room-bed.jpg",
+        "/catalogue-media-hq/84-delivery-bed.jpg",
         "/catalogue-media-hq/85-obstetric-table.jpg"
       ]
     },
     {
-      "family": "Waiting Area Chair",
+      "family": "WAC-1 Waiting Area Chair",
       "categorySlug": "hospital-furniture",
       "matchedHqImages": 2,
-      "finalImages": 2,
+      "finalImages": 3,
       "images": [
+        "/catalogue-media-indiamart/27093667762.jpg",
         "/catalogue-media-hq/96-ward-equipments.jpg",
         "/catalogue-media-hq/97-ward-equipments.jpg"
       ]
     },
     {
-      "family": "Wheelchair Fix/ Folding",
+      "family": "WC-1F Wheelchair Fix/ Folding",
       "categorySlug": "hospital-furniture",
       "matchedHqImages": 2,
-      "finalImages": 2,
+      "finalImages": 3,
       "images": [
+        "/catalogue-media-indiamart/27093684012.jpg",
         "/catalogue-media-hq/96-ward-equipments.jpg",
         "/catalogue-media-hq/97-ward-equipments.jpg"
+      ]
+    },
+    {
+      "family": "WJ-1 Spica Table",
+      "categorySlug": "hospital-furniture",
+      "matchedHqImages": 2,
+      "finalImages": 5,
+      "images": [
+        "/catalogue-media-indiamart/27095939048.jpg",
+        "/catalogue-media-hq/95-spica-table.jpg",
+        "/catalogue-media-hq/table.jpeg",
+        "/catalogue-media/image16.jpeg",
+        "/catalogue-media/image62.png"
       ]
     },
     {
@@ -930,12 +1612,24 @@
       "family": "Baby Tray (SS)",
       "categorySlug": "hospital-hollowares",
       "matchedHqImages": 2,
-      "finalImages": 4,
+      "finalImages": 5,
       "images": [
-        "/catalogue-media-hq/bedpan.jpg",
+        "/catalogue-media-indiamart/27312269833.jpg",
         "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg",
         "/catalogue-media/image82.png",
         "/catalogue-media/image83.png"
+      ]
+    },
+    {
+      "family": "Baby Tray BT-1620",
+      "categorySlug": "hospital-hollowares",
+      "matchedHqImages": 2,
+      "finalImages": 3,
+      "images": [
+        "/catalogue-media-indiamart/27312325448.jpg",
+        "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg"
       ]
     },
     {
@@ -944,8 +1638,8 @@
       "matchedHqImages": 2,
       "finalImages": 3,
       "images": [
-        "/catalogue-media-hq/bedpan.jpg",
         "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg",
         "/catalogue-media/image113.png"
       ]
     },
@@ -955,8 +1649,8 @@
       "matchedHqImages": 2,
       "finalImages": 2,
       "images": [
-        "/catalogue-media-hq/bedpan.jpg",
-        "/catalogue-media-hq/bedpan-2.jpg"
+        "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg"
       ]
     },
     {
@@ -965,8 +1659,8 @@
       "matchedHqImages": 2,
       "finalImages": 3,
       "images": [
-        "/catalogue-media-hq/bedpan.jpg",
         "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg",
         "/catalogue-media/image96.png"
       ]
     },
@@ -976,8 +1670,8 @@
       "matchedHqImages": 2,
       "finalImages": 2,
       "images": [
-        "/catalogue-media-hq/bedpan.jpg",
-        "/catalogue-media-hq/bedpan-2.jpg"
+        "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg"
       ]
     },
     {
@@ -986,8 +1680,8 @@
       "matchedHqImages": 2,
       "finalImages": 2,
       "images": [
-        "/catalogue-media-hq/bedpan.jpg",
-        "/catalogue-media-hq/bedpan-2.jpg"
+        "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg"
       ]
     },
     {
@@ -996,20 +1690,53 @@
       "matchedHqImages": 2,
       "finalImages": 3,
       "images": [
-        "/catalogue-media-hq/bedpan.jpg",
         "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg",
         "/catalogue-media/image97.png"
       ]
     },
     {
-      "family": "Bowls (SS)",
+      "family": "Bed Pan Stainless Steel Male With Cover",
       "categorySlug": "hospital-hollowares",
       "matchedHqImages": 2,
       "finalImages": 3,
       "images": [
-        "/catalogue-media-hq/bedpan.jpg",
+        "/catalogue-media-indiamart/23815500948.jpg",
         "/catalogue-media-hq/bedpan-2.jpg",
-        "/catalogue-media/image84.png"
+        "/catalogue-media-hq/bedpan.jpg"
+      ]
+    },
+    {
+      "family": "Bed Pan Stainless Steel Round With Lid",
+      "categorySlug": "hospital-hollowares",
+      "matchedHqImages": 2,
+      "finalImages": 3,
+      "images": [
+        "/catalogue-media-indiamart/26097105612.jpeg",
+        "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg"
+      ]
+    },
+    {
+      "family": "Bed Pans Stainless Steel Female With without Lid Cover",
+      "categorySlug": "hospital-hollowares",
+      "matchedHqImages": 2,
+      "finalImages": 3,
+      "images": [
+        "/catalogue-media-indiamart/26097105933.jpeg",
+        "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg"
+      ]
+    },
+    {
+      "family": "Catheter Tray With Lid (Cover)",
+      "categorySlug": "hospital-hollowares",
+      "matchedHqImages": 2,
+      "finalImages": 3,
+      "images": [
+        "/catalogue-media-indiamart/26097106033.jpeg",
+        "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg"
       ]
     },
     {
@@ -1018,8 +1745,8 @@
       "matchedHqImages": 2,
       "finalImages": 3,
       "images": [
-        "/catalogue-media-hq/bedpan.jpg",
         "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg",
         "/catalogue-media/image62.png"
       ]
     },
@@ -1027,56 +1754,60 @@
       "family": "Cidex Tray (SS)",
       "categorySlug": "hospital-hollowares",
       "matchedHqImages": 2,
-      "finalImages": 3,
+      "finalImages": 4,
       "images": [
-        "/catalogue-media-hq/bedpan.jpg",
+        "/catalogue-media-indiamart/27312269833.jpg",
         "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg",
         "/catalogue-media/image92.png"
       ]
     },
     {
-      "family": "Dressing Drums Jointed (SS)",
+      "family": "Dressing Drum Jointed",
       "categorySlug": "hospital-hollowares",
       "matchedHqImages": 2,
-      "finalImages": 4,
+      "finalImages": 5,
       "images": [
-        "/catalogue-media-hq/bedpan.jpg",
+        "/catalogue-media-indiamart/23817074948.jpg",
         "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image78.png"
       ]
     },
     {
-      "family": "Dressing Drums Seamless Jointless",
+      "family": "Dressing Drum Seamless (Jointless)",
       "categorySlug": "hospital-hollowares",
       "matchedHqImages": 2,
-      "finalImages": 3,
+      "finalImages": 4,
       "images": [
-        "/catalogue-media-hq/bedpan.jpg",
+        "/catalogue-media-indiamart/23817074762.jpg",
         "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg",
         "/catalogue-media/image77.png"
       ]
     },
     {
-      "family": "Dressing Jar (SS)",
+      "family": "Dressing Jar S/S",
       "categorySlug": "hospital-hollowares",
       "matchedHqImages": 2,
-      "finalImages": 3,
+      "finalImages": 4,
       "images": [
-        "/catalogue-media-hq/bedpan.jpg",
+        "/catalogue-media-indiamart/26097132991.jpeg",
         "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg",
         "/catalogue-media/image94.jpeg"
       ]
     },
     {
-      "family": "Enmacan (SS)",
+      "family": "Forcep Jar",
       "categorySlug": "hospital-hollowares",
       "matchedHqImages": 2,
       "finalImages": 3,
       "images": [
-        "/catalogue-media-hq/bedpan.jpg",
+        "/catalogue-media-indiamart/26097167655.jpeg",
         "/catalogue-media-hq/bedpan-2.jpg",
-        "/catalogue-media/image93.png"
+        "/catalogue-media-hq/bedpan.jpg"
       ]
     },
     {
@@ -1085,9 +1816,20 @@
       "matchedHqImages": 2,
       "finalImages": 3,
       "images": [
-        "/catalogue-media-hq/bedpan.jpg",
         "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg",
         "/catalogue-media/image89.png"
+      ]
+    },
+    {
+      "family": "Gallipot S.S. Without Cover",
+      "categorySlug": "hospital-hollowares",
+      "matchedHqImages": 2,
+      "finalImages": 3,
+      "images": [
+        "/catalogue-media-indiamart/26097168391.jpeg",
+        "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg"
       ]
     },
     {
@@ -1096,8 +1838,8 @@
       "matchedHqImages": 2,
       "finalImages": 3,
       "images": [
-        "/catalogue-media-hq/bedpan.jpg",
         "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg",
         "/catalogue-media/image87.png"
       ]
     },
@@ -1107,8 +1849,8 @@
       "matchedHqImages": 2,
       "finalImages": 3,
       "images": [
-        "/catalogue-media-hq/bedpan.jpg",
         "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg",
         "/catalogue-media/image86.png"
       ]
     },
@@ -1118,10 +1860,21 @@
       "matchedHqImages": 2,
       "finalImages": 4,
       "images": [
-        "/catalogue-media-hq/bedpan.jpg",
         "/catalogue-media-hq/bedpan-2.jpg",
-        "/catalogue-media/image85.png",
-        "/catalogue-media/image62.png"
+        "/catalogue-media-hq/bedpan.jpg",
+        "/catalogue-media/image62.png",
+        "/catalogue-media/image85.png"
+      ]
+    },
+    {
+      "family": "Hospital Three Fold Screen",
+      "categorySlug": "hospital-hollowares",
+      "matchedHqImages": 2,
+      "finalImages": 3,
+      "images": [
+        "/catalogue-media-indiamart/23833933733.png",
+        "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg"
       ]
     },
     {
@@ -1130,8 +1883,8 @@
       "matchedHqImages": 2,
       "finalImages": 4,
       "images": [
-        "/catalogue-media-hq/bedpan.jpg",
         "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image79.png"
       ]
@@ -1140,10 +1893,11 @@
       "family": "Kidney Tray with Cover (SS)",
       "categorySlug": "hospital-hollowares",
       "matchedHqImages": 2,
-      "finalImages": 3,
+      "finalImages": 4,
       "images": [
-        "/catalogue-media-hq/bedpan.jpg",
+        "/catalogue-media-indiamart/26097202433.jpeg",
         "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg",
         "/catalogue-media/image114.png"
       ]
     },
@@ -1151,8 +1905,9 @@
       "family": "Mayo and Dental Tray",
       "categorySlug": "hospital-hollowares",
       "matchedHqImages": 2,
-      "finalImages": 3,
+      "finalImages": 4,
       "images": [
+        "/catalogue-media-indiamart/26097228730.jpeg",
         "/catalogue-media-hq/42-mayo-s-instrument-trolley-ss.jpg",
         "/catalogue-media-hq/43-mayo-s-instrument-trolley-ss.jpg",
         "/catalogue-media/image81.png"
@@ -1164,9 +1919,31 @@
       "matchedHqImages": 2,
       "finalImages": 3,
       "images": [
-        "/catalogue-media-hq/bedpan.jpg",
         "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg",
         "/catalogue-media/image88.png"
+      ]
+    },
+    {
+      "family": "S S Lotion Bowls",
+      "categorySlug": "hospital-hollowares",
+      "matchedHqImages": 2,
+      "finalImages": 3,
+      "images": [
+        "/catalogue-media-indiamart/26097202697.jpeg",
+        "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg"
+      ]
+    },
+    {
+      "family": "SS Kidney Tray",
+      "categorySlug": "hospital-hollowares",
+      "matchedHqImages": 2,
+      "finalImages": 3,
+      "images": [
+        "/catalogue-media-indiamart/23802537255.jpg",
+        "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg"
       ]
     },
     {
@@ -1175,10 +1952,142 @@
       "matchedHqImages": 2,
       "finalImages": 4,
       "images": [
-        "/catalogue-media-hq/bedpan.jpg",
         "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image90.png"
+      ]
+    },
+    {
+      "family": "Stainless Steel Bedpan Female Seamless Weld With & Without Cover",
+      "categorySlug": "hospital-hollowares",
+      "matchedHqImages": 2,
+      "finalImages": 3,
+      "images": [
+        "/catalogue-media-indiamart/26097084230.jpeg",
+        "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg"
+      ]
+    },
+    {
+      "family": "Stainless Steel Catheter Tray",
+      "categorySlug": "hospital-hollowares",
+      "matchedHqImages": 2,
+      "finalImages": 3,
+      "images": [
+        "/catalogue-media-indiamart/23815483230.jpg",
+        "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg"
+      ]
+    },
+    {
+      "family": "Stainless Steel Cidex Tray",
+      "categorySlug": "hospital-hollowares",
+      "matchedHqImages": 2,
+      "finalImages": 3,
+      "images": [
+        "/catalogue-media-indiamart/26097106188.jpeg",
+        "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg"
+      ]
+    },
+    {
+      "family": "Stainless Steel Dental Tray",
+      "categorySlug": "hospital-hollowares",
+      "matchedHqImages": 2,
+      "finalImages": 3,
+      "images": [
+        "/catalogue-media-indiamart/23815483388.jpg",
+        "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg"
+      ]
+    },
+    {
+      "family": "Stainless Steel Dressing Drums",
+      "categorySlug": "hospital-hollowares",
+      "matchedHqImages": 2,
+      "finalImages": 3,
+      "images": [
+        "/catalogue-media-indiamart/23802511630.jpg",
+        "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg"
+      ]
+    },
+    {
+      "family": "Stainless Steel Enema Can",
+      "categorySlug": "hospital-hollowares",
+      "matchedHqImages": 2,
+      "finalImages": 3,
+      "images": [
+        "/catalogue-media-indiamart/23815483188.jpg",
+        "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg"
+      ]
+    },
+    {
+      "family": "Stainless Steel Female Bedpan",
+      "categorySlug": "hospital-hollowares",
+      "matchedHqImages": 2,
+      "finalImages": 3,
+      "images": [
+        "/catalogue-media-indiamart/23815496597.jpg",
+        "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg"
+      ]
+    },
+    {
+      "family": "Stainless Steel Forcep Jar",
+      "categorySlug": "hospital-hollowares",
+      "matchedHqImages": 2,
+      "finalImages": 3,
+      "images": [
+        "/catalogue-media-indiamart/23817075691.jpg",
+        "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg"
+      ]
+    },
+    {
+      "family": "Stainless Steel Gallipots With Cover",
+      "categorySlug": "hospital-hollowares",
+      "matchedHqImages": 2,
+      "finalImages": 3,
+      "images": [
+        "/catalogue-media-indiamart/26097167712.jpeg",
+        "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg"
+      ]
+    },
+    {
+      "family": "Stainless Steel Hospital Basins",
+      "categorySlug": "hospital-hollowares",
+      "matchedHqImages": 2,
+      "finalImages": 3,
+      "images": [
+        "/catalogue-media-indiamart/23818281755.jpg",
+        "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg"
+      ]
+    },
+    {
+      "family": "Stainless Steel Hospital Bowl",
+      "categorySlug": "hospital-hollowares",
+      "matchedHqImages": 2,
+      "finalImages": 3,
+      "images": [
+        "/catalogue-media-indiamart/23818314230.jpg",
+        "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg"
+      ]
+    },
+    {
+      "family": "Stainless Steel Instrument Tray",
+      "categorySlug": "hospital-hollowares",
+      "matchedHqImages": 2,
+      "finalImages": 3,
+      "images": [
+        "/catalogue-media-indiamart/23802520748.jpg",
+        "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg"
       ]
     },
     {
@@ -1187,21 +2096,77 @@
       "matchedHqImages": 2,
       "finalImages": 3,
       "images": [
-        "/catalogue-media-hq/bedpan.jpg",
         "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg",
         "/catalogue-media/image80.png"
       ]
     },
     {
-      "family": "Thermometer Jar(SS)",
+      "family": "Stainless Steel Kidney Tray Without Cover & With Cover",
       "categorySlug": "hospital-hollowares",
       "matchedHqImages": 2,
-      "finalImages": 4,
+      "finalImages": 3,
       "images": [
-        "/catalogue-media-hq/bedpan.jpg",
+        "/catalogue-media-indiamart/26097203288.jpeg",
         "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg"
+      ]
+    },
+    {
+      "family": "Stainless Steel Measuring Jug",
+      "categorySlug": "hospital-hollowares",
+      "matchedHqImages": 2,
+      "finalImages": 3,
+      "images": [
+        "/catalogue-media-indiamart/23819688112.jpg",
+        "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg"
+      ]
+    },
+    {
+      "family": "Stainless Steel Round Bedpan",
+      "categorySlug": "hospital-hollowares",
+      "matchedHqImages": 2,
+      "finalImages": 3,
+      "images": [
+        "/catalogue-media-indiamart/23803641930.jpeg",
+        "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg"
+      ]
+    },
+    {
+      "family": "Stainless Steel Sputum Mug",
+      "categorySlug": "hospital-hollowares",
+      "matchedHqImages": 2,
+      "finalImages": 3,
+      "images": [
+        "/catalogue-media-indiamart/23815483588.jpg",
+        "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg"
+      ]
+    },
+    {
+      "family": "Stainless Steel Thermometer Jar",
+      "categorySlug": "hospital-hollowares",
+      "matchedHqImages": 2,
+      "finalImages": 5,
+      "images": [
+        "/catalogue-media-indiamart/23819429930.jpg",
+        "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image91.png"
+      ]
+    },
+    {
+      "family": "Stainless Steel Tray",
+      "categorySlug": "hospital-hollowares",
+      "matchedHqImages": 2,
+      "finalImages": 3,
+      "images": [
+        "/catalogue-media-indiamart/24283798833.jpg",
+        "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg"
       ]
     },
     {
@@ -1210,9 +2175,20 @@
       "matchedHqImages": 2,
       "finalImages": 3,
       "images": [
-        "/catalogue-media-hq/bedpan.jpg",
         "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg",
         "/catalogue-media/image95.png"
+      ]
+    },
+    {
+      "family": "Urine Pots Stainless Steel",
+      "categorySlug": "hospital-hollowares",
+      "matchedHqImages": 2,
+      "finalImages": 3,
+      "images": [
+        "/catalogue-media-indiamart/27300859348.jpeg",
+        "/catalogue-media-hq/bedpan-2.jpg",
+        "/catalogue-media-hq/bedpan.jpg"
       ]
     },
     {
@@ -1239,8 +2215,24 @@
       "matchedHqImages": 0,
       "finalImages": 2,
       "images": [
-        "/catalogue-media/image62.png",
-        "/catalogue-media/image105.png"
+        "/catalogue-media/image105.png",
+        "/catalogue-media/image62.png"
+      ]
+    },
+    {
+      "family": "Ceiling OT Light LED, 3 Reflector, 63 LED",
+      "categorySlug": "operation-theater-lights",
+      "matchedHqImages": 8,
+      "finalImages": 9,
+      "images": [
+        "/catalogue-media-indiamart/26097285730.jpeg",
+        "/catalogue-media-hq/113-ot-light.jpg",
+        "/catalogue-media-hq/114-ot-light.jpg",
+        "/catalogue-media-hq/115-ot-light.jpg",
+        "/catalogue-media-hq/116-ot-light.jpg",
+        "/catalogue-media-hq/117-ot-light.jpg",
+        "/catalogue-media-hq/118-ot-light.jpg",
+        "/catalogue-media-hq/119-ot-light.jpg"
       ]
     },
     {
@@ -1257,6 +2249,54 @@
         "/catalogue-media-hq/118-ot-light.jpg",
         "/catalogue-media-hq/119-ot-light.jpg",
         "/catalogue-media-hq/120-ot-light.jpg"
+      ]
+    },
+    {
+      "family": "Mobile OT Light",
+      "categorySlug": "operation-theater-lights",
+      "matchedHqImages": 8,
+      "finalImages": 10,
+      "images": [
+        "/catalogue-media-indiamart/27570986262.jpg",
+        "/catalogue-media-indiamart/27571361312.jpg",
+        "/catalogue-media-indiamart/27571422633.jpg",
+        "/catalogue-media-indiamart/27571542197.jpg",
+        "/catalogue-media-hq/113-ot-light.jpg",
+        "/catalogue-media-hq/114-ot-light.jpg",
+        "/catalogue-media-hq/115-ot-light.jpg",
+        "/catalogue-media-hq/116-ot-light.jpg"
+      ]
+    },
+    {
+      "family": "Mobile OT Lights",
+      "categorySlug": "operation-theater-lights",
+      "matchedHqImages": 8,
+      "finalImages": 9,
+      "images": [
+        "/catalogue-media-indiamart/27570743273.jpg",
+        "/catalogue-media-hq/113-ot-light.jpg",
+        "/catalogue-media-hq/114-ot-light.jpg",
+        "/catalogue-media-hq/115-ot-light.jpg",
+        "/catalogue-media-hq/116-ot-light.jpg",
+        "/catalogue-media-hq/117-ot-light.jpg",
+        "/catalogue-media-hq/118-ot-light.jpg",
+        "/catalogue-media-hq/119-ot-light.jpg"
+      ]
+    },
+    {
+      "family": "OT Light , Twin (Ceiling)",
+      "categorySlug": "operation-theater-lights",
+      "matchedHqImages": 8,
+      "finalImages": 10,
+      "images": [
+        "/catalogue-media-indiamart/27539277462.jpeg",
+        "/catalogue-media-indiamart/27539933812.jpeg",
+        "/catalogue-media-indiamart/27539933933.jpeg",
+        "/catalogue-media-indiamart/27540648988.jpeg",
+        "/catalogue-media-indiamart/27570892433.jpg",
+        "/catalogue-media-indiamart/27571199762.jpg",
+        "/catalogue-media-hq/113-ot-light.jpg",
+        "/catalogue-media-hq/114-ot-light.jpg"
       ]
     },
     {
@@ -1292,6 +2332,22 @@
       ]
     },
     {
+      "family": "OT Light LED, Twin Dooms Of Three Reflectors,126 LED",
+      "categorySlug": "operation-theater-lights",
+      "matchedHqImages": 8,
+      "finalImages": 9,
+      "images": [
+        "/catalogue-media-indiamart/26097285673.jpeg",
+        "/catalogue-media-hq/113-ot-light.jpg",
+        "/catalogue-media-hq/114-ot-light.jpg",
+        "/catalogue-media-hq/115-ot-light.jpg",
+        "/catalogue-media-hq/116-ot-light.jpg",
+        "/catalogue-media-hq/117-ot-light.jpg",
+        "/catalogue-media-hq/118-ot-light.jpg",
+        "/catalogue-media-hq/119-ot-light.jpg"
+      ]
+    },
+    {
       "family": "OT Light Mobile",
       "categorySlug": "operation-theater-lights",
       "matchedHqImages": 8,
@@ -1308,43 +2364,109 @@
       ]
     },
     {
-      "family": "Operation Theater Lights",
+      "family": "OTL-54 Operation Theatre Lights",
       "categorySlug": "operation-theater-lights",
       "matchedHqImages": 8,
-      "finalImages": 8,
+      "finalImages": 9,
       "images": [
+        "/catalogue-media-indiamart/27093876762.jpg",
         "/catalogue-media-hq/113-ot-light.jpg",
         "/catalogue-media-hq/114-ot-light.jpg",
         "/catalogue-media-hq/115-ot-light.jpg",
         "/catalogue-media-hq/116-ot-light.jpg",
         "/catalogue-media-hq/117-ot-light.jpg",
         "/catalogue-media-hq/118-ot-light.jpg",
-        "/catalogue-media-hq/119-ot-light.jpg",
-        "/catalogue-media-hq/120-ot-light.jpg"
+        "/catalogue-media-hq/119-ot-light.jpg"
       ]
     },
     {
-      "family": "Emergency & Recovery Trolley Hydraulic",
-      "categorySlug": "patient-transfer-trolleys",
-      "matchedHqImages": 2,
-      "finalImages": 5,
+      "family": "OTL-M6C Operation Theater Light",
+      "categorySlug": "operation-theater-lights",
+      "matchedHqImages": 8,
+      "finalImages": 9,
       "images": [
-        "/catalogue-media-hq/50-recovery-trolley.jpg",
-        "/catalogue-media-hq/53-recovery-trolley.jpg",
-        "/catalogue-media/image62.png",
-        "/catalogue-media/image56.jpeg",
-        "/catalogue-media/image59.jpeg"
+        "/catalogue-media-indiamart/27093836773.jpg",
+        "/catalogue-media-hq/113-ot-light.jpg",
+        "/catalogue-media-hq/114-ot-light.jpg",
+        "/catalogue-media-hq/115-ot-light.jpg",
+        "/catalogue-media-hq/116-ot-light.jpg",
+        "/catalogue-media-hq/117-ot-light.jpg",
+        "/catalogue-media-hq/118-ot-light.jpg",
+        "/catalogue-media-hq/119-ot-light.jpg"
       ]
     },
     {
-      "family": "Folding Stretcher 1 Fold, 2 Fold, 3 Fold & 4 Fold",
+      "family": "Operation Theater Lights",
+      "categorySlug": "operation-theater-lights",
+      "matchedHqImages": 8,
+      "finalImages": 10,
+      "images": [
+        "/catalogue-media-indiamart/27093854991.jpg",
+        "/catalogue-media-indiamart/27093861855.jpg",
+        "/catalogue-media-indiamart/27093882962.jpg",
+        "/catalogue-media-indiamart/27094229873.jpg",
+        "/catalogue-media-indiamart/27094237912.jpg",
+        "/catalogue-media-indiamart/27094243712.jpg",
+        "/catalogue-media-indiamart/27094249873.jpg",
+        "/catalogue-media-indiamart/27094254273.jpg"
+      ]
+    },
+    {
+      "family": "AS-1 Ambulance Stretcher",
       "categorySlug": "patient-transfer-trolleys",
       "matchedHqImages": 4,
-      "finalImages": 4,
+      "finalImages": 7,
       "images": [
-        "/catalogue-media-hq/54-folding-stretcher.jpg",
+        "/catalogue-media-indiamart/27094357230.jpg",
         "/catalogue-media-hq/51-stretcher.jpg",
         "/catalogue-media-hq/52-stretcher.jpg",
+        "/catalogue-media-hq/54-folding-stretcher.jpg",
+        "/catalogue-media-hq/56-ambulance-stretcher.jpg",
+        "/catalogue-media/image134.png",
+        "/catalogue-media/image62.png"
+      ]
+    },
+    {
+      "family": "FSA-1 Folding Stretcher 1 Fold, 2 Fold, 3 Fold & 4 Fold",
+      "categorySlug": "patient-transfer-trolleys",
+      "matchedHqImages": 4,
+      "finalImages": 5,
+      "images": [
+        "/catalogue-media-indiamart/27094346430.jpg",
+        "/catalogue-media-hq/51-stretcher.jpg",
+        "/catalogue-media-hq/52-stretcher.jpg",
+        "/catalogue-media-hq/54-folding-stretcher.jpg",
+        "/catalogue-media-hq/56-ambulance-stretcher.jpg"
+      ]
+    },
+    {
+      "family": "ST-1 Stretcher on Trolley",
+      "categorySlug": "patient-transfer-trolleys",
+      "matchedHqImages": 4,
+      "finalImages": 7,
+      "images": [
+        "/catalogue-media-indiamart/27094323755.jpg",
+        "/catalogue-media-hq/51-stretcher.jpg",
+        "/catalogue-media-hq/52-stretcher.jpg",
+        "/catalogue-media-hq/54-folding-stretcher.jpg",
+        "/catalogue-media-hq/56-ambulance-stretcher.jpg",
+        "/catalogue-media/image57.jpeg",
+        "/catalogue-media/image62.png"
+      ]
+    },
+    {
+      "family": "ST-1M Stretcher Trolley with Mattress",
+      "categorySlug": "patient-transfer-trolleys",
+      "matchedHqImages": 7,
+      "finalImages": 9,
+      "images": [
+        "/catalogue-media-indiamart/27094335055.jpg",
+        "/catalogue-media-hq/33-mattress.jpg",
+        "/catalogue-media-hq/34-mattress.jpg",
+        "/catalogue-media-hq/35-mattress.jpg",
+        "/catalogue-media-hq/51-stretcher.jpg",
+        "/catalogue-media-hq/52-stretcher.jpg",
+        "/catalogue-media-hq/54-folding-stretcher.jpg",
         "/catalogue-media-hq/56-ambulance-stretcher.jpg"
       ]
     },
@@ -1352,49 +2474,24 @@
       "family": "Spine Board",
       "categorySlug": "patient-transfer-trolleys",
       "matchedHqImages": 1,
-      "finalImages": 1,
+      "finalImages": 4,
       "images": [
+        "/catalogue-media-indiamart/23803755012.jpg",
+        "/catalogue-media-indiamart/26097237148.jpeg",
+        "/catalogue-media-indiamart/27094351633.jpg",
         "/catalogue-media-hq/55-spine-board.jpg"
       ]
     },
     {
-      "family": "Stretcher Trolley with Mattress",
-      "categorySlug": "patient-transfer-trolleys",
-      "matchedHqImages": 7,
-      "finalImages": 8,
-      "images": [
-        "/catalogue-media-hq/51-stretcher.jpg",
-        "/catalogue-media-hq/52-stretcher.jpg",
-        "/catalogue-media-hq/33-mattress.jpg",
-        "/catalogue-media-hq/34-mattress.jpg",
-        "/catalogue-media-hq/35-mattress.jpg",
-        "/catalogue-media-hq/54-folding-stretcher.jpg",
-        "/catalogue-media-hq/56-ambulance-stretcher.jpg",
-        "/catalogue-media/image58.jpeg"
-      ]
-    },
-    {
-      "family": "Stretcher on Trolley",
-      "categorySlug": "patient-transfer-trolleys",
-      "matchedHqImages": 4,
-      "finalImages": 6,
-      "images": [
-        "/catalogue-media-hq/51-stretcher.jpg",
-        "/catalogue-media-hq/52-stretcher.jpg",
-        "/catalogue-media-hq/54-folding-stretcher.jpg",
-        "/catalogue-media-hq/56-ambulance-stretcher.jpg",
-        "/catalogue-media/image62.png",
-        "/catalogue-media/image57.jpeg"
-      ]
-    },
-    {
-      "family": "Bowl and Utensils Sterilizer (SS)",
+      "family": "Bowls And Utensils Sterilizer S/S",
       "categorySlug": "sterilizers",
-      "matchedHqImages": 3,
-      "finalImages": 5,
+      "matchedHqImages": 4,
+      "finalImages": 7,
       "images": [
+        "/catalogue-media-indiamart/26097133333.jpeg",
         "/catalogue-media-hq/bowl-sterilizer.jpeg",
         "/catalogue-media-hq/bowl-sterilizer.png",
+        "/catalogue-media-hq/eto-sterilizer.png",
         "/catalogue-media-hq/sterilizer.jpg",
         "/catalogue-media/image62.png",
         "/catalogue-media/image76.png"
@@ -1406,46 +2503,47 @@
       "matchedHqImages": 4,
       "finalImages": 5,
       "images": [
-        "/catalogue-media-hq/sterilizer.jpg",
         "/catalogue-media-hq/bowl-sterilizer.jpeg",
         "/catalogue-media-hq/bowl-sterilizer.png",
         "/catalogue-media-hq/eto-sterilizer.png",
+        "/catalogue-media-hq/sterilizer.jpg",
         "/catalogue-media/image75.png"
       ]
     },
     {
-      "family": "Instrument Sterilizers Electrical (Jointed) with Tray Lifting and Thermostat.",
+      "family": "Instrument Sterilizer Electrical With tray Lifting Jointless/ Seamless",
+      "categorySlug": "sterilizers",
+      "matchedHqImages": 4,
+      "finalImages": 5,
+      "images": [
+        "/catalogue-media-indiamart/26097202230.jpeg",
+        "/catalogue-media-hq/bowl-sterilizer.jpeg",
+        "/catalogue-media-hq/bowl-sterilizer.png",
+        "/catalogue-media-hq/eto-sterilizer.png",
+        "/catalogue-media-hq/sterilizer.jpg"
+      ]
+    },
+    {
+      "family": "Instrument Sterilizer Non Electrical Jointed",
       "categorySlug": "sterilizers",
       "matchedHqImages": 4,
       "finalImages": 6,
       "images": [
-        "/catalogue-media-hq/sterilizer.jpg",
+        "/catalogue-media-indiamart/26097285833.jpeg",
         "/catalogue-media-hq/bowl-sterilizer.jpeg",
         "/catalogue-media-hq/bowl-sterilizer.png",
         "/catalogue-media-hq/eto-sterilizer.png",
-        "/catalogue-media/image62.png",
-        "/catalogue-media/image73.png"
-      ]
-    },
-    {
-      "family": "Instrument Sterilizers Non-Electrical Jointed (SS)",
-      "categorySlug": "sterilizers",
-      "matchedHqImages": 4,
-      "finalImages": 5,
-      "images": [
         "/catalogue-media-hq/sterilizer.jpg",
-        "/catalogue-media-hq/bowl-sterilizer.jpeg",
-        "/catalogue-media-hq/bowl-sterilizer.png",
-        "/catalogue-media-hq/eto-sterilizer.png",
         "/catalogue-media/image74.png"
       ]
     },
     {
-      "family": "Instruments Sterlilzers Electrical (SS)",
+      "family": "Instrument Sterilizers Electrical",
       "categorySlug": "sterilizers",
       "matchedHqImages": 4,
-      "finalImages": 5,
+      "finalImages": 6,
       "images": [
+        "/catalogue-media-indiamart/26097202188.jpeg",
         "/catalogue-media-hq/bowl-sterilizer.jpeg",
         "/catalogue-media-hq/bowl-sterilizer.png",
         "/catalogue-media-hq/eto-sterilizer.png",
@@ -1454,25 +2552,55 @@
       ]
     },
     {
-      "family": "Ambulance Stretcher",
-      "categorySlug": "suction-units",
+      "family": "Instrument Sterilizers Electrical jointed with Tray lifting Thermostat",
+      "categorySlug": "sterilizers",
       "matchedHqImages": 4,
-      "finalImages": 6,
+      "finalImages": 7,
       "images": [
-        "/catalogue-media-hq/56-ambulance-stretcher.jpg",
-        "/catalogue-media-hq/51-stretcher.jpg",
-        "/catalogue-media-hq/52-stretcher.jpg",
-        "/catalogue-media-hq/54-folding-stretcher.jpg",
+        "/catalogue-media-indiamart/27312122530.jpg",
+        "/catalogue-media-hq/bowl-sterilizer.jpeg",
+        "/catalogue-media-hq/bowl-sterilizer.png",
+        "/catalogue-media-hq/eto-sterilizer.png",
+        "/catalogue-media-hq/sterilizer.jpg",
         "/catalogue-media/image62.png",
-        "/catalogue-media/image134.png"
+        "/catalogue-media/image73.png"
+      ]
+    },
+    {
+      "family": "Seamless Instrument Sterilizer",
+      "categorySlug": "sterilizers",
+      "matchedHqImages": 4,
+      "finalImages": 5,
+      "images": [
+        "/catalogue-media-indiamart/23817075448.jpg",
+        "/catalogue-media-hq/bowl-sterilizer.jpeg",
+        "/catalogue-media-hq/bowl-sterilizer.png",
+        "/catalogue-media-hq/eto-sterilizer.png",
+        "/catalogue-media-hq/sterilizer.jpg"
+      ]
+    },
+    {
+      "family": "Stainless Steel Instrument Sterilizer Seamless With Tray Lifting Arrangement",
+      "categorySlug": "sterilizers",
+      "matchedHqImages": 4,
+      "finalImages": 5,
+      "images": [
+        "/catalogue-media-indiamart/26097202055.jpeg",
+        "/catalogue-media-hq/bowl-sterilizer.jpeg",
+        "/catalogue-media-hq/bowl-sterilizer.png",
+        "/catalogue-media-hq/eto-sterilizer.png",
+        "/catalogue-media-hq/sterilizer.jpg"
       ]
     },
     {
       "family": "Electric Vacuum Extractor, Deluxe",
       "categorySlug": "suction-units",
       "matchedHqImages": 3,
-      "finalImages": 4,
+      "finalImages": 7,
       "images": [
+        "/catalogue-media-indiamart/26097134212.jpeg",
+        "/catalogue-media-indiamart/27301161112.jpeg",
+        "/catalogue-media-indiamart/2849390380691.jpg",
         "/catalogue-media-hq/suction-deluxe.png",
         "/catalogue-media-hq/suction-life-line-ss.jpg",
         "/catalogue-media-hq/suction-ss-plain.jpg",
@@ -1483,8 +2611,9 @@
       "family": "Electric Vacuum Extractor, Economy",
       "categorySlug": "suction-units",
       "matchedHqImages": 3,
-      "finalImages": 4,
+      "finalImages": 5,
       "images": [
+        "/catalogue-media-indiamart/26097133733.jpeg",
         "/catalogue-media-hq/suction-deluxe.png",
         "/catalogue-media-hq/suction-life-line-ss.jpg",
         "/catalogue-media-hq/suction-ss-plain.jpg",
@@ -1495,9 +2624,9 @@
       "family": "Foot Operated Heavy",
       "categorySlug": "suction-units",
       "matchedHqImages": 8,
-      "finalImages": 8,
+      "finalImages": 9,
       "images": [
-        "/catalogue-media-hq/suction-life-line-ss.jpg",
+        "/catalogue-media-indiamart/27301160491.jpeg",
         "/catalogue-media-hq/1-suction1.jpg",
         "/catalogue-media-hq/10-suction-acce10.jpg",
         "/catalogue-media-hq/11-suction-acce11.jpg",
@@ -1511,9 +2640,9 @@
       "family": "Foot Operated, Horzionantal",
       "categorySlug": "suction-units",
       "matchedHqImages": 8,
-      "finalImages": 8,
+      "finalImages": 9,
       "images": [
-        "/catalogue-media-hq/suction-life-line-ss.jpg",
+        "/catalogue-media-indiamart/26097106297.jpeg",
         "/catalogue-media-hq/1-suction1.jpg",
         "/catalogue-media-hq/10-suction-acce10.jpg",
         "/catalogue-media-hq/11-suction-acce11.jpg",
@@ -1529,14 +2658,14 @@
       "matchedHqImages": 8,
       "finalImages": 8,
       "images": [
+        "/catalogue-media-hq/1-suction1.jpg",
         "/catalogue-media-hq/10-suction-acce10.jpg",
         "/catalogue-media-hq/11-suction-acce11.jpg",
+        "/catalogue-media-hq/2-suction2.jpg",
         "/catalogue-media-hq/6-suction-acce6.jpg",
         "/catalogue-media-hq/7-suction-acce7.jpg",
         "/catalogue-media-hq/8-suction-acce8.jpg",
-        "/catalogue-media-hq/9-suction-acce9.jpg",
-        "/catalogue-media-hq/1-suction1.jpg",
-        "/catalogue-media-hq/2-suction2.jpg"
+        "/catalogue-media-hq/9-suction-acce9.jpg"
       ]
     },
     {
@@ -1545,30 +2674,62 @@
       "matchedHqImages": 8,
       "finalImages": 8,
       "images": [
+        "/catalogue-media-hq/1-suction1.jpg",
         "/catalogue-media-hq/10-suction-acce10.jpg",
         "/catalogue-media-hq/11-suction-acce11.jpg",
+        "/catalogue-media-hq/2-suction2.jpg",
         "/catalogue-media-hq/6-suction-acce6.jpg",
         "/catalogue-media-hq/7-suction-acce7.jpg",
         "/catalogue-media-hq/8-suction-acce8.jpg",
-        "/catalogue-media-hq/9-suction-acce9.jpg",
-        "/catalogue-media-hq/1-suction1.jpg",
-        "/catalogue-media-hq/2-suction2.jpg"
+        "/catalogue-media-hq/9-suction-acce9.jpg"
       ]
     },
     {
       "family": "Slow Suction (Pediatric)",
       "categorySlug": "suction-units",
       "matchedHqImages": 8,
-      "finalImages": 8,
+      "finalImages": 10,
       "images": [
-        "/catalogue-media-hq/suction-ss-plain.jpg",
-        "/catalogue-media-hq/suction.jpg",
-        "/catalogue-media-hq/suction-2.jpg",
+        "/catalogue-media-indiamart/26097106397.jpeg",
+        "/catalogue-media-indiamart/27301160373.jpeg",
         "/catalogue-media-hq/10-suction-acce10.jpg",
         "/catalogue-media-hq/11-suction-acce11.jpg",
         "/catalogue-media-hq/6-suction-acce6.jpg",
         "/catalogue-media-hq/7-suction-acce7.jpg",
-        "/catalogue-media-hq/8-suction-acce8.jpg"
+        "/catalogue-media-hq/8-suction-acce8.jpg",
+        "/catalogue-media-hq/suction-2.jpg"
+      ]
+    },
+    {
+      "family": "Suction 0.5 HP",
+      "categorySlug": "suction-units",
+      "matchedHqImages": 8,
+      "finalImages": 9,
+      "images": [
+        "/catalogue-media-indiamart/27301160888.jpeg",
+        "/catalogue-media-hq/10-suction-acce10.jpg",
+        "/catalogue-media-hq/11-suction-acce11.jpg",
+        "/catalogue-media-hq/6-suction-acce6.jpg",
+        "/catalogue-media-hq/7-suction-acce7.jpg",
+        "/catalogue-media-hq/8-suction-acce8.jpg",
+        "/catalogue-media-hq/9-suction-acce9.jpg",
+        "/catalogue-media-hq/suction-2.jpg"
+      ]
+    },
+    {
+      "family": "Suction 0.5 Hp With Tray",
+      "categorySlug": "suction-units",
+      "matchedHqImages": 8,
+      "finalImages": 9,
+      "images": [
+        "/catalogue-media-indiamart/27301160962.jpeg",
+        "/catalogue-media-hq/10-suction-acce10.jpg",
+        "/catalogue-media-hq/11-suction-acce11.jpg",
+        "/catalogue-media-hq/6-suction-acce6.jpg",
+        "/catalogue-media-hq/7-suction-acce7.jpg",
+        "/catalogue-media-hq/8-suction-acce8.jpg",
+        "/catalogue-media-hq/9-suction-acce9.jpg",
+        "/catalogue-media-hq/suction-2.jpg"
       ]
     },
     {
@@ -1577,14 +2738,62 @@
       "matchedHqImages": 8,
       "finalImages": 10,
       "images": [
-        "/catalogue-media-hq/suction.jpg",
-        "/catalogue-media-hq/suction-2.jpg",
         "/catalogue-media-hq/10-suction-acce10.jpg",
         "/catalogue-media-hq/11-suction-acce11.jpg",
         "/catalogue-media-hq/6-suction-acce6.jpg",
         "/catalogue-media-hq/7-suction-acce7.jpg",
         "/catalogue-media-hq/8-suction-acce8.jpg",
-        "/catalogue-media-hq/9-suction-acce9.jpg"
+        "/catalogue-media-hq/9-suction-acce9.jpg",
+        "/catalogue-media-hq/suction-2.jpg",
+        "/catalogue-media-hq/suction.jpg"
+      ]
+    },
+    {
+      "family": "Suction Apparatus 0.25 HP",
+      "categorySlug": "suction-units",
+      "matchedHqImages": 8,
+      "finalImages": 9,
+      "images": [
+        "/catalogue-media-indiamart/27311612388.jpeg",
+        "/catalogue-media-hq/10-suction-acce10.jpg",
+        "/catalogue-media-hq/11-suction-acce11.jpg",
+        "/catalogue-media-hq/6-suction-acce6.jpg",
+        "/catalogue-media-hq/7-suction-acce7.jpg",
+        "/catalogue-media-hq/8-suction-acce8.jpg",
+        "/catalogue-media-hq/9-suction-acce9.jpg",
+        "/catalogue-media-hq/suction-2.jpg"
+      ]
+    },
+    {
+      "family": "Suction Electric Cum Manual",
+      "categorySlug": "suction-units",
+      "matchedHqImages": 8,
+      "finalImages": 9,
+      "images": [
+        "/catalogue-media-indiamart/26097049773.jpeg",
+        "/catalogue-media-hq/10-suction-acce10.jpg",
+        "/catalogue-media-hq/11-suction-acce11.jpg",
+        "/catalogue-media-hq/6-suction-acce6.jpg",
+        "/catalogue-media-hq/7-suction-acce7.jpg",
+        "/catalogue-media-hq/8-suction-acce8.jpg",
+        "/catalogue-media-hq/9-suction-acce9.jpg",
+        "/catalogue-media-hq/suction-2.jpg"
+      ]
+    },
+    {
+      "family": "Suction Machine Electric Cum Manual",
+      "categorySlug": "suction-units",
+      "matchedHqImages": 8,
+      "finalImages": 9,
+      "images": [
+        "/catalogue-media-indiamart/26097237888.jpeg",
+        "/catalogue-media-hq/10-suction-acce10.jpg",
+        "/catalogue-media-hq/11-suction-acce11.jpg",
+        "/catalogue-media-hq/6-suction-acce6.jpg",
+        "/catalogue-media-hq/7-suction-acce7.jpg",
+        "/catalogue-media-hq/8-suction-acce8.jpg",
+        "/catalogue-media-hq/9-suction-acce9.jpg",
+        "/catalogue-media-hq/suction-2.jpg"
       ]
     },
     {
@@ -1593,14 +2802,30 @@
       "matchedHqImages": 8,
       "finalImages": 10,
       "images": [
-        "/catalogue-media-hq/suction-deluxe.png",
-        "/catalogue-media-hq/suction.jpg",
-        "/catalogue-media-hq/suction-2.jpg",
         "/catalogue-media-hq/10-suction-acce10.jpg",
         "/catalogue-media-hq/11-suction-acce11.jpg",
         "/catalogue-media-hq/6-suction-acce6.jpg",
         "/catalogue-media-hq/7-suction-acce7.jpg",
-        "/catalogue-media-hq/8-suction-acce8.jpg"
+        "/catalogue-media-hq/8-suction-acce8.jpg",
+        "/catalogue-media-hq/suction-2.jpg",
+        "/catalogue-media-hq/suction-deluxe.png",
+        "/catalogue-media-hq/suction.jpg"
+      ]
+    },
+    {
+      "family": "Suction Unit 0.5HP with Poly Jars, Deluxe",
+      "categorySlug": "suction-units",
+      "matchedHqImages": 8,
+      "finalImages": 9,
+      "images": [
+        "/catalogue-media-indiamart/27301160273.jpeg",
+        "/catalogue-media-hq/10-suction-acce10.jpg",
+        "/catalogue-media-hq/11-suction-acce11.jpg",
+        "/catalogue-media-hq/6-suction-acce6.jpg",
+        "/catalogue-media-hq/7-suction-acce7.jpg",
+        "/catalogue-media-hq/8-suction-acce8.jpg",
+        "/catalogue-media-hq/suction-2.jpg",
+        "/catalogue-media-hq/suction-deluxe.png"
       ]
     },
     {
@@ -1609,30 +2834,14 @@
       "matchedHqImages": 8,
       "finalImages": 9,
       "images": [
-        "/catalogue-media-hq/suction-deluxe.png",
-        "/catalogue-media-hq/suction.jpg",
-        "/catalogue-media-hq/suction-2.jpg",
         "/catalogue-media-hq/10-suction-acce10.jpg",
         "/catalogue-media-hq/11-suction-acce11.jpg",
         "/catalogue-media-hq/6-suction-acce6.jpg",
         "/catalogue-media-hq/7-suction-acce7.jpg",
-        "/catalogue-media-hq/8-suction-acce8.jpg"
-      ]
-    },
-    {
-      "family": "Suction Unit 0.5HP with poly Jars, Deluxe",
-      "categorySlug": "suction-units",
-      "matchedHqImages": 8,
-      "finalImages": 8,
-      "images": [
-        "/catalogue-media-hq/suction-deluxe.png",
-        "/catalogue-media-hq/suction.jpg",
+        "/catalogue-media-hq/8-suction-acce8.jpg",
         "/catalogue-media-hq/suction-2.jpg",
-        "/catalogue-media-hq/10-suction-acce10.jpg",
-        "/catalogue-media-hq/11-suction-acce11.jpg",
-        "/catalogue-media-hq/6-suction-acce6.jpg",
-        "/catalogue-media-hq/7-suction-acce7.jpg",
-        "/catalogue-media-hq/8-suction-acce8.jpg"
+        "/catalogue-media-hq/suction-deluxe.png",
+        "/catalogue-media-hq/suction.jpg"
       ]
     },
     {
@@ -1643,6 +2852,33 @@
       "images": [
         "/catalogue-media-hq/101-autopsy-table.jpg",
         "/catalogue-media-hq/table.jpeg"
+      ]
+    },
+    {
+      "family": "BBU-1 Baby Bassinet With Utility Box",
+      "categorySlug": "ward-equipments",
+      "matchedHqImages": 3,
+      "finalImages": 5,
+      "images": [
+        "/catalogue-media-indiamart/27093752191.jpg",
+        "/catalogue-media-hq/111-baby-bassinet.jpg",
+        "/catalogue-media-hq/79-baby-bassinet.jpg",
+        "/catalogue-media-hq/80-baby-bassinet.jpg",
+        "/catalogue-media/image51.jpeg"
+      ]
+    },
+    {
+      "family": "BSL-1ABS Patient's Medicine Cupbard (ABS)",
+      "categorySlug": "ward-equipments",
+      "matchedHqImages": 4,
+      "finalImages": 6,
+      "images": [
+        "/catalogue-media-indiamart/27093790691.jpg",
+        "/catalogue-media-hq/36-medicine-cupboard.jpg",
+        "/catalogue-media-hq/37-medicine-cupboard.jpg",
+        "/catalogue-media-hq/38-medicine-cupboard.jpg",
+        "/catalogue-media-hq/75-patient-s-revolving-stool-ss.jpg",
+        "/catalogue-media/image55.jpeg"
       ]
     },
     {
@@ -1658,18 +2894,6 @@
       ]
     },
     {
-      "family": "Baby Bassinet With Utility Box",
-      "categorySlug": "ward-equipments",
-      "matchedHqImages": 3,
-      "finalImages": 4,
-      "images": [
-        "/catalogue-media-hq/111-baby-bassinet.jpg",
-        "/catalogue-media-hq/79-baby-bassinet.jpg",
-        "/catalogue-media-hq/80-baby-bassinet.jpg",
-        "/catalogue-media/image51.jpeg"
-      ]
-    },
-    {
       "family": "Baby Cradle",
       "categorySlug": "ward-equipments",
       "matchedHqImages": 1,
@@ -1680,35 +2904,26 @@
       ]
     },
     {
-      "family": "Bed Side Screen (3 Panels)",
-      "categorySlug": "ward-equipments",
-      "matchedHqImages": 2,
-      "finalImages": 4,
-      "images": [
-        "/catalogue-media-hq/47-bed-side-screen.jpg",
-        "/catalogue-media-hq/48-bed-side-screen.jpg",
-        "/catalogue-media/image62.png",
-        "/catalogue-media/image35.jpeg"
-      ]
-    },
-    {
-      "family": "Bed Side Screen (4 Panels)",
-      "categorySlug": "ward-equipments",
-      "matchedHqImages": 2,
-      "finalImages": 4,
-      "images": [
-        "/catalogue-media-hq/47-bed-side-screen.jpg",
-        "/catalogue-media-hq/48-bed-side-screen.jpg",
-        "/catalogue-media/image62.png",
-        "/catalogue-media/image36.jpeg"
-      ]
-    },
-    {
-      "family": "Cardiac Table (Gear Handle Adjustable)",
+      "family": "CTF-1 Cardiac Table (fixed)",
       "categorySlug": "ward-equipments",
       "matchedHqImages": 4,
-      "finalImages": 4,
+      "finalImages": 6,
       "images": [
+        "/catalogue-media-indiamart/27093320688.jpg",
+        "/catalogue-media-hq/39-cardiac-table.jpg",
+        "/catalogue-media-hq/40-cardiac-table.jpg",
+        "/catalogue-media-hq/41-cardiac-table.jpg",
+        "/catalogue-media-hq/table.jpeg",
+        "/catalogue-media/image29.jpeg"
+      ]
+    },
+    {
+      "family": "CTG-1 Cardiac Table (Gear Handle Adjustable)",
+      "categorySlug": "ward-equipments",
+      "matchedHqImages": 4,
+      "finalImages": 5,
+      "images": [
+        "/catalogue-media-indiamart/27093312262.jpg",
         "/catalogue-media-hq/39-cardiac-table.jpg",
         "/catalogue-media-hq/40-cardiac-table.jpg",
         "/catalogue-media-hq/41-cardiac-table.jpg",
@@ -1716,11 +2931,12 @@
       ]
     },
     {
-      "family": "Cardiac Table (by Knob Adjustable)",
+      "family": "CTK-1 Cardiac Table (by Knob Adjustable)",
       "categorySlug": "ward-equipments",
       "matchedHqImages": 4,
-      "finalImages": 6,
+      "finalImages": 7,
       "images": [
+        "/catalogue-media-indiamart/27093314330.jpg",
         "/catalogue-media-hq/39-cardiac-table.jpg",
         "/catalogue-media-hq/40-cardiac-table.jpg",
         "/catalogue-media-hq/41-cardiac-table.jpg",
@@ -1730,16 +2946,16 @@
       ]
     },
     {
-      "family": "Cardiac Table (fixed)",
+      "family": "Cardiac Table Adjustable By Knob",
       "categorySlug": "ward-equipments",
       "matchedHqImages": 4,
       "finalImages": 5,
       "images": [
+        "/catalogue-media-indiamart/26097132897.jpeg",
         "/catalogue-media-hq/39-cardiac-table.jpg",
         "/catalogue-media-hq/40-cardiac-table.jpg",
         "/catalogue-media-hq/41-cardiac-table.jpg",
-        "/catalogue-media-hq/table.jpeg",
-        "/catalogue-media/image29.jpeg"
+        "/catalogue-media-hq/table.jpeg"
       ]
     },
     {
@@ -1759,24 +2975,24 @@
       "finalImages": 3,
       "images": [
         "/catalogue-media-hq/58-crash-cart.jpg",
-        "/catalogue-media/image62.png",
-        "/catalogue-media/image150.jpeg"
+        "/catalogue-media/image150.jpeg",
+        "/catalogue-media/image62.png"
       ]
     },
     {
-      "family": "Dressing Trolley",
+      "family": "DT-1 SS Dressing Trolley",
       "categorySlug": "ward-equipments",
       "matchedHqImages": 7,
-      "finalImages": 9,
+      "finalImages": 8,
       "images": [
-        "/catalogue-media-hq/96-ward-equipments.jpg",
-        "/catalogue-media-hq/97-ward-equipments.jpg",
-        "/catalogue-media-hq/62-dressing-trolley.jpg",
+        "/catalogue-media-indiamart/27093472930.jpg",
         "/catalogue-media-hq/61-utility-trolley.jpg",
+        "/catalogue-media-hq/62-dressing-trolley.jpg",
         "/catalogue-media-hq/63-trolley.jpg",
         "/catalogue-media-hq/64-trolley.jpg",
         "/catalogue-media-hq/65-trolley.jpg",
-        "/catalogue-media/image40.jpeg"
+        "/catalogue-media-hq/96-ward-equipments.jpg",
+        "/catalogue-media-hq/97-ward-equipments.jpg"
       ]
     },
     {
@@ -1785,14 +3001,14 @@
       "matchedHqImages": 8,
       "finalImages": 8,
       "images": [
-        "/catalogue-media-hq/98-food-trolley.jpg",
-        "/catalogue-media-hq/99-food-trolley.jpg",
         "/catalogue-media-hq/61-utility-trolley.jpg",
         "/catalogue-media-hq/63-trolley.jpg",
         "/catalogue-media-hq/64-trolley.jpg",
         "/catalogue-media-hq/65-trolley.jpg",
         "/catalogue-media-hq/96-ward-equipments.jpg",
-        "/catalogue-media-hq/97-ward-equipments.jpg"
+        "/catalogue-media-hq/97-ward-equipments.jpg",
+        "/catalogue-media-hq/98-food-trolley.jpg",
+        "/catalogue-media-hq/99-food-trolley.jpg"
       ]
     },
     {
@@ -1806,41 +3022,74 @@
         "/catalogue-media-hq/63-trolley.jpg",
         "/catalogue-media-hq/64-trolley.jpg",
         "/catalogue-media-hq/65-trolley.jpg",
-        "/catalogue-media/image62.png",
-        "/catalogue-media/image196.jpeg"
+        "/catalogue-media/image196.jpeg",
+        "/catalogue-media/image62.png"
       ]
     },
     {
-      "family": "Foot Step Double Step",
+      "family": "FSD-1 Foot Step Double Step",
       "categorySlug": "ward-equipments",
       "matchedHqImages": 2,
-      "finalImages": 3,
+      "finalImages": 4,
       "images": [
+        "/catalogue-media-indiamart/27093501797.jpg",
         "/catalogue-media-hq/65-foot-step.jpg",
         "/catalogue-media-hq/66-foot-step.jpg",
         "/catalogue-media/image151.jpeg"
       ]
     },
     {
-      "family": "Foot Step Single Step",
+      "family": "FSS-1 Foot Step Single Step",
       "categorySlug": "ward-equipments",
       "matchedHqImages": 2,
-      "finalImages": 3,
+      "finalImages": 4,
       "images": [
+        "/catalogue-media-indiamart/27093491412.jpg",
         "/catalogue-media-hq/65-foot-step.jpg",
         "/catalogue-media-hq/66-foot-step.jpg",
         "/catalogue-media/image42.jpeg"
       ]
     },
     {
-      "family": "I.V. Stand",
+      "family": "Hospital Dressing Trolley",
+      "categorySlug": "ward-equipments",
+      "matchedHqImages": 7,
+      "finalImages": 10,
+      "images": [
+        "/catalogue-media-indiamart/26097228855.jpeg",
+        "/catalogue-media-hq/61-utility-trolley.jpg",
+        "/catalogue-media-hq/62-dressing-trolley.jpg",
+        "/catalogue-media-hq/63-trolley.jpg",
+        "/catalogue-media-hq/64-trolley.jpg",
+        "/catalogue-media-hq/65-trolley.jpg",
+        "/catalogue-media-hq/96-ward-equipments.jpg",
+        "/catalogue-media-hq/97-ward-equipments.jpg"
+      ]
+    },
+    {
+      "family": "I.V.Stand",
       "categorySlug": "ward-equipments",
       "matchedHqImages": 1,
-      "finalImages": 3,
+      "finalImages": 4,
       "images": [
+        "/catalogue-media-indiamart/27459089648.jpeg",
         "/catalogue-media-hq/46-iv-stand.jpg",
-        "/catalogue-media/image62.png",
-        "/catalogue-media/image34.jpeg"
+        "/catalogue-media/image34.jpeg",
+        "/catalogue-media/image62.png"
+      ]
+    },
+    {
+      "family": "IT-1SS Instrument Trolley Two Shelves",
+      "categorySlug": "ward-equipments",
+      "matchedHqImages": 5,
+      "finalImages": 6,
+      "images": [
+        "/catalogue-media-indiamart/27093477488.jpg",
+        "/catalogue-media-hq/42-mayo-s-instrument-trolley-ss.jpg",
+        "/catalogue-media-hq/43-mayo-s-instrument-trolley-ss.jpg",
+        "/catalogue-media-hq/63-trolley.jpg",
+        "/catalogue-media-hq/64-trolley.jpg",
+        "/catalogue-media-hq/65-trolley.jpg"
       ]
     },
     {
@@ -1850,8 +3099,8 @@
       "finalImages": 4,
       "images": [
         "/catalogue-media-hq/109-infant-warmer.jpg",
-        "/catalogue-media-hq/infant-warmer-deluxe.jpeg",
         "/catalogue-media-hq/infant-warmer-deluxe-2.jpeg",
+        "/catalogue-media-hq/infant-warmer-deluxe.jpeg",
         "/catalogue-media-hq/infant-warmer-new.jpg"
       ]
     },
@@ -1866,78 +3115,65 @@
       ]
     },
     {
-      "family": "Instrument Trolley Two Shelves",
-      "categorySlug": "ward-equipments",
-      "matchedHqImages": 5,
-      "finalImages": 5,
-      "images": [
-        "/catalogue-media-hq/42-mayo-s-instrument-trolley-ss.jpg",
-        "/catalogue-media-hq/43-mayo-s-instrument-trolley-ss.jpg",
-        "/catalogue-media-hq/63-trolley.jpg",
-        "/catalogue-media-hq/64-trolley.jpg",
-        "/catalogue-media-hq/65-trolley.jpg"
-      ]
-    },
-    {
-      "family": "Kick Bowl/Bucket",
+      "family": "Iv Stand",
       "categorySlug": "ward-equipments",
       "matchedHqImages": 1,
-      "finalImages": 3,
+      "finalImages": 2,
       "images": [
-        "/catalogue-media-hq/49-kick-bowel.jpg",
-        "/catalogue-media/image62.png",
-        "/catalogue-media/image37.jpeg"
+        "/catalogue-media-indiamart/26097202962.jpeg",
+        "/catalogue-media-hq/46-iv-stand.jpg"
       ]
     },
     {
-      "family": "Laparoscopic/Monitor Trolley",
+      "family": "KBSS-1 Kick Bowl Bucket",
       "categorySlug": "ward-equipments",
-      "matchedHqImages": 4,
-      "finalImages": 6,
+      "matchedHqImages": 1,
+      "finalImages": 4,
       "images": [
-        "/catalogue-media-hq/57-laparoscopic.jpg",
+        "/catalogue-media-indiamart/27093445712.jpg",
+        "/catalogue-media-hq/49-kick-bowel.jpg",
+        "/catalogue-media/image37.jpeg",
+        "/catalogue-media/image62.png"
+      ]
+    },
+    {
+      "family": "LT-1 Solid Linen Trolley with Canvas Bag",
+      "categorySlug": "ward-equipments",
+      "matchedHqImages": 6,
+      "finalImages": 7,
+      "images": [
+        "/catalogue-media-indiamart/27093482373.jpg",
+        "/catalogue-media-hq/61-utility-trolley.jpg",
         "/catalogue-media-hq/63-trolley.jpg",
         "/catalogue-media-hq/64-trolley.jpg",
         "/catalogue-media-hq/65-trolley.jpg",
-        "/catalogue-media/image62.png",
-        "/catalogue-media/image149.jpeg"
+        "/catalogue-media-hq/96-ward-equipments.jpg",
+        "/catalogue-media-hq/97-ward-equipments.jpg"
       ]
     },
     {
-      "family": "Medicine Trolley with 4 Drawers",
+      "family": "MT4D-1 Medicine Trolley with 4 Drawers",
       "categorySlug": "ward-equipments",
       "matchedHqImages": 5,
-      "finalImages": 7,
+      "finalImages": 8,
       "images": [
+        "/catalogue-media-indiamart/27093462412.jpg",
         "/catalogue-media-hq/59-medicine-trolley.jpg",
         "/catalogue-media-hq/60-medicine-trolley.jpg",
         "/catalogue-media-hq/63-trolley.jpg",
         "/catalogue-media-hq/64-trolley.jpg",
         "/catalogue-media-hq/65-trolley.jpg",
-        "/catalogue-media/image62.png",
-        "/catalogue-media/image38.jpeg"
+        "/catalogue-media/image38.jpeg",
+        "/catalogue-media/image62.png"
       ]
     },
     {
-      "family": "O.T. Mayo's Instrument Trolley With S.S. Tray",
-      "categorySlug": "ward-equipments",
-      "matchedHqImages": 5,
-      "finalImages": 6,
-      "images": [
-        "/catalogue-media-hq/42-mayo-s-instrument-trolley-ss.jpg",
-        "/catalogue-media-hq/43-mayo-s-instrument-trolley-ss.jpg",
-        "/catalogue-media-hq/63-trolley.jpg",
-        "/catalogue-media-hq/64-trolley.jpg",
-        "/catalogue-media-hq/65-trolley.jpg",
-        "/catalogue-media/image30.jpeg"
-      ]
-    },
-    {
-      "family": "OT Instrument Mayo's Trolley Over the OT Table (Mechanically)",
+      "family": "MTOB-1 OT Instrument Mayo's Trolley Over the OT Table (Mechanically)",
       "categorySlug": "ward-equipments",
       "matchedHqImages": 6,
-      "finalImages": 6,
+      "finalImages": 7,
       "images": [
+        "/catalogue-media-indiamart/27093329648.jpg",
         "/catalogue-media-hq/42-mayo-s-instrument-trolley-ss.jpg",
         "/catalogue-media-hq/43-mayo-s-instrument-trolley-ss.jpg",
         "/catalogue-media-hq/63-trolley.jpg",
@@ -1947,24 +3183,66 @@
       ]
     },
     {
-      "family": "Patient's Medicine Cupbard (ABS)",
+      "family": "MTSS-1 O.T. Mayo's Instrument Trolley With S.S. Tray",
+      "categorySlug": "ward-equipments",
+      "matchedHqImages": 5,
+      "finalImages": 7,
+      "images": [
+        "/catalogue-media-indiamart/27093324073.jpg",
+        "/catalogue-media-hq/42-mayo-s-instrument-trolley-ss.jpg",
+        "/catalogue-media-hq/43-mayo-s-instrument-trolley-ss.jpg",
+        "/catalogue-media-hq/63-trolley.jpg",
+        "/catalogue-media-hq/64-trolley.jpg",
+        "/catalogue-media-hq/65-trolley.jpg",
+        "/catalogue-media/image30.jpeg"
+      ]
+    },
+    {
+      "family": "OCT-1S Trolley For Oxygen Cylinder",
       "categorySlug": "ward-equipments",
       "matchedHqImages": 4,
       "finalImages": 5,
       "images": [
-        "/catalogue-media-hq/36-medicine-cupboard.jpg",
-        "/catalogue-media-hq/37-medicine-cupboard.jpg",
-        "/catalogue-media-hq/38-medicine-cupboard.jpg",
+        "/catalogue-media-indiamart/27093637797.jpg",
+        "/catalogue-media-hq/63-trolley.jpg",
+        "/catalogue-media-hq/64-trolley.jpg",
+        "/catalogue-media-hq/65-trolley.jpg",
+        "/catalogue-media-hq/74-trolley-oxygen-cylinder.jpg"
+      ]
+    },
+    {
+      "family": "PRS-1MS Patient's Revolving Stool S.S Top",
+      "categorySlug": "ward-equipments",
+      "matchedHqImages": 2,
+      "finalImages": 3,
+      "images": [
+        "/catalogue-media-indiamart/27093648188.jpg",
         "/catalogue-media-hq/75-patient-s-revolving-stool-ss.jpg",
-        "/catalogue-media/image55.jpeg"
+        "/catalogue-media-hq/76-patient-stool.jpg"
+      ]
+    },
+    {
+      "family": "PSF-1 Patient's Stool (Fix)",
+      "categorySlug": "ward-equipments",
+      "matchedHqImages": 5,
+      "finalImages": 7,
+      "images": [
+        "/catalogue-media-indiamart/27093652488.jpg",
+        "/catalogue-media-hq/61-utility-trolley.jpg",
+        "/catalogue-media-hq/75-patient-s-revolving-stool-ss.jpg",
+        "/catalogue-media-hq/76-patient-stool.jpg",
+        "/catalogue-media-hq/96-ward-equipments.jpg",
+        "/catalogue-media-hq/97-ward-equipments.jpg",
+        "/catalogue-media/image45.jpeg"
       ]
     },
     {
       "family": "Patient's Medicine Cupbard (STD)",
       "categorySlug": "ward-equipments",
       "matchedHqImages": 4,
-      "finalImages": 6,
+      "finalImages": 7,
       "images": [
+        "/catalogue-media-indiamart/27093783262.jpg",
         "/catalogue-media-hq/36-medicine-cupboard.jpg",
         "/catalogue-media-hq/37-medicine-cupboard.jpg",
         "/catalogue-media-hq/38-medicine-cupboard.jpg",
@@ -1977,22 +3255,14 @@
       "family": "Patient's Medicine Cupboard (DLX)",
       "categorySlug": "ward-equipments",
       "matchedHqImages": 4,
-      "finalImages": 4,
+      "finalImages": 6,
       "images": [
+        "/catalogue-media-indiamart/27093777488.jpg",
+        "/catalogue-media-indiamart/27459417988.jpeg",
         "/catalogue-media-hq/36-medicine-cupboard.jpg",
         "/catalogue-media-hq/37-medicine-cupboard.jpg",
         "/catalogue-media-hq/38-medicine-cupboard.jpg",
         "/catalogue-media-hq/75-patient-s-revolving-stool-ss.jpg"
-      ]
-    },
-    {
-      "family": "Patient's Revolving Stool S.S Top",
-      "categorySlug": "ward-equipments",
-      "matchedHqImages": 2,
-      "finalImages": 2,
-      "images": [
-        "/catalogue-media-hq/75-patient-s-revolving-stool-ss.jpg",
-        "/catalogue-media-hq/76-patient-stool.jpg"
       ]
     },
     {
@@ -2002,27 +3272,13 @@
       "finalImages": 8,
       "images": [
         "/catalogue-media-hq/61-utility-trolley.jpg",
-        "/catalogue-media-hq/96-ward-equipments.jpg",
-        "/catalogue-media-hq/97-ward-equipments.jpg",
         "/catalogue-media-hq/75-patient-s-revolving-stool-ss.jpg",
         "/catalogue-media-hq/76-patient-stool.jpg",
+        "/catalogue-media-hq/96-ward-equipments.jpg",
+        "/catalogue-media-hq/97-ward-equipments.jpg",
+        "/catalogue-media/image46.jpeg",
         "/catalogue-media/image60.emf",
-        "/catalogue-media/image61.emf",
-        "/catalogue-media/image46.jpeg"
-      ]
-    },
-    {
-      "family": "Patient's Stool(Fix)",
-      "categorySlug": "ward-equipments",
-      "matchedHqImages": 5,
-      "finalImages": 6,
-      "images": [
-        "/catalogue-media-hq/61-utility-trolley.jpg",
-        "/catalogue-media-hq/96-ward-equipments.jpg",
-        "/catalogue-media-hq/97-ward-equipments.jpg",
-        "/catalogue-media-hq/75-patient-s-revolving-stool-ss.jpg",
-        "/catalogue-media-hq/76-patient-stool.jpg",
-        "/catalogue-media/image45.jpeg"
+        "/catalogue-media/image61.emf"
       ]
     },
     {
@@ -2044,83 +3300,61 @@
       "matchedHqImages": 4,
       "finalImages": 4,
       "images": [
+        "/catalogue-media-hq/110-phototherapy-unit.jpg",
         "/catalogue-media-hq/111-baby-bassinet.jpg",
         "/catalogue-media-hq/79-baby-bassinet.jpg",
-        "/catalogue-media-hq/80-baby-bassinet.jpg",
-        "/catalogue-media-hq/110-phototherapy-unit.jpg"
+        "/catalogue-media-hq/80-baby-bassinet.jpg"
       ]
     },
     {
-      "family": "Solid Linen Trolley with Canvas Bag",
+      "family": "UT-2S Utility Trolley Two Shelves",
       "categorySlug": "ward-equipments",
-      "matchedHqImages": 6,
-      "finalImages": 6,
+      "matchedHqImages": 4,
+      "finalImages": 7,
       "images": [
+        "/catalogue-media-indiamart/27093466233.jpg",
         "/catalogue-media-hq/61-utility-trolley.jpg",
         "/catalogue-media-hq/63-trolley.jpg",
         "/catalogue-media-hq/64-trolley.jpg",
         "/catalogue-media-hq/65-trolley.jpg",
-        "/catalogue-media-hq/96-ward-equipments.jpg",
-        "/catalogue-media-hq/97-ward-equipments.jpg"
+        "/catalogue-media/image39.jpeg",
+        "/catalogue-media/image62.png"
       ]
     },
     {
-      "family": "Trolley For Oxygen Cylinder",
+      "family": "WBS-1D Wash Basin Stand (Double)",
       "categorySlug": "ward-equipments",
-      "matchedHqImages": 4,
-      "finalImages": 4,
-      "images": [
-        "/catalogue-media-hq/74-trolley-oxygen-cylinder.jpg",
-        "/catalogue-media-hq/63-trolley.jpg",
-        "/catalogue-media-hq/64-trolley.jpg",
-        "/catalogue-media-hq/65-trolley.jpg"
-      ]
-    },
-    {
-      "family": "Utility Trolley Two Shelves",
-      "categorySlug": "ward-equipments",
-      "matchedHqImages": 4,
+      "matchedHqImages": 2,
       "finalImages": 6,
       "images": [
-        "/catalogue-media-hq/61-utility-trolley.jpg",
-        "/catalogue-media-hq/63-trolley.jpg",
-        "/catalogue-media-hq/64-trolley.jpg",
-        "/catalogue-media-hq/65-trolley.jpg",
-        "/catalogue-media/image62.png",
-        "/catalogue-media/image39.jpeg"
+        "/catalogue-media-indiamart/27093334312.jpg",
+        "/catalogue-media-hq/44-wash-basin-stand.jpg",
+        "/catalogue-media-hq/45-wash-basin-stand.jpg",
+        "/catalogue-media/image31.jpeg",
+        "/catalogue-media/image32.jpeg",
+        "/catalogue-media/image62.png"
       ]
     },
     {
-      "family": "Wash Basin Stand (Double)",
+      "family": "WBS-1S Wash Basin Stand (Single)",
       "categorySlug": "ward-equipments",
       "matchedHqImages": 2,
       "finalImages": 5,
       "images": [
+        "/catalogue-media-indiamart/27093341991.jpg",
         "/catalogue-media-hq/44-wash-basin-stand.jpg",
         "/catalogue-media-hq/45-wash-basin-stand.jpg",
-        "/catalogue-media/image62.png",
-        "/catalogue-media/image31.jpeg",
-        "/catalogue-media/image32.jpeg"
-      ]
-    },
-    {
-      "family": "Wash Basin Stand (Single)",
-      "categorySlug": "ward-equipments",
-      "matchedHqImages": 2,
-      "finalImages": 4,
-      "images": [
-        "/catalogue-media-hq/44-wash-basin-stand.jpg",
-        "/catalogue-media-hq/45-wash-basin-stand.jpg",
-        "/catalogue-media/image62.png",
-        "/catalogue-media/image33.jpeg"
+        "/catalogue-media/image33.jpeg",
+        "/catalogue-media/image62.png"
       ]
     },
     {
       "family": "Waste Bin (Paddle Type)",
       "categorySlug": "ward-equipments",
       "matchedHqImages": 2,
-      "finalImages": 5,
+      "finalImages": 6,
       "images": [
+        "/catalogue-media-indiamart/27093637797.jpg",
         "/catalogue-media-hq/71-waste-bin.jpg",
         "/catalogue-media-hq/72-waste-bin.jpg",
         "/catalogue-media/image43.jpeg",
@@ -2154,8 +3388,8 @@
       "finalImages": 3,
       "images": [
         "/catalogue-media-hq/112-x-ray-illuminator.jpg",
-        "/catalogue-media/image62.png",
-        "/catalogue-media/image116.jpeg"
+        "/catalogue-media/image116.jpeg",
+        "/catalogue-media/image62.png"
       ]
     },
     {

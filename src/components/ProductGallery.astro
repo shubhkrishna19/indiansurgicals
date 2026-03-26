@@ -9,14 +9,19 @@ const galleryImages = [...new Set(images.filter(Boolean))];
 ---
 
 {galleryImages.length > 0 && (
-  <div class="product-gallery" data-product-gallery>
+  <div
+    class="product-gallery"
+    data-product-gallery
+    data-gallery-images={JSON.stringify(galleryImages)}
+    data-gallery-name={name}
+  >
     <div class="product-gallery__stage panel">
       <div class="product-gallery__stage-head">
         <span class="product-gallery__eyebrow">Approved Product Views</span>
-        <span class="product-gallery__count">{galleryImages.length} image{galleryImages.length === 1 ? "" : "s"}</span>
+        <span class="product-gallery__count" data-gallery-count>{galleryImages.length} image{galleryImages.length === 1 ? "" : "s"}</span>
       </div>
 
-      <div class="product-gallery__stage-frame">
+      <div class="product-gallery__stage-frame" data-gallery-frame>
         <img
           src={galleryImages[0]}
           alt={name}
@@ -27,9 +32,14 @@ const galleryImages = [...new Set(images.filter(Boolean))];
       </div>
     </div>
 
-    {galleryImages.length > 1 && (
-      <div class="product-gallery__thumbs" role="tablist" aria-label={`${name} image selector`}>
-        {galleryImages.map((image, index) => (
+    <div
+      class:list={["product-gallery__thumbs", { "is-hidden": galleryImages.length <= 1 }]}
+      role="tablist"
+      aria-label={`${name} image selector`}
+      data-gallery-thumbs
+    >
+      {galleryImages.length > 1 &&
+        galleryImages.map((image, index) => (
           <button
             class:list={["product-gallery__thumb", { "is-active": index === 0 }]}
             type="button"
@@ -41,19 +51,18 @@ const galleryImages = [...new Set(images.filter(Boolean))];
             <img src={image} alt={`${name} thumbnail ${index + 1}`} loading="lazy" decoding="async" />
           </button>
         ))}
-      </div>
-    )}
+    </div>
   </div>
 )}
 
 <script>
   const galleries = Array.from(document.querySelectorAll("[data-product-gallery]"));
 
-  galleries.forEach((gallery) => {
+  function bindThumbs(gallery: Element) {
     const stageImage = gallery.querySelector("[data-gallery-image]");
-    const thumbs = Array.from(gallery.querySelectorAll("[data-gallery-thumb]"));
+    const thumbs = Array.from(gallery.querySelectorAll<HTMLElement>("[data-gallery-thumb]"));
 
-    if (!(stageImage instanceof HTMLImageElement) || thumbs.length === 0) {
+    if (!(stageImage instanceof HTMLImageElement)) {
       return;
     }
 
@@ -79,6 +88,68 @@ const galleryImages = [...new Set(images.filter(Boolean))];
         thumb.classList.add("is-active");
         thumb.setAttribute("aria-selected", "true");
       });
+    });
+  }
+
+  function renderGallery(gallery: Element, images: string[], name: string) {
+    const stageImage = gallery.querySelector("[data-gallery-image]");
+    const thumbsContainer = gallery.querySelector("[data-gallery-thumbs]");
+    const count = gallery.querySelector("[data-gallery-count]");
+
+    if (
+      !(stageImage instanceof HTMLImageElement) ||
+      !(thumbsContainer instanceof HTMLElement) ||
+      !(count instanceof HTMLElement)
+    ) {
+      return;
+    }
+
+    const uniqueImages = Array.from(
+      new Set((Array.isArray(images) ? images : []).filter((image): image is string => typeof image === "string" && image.length > 0)),
+    );
+    if (uniqueImages.length === 0) {
+      return;
+    }
+
+    stageImage.src = uniqueImages[0];
+    stageImage.alt = name;
+    count.textContent = `${uniqueImages.length} image${uniqueImages.length === 1 ? "" : "s"}`;
+
+    thumbsContainer.innerHTML = "";
+    if (uniqueImages.length <= 1) {
+      thumbsContainer.classList.add("is-hidden");
+      return;
+    }
+
+    thumbsContainer.classList.remove("is-hidden");
+    uniqueImages.forEach((image: string, index) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = `product-gallery__thumb${index === 0 ? " is-active" : ""}`;
+      button.setAttribute("role", "tab");
+      button.setAttribute("aria-selected", index === 0 ? "true" : "false");
+      button.setAttribute("data-gallery-thumb", image);
+      button.setAttribute("data-gallery-alt", index === 0 ? `${name} primary view` : `${name} view ${index + 1}`);
+
+      const imageElement = document.createElement("img");
+      imageElement.src = image;
+      imageElement.alt = `${name} thumbnail ${index + 1}`;
+      imageElement.loading = "lazy";
+      imageElement.decoding = "async";
+      button.appendChild(imageElement);
+      thumbsContainer.appendChild(button);
+    });
+
+    bindThumbs(gallery);
+  }
+
+  galleries.forEach((gallery) => {
+    bindThumbs(gallery);
+    gallery.addEventListener("gallery:update", (event: Event) => {
+      const detail = event instanceof CustomEvent ? event.detail ?? {} : {};
+      const images = Array.isArray(detail.images) ? detail.images : [];
+      const name = typeof detail.name === "string" ? detail.name : gallery.getAttribute("data-gallery-name") ?? "";
+      renderGallery(gallery, images, name);
     });
   });
 </script>
@@ -154,6 +225,10 @@ const galleryImages = [...new Set(images.filter(Boolean))];
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
     gap: 0.75rem;
+  }
+
+  .product-gallery__thumbs.is-hidden {
+    display: none;
   }
 
   .product-gallery__thumb {
