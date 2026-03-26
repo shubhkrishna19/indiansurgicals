@@ -52,7 +52,7 @@ main {
 }
 
 main > .section:last-child {
-  padding-bottom: 0;
+  padding-bottom: 2rem;
 }
 
 a {
