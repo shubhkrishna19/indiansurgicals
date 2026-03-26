@@ -10,6 +10,7 @@ const otherWebsiteHref = business.contact.website ? `https://${business.contact.
 const showWebsiteInFooter =
   business.contact.website &&
   business.contact.website.trim().toLowerCase() !== "example.com";
+const credentialBadges = [...business.credentialBadges, ...business.credentialBadges];
 ---
 
 <footer class="site-footer">
@@ -152,6 +153,17 @@ const showWebsiteInFooter =
   <div class="container site-footer__bottom">
     <span>(c) {year} {business.brand}. All rights reserved.</span>
     <span>Manufacturer of medical and surgical equipment from Noida, India.</span>
+  </div>
+
+  <div class="site-footer__trust">
+    <div class="site-footer__trust-track">
+      {credentialBadges.map((badge, index) => (
+        <article class="site-footer__trust-badge" aria-hidden={index >= business.credentialBadges.length}>
+          <strong>{badge.code}</strong>
+          <span>{badge.label}</span>
+        </article>
+      ))}
+    </div>
   </div>
 </footer>
 
@@ -328,6 +340,84 @@ const showWebsiteInFooter =
     font-size: 0.82rem;
   }
 
+  .site-footer__trust {
+    position: relative;
+    overflow: hidden;
+    margin-top: 1.25rem;
+    padding: 0.35rem 0 0.1rem;
+    border-top: 1px solid rgba(84, 96, 109, 0.12);
+  }
+
+  .site-footer__trust::before,
+  .site-footer__trust::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 5rem;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .site-footer__trust::before {
+    left: 0;
+    background: linear-gradient(90deg, #f4f7fa, rgba(244, 247, 250, 0));
+  }
+
+  .site-footer__trust::after {
+    right: 0;
+    background: linear-gradient(270deg, #f4f7fa, rgba(244, 247, 250, 0));
+  }
+
+  .site-footer__trust-track {
+    display: flex;
+    align-items: stretch;
+    gap: 0.9rem;
+    width: max-content;
+    padding: 0.55rem 1rem 0.25rem;
+    animation: footer-trust-scroll 36s linear infinite;
+  }
+
+  .site-footer__trust:hover .site-footer__trust-track {
+    animation-play-state: paused;
+  }
+
+  .site-footer__trust-badge {
+    min-width: 13rem;
+    display: grid;
+    gap: 0.18rem;
+    padding: 0.9rem 1rem;
+    border-radius: 1rem;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(244, 248, 251, 0.88)),
+      rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(84, 96, 109, 0.14);
+    box-shadow: 0 10px 20px rgba(11, 27, 43, 0.06);
+  }
+
+  .site-footer__trust-badge strong {
+    color: var(--color-primary);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+
+  .site-footer__trust-badge span {
+    color: var(--color-text-muted);
+    font-size: 0.78rem;
+    line-height: 1.4;
+  }
+
+  @keyframes footer-trust-scroll {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(calc(-50% - 0.45rem));
+    }
+  }
+
   @media (max-width: 960px) {
     .site-footer__grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -341,6 +431,24 @@ const showWebsiteInFooter =
   @media (max-width: 640px) {
     .site-footer__grid {
       grid-template-columns: 1fr;
+    }
+
+    .site-footer__trust::before,
+    .site-footer__trust::after {
+      width: 2rem;
+    }
+
+    .site-footer__trust-badge {
+      min-width: 11rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .site-footer__trust-track {
+      animation: none;
+      width: auto;
+      flex-wrap: wrap;
+      justify-content: center;
     }
   }
 </style>

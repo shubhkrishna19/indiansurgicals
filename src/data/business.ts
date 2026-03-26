@@ -8,6 +8,10 @@ export interface BusinessProfile {
   marketPresence: string;
   experienceClaim: string;
   certifications: string[];
+  credentialBadges: {
+    code: string;
+    label: string;
+  }[];
   focusAreas: string[];
   customerSegments: string[];
   globalShipmentCountries: string[];
@@ -57,6 +61,56 @@ export const business: BusinessProfile = {
     "Used across domestic healthcare institutions and supplied through export houses to multiple markets.",
   experienceClaim: "40+ years",
   certifications: ["ISO 9001", "ISO 13485", "CE Certified"],
+  credentialBadges: [
+    {
+      code: "ISO 13485",
+      label: "Medical Devices Quality Management System",
+    },
+    {
+      code: "ISO 9001",
+      label: "Quality Management System",
+    },
+    {
+      code: "ISO 14971",
+      label: "Risk Management for Medical Devices",
+    },
+    {
+      code: "CE",
+      label: "CE Certified",
+    },
+    {
+      code: "FDA",
+      label: "Registered",
+    },
+    {
+      code: "CDSCO",
+      label: "Approved",
+    },
+    {
+      code: "MSME",
+      label: "Registered",
+    },
+    {
+      code: "GST",
+      label: "Goods and Services Tax",
+    },
+    {
+      code: "IEC",
+      label: "Import Export Code",
+    },
+    {
+      code: "ISO 10993",
+      label: "Biocompatible",
+    },
+    {
+      code: "OEM",
+      label: "Manufacturing and Private Label Support",
+    },
+    {
+      code: "50+ Countries",
+      label: "Export Supply Capability",
+    },
+  ],
   focusAreas: [
     "Autoclaves and sterilization systems",
     "Hospital hollowares and stainless steel utility products",
