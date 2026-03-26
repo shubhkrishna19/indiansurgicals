@@ -40,9 +40,9 @@ body::before {
 body::after {
   z-index: -1;
   background:
-    linear-gradient(180deg, rgba(236, 244, 250, 0.52), rgba(233, 240, 245, 0.74)),
-    radial-gradient(circle at top left, rgba(201, 111, 40, 0.1), transparent 28%),
-    linear-gradient(90deg, rgba(7, 31, 53, 0.18), rgba(7, 31, 53, 0.04) 42%, rgba(255, 255, 255, 0.08));
+    linear-gradient(180deg, rgba(236, 244, 250, 0.42), rgba(233, 240, 245, 0.62)),
+    radial-gradient(circle at top left, rgba(201, 111, 40, 0.08), transparent 28%),
+    linear-gradient(90deg, rgba(7, 31, 53, 0.14), rgba(7, 31, 53, 0.03) 42%, rgba(255, 255, 255, 0.06));
 }
 
 main {
@@ -99,9 +99,9 @@ p {
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(180deg, rgba(248, 251, 253, 0.72), rgba(239, 245, 249, 0.64)),
-    radial-gradient(circle at top center, rgba(255, 255, 255, 0.18), transparent 56%);
-  backdrop-filter: blur(6px);
+    linear-gradient(180deg, rgba(248, 251, 253, 0.58), rgba(239, 245, 249, 0.5)),
+    radial-gradient(circle at top center, rgba(255, 255, 255, 0.14), transparent 56%);
+  backdrop-filter: blur(4px);
 }
 
 .section > .container {
@@ -191,17 +191,17 @@ p {
 }
 
 .button--secondary {
-  background: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.76);
   color: var(--color-text);
   border: 1px solid rgba(84, 96, 109, 0.18);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(8px);
 }
 
 .panel {
   border: 1px solid rgba(84, 96, 109, 0.16);
   border-radius: 1.5rem;
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.84);
+  backdrop-filter: blur(10px);
   box-shadow: var(--shadow-soft);
 }
 

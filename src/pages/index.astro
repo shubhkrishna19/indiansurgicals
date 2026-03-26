@@ -227,6 +227,8 @@ const primaryContactHref = getPrimaryContactHref();
       let suppressClick = false;
       let rafId = 0;
       let lastTime = performance.now();
+      let lastPageY = window.scrollY;
+      let pageDirection = 1;
       const baseSpeed = 24;
 
       const segmentWidth = track.scrollWidth / 3;
@@ -262,7 +264,7 @@ const primaryContactHref = getPrimaryContactHref();
         lastTime = time;
 
         if (!pointerActive) {
-          strip.scrollLeft += baseSpeed * deltaSeconds;
+          strip.scrollLeft += baseSpeed * pageDirection * deltaSeconds;
           normalizeLoop();
         }
 
@@ -307,6 +309,17 @@ const primaryContactHref = getPrimaryContactHref();
         normalizeLoop();
       };
 
+      const onPageScroll = () => {
+        const currentPageY = window.scrollY;
+        const deltaY = currentPageY - lastPageY;
+
+        if (Math.abs(deltaY) > 1) {
+          pageDirection = deltaY > 0 ? 1 : -1;
+        }
+
+        lastPageY = currentPageY;
+      };
+
       const onClick = (event) => {
         if (!suppressClick) {
           return;
@@ -324,6 +337,7 @@ const primaryContactHref = getPrimaryContactHref();
       strip.addEventListener("lostpointercapture", endDrag);
       strip.addEventListener("wheel", onWheel, { passive: true });
       strip.addEventListener("click", onClick);
+      window.addEventListener("scroll", onPageScroll, { passive: true });
 
       rafId = window.requestAnimationFrame(tick);
 
@@ -336,6 +350,7 @@ const primaryContactHref = getPrimaryContactHref();
         strip.removeEventListener("lostpointercapture", endDrag);
         strip.removeEventListener("wheel", onWheel);
         strip.removeEventListener("click", onClick);
+        window.removeEventListener("scroll", onPageScroll);
       });
     });
 
