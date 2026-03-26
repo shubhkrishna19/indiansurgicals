@@ -85,7 +85,7 @@ const primaryContactHref = getPrimaryContactHref();
         align="left"
       />
 
-      <div class="category-strip">
+      <div class="category-strip js-drag-scroll">
         {categories.map((category) => (
           <CategoryCard category={category} />
         ))}
@@ -209,6 +209,85 @@ const primaryContactHref = getPrimaryContactHref();
     </div>
   </section>
 </BaseLayout>
+
+<script is:inline>
+  const setupDragScroll = () => {
+    document.querySelectorAll(".js-drag-scroll").forEach((strip) => {
+      if (strip.dataset.dragReady === "true") {
+        return;
+      }
+
+      strip.dataset.dragReady = "true";
+
+      let pointerActive = false;
+      let startX = 0;
+      let startScrollLeft = 0;
+      let pointerId = null;
+      let suppressClick = false;
+
+      const endDrag = () => {
+        pointerActive = false;
+        strip.classList.remove("is-dragging");
+
+        if (pointerId !== null) {
+          try {
+            strip.releasePointerCapture(pointerId);
+          } catch {}
+        }
+
+        pointerId = null;
+      };
+
+      strip.addEventListener("pointerdown", (event) => {
+        if (event.pointerType === "mouse" && event.button !== 0) {
+          return;
+        }
+
+        pointerActive = true;
+        startX = event.clientX;
+        startScrollLeft = strip.scrollLeft;
+        pointerId = event.pointerId;
+        suppressClick = false;
+        strip.classList.add("is-dragging");
+        strip.setPointerCapture?.(event.pointerId);
+      });
+
+      strip.addEventListener("pointermove", (event) => {
+        if (!pointerActive) {
+          return;
+        }
+
+        const delta = event.clientX - startX;
+
+        if (Math.abs(delta) > 6) {
+          suppressClick = true;
+        }
+
+        strip.scrollLeft = startScrollLeft - delta;
+      });
+
+      strip.addEventListener("pointerup", endDrag);
+      strip.addEventListener("pointercancel", endDrag);
+      strip.addEventListener("lostpointercapture", endDrag);
+
+      strip.addEventListener("click", (event) => {
+        if (!suppressClick) {
+          return;
+        }
+
+        event.preventDefault();
+        event.stopPropagation();
+        suppressClick = false;
+      });
+    });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", setupDragScroll, { once: true });
+  } else {
+    setupDragScroll();
+  }
+</script>
 
 <style>
   .hero {
@@ -359,10 +438,21 @@ const primaryContactHref = getPrimaryContactHref();
     padding-bottom: 0.45rem;
     scrollbar-width: none;
     scroll-snap-type: x proximity;
+    cursor: grab;
+    touch-action: pan-x;
+    -webkit-overflow-scrolling: touch;
   }
 
   .category-strip::-webkit-scrollbar {
     display: none;
+  }
+
+  .category-strip.is-dragging {
+    cursor: grabbing;
+  }
+
+  .category-strip.is-dragging :global(.category-card) {
+    pointer-events: none;
   }
 
   .category-strip :global(.category-card) {
