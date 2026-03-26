@@ -116,7 +116,6 @@ const primaryContactHref = getPrimaryContactHref();
             <div class="showcase-card__body">
               <p class="showcase-card__category">{categoryNames.get(family.categorySlug)}</p>
               <h3>{family.name}</h3>
-              <span class="showcase-card__link">More products</span>
             </div>
           </a>
         ))}
@@ -534,7 +533,7 @@ const primaryContactHref = getPrimaryContactHref();
 
   .showcase-card__body {
     display: grid;
-    grid-template-rows: auto minmax(4.2rem, auto) auto;
+    grid-template-rows: auto minmax(4.2rem, auto);
     gap: 0.45rem;
     padding: 0.95rem 1rem 1rem;
     border-top: 1px solid rgba(84, 96, 109, 0.08);
@@ -558,12 +557,6 @@ const primaryContactHref = getPrimaryContactHref();
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     overflow: hidden;
-  }
-
-  .showcase-card__link {
-    margin-top: auto;
-    color: var(--color-text-muted);
-    font-size: 0.78rem;
   }
 
   .showcase-cta {

@@ -6,17 +6,27 @@
 
   const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
   const REVEAL_SELECTORS = [
-    ".section-title",
-    ".panel",
     ".category-card",
     ".showcase-card",
     ".family-card",
     ".category-tile",
-    ".review-card",
+    ".section-title",
+    ".catalogue-download",
+    ".catalogue-toolbar",
+    ".contact-card",
+    ".gallery-empty",
     ".leadership-card",
-    ".quote-chip",
+    ".matrix",
+    ".preview-category",
+    ".product-gallery",
     ".quote-card",
+    ".quote-chip",
     ".quote-step",
+    ".review-card",
+    ".section-list",
+    ".status-card",
+    ".trust-shell",
+    ".variant-panel",
     ".preview-category",
     ".catalogue-grid__item",
     ".subcategory-row span",
@@ -84,39 +94,41 @@
         );
       });
 
-      REVEAL_SELECTORS.forEach((selector) => {
-        gsap.utils.toArray<HTMLElement>(selector).forEach((node) => {
-          gsap.fromTo(
-            node,
-            { autoAlpha: 0, y: 40 },
-            {
+      const revealNodes = Array.from(
+        new Set(REVEAL_SELECTORS.flatMap((selector) => gsap.utils.toArray<HTMLElement>(selector))),
+      );
+
+      if (revealNodes.length > 0) {
+        gsap.set(revealNodes, { autoAlpha: 0, y: 28 });
+        ScrollTrigger.batch(revealNodes, {
+          start: "top 90%",
+          once: true,
+          onEnter: (batch) => {
+            gsap.to(batch, {
               autoAlpha: 1,
               y: 0,
-              duration: 0.9,
-              ease: "power3.out",
+              duration: 0.72,
+              ease: "power2.out",
+              stagger: 0.07,
+              overwrite: true,
               clearProps: "opacity,visibility,transform",
-              scrollTrigger: {
-                trigger: node,
-                start: "top 86%",
-                once: true,
-              },
-            },
-          );
+            });
+          },
         });
-      });
+      }
 
       gsap.utils.toArray<HTMLElement>("[data-parallax-group]").forEach((group) => {
         const items = Array.from(group.querySelectorAll<HTMLElement>("[data-parallax-speed]"));
         items.forEach((item) => {
           const speed = Number(item.getAttribute("data-parallax-speed") ?? "0.1");
           gsap.to(item, {
-            yPercent: speed * -100,
+            yPercent: speed * -60,
             ease: "none",
             scrollTrigger: {
               trigger: group,
               start: "top bottom",
               end: "bottom top",
-              scrub: 0.55,
+              scrub: 0.35,
             },
           });
         });
