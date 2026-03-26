@@ -10,17 +10,17 @@ const catalogueMenu = [
   {
     href: "/products",
     label: "Browse full catalogue",
-    note: `${categories.length} core product sections`,
+    note: `${categories.length} major product categories`,
   },
   ...categories.map((category) => ({
     href: `/products/${category.slug}`,
     label: category.name,
-    note: `${category.familyCount} families`,
+    note: `${category.familyCount} product families`,
   })),
   {
     href: "/catalogue-preview",
     label: "Catalogue preview and download",
-    note: "Online catalogue page and official company PDF",
+    note: "Online catalogue and official company PDF",
   },
 ];
 
@@ -43,7 +43,7 @@ const aboutMenu = [
   {
     href: "/catalogue-preview",
     label: "Catalogue preview",
-    note: "Quick online view of the product range",
+    note: "Quick online access to the full product range",
   },
 ];
 

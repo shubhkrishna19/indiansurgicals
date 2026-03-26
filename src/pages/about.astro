@@ -14,18 +14,18 @@ const stats = getCatalogueStats();
 >
   <section class="section about-hero">
     <div class="container about-hero__grid">
-      <div class="about-hero__content">
-        <span class="eyebrow">{business.brandMark}</span>
-        <h1>Indian Surgical Industries is a manufacturing-led medical equipment business with more than four decades of operating depth.</h1>
-        <p class="about-hero__copy">{business.story[0]}</p>
-        <p class="about-hero__copy">{business.story[1]}</p>
+      <div class="about-hero__content" data-parallax-group>
+        <span class="eyebrow" data-parallax-speed="0.08">{business.brandMark}</span>
+        <h1 data-parallax-speed="0.16">Indian Surgical Industries is a manufacturing-led medical equipment business with more than four decades of operating depth.</h1>
+        <p class="about-hero__copy" data-parallax-speed="0.1">{business.story[0]}</p>
+        <p class="about-hero__copy" data-parallax-speed="0.08">{business.story[1]}</p>
 
-        <div class="about-hero__actions">
+        <div class="about-hero__actions" data-parallax-speed="0.08">
           <a href="/products" class="button button--primary">Browse the catalogue</a>
           <a href="/contact" class="button button--secondary">Open contact page</a>
         </div>
 
-        <ul class="about-hero__tags">
+        <ul class="about-hero__tags" data-parallax-speed="0.06">
           {business.certifications.map((item) => (
             <li>{item}</li>
           ))}
@@ -63,8 +63,8 @@ const stats = getCatalogueStats();
             <strong>{business.marketPresence}</strong>
           </div>
           <div>
-            <span>Commercial model</span>
-            <strong>Quote-only catalogue</strong>
+            <span>Buying support</span>
+            <strong>Direct quotation on request</strong>
           </div>
         </div>
       </aside>
@@ -83,8 +83,8 @@ const stats = getCatalogueStats();
         <div class="narrative-copy">
           <p>{business.story[3]}</p>
           <p>
-            The product range is maintained in a structured format so the catalogue, website, and sales
-            materials stay consistent as the business range continues to grow.
+            The company range is built to help hospitals, distributors, procurement teams, and export buyers
+            review relevant products quickly and move into direct quotation discussion with clarity.
           </p>
         </div>
       </div>
@@ -116,7 +116,7 @@ const stats = getCatalogueStats();
       <SectionTitle
         kicker="Catalogue Coverage"
         title="The product range is organized by major business categories."
-        subtitle="Each section leads into product families and model-level specifications so buyers can review the range clearly and efficiently."
+        subtitle="Each category leads into the relevant product families so buyers can move from broad requirement to exact product page without confusion."
         align="left"
       />
 
@@ -135,15 +135,15 @@ const stats = getCatalogueStats();
   <section class="section section--cta">
     <div class="container cta panel">
       <div>
-        <span class="eyebrow">Quote-Only Commercial Model</span>
-        <h2>Pricing is shared on request, while product details and model options remain easy to review online.</h2>
+        <span class="eyebrow">Quotation Support</span>
+        <h2>Product details stay public for evaluation, while quotations are shared directly based on model, quantity, and dispatch needs.</h2>
       </div>
       <p>
         {business.quoteOnlyNote} Buyers can review the full range, compare models, and contact the team
         directly for quotations and commercial discussion.
       </p>
       <div class="cta__actions">
-        <a href="/products" class="button button--primary">Explore product families</a>
+        <a href="/products" class="button button--primary">Explore product range</a>
         <a href="/contact" class="button button--secondary">View contact details</a>
       </div>
     </div>

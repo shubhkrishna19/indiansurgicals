@@ -1,7 +1,9 @@
 ---
+import { ClientRouter } from "astro:transitions";
 import "../styles/globals.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import MotionController from "../components/MotionController.astro";
 import { business } from "../data/business";
 
 interface Props {
@@ -44,6 +46,7 @@ const metaTitle = `${title} | ${business.brand}`;
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
       rel="stylesheet"
     />
+    <ClientRouter fallback="animate" />
   </head>
   <body>
     <Header />
@@ -51,5 +54,6 @@ const metaTitle = `${title} | ${business.brand}`;
       <slot />
     </main>
     <Footer />
+    <MotionController />
   </body>
 </html>

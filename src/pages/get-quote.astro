@@ -14,17 +14,17 @@ const whatsappLink = getWhatsAppLink();
 >
   <section class="section quote-hero">
     <div class="container quote-hero__grid">
-      <div class="quote-hero__content">
-        <span class="eyebrow">Get Quote</span>
-        <h1>Get direct quotation support from Indian Surgical Industries.</h1>
-        <p class="quote-hero__copy">{business.quoteOnlyNote}</p>
+      <div class="quote-hero__content" data-parallax-group>
+        <span class="eyebrow" data-parallax-speed="0.08">Get Quote</span>
+        <h1 data-parallax-speed="0.16">Get direct quotation support from Indian Surgical Industries.</h1>
+        <p class="quote-hero__copy" data-parallax-speed="0.1">{business.quoteOnlyNote}</p>
 
-        <div class="quote-hero__actions">
+        <div class="quote-hero__actions" data-parallax-speed="0.08">
           <a href={whatsappLink} class="button button--primary">WhatsApp for quotation</a>
           <a href={`mailto:${business.contact.email}`} class="button button--secondary">Email the team</a>
         </div>
 
-        <div class="quote-hero__highlights">
+        <div class="quote-hero__highlights" data-parallax-speed="0.06">
           <article class="quote-chip panel">
             <strong>{business.contact.phones[0]}</strong>
             <span>Primary mobile</span>
@@ -48,8 +48,8 @@ const whatsappLink = getWhatsAppLink();
             <strong>{business.manufacturingBase}</strong>
           </div>
           <div>
-            <span>Commercial mode</span>
-            <strong>Quote only</strong>
+            <span>Response style</span>
+            <strong>Direct quotation support</strong>
           </div>
           <div>
             <span>Main mobile</span>

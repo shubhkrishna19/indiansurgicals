@@ -27,6 +27,7 @@ const galleryImages = Array.from(
   new Set([...(activeVariant?.images ?? []), ...(family.images.length > 0 ? family.images : [])]),
 );
 const detailNotes = [...family.highlights, ...family.notes].filter(Boolean).slice(0, 6);
+const heroSummary = family.description || family.summary;
 
 function getAttributeValue(
   variant: { attributes: { label: string; value: string }[] },
@@ -48,10 +49,10 @@ function getAttributeValue(
       />
 
       <div class="product-hero__grid">
-        <div class="product-hero__content">
-          <span class="eyebrow">{category?.name ?? "Catalogue Family"}</span>
+        <div class="product-hero__content" data-parallax-group>
+          <span class="eyebrow" data-parallax-speed="0.08">{category?.name ?? "Product Range"}</span>
           <h1>{family.name}</h1>
-          <p class="product-hero__summary">{family.description}</p>
+          <p class="product-hero__summary" data-parallax-speed="0.1">{heroSummary}</p>
 
           <div class="product-hero__meta">
             <div class="panel">
@@ -60,11 +61,11 @@ function getAttributeValue(
             </div>
             <div class="panel">
               <strong>{category?.name ?? "Catalogue"}</strong>
-              <span>business section</span>
+              <span>product category</span>
             </div>
             <div class="panel">
-              <strong>Quote only</strong>
-              <span>pricing on request</span>
+              <strong>Request quotation</strong>
+              <span>pricing shared directly</span>
             </div>
           </div>
 
@@ -78,11 +79,11 @@ function getAttributeValue(
         </div>
 
         <aside class="product-hero__aside panel">
-          <p class="product-hero__aside-kicker">Commercial mode</p>
-          <h2>Family specifications are public. Quotations remain direct and request-based.</h2>
+          <p class="product-hero__aside-kicker">Quotation Support</p>
+          <h2>Need this product for hospital, dealer, or export buying?</h2>
           <p>{business.quoteOnlyNote}</p>
           <p>{business.contactNote}</p>
-          <a href="/contact" class="button button--primary">Open contact page</a>
+          <a href="/get-quote" class="button button--primary">Request quotation</a>
         </aside>
       </div>
     </div>
@@ -94,8 +95,8 @@ function getAttributeValue(
         <ProductGallery images={galleryImages} name={family.name} />
       ) : (
         <div class="gallery-empty panel">
-          <h2>Product imagery is being mapped into this family.</h2>
-          <p>The specification structure is already live. Additional approved images will continue to be attached to the relevant family and model records.</p>
+          <h2>Detailed specifications are available below.</h2>
+          <p>For additional product photographs, packing details, or model confirmation, contact the team directly.</p>
         </div>
       )}
     </div>
@@ -104,9 +105,9 @@ function getAttributeValue(
   <section class="section section--band">
     <div class="container">
       <SectionTitle
-        kicker="Variant Matrix"
-        title="Compare the model lineup at a glance."
-        subtitle="This table surfaces the shared decision columns for the family so procurement teams can compare capacities, sizes, and configuration differences quickly."
+        kicker="Model Comparison"
+        title="Compare the available models before you enquire."
+        subtitle="Review size, capacity, and configuration differences across the lineup to shortlist the right option quickly."
       />
 
       <div class="matrix panel">
@@ -139,8 +140,8 @@ function getAttributeValue(
     <div class="container variant-section">
       <SectionTitle
         kicker="Model Details"
-        title="Switch between models for specification-level review."
-        subtitle="Each model keeps its own attributes, supporting notes, and approved imagery under the same family page."
+        title="Review the specification details for each available model."
+        subtitle="Switch between models to inspect configuration differences, key attributes, and supporting product notes."
       />
 
       <div class="variant-switcher" role="tablist" aria-label="Model selector">
@@ -187,7 +188,7 @@ function getAttributeValue(
               </div>
 
               <div class="variant-panel__notes">
-                <h3>Supporting details</h3>
+                <h3>Product details</h3>
                 {variant.descriptionLines.length > 0 ? (
                   <ul>
                     {variant.descriptionLines.map((line) => (
@@ -195,7 +196,7 @@ function getAttributeValue(
                     ))}
                   </ul>
                 ) : (
-                  <p>Additional line-level notes will continue to be expanded from the approved source files for this model.</p>
+                  <p>Additional model-specific notes can be shared during quotation discussion.</p>
                 )}
               </div>
             </div>
@@ -211,7 +212,7 @@ function getAttributeValue(
         <SectionTitle
           kicker="Related Families"
           title={`More from ${category?.name ?? "this catalogue section"}.`}
-          subtitle="These families sit in the same business section and are commonly reviewed together during planning and procurement."
+          subtitle="Buyers reviewing this range also compare the following products from the same section."
         />
 
         <div class="related-grid">
@@ -225,36 +226,52 @@ function getAttributeValue(
 </BaseLayout>
 
 <script>
-  const buttons = Array.from(document.querySelectorAll("[data-model-target]"));
-  const panels = Array.from(document.querySelectorAll("[data-model-panel]"));
+  const setupVariantSwitcher = () => {
+    const buttons = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-model-target]"));
+    const panels = Array.from(document.querySelectorAll<HTMLElement>("[data-model-panel]"));
 
-  buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const target = button.getAttribute("data-model-target");
-      const images = JSON.parse(button.getAttribute("data-model-images") ?? "[]");
-      const name = button.getAttribute("data-model-name") ?? "";
-      buttons.forEach((candidate) => {
-        candidate.classList.remove("is-active");
-        candidate.setAttribute("aria-selected", "false");
-      });
-      panels.forEach((panel) => {
-        const isMatch = panel.getAttribute("data-model-panel") === target;
-        panel.toggleAttribute("hidden", !isMatch);
-        panel.classList.toggle("is-active", isMatch);
-      });
-      button.classList.add("is-active");
-      button.setAttribute("aria-selected", "true");
-
-      const gallery = document.querySelector("[data-product-gallery]");
-      if (gallery) {
-        gallery.dispatchEvent(
-          new CustomEvent("gallery:update", {
-            detail: { images, name },
-          }),
-        );
+    buttons.forEach((button) => {
+      if (button.dataset.variantReady === "true") {
+        return;
       }
+
+      button.dataset.variantReady = "true";
+
+      button.addEventListener("click", () => {
+        const target = button.getAttribute("data-model-target");
+        const images = JSON.parse(button.getAttribute("data-model-images") ?? "[]");
+        const name = button.getAttribute("data-model-name") ?? "";
+        buttons.forEach((candidate) => {
+          candidate.classList.remove("is-active");
+          candidate.setAttribute("aria-selected", "false");
+        });
+        panels.forEach((panel) => {
+          const isMatch = panel.getAttribute("data-model-panel") === target;
+          panel.toggleAttribute("hidden", !isMatch);
+          panel.classList.toggle("is-active", isMatch);
+        });
+        button.classList.add("is-active");
+        button.setAttribute("aria-selected", "true");
+
+        const gallery = document.querySelector("[data-product-gallery]");
+        if (gallery) {
+          gallery.dispatchEvent(
+            new CustomEvent("gallery:update", {
+              detail: { images, name },
+            }),
+          );
+        }
+      });
     });
-  });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", setupVariantSwitcher, { once: true });
+  } else {
+    setupVariantSwitcher();
+  }
+
+  document.addEventListener("astro:page-load", setupVariantSwitcher);
 </script>
 
 <style>

@@ -9,10 +9,10 @@ interface Props {
 const { title, subtitle = "", kicker = "", align = "left" } = Astro.props;
 ---
 
-<div class:list={["section-title", `section-title--${align}`]}>
-  {kicker && <p class="section-title__kicker">{kicker}</p>}
-  <h2>{title}</h2>
-  {subtitle && <p class="section-title__subtitle">{subtitle}</p>}
+<div class:list={["section-title", `section-title--${align}`]} data-parallax-group>
+  {kicker && <p class="section-title__kicker" data-parallax-speed="0.08">{kicker}</p>}
+  <h2 data-parallax-speed="0.14">{title}</h2>
+  {subtitle && <p class="section-title__subtitle" data-parallax-speed="0.1">{subtitle}</p>}
 </div>
 
 <style>

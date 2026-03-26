@@ -17,15 +17,15 @@ const families = getAllFamilies();
     <div class="container">
       <SectionTitle
         kicker="Full Catalogue"
-        title="Search families, compare sections, and move into model-level specification pages."
-        subtitle="Every card below represents a product family. Open it to read the full overview and inspect available models, capacities, sizes, and other attributes."
+        title="Browse by category, shortlist the right family, and open the matching models."
+        subtitle="Every card below leads to a product family page with photos, key specifications, and the available model lineup for faster buying decisions."
         align="left"
       />
 
       <CatalogueDownloadPanel
         compact={true}
-        title="Need a catalogue file for circulation or review?"
-        subtitle="Use the public preview for quick presentation and the official 72-page catalogue PDF for the approved downloadable version."
+        title="Need the official company catalogue?"
+        subtitle="Open the online catalogue for quick browsing or download the approved company PDF for internal circulation and buying discussions."
       />
 
       <div class="catalogue-toolbar panel">
@@ -59,8 +59,8 @@ const families = getAllFamilies();
       </div>
 
       <div class="catalogue-empty panel" id="catalogue-empty" hidden>
-        <h2>No matching families</h2>
-        <p>Try a broader search term or remove the category filter.</p>
+        <h2>No products found for this search.</h2>
+        <p>Try a broader search term or switch back to all categories.</p>
       </div>
     </div>
   </section>

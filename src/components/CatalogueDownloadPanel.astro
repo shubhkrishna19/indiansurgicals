@@ -9,7 +9,7 @@ interface Props {
 
 const {
   title = "Open the online catalogue or download the official company catalogue.",
-  subtitle = "View the product range online or download the approved 72-page company catalogue PDF for product reference and enquiries.",
+  subtitle = "Review the product range online or download the approved 72-page company catalogue PDF for buying discussions, distributor sharing, and institutional reference.",
   compact = false,
 } = Astro.props;
 
@@ -33,7 +33,7 @@ const generatedLabel = Number.isNaN(generatedDate.getTime())
   </div>
 
   <div class="catalogue-download__actions">
-    <a href={catalogueExports.previewPath} class="button button--primary">Open preview</a>
+    <a href={catalogueExports.previewPath} class="button button--primary">Open online catalogue</a>
     <a
       href={catalogueExports.workbookPath}
       class="button button--secondary"
@@ -50,11 +50,11 @@ const generatedLabel = Number.isNaN(generatedDate.getTime())
     </article>
     <article>
       <strong>{stats.familyCount}</strong>
-      <span>families</span>
+      <span>product families</span>
     </article>
     <article>
       <strong>{stats.variantCount}</strong>
-      <span>model variants</span>
+      <span>listed models</span>
     </article>
     <article>
       <strong>{generatedLabel}</strong>

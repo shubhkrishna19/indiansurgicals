@@ -37,10 +37,10 @@ const primaryContactHref = getPrimaryContactHref();
 >
   <section class="hero section">
     <div class="container hero__grid">
-      <div class="hero__content panel">
-        <span class="eyebrow">Indian Surgical Industries</span>
-        <h1>Greetings from Indian Surgical Industries!</h1>
-        <div class="hero__copy hero__copy--stacked">
+      <div class="hero__content panel" data-parallax-group>
+        <span class="eyebrow" data-parallax-speed="0.08">Indian Surgical Industries</span>
+        <h1 data-parallax-speed="0.16">Greetings from Indian Surgical Industries!</h1>
+        <div class="hero__copy hero__copy--stacked" data-parallax-speed="0.12">
           <p>
             We are a leading Manufacturing Company of Medical and Surgical Equipments. We
             are an ISO Certified Organization.
@@ -53,12 +53,12 @@ const primaryContactHref = getPrimaryContactHref();
           </p>
         </div>
 
-        <div class="hero__actions">
+        <div class="hero__actions" data-parallax-speed="0.1">
           <a href="/products" class="button button--primary">Browse full catalogue</a>
           <a href="/about" class="button button--secondary">Read company profile</a>
         </div>
 
-        <div class="hero__metrics">
+        <div class="hero__metrics" data-parallax-speed="0.08">
           {business.heroMetrics.map((metric) =>
             metric.label === "Commercial model" ? (
               <a href="/get-quote" class="hero__metric hero__metric--cta panel">
@@ -80,8 +80,8 @@ const primaryContactHref = getPrimaryContactHref();
     <div class="container">
       <SectionTitle
         kicker="Major Product Categories"
-        title="Start with a Product Category"
-        subtitle="Choose the relevant product group and move directly into the matching range."
+        title="Choose the Product Category You Need"
+        subtitle="Start with the product group that matches your hospital, dealer, distributor, or institutional requirement."
         align="left"
       />
 
@@ -96,9 +96,9 @@ const primaryContactHref = getPrimaryContactHref();
   <section class="section section--explore">
     <div class="container">
       <SectionTitle
-        kicker="Featured Product Families"
+        kicker="Explore Our Products"
         title="Representative Products Across the Range"
-        subtitle="A quick view of key product families across sterilization, hollowares, suction, furniture, ward equipment, transfer systems, and OT support."
+        subtitle="A quick view of frequently enquired products across sterilization, hollowares, suction, furniture, ward equipment, transfer systems, and OT support."
         align="center"
       />
 
@@ -132,7 +132,7 @@ const primaryContactHref = getPrimaryContactHref();
     <div class="container">
       <CatalogueDownloadPanel
         title="Download the official company catalogue."
-        subtitle="Open the online catalogue or download the official 72-page company catalogue PDF for product reference, distributor sharing, and institutional enquiries."
+        subtitle="Open the online catalogue or download the official 72-page company catalogue PDF for internal approvals, distributor sharing, and institutional buying discussions."
       />
     </div>
   </section>
@@ -282,11 +282,15 @@ const primaryContactHref = getPrimaryContactHref();
     });
   };
 
+  const runDragScroll = () => window.requestAnimationFrame(setupDragScroll);
+
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", setupDragScroll, { once: true });
+    document.addEventListener("DOMContentLoaded", runDragScroll, { once: true });
   } else {
-    setupDragScroll();
+    runDragScroll();
   }
+
+  document.addEventListener("astro:page-load", runDragScroll);
 </script>
 
 <style>

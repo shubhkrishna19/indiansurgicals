@@ -1,10 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SectionTitle from "../components/SectionTitle.astro";
-import { business, getPrimaryContactHref, hasPublicContactDetails } from "../data/business";
+import { business, getPrimaryContactHref } from "../data/business";
 import { getAllCategories } from "../data/catalogue";
 
-const contactReady = hasPublicContactDetails();
 const categories = getAllCategories();
 const primaryContactHref = getPrimaryContactHref();
 const otherWebsiteHref = business.contact.website ? `https://${business.contact.website}` : "";
@@ -12,25 +11,22 @@ const otherWebsiteHref = business.contact.website ? `https://${business.contact.
 
 <BaseLayout
   title="Contact And Enquiries"
-  description="Review the enquiry status for Indian Surgical Industries and browse the catalogue structure before direct quotation discussion."
+  description="Contact Indian Surgical Industries for quotations, product guidance, works enquiries, and direct buying communication."
 >
   <section class="section contact-hero">
     <div class="container contact-hero__grid">
-      <div class="contact-hero__content">
-        <span class="eyebrow">Enquiry Status</span>
-        <h1>Indian Surgical Industries runs this site as a quote-only product catalogue.</h1>
+      <div class="contact-hero__content" data-parallax-group>
+        <span class="eyebrow" data-parallax-speed="0.08">Contact And Enquiries</span>
+        <h1 data-parallax-speed="0.16">Speak with the team for quotations, product selection, and works enquiries.</h1>
         <p class="contact-hero__copy">{business.quoteOnlyNote}</p>
         <p class="contact-hero__copy">
-          {contactReady
-            ? "Public contact channels are active below."
-            : "Public phone, WhatsApp, and email publication is being finalized. The catalogue and company profile are live so buyers can already review the range properly."}
+          Use the published mobile numbers, telephone line, WhatsApp, and email contacts below for direct
+          communication with Indian Surgical Industries.
         </p>
 
         <div class="contact-hero__actions">
-          <a href="/products" class="button button--primary">Browse the catalogue</a>
-          <a href={primaryContactHref} class="button button--secondary">
-            {contactReady ? "Contact now" : "View contact status"}
-          </a>
+          <a href={primaryContactHref} class="button button--primary">Contact now</a>
+          <a href="/products" class="button button--secondary">Browse the catalogue</a>
         </div>
       </div>
 
@@ -50,8 +46,8 @@ const otherWebsiteHref = business.contact.website ? `https://${business.contact.
             <strong>{business.experienceClaim}</strong>
           </div>
           <div>
-            <span>Commercial mode</span>
-            <strong>Quote only</strong>
+            <span>Quotation support</span>
+            <strong>Direct factory response</strong>
           </div>
         </div>
       </aside>
@@ -61,79 +57,57 @@ const otherWebsiteHref = business.contact.website ? `https://${business.contact.
   <section class="section section--band">
     <div class="container">
       <SectionTitle
-        kicker="Contact Layer"
-        title={contactReady ? "Public contact channels are available." : "Public contact channels are being finalized."}
-        subtitle="The website is already usable as a full display catalogue with family pages, model selectors, and specification views."
+        kicker="Direct Contact Channels"
+        title="Choose the easiest route to reach the business."
+        subtitle="Use WhatsApp for faster discussion, call for urgent requirements, or email the shortlisted product family and model details."
         align="left"
       />
 
-      {contactReady ? (
-        <div class="contact-grid">
-          {business.contact.phones.length > 0 && (
-            <article class="panel contact-card">
-              <span>Mobile</span>
-              {business.contact.phones.map((phone) => (
-                <a href={`tel:${phone}`}>{phone}</a>
-              ))}
-            </article>
-          )}
-
-          {business.contact.telephones.length > 0 && (
-            <article class="panel contact-card">
-              <span>Telephone</span>
-              {business.contact.telephones.map((phone) => (
-                <a href={`tel:${phone}`}>{phone}</a>
-              ))}
-            </article>
-          )}
-
-          {business.contact.whatsappNumber && (
-            <article class="panel contact-card">
-              <span>WhatsApp</span>
-              <a href={`https://wa.me/${business.contact.whatsappNumber}`}>+{business.contact.whatsappNumber}</a>
-            </article>
-          )}
-
-          {business.contact.emails.length > 0 && (
-            <article class="panel contact-card">
-              <span>Email</span>
-              {business.contact.emails.map((email) => (
-                <a href={`mailto:${email}`}>{email}</a>
-              ))}
-            </article>
-          )}
-
+      <div class="contact-grid">
+        {business.contact.phones.length > 0 && (
           <article class="panel contact-card">
-            <span>Works Address</span>
-            <p>{business.contact.addressLines.join(", ")}</p>
+            <span>Mobile</span>
+            {business.contact.phones.map((phone) => (
+              <a href={`tel:${phone}`}>{phone}</a>
+            ))}
           </article>
+        )}
 
+        {business.contact.telephones.length > 0 && (
           <article class="panel contact-card">
-            <span>Website</span>
-            <a href={otherWebsiteHref} target="_blank" rel="noreferrer">Visit Our Other Website</a>
+            <span>Telephone</span>
+            {business.contact.telephones.map((phone) => (
+              <a href={`tel:${phone}`}>{phone}</a>
+            ))}
           </article>
-        </div>
-      ) : (
-        <div class="status-grid">
-          <article class="panel status-card">
-            <span>Contact publication</span>
-            <h2>Pending final public details</h2>
-            <p>{business.contactNote}</p>
-          </article>
+        )}
 
-          <article class="panel status-card">
-            <span>What buyers can do now</span>
-            <h2>Shortlist the right family and model first</h2>
-            <p>Use the category, family, and model pages to understand product fit before direct communication is switched on publicly.</p>
+        {business.contact.whatsappNumber && (
+          <article class="panel contact-card">
+            <span>WhatsApp</span>
+            <a href={`https://wa.me/${business.contact.whatsappNumber}`}>+{business.contact.whatsappNumber}</a>
           </article>
+        )}
 
-          <article class="panel status-card">
-            <span>Manufacturing base</span>
-            <h2>{business.manufacturingBase}</h2>
-            <p>{business.marketPresence}</p>
+        {business.contact.emails.length > 0 && (
+          <article class="panel contact-card">
+            <span>Email</span>
+            {business.contact.emails.map((email) => (
+              <a href={`mailto:${email}`}>{email}</a>
+            ))}
           </article>
-        </div>
-      )}
+        )}
+
+        <article class="panel contact-card">
+          <span>Works Address</span>
+          <p>{business.contact.addressLines.join(", ")}</p>
+        </article>
+
+        <article class="panel contact-card">
+          <span>Website</span>
+          <a href={otherWebsiteHref} target="_blank" rel="noreferrer">Visit Our Other Website</a>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -141,24 +115,24 @@ const otherWebsiteHref = business.contact.website ? `https://${business.contact.
     <div class="container process-grid">
       <div>
         <SectionTitle
-          kicker="How To Use The Site"
-          title="The site is structured for procurement-style navigation."
-          subtitle="Move from section to family to model instead of browsing generic cards with incomplete detail."
+          kicker="Best Way To Enquire"
+          title="A clearer shortlist leads to a faster quotation."
+          subtitle="Start with the relevant category, open the right family page, and share the shortlisted model name or image reference when you contact the team."
           align="left"
         />
 
         <ol class="process-list">
           <li>
-            <strong>Open a business section.</strong>
-            Review the relevant category first, such as autoclaves, hospital furniture, suction units, or OT lights.
+            <strong>Open the relevant product category.</strong>
+            Begin with the section that matches your requirement, such as autoclaves, hollowares, suction units, furniture, or OT equipment.
           </li>
           <li>
-            <strong>Shortlist the product family.</strong>
-            Each family page consolidates images, family summary, and the available model lineup.
+            <strong>Shortlist the matching family.</strong>
+            Each family page brings together images, product overview, and the available model lineup in one place.
           </li>
           <li>
-            <strong>Compare models.</strong>
-            Use the variant matrix and model switcher to inspect capacities, sizes, and other specification differences.
+            <strong>Share the model and quantity.</strong>
+            When you contact the team, mention the product family, required model, quantity, and dispatch location for faster quotation support.
           </li>
         </ol>
       </div>

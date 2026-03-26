@@ -15,19 +15,19 @@ const catalogueExports = getCatalogueExports();
 >
   <section class="section preview-hero">
     <div class="container preview-hero__grid">
-      <div class="preview-hero__copy">
-        <span class="eyebrow">Catalogue Preview</span>
-        <h1>A concise export surface for circulation, shortlist review, and category-level product understanding.</h1>
+      <div class="preview-hero__copy" data-parallax-group>
+        <span class="eyebrow" data-parallax-speed="0.08">Online Catalogue</span>
+        <h1 data-parallax-speed="0.16">Review the product range online and download the official company catalogue.</h1>
         <p>
-          This preview is designed for public viewing while the official catalogue PDF gives a clean downloadable file for
-          distributors, hospitals, institutions, and marketing sharing. It follows the same normalized
-          business structure as the live website.
+          This page gives hospitals, distributors, institutions, and export buyers a clean online view of
+          the company range, while the official PDF provides the approved downloadable catalogue for sharing
+          and internal reference.
         </p>
       </div>
 
       <aside class="preview-hero__aside panel">
-        <p class="preview-hero__aside-kicker">Commercial mode</p>
-        <h2>Public specifications, direct quotations.</h2>
+        <p class="preview-hero__aside-kicker">Official Company Catalogue</p>
+        <h2>Product details online, quotations direct from the team.</h2>
         <p>{business.quoteOnlyNote}</p>
         <a href={catalogueExports.workbookPath} download={catalogueExports.workbookName} class="button button--primary">
           Download official catalogue
@@ -46,8 +46,8 @@ const catalogueExports = getCatalogueExports();
     <div class="container">
       <SectionTitle
         kicker="Category Matrix"
-        title="The export is arranged by the real business sections."
-        subtitle="This keeps the public preview, website navigation, and official downloadable catalogue aligned for circulation and future collateral design."
+        title="The catalogue is arranged by the company’s major product categories."
+        subtitle="Use this view to understand the range quickly and move into the most relevant section for your buying requirement."
         align="left"
       />
 
@@ -81,9 +81,9 @@ const catalogueExports = getCatalogueExports();
   <section class="section">
     <div class="container">
       <SectionTitle
-        kicker="Preview Cut"
-        title="Representative families from each category."
-        subtitle="This page stays concise by showing only a focused cut, while the official catalogue and full website carry the broader family and model matrix."
+        kicker="Range Snapshot"
+        title="Representative products from each category."
+        subtitle="This page stays concise for quick review, while the full website and official PDF carry the broader product range."
         align="left"
       />
 

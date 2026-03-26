@@ -23,10 +23,10 @@ const subheadings = [...new Set(families.map((family) => family.subheading).filt
       <Breadcrumbs breadcrumbs={[{ label: "Catalogue", href: "/products" }, { label: category.name }]} />
 
       <div class="category-hero__panel panel">
-        <div class="category-hero__copy">
-          <span class="eyebrow">Category Section</span>
+        <div class="category-hero__copy" data-parallax-group>
+          <span class="eyebrow" data-parallax-speed="0.08">Product Category</span>
           <h1>{category.name}</h1>
-          <p>{category.intro}</p>
+          <p data-parallax-speed="0.1">{category.intro}</p>
         </div>
 
         <dl class="category-hero__stats">
@@ -46,9 +46,9 @@ const subheadings = [...new Set(families.map((family) => family.subheading).filt
   <section class="section">
     <div class="container">
       <SectionTitle
-        kicker="Category Families"
-        title={`Browse ${category.name.toLowerCase()} by family.`}
-        subtitle="Each family page brings the model lineup, structured specifications, and approved imagery into one place."
+        kicker="Available Product Families"
+        title={`${category.name} product range`}
+        subtitle="Open the relevant family to review product photos, available models, and enquiry-ready specifications."
       />
 
       {subheadings.length > 0 && (

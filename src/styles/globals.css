@@ -10,6 +10,10 @@ html {
   scroll-behavior: smooth;
 }
 
+html.motion-ready {
+  scroll-behavior: auto;
+}
+
 body {
   position: relative;
   margin: 0;
@@ -105,6 +109,48 @@ p {
   z-index: 1;
 }
 
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 420ms;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+::view-transition-old(root) {
+  animation-name: route-fade-out;
+}
+
+::view-transition-new(root) {
+  animation-name: route-fade-in;
+}
+
+@keyframes route-fade-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(5px);
+  }
+}
+
+@keyframes route-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+    filter: blur(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
 .eyebrow {
   display: inline-flex;
   align-items: center;
@@ -166,5 +212,17 @@ p {
 @media (max-width: 720px) {
   .section {
     padding: 3.6rem 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html,
+  html.motion-ready {
+    scroll-behavior: auto;
+  }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
   }
 }

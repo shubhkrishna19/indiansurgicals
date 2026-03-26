@@ -20,11 +20,11 @@ const imageCount = family.images.length;
     <span class="family-card__badge">
       {family.variants.length} model{family.variants.length === 1 ? "" : "s"}
     </span>
-    {imageCount > 1 && <span class="family-card__views">{imageCount} views</span>}
+    {imageCount > 1 && <span class="family-card__views">{imageCount} photos</span>}
   </a>
 
   <div class="family-card__body">
-    <p class="family-card__eyebrow">{family.subheading || "Product Family"}</p>
+    <p class="family-card__eyebrow">{family.subheading || "Indian Surgical Industries"}</p>
     <a href={`/products/${family.categorySlug}/${family.slug}`} class="family-card__title-link">
       <h3>{family.name}</h3>
     </a>
@@ -37,8 +37,8 @@ const imageCount = family.images.length;
     </div>
 
     <div class="family-card__footer">
-      <span>Read specifications</span>
-      <span>Quote only</span>
+      <span>View details</span>
+      <span>Request quotation</span>
     </div>
   </div>
 </article>

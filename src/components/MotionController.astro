@@ -1,235 +1,150 @@
 ---
 ---
 
-<!-- MotionController - GSAP ScrollTrigger + Lenis Smooth Scroll -->
 <script>
-  import { gsap } from 'gsap';
-  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  let cleanupAnimations = () => {};
 
-  // Register GSAP plugins
-  gsap.registerPlugin(ScrollTrigger);
+  const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
+  const REVEAL_SELECTORS = [
+    ".section-title",
+    ".panel",
+    ".category-card",
+    ".showcase-card",
+    ".family-card",
+    ".category-tile",
+    ".review-card",
+    ".leadership-card",
+    ".quote-chip",
+    ".quote-card",
+    ".quote-step",
+    ".preview-category",
+    ".catalogue-grid__item",
+    ".subcategory-row span",
+    ".site-footer__grid > section",
+    ".site-footer__shipping",
+  ];
 
-  let lenis: any = null;
-  let isReducedMotion = false;
+  const HERO_GROUPS = [
+    ".hero__content > *",
+    ".about-hero__content > *",
+    ".about-hero__panel > *",
+    ".contact-hero__content > *",
+    ".contact-hero__panel > *",
+    ".quote-hero__content > *",
+    ".quote-hero__panel > *",
+    ".preview-hero__copy > *",
+    ".preview-hero__aside > *",
+    ".category-hero__copy > *",
+    ".category-hero__stats > *",
+    ".product-hero__content > *",
+    ".product-hero__aside > *",
+  ];
 
-  // Initialize Lenis smooth scroll
-  function initLenis() {
-    // Check for reduced motion preference
-    isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (isReducedMotion) {
-      console.log('Reduced motion detected, skipping Lenis initialization');
-      return;
-    }
-
-    // Dynamic import for Lenis (client-side only)
-    import('lenis').then((LenisModule) => {
-      const Lenis = LenisModule.default || LenisModule;
-
-      lenis = new Lenis({
-        duration: 1.2,
-        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        orientation: 'vertical',
-        gestureOrientation: 'vertical',
-        smoothWheel: true,
-        wheelMultiplier: 1,
-        touchMultiplier: 2,
-        infinite: false,
-      });
-
-      // Integrate Lenis with GSAP ScrollTrigger
-      lenis.on('scroll', ScrollTrigger.update);
-
-      gsap.ticker.add((time) => {
-        lenis.raf(time * 1000);
-      });
-
-      gsap.ticker.lagSmoothing(0);
-    }).catch((err) => {
-      console.warn('Lenis not available:', err);
-    });
+  function prefersReducedMotion() {
+    return window.matchMedia(REDUCED_MOTION_QUERY).matches;
   }
 
-  // Initialize GSAP ScrollTrigger animations
-  function initAnimations() {
-    if (isReducedMotion) {
-      // If reduced motion, just show elements without animation
-      document.querySelectorAll('.reveal, .reveal-stagger, .counter').forEach((el) => {
-        (el as HTMLElement).style.opacity = '1';
-        (el as HTMLElement).style.transform = 'none';
-      });
+  async function initMotion() {
+    cleanupAnimations();
+
+    if (prefersReducedMotion()) {
+      document.documentElement.classList.remove("motion-ready");
+      document.documentElement.classList.add("motion-reduced");
       return;
     }
 
-    // Reveal animations (single elements)
-    const revealElements = document.querySelectorAll('.reveal');
-    revealElements.forEach((el) => {
-      gsap.fromTo(
-        el,
-        {
-          opacity: 0,
-          y: 30,
-          ease: 'power3.out',
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          scrollTrigger: {
-            trigger: el,
-            start: 'top 85%',
-            end: 'bottom 20%',
-            toggleActions: 'play none none reverse',
-          },
-        }
-      );
-    });
+    document.documentElement.classList.add("motion-ready");
+    document.documentElement.classList.remove("motion-reduced");
 
-    // Reveal stagger animations (child elements with stagger)
-    const revealStaggerElements = document.querySelectorAll('.reveal-stagger');
-    revealStaggerElements.forEach((container) => {
-      const children = container.querySelectorAll(':scope > *');
-      if (children.length > 0) {
+    const [{ gsap }, { ScrollTrigger }] = await Promise.all([
+      import("gsap"),
+      import("gsap/ScrollTrigger"),
+    ]);
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const context = gsap.context(() => {
+      gsap.set("main", { opacity: 1 });
+
+      HERO_GROUPS.forEach((selector) => {
+        const nodes = gsap.utils.toArray<HTMLElement>(selector);
+        if (!nodes.length) return;
+
         gsap.fromTo(
-          children,
+          nodes,
+          { autoAlpha: 0, y: 28 },
           {
-            opacity: 0,
-            y: 20,
-          },
-          {
-            opacity: 1,
+            autoAlpha: 1,
             y: 0,
-            duration: 0.6,
-            stagger: 0.1,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: container,
-              start: 'top 80%',
-              end: 'bottom 20%',
-              toggleActions: 'play none none reverse',
-            },
-          }
+            duration: 0.9,
+            ease: "power3.out",
+            stagger: 0.09,
+            clearProps: "opacity,visibility,transform",
+          },
         );
-      }
-    });
+      });
 
-    // Counter animations
-    const counterElements = document.querySelectorAll('.counter');
-    counterElements.forEach((el) => {
-      const targetValue = el.getAttribute('data-value');
-      const suffix = el.getAttribute('data-suffix') || '';
-
-      if (targetValue) {
-        const numericValue = parseFloat(targetValue.replace(/[^0-9.]/g, ''));
-
-        gsap.fromTo(
-          el,
-          { innerText: 0 },
-          {
-            innerText: numericValue,
-            duration: 2,
-            ease: 'power2.out',
-            snap: { innerText: 0.1 },
-            scrollTrigger: {
-              trigger: el,
-              start: 'top 85%',
-              toggleActions: 'play none none reverse',
+      REVEAL_SELECTORS.forEach((selector) => {
+        gsap.utils.toArray<HTMLElement>(selector).forEach((node) => {
+          gsap.fromTo(
+            node,
+            { autoAlpha: 0, y: 40 },
+            {
+              autoAlpha: 1,
+              y: 0,
+              duration: 0.9,
+              ease: "power3.out",
+              clearProps: "opacity,visibility,transform",
+              scrollTrigger: {
+                trigger: node,
+                start: "top 86%",
+                once: true,
+              },
             },
-            onUpdate: function () {
-              const progress = this.progress();
-              const currentValue = numericValue * progress;
-              if (targetValue.includes('+')) {
-                el.textContent = Math.round(currentValue) + '+' + suffix;
-              } else if (targetValue.includes('%')) {
-                el.textContent = Math.round(currentValue) + '%' + suffix;
-              } else if (targetValue.includes('<')) {
-                el.textContent = '< ' + Math.round(currentValue) + suffix;
-              } else {
-                el.textContent = Math.round(currentValue) + suffix;
-              }
-            },
-          }
-        );
-      }
-    });
-  }
-
-  // Initialize tilt effect for cards
-  function initTiltEffect() {
-    const tiltCards = document.querySelectorAll('.tilt-card');
-
-    tiltCards.forEach((card) => {
-      const element = card as HTMLElement;
-
-      element.addEventListener('mousemove', (e: Event) => {
-        if (isReducedMotion) return;
-
-        const mouseEvent = e as MouseEvent;
-        const rect = element.getBoundingClientRect();
-        const x = mouseEvent.clientX - rect.left;
-        const y = mouseEvent.clientY - rect.top;
-
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-
-        const rotateX = (y - centerY) / 10;
-        const rotateY = (centerX - x) / 10;
-
-        gsap.to(element, {
-          rotationX: rotateX,
-          rotationY: rotateY,
-          duration: 0.3,
-          ease: 'power2.out',
+          );
         });
       });
 
-      element.addEventListener('mouseleave', () => {
-        if (isReducedMotion) return;
+      gsap.utils.toArray<HTMLElement>("[data-parallax-group]").forEach((group) => {
+        const items = Array.from(group.querySelectorAll<HTMLElement>("[data-parallax-speed]"));
+        items.forEach((item) => {
+          const speed = Number(item.getAttribute("data-parallax-speed") ?? "0.1");
+          gsap.to(item, {
+            yPercent: speed * -100,
+            ease: "none",
+            scrollTrigger: {
+              trigger: group,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 0.55,
+            },
+          });
+        });
+      });
+    }, document.body);
 
-        gsap.to(element, {
-          rotationX: 0,
-          rotationY: 0,
-          duration: 0.5,
-          ease: 'elastic.out(1, 0.5)',
+    cleanupAnimations = () => {
+      context.revert();
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }
+
+  const scheduleInit = () => {
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        initMotion().catch((error) => {
+          console.warn("Motion initialization skipped:", error);
         });
       });
     });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", scheduleInit, { once: true });
+  } else {
+    scheduleInit();
   }
 
-  // Cleanup function
-  function cleanup() {
-    // Kill all ScrollTriggers
-    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-
-    // Stop Lenis
-    if (lenis) {
-      lenis.destroy();
-      lenis = null;
-    }
-
-    // Remove GSAP ticker
-    gsap.ticker.remove((time: number) => {
-      if (lenis) lenis.raf(time * 1000);
-    });
-  }
-
-  // Run on initial page load
-  function init() {
-    cleanup();
-    initLenis();
-    initAnimations();
-    initTiltEffect();
-  }
-
-  // Initialize on page load
-  init();
-
-  // Re-initialize on Astro view transitions
-  document.addEventListener('astro:page-load', () => {
-    // Small delay to ensure DOM is ready
-    setTimeout(init, 10);
-  });
-
-  // Cleanup before Astro navigation
-  document.addEventListener('astro:before-preparation', cleanup);
+  document.addEventListener("astro:page-load", scheduleInit);
+  document.addEventListener("astro:before-preparation", () => cleanupAnimations());
 </script>
