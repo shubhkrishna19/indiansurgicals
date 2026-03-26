@@ -1,12 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import CatalogueDownloadPanel from "../components/CatalogueDownloadPanel.astro";
 import SectionTitle from "../components/SectionTitle.astro";
-import { business } from "../data/business";
-import { getAllCategories, getCatalogueExports, getFamiliesByCategory } from "../data/catalogue";
+import { getAllCategories, getFamiliesByCategory } from "../data/catalogue";
 
 const categories = getAllCategories();
-const catalogueExports = getCatalogueExports();
 ---
 
 <BaseLayout
@@ -22,21 +19,6 @@ const catalogueExports = getCatalogueExports();
           Review the company range online for a quick shortlist, or download the official PDF for offline reference.
         </p>
       </div>
-
-      <aside class="preview-hero__aside panel">
-        <p class="preview-hero__aside-kicker">Official Company Catalogue</p>
-        <h2>View online. Download PDF. Contact for quotations.</h2>
-        <p>{business.quoteOnlyNote}</p>
-        <a href={catalogueExports.workbookPath} download={catalogueExports.workbookName} class="button button--primary">
-          Download official catalogue
-        </a>
-      </aside>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <CatalogueDownloadPanel compact={false} />
     </div>
   </section>
 
@@ -121,7 +103,7 @@ const catalogueExports = getCatalogueExports();
 
   .preview-hero__grid {
     display: grid;
-    grid-template-columns: 1.28fr 0.82fr;
+    grid-template-columns: 1fr;
     gap: 1.6rem;
     align-items: start;
   }
@@ -143,21 +125,6 @@ const catalogueExports = getCatalogueExports();
     color: var(--color-text-muted);
     line-height: 1.8;
     max-width: 56rem;
-  }
-
-  .preview-hero__aside {
-    display: grid;
-    gap: 0.9rem;
-    padding: 1.25rem;
-  }
-
-  .preview-hero__aside-kicker {
-    margin: 0;
-    color: var(--color-primary);
-    font-size: 0.76rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
   }
 
   .preview-table {
