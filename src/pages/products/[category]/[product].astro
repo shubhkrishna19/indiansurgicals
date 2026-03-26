@@ -69,13 +69,6 @@ function getAttributeValue(
             </div>
           </div>
 
-          {detailNotes.length > 0 && (
-            <ul class="product-hero__notes">
-              {detailNotes.map((item) => (
-                <li>{item}</li>
-              ))}
-            </ul>
-          )}
         </div>
 
         <aside class="product-hero__aside panel">
@@ -88,6 +81,28 @@ function getAttributeValue(
       </div>
     </div>
   </section>
+
+  {detailNotes.length > 0 && (
+    <section class="section section--product-highlights">
+      <div class="container">
+        <div class="product-highlights panel">
+          <div class="product-highlights__intro">
+            <span class="eyebrow">Key Product Information</span>
+            <h2>Important listed details for this product family.</h2>
+          </div>
+
+          <div class="product-highlights__grid">
+            {detailNotes.map((item) => (
+              <article class="product-highlight-item">
+                <span class="product-highlight-item__marker" aria-hidden="true"></span>
+                <p>{item}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
 
   <section class="section">
     <div class="container">
@@ -326,19 +341,12 @@ function getAttributeValue(
     line-height: 1.7;
   }
 
-  .product-hero__notes {
-    display: grid;
-    gap: 0.65rem;
-    margin: 0;
-    padding-left: 1.15rem;
-    color: var(--color-text-muted);
-    line-height: 1.65;
-  }
-
   .product-hero__aside {
     display: grid;
     gap: 0.8rem;
     align-content: start;
+    align-self: start;
+    justify-items: start;
   }
 
   .product-hero__aside-kicker,
@@ -364,6 +372,60 @@ function getAttributeValue(
   .gallery-empty p {
     color: var(--color-text-muted);
     line-height: 1.7;
+  }
+
+  .section--product-highlights {
+    padding-top: 0.25rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .product-highlights {
+    display: grid;
+    gap: 1.25rem;
+    padding: 1.35rem;
+  }
+
+  .product-highlights__intro {
+    display: grid;
+    gap: 0.55rem;
+    max-width: 38rem;
+  }
+
+  .product-highlights__intro h2 {
+    font-size: clamp(1.6rem, 3.6vw, 2.25rem);
+  }
+
+  .product-highlights__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.9rem;
+  }
+
+  .product-highlight-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.8rem;
+    align-items: start;
+    padding: 1rem;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(84, 96, 109, 0.12);
+  }
+
+  .product-highlight-item__marker {
+    width: 0.7rem;
+    height: 0.7rem;
+    margin-top: 0.45rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, rgba(201, 111, 40, 0.95), rgba(25, 77, 128, 0.9));
+    box-shadow: 0 0 0 0.28rem rgba(25, 77, 128, 0.08);
+  }
+
+  .product-highlight-item p {
+    margin: 0;
+    color: var(--color-text);
+    font-size: 1rem;
+    line-height: 1.72;
   }
 
   .section--band {
@@ -532,6 +594,7 @@ function getAttributeValue(
   @media (max-width: 760px) {
     .product-hero__grid,
     .product-hero__meta,
+    .product-highlights__grid,
     .variant-panel__grid,
     .related-grid,
     .gallery-grid {

@@ -8,10 +8,11 @@ interface Props {
 const { family } = Astro.props;
 const image = family.images[0] ?? "";
 const imageCount = family.images.length;
+const href = `/products/${family.categorySlug}/${family.slug}`;
 ---
 
-<article class="family-card">
-  <a href={`/products/${family.categorySlug}/${family.slug}`} class="family-card__media">
+<a href={href} class="family-card">
+  <div class="family-card__media">
     {image ? (
       <img src={image} alt={family.name} loading="lazy" />
     ) : (
@@ -21,13 +22,11 @@ const imageCount = family.images.length;
       {family.variants.length} model{family.variants.length === 1 ? "" : "s"}
     </span>
     {imageCount > 1 && <span class="family-card__views">{imageCount} photos</span>}
-  </a>
+  </div>
 
   <div class="family-card__body">
     <p class="family-card__eyebrow">{family.subheading || "Indian Surgical Industries"}</p>
-    <a href={`/products/${family.categorySlug}/${family.slug}`} class="family-card__title-link">
-      <h3>{family.name}</h3>
-    </a>
+    <h3>{family.name}</h3>
     <p class="family-card__summary">{family.summary}</p>
 
     <div class="family-card__chips">
@@ -41,7 +40,7 @@ const imageCount = family.images.length;
       <span>Get quote</span>
     </div>
   </div>
-</article>
+</a>
 
 <style>
   .family-card {
@@ -57,9 +56,12 @@ const imageCount = family.images.length;
       transform 180ms ease,
       box-shadow 180ms ease,
       border-color 180ms ease;
+    color: inherit;
+    text-decoration: none;
   }
 
-  .family-card:hover {
+  .family-card:hover,
+  .family-card:focus-visible {
     transform: translateY(-4px);
     border-color: rgba(25, 77, 128, 0.24);
     box-shadow: var(--shadow-card-hover);
@@ -145,10 +147,6 @@ const imageCount = family.images.length;
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-  }
-
-  .family-card__title-link {
-    color: inherit;
   }
 
   .family-card h3 {
