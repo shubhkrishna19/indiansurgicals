@@ -11,6 +11,7 @@ import {
 } from "../data/catalogue";
 
 const categories = getAllCategories();
+const categoryCarousel = [...categories, ...categories, ...categories];
 const categoryNames = new Map(categories.map((category) => [category.slug, category.name]));
 const showcaseFamilies = categories
   .reduce<ProductFamily[]>((collection, category) => {
@@ -85,10 +86,15 @@ const primaryContactHref = getPrimaryContactHref();
         align="left"
       />
 
-      <div class="category-strip js-drag-scroll">
-        {categories.map((category) => (
-          <CategoryCard category={category} />
-        ))}
+      <div class="category-strip js-category-carousel">
+        <div class="category-strip__track">
+          {categoryCarousel.map((category, index) => (
+            <CategoryCard
+              category={category}
+              inert={index < categories.length || index >= categories.length * 2}
+            />
+          ))}
+        </div>
       </div>
     </div>
   </section>
@@ -97,8 +103,8 @@ const primaryContactHref = getPrimaryContactHref();
     <div class="container">
       <SectionTitle
         kicker="Explore Our Products"
-        title="Representative Products Across the Range"
-        subtitle="A quick view of frequently enquired products across sterilization, hollowares, suction, furniture, ward equipment, transfer systems, and OT support."
+        title="Featured Products Across Our Range"
+        subtitle="A quick view of high-demand equipment families across our manufacturing catalogue."
         align="center"
       />
 
@@ -210,19 +216,42 @@ const primaryContactHref = getPrimaryContactHref();
 </BaseLayout>
 
 <script is:inline>
-  const setupDragScroll = () => {
-    document.querySelectorAll(".js-drag-scroll").forEach((strip) => {
-      if (strip.dataset.dragReady === "true") {
+  const setupCategoryCarousel = () => {
+    if (window.__isiCategoryCarouselCleanup) {
+      window.__isiCategoryCarouselCleanup();
+    }
+
+    const cleanups = [];
+
+    document.querySelectorAll(".js-category-carousel").forEach((strip) => {
+      const track = strip.querySelector(".category-strip__track");
+      if (!track) {
         return;
       }
-
-      strip.dataset.dragReady = "true";
 
       let pointerActive = false;
       let startX = 0;
       let startScrollLeft = 0;
       let pointerId = null;
       let suppressClick = false;
+      let rafId = 0;
+      let lastTime = performance.now();
+      const baseSpeed = 24;
+
+      const segmentWidth = track.scrollWidth / 3;
+      if (!segmentWidth) {
+        return;
+      }
+
+      strip.scrollLeft = segmentWidth;
+
+      const normalizeLoop = () => {
+        if (strip.scrollLeft <= segmentWidth * 0.5) {
+          strip.scrollLeft += segmentWidth;
+        } else if (strip.scrollLeft >= segmentWidth * 1.5) {
+          strip.scrollLeft -= segmentWidth;
+        }
+      };
 
       const endDrag = () => {
         pointerActive = false;
@@ -237,7 +266,19 @@ const primaryContactHref = getPrimaryContactHref();
         pointerId = null;
       };
 
-      strip.addEventListener("pointerdown", (event) => {
+      const tick = (time) => {
+        const deltaSeconds = Math.min((time - lastTime) / 1000, 0.04);
+        lastTime = time;
+
+        if (!pointerActive) {
+          strip.scrollLeft += baseSpeed * deltaSeconds;
+          normalizeLoop();
+        }
+
+        rafId = window.requestAnimationFrame(tick);
+      };
+
+      const onPointerDown = (event) => {
         if (event.pointerType === "mouse" && event.button !== 0) {
           return;
         }
@@ -249,27 +290,33 @@ const primaryContactHref = getPrimaryContactHref();
         suppressClick = false;
         strip.classList.add("is-dragging");
         strip.setPointerCapture?.(event.pointerId);
-      });
+      };
 
-      strip.addEventListener("pointermove", (event) => {
+      const onPointerMove = (event) => {
         if (!pointerActive) {
           return;
         }
 
         const delta = event.clientX - startX;
-
         if (Math.abs(delta) > 6) {
           suppressClick = true;
         }
 
         strip.scrollLeft = startScrollLeft - delta;
-      });
+        normalizeLoop();
+      };
 
-      strip.addEventListener("pointerup", endDrag);
-      strip.addEventListener("pointercancel", endDrag);
-      strip.addEventListener("lostpointercapture", endDrag);
+      const onWheel = (event) => {
+        const delta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
+        if (!delta) {
+          return;
+        }
 
-      strip.addEventListener("click", (event) => {
+        strip.scrollLeft += delta;
+        normalizeLoop();
+      };
+
+      const onClick = (event) => {
         if (!suppressClick) {
           return;
         }
@@ -277,19 +324,47 @@ const primaryContactHref = getPrimaryContactHref();
         event.preventDefault();
         event.stopPropagation();
         suppressClick = false;
+      };
+
+      strip.addEventListener("pointerdown", onPointerDown);
+      strip.addEventListener("pointermove", onPointerMove);
+      strip.addEventListener("pointerup", endDrag);
+      strip.addEventListener("pointercancel", endDrag);
+      strip.addEventListener("lostpointercapture", endDrag);
+      strip.addEventListener("wheel", onWheel, { passive: true });
+      strip.addEventListener("click", onClick);
+
+      rafId = window.requestAnimationFrame(tick);
+
+      cleanups.push(() => {
+        window.cancelAnimationFrame(rafId);
+        strip.removeEventListener("pointerdown", onPointerDown);
+        strip.removeEventListener("pointermove", onPointerMove);
+        strip.removeEventListener("pointerup", endDrag);
+        strip.removeEventListener("pointercancel", endDrag);
+        strip.removeEventListener("lostpointercapture", endDrag);
+        strip.removeEventListener("wheel", onWheel);
+        strip.removeEventListener("click", onClick);
       });
     });
+
+    window.__isiCategoryCarouselCleanup = () => {
+      cleanups.forEach((cleanup) => cleanup());
+    };
   };
 
-  const runDragScroll = () => window.requestAnimationFrame(setupDragScroll);
+  const runCategoryCarousel = () => window.requestAnimationFrame(setupCategoryCarousel);
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", runDragScroll, { once: true });
+    document.addEventListener("DOMContentLoaded", runCategoryCarousel, { once: true });
   } else {
-    runDragScroll();
+    runCategoryCarousel();
   }
 
-  document.addEventListener("astro:page-load", runDragScroll);
+  document.addEventListener("astro:page-load", runCategoryCarousel);
+  document.addEventListener("astro:before-preparation", () => {
+    window.__isiCategoryCarouselCleanup?.();
+  });
 </script>
 
 <style>
@@ -434,20 +509,24 @@ const primaryContactHref = getPrimaryContactHref();
   }
 
   .category-strip {
-    display: flex;
-    gap: 1rem;
     margin-top: 1.5rem;
     overflow-x: auto;
-    padding-bottom: 0.45rem;
+    padding: 0.15rem 0 0.55rem;
     scrollbar-width: none;
-    scroll-snap-type: x proximity;
     cursor: grab;
     touch-action: pan-x;
     -webkit-overflow-scrolling: touch;
+    mask-image: linear-gradient(90deg, transparent, black 4%, black 96%, transparent);
   }
 
   .category-strip::-webkit-scrollbar {
     display: none;
+  }
+
+  .category-strip__track {
+    display: flex;
+    gap: 0.72rem;
+    width: max-content;
   }
 
   .category-strip.is-dragging {
@@ -459,9 +538,8 @@ const primaryContactHref = getPrimaryContactHref();
   }
 
   .category-strip :global(.category-card) {
-    width: clamp(220px, 16vw, 250px);
+    width: clamp(138px, 9.8vw, 166px);
     flex: 0 0 auto;
-    scroll-snap-align: start;
   }
 
   .section--explore {
@@ -748,6 +826,10 @@ const primaryContactHref = getPrimaryContactHref();
     .leadership-grid,
     .review-grid {
       grid-template-columns: 1fr;
+    }
+
+    .category-strip {
+      mask-image: none;
     }
   }
 </style>
