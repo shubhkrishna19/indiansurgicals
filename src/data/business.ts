@@ -176,7 +176,7 @@ export const business: BusinessProfile = {
     { label: "Years of manufacturing", value: "40+" },
     { label: "Product families", value: "170+" },
     { label: "Core catalogue categories", value: "11" },
-    { label: "Commercial model", value: "Quote only" },
+    { label: "Commercial model", value: "Get a quote now" },
   ],
 };
 
