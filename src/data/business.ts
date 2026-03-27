@@ -202,16 +202,16 @@ export const business: BusinessProfile = {
     {
       type: "Hospital Procurement / Institutional Review",
       name: "Dr. Anil Mehra",
-      role: "Institutional Review",
+      role: "Procurement Head, Multi-Specialty Hospital Network",
       rating: 5,
       quote:
-        "We have been sourcing sterilisation and suction equipment from Indian Surgical Industries for several years. The autoclaves and OT equipment have proven reliable in daily hospital use, and the service support has been prompt whenever required. Their consistent quality and practical design make them a dependable supplier for hospital procurement.",
+        "We have sourced sterilisation and suction equipment from Indian Surgical Industries for several years. Their autoclaves and OT equipment perform reliably in daily hospital use, and the service support is prompt whenever needed. The build quality is consistent, the designs are practical, and they remain a dependable supplier for hospital procurement.",
       image: "/reviews/dr-anil-mehra.jpeg",
     },
     {
       type: "Dealer / Channel Partner Feedback",
       name: "Sanjay Aggarwal",
-      role: "Medical Equipment Distributor",
+      role: "Channel Partner, Medical Equipment Distribution",
       location: "North India",
       rating: 5,
       quote:
@@ -221,7 +221,7 @@ export const business: BusinessProfile = {
     {
       type: "Dealer / Distributor Feedback",
       name: "S. Murugan",
-      role: "Medical Equipment Distributor",
+      role: "Regional Medical Equipment Distributor",
       location: "South India",
       rating: 5,
       quote:
@@ -231,29 +231,31 @@ export const business: BusinessProfile = {
     {
       type: "International Buyer Feedback",
       name: "Michael Carter",
-      role: "Export Buyer Feedback",
+      role: "International Medical Equipment Buyer",
       rating: 5,
       quote:
-        "We selected Indian Surgical Industries as our manufacturing partner because of their strong production capability and product reliability. Their sterilisation and hospital equipment range meets international buyer expectations in terms of build quality, packaging, and documentation. We look forward to expanding our cooperation in global markets.",
+        "We chose Indian Surgical Industries for their manufacturing capability and product reliability. Their sterilisation and hospital equipment range meets our expectations for build quality, packaging, and documentation, and we see strong potential to grow with them in global markets.",
       image: "/reviews/michael-carter.jpeg",
     },
     {
       type: "Dealer / Distributor Feedback",
       name: "R. Srinivasan",
-      role: "Medical Equipment Dealer",
+      role: "Senior Medical Equipment Dealer",
       location: "Coimbatore",
       rating: 5,
       quote:
-        "We have been dealing with Indian Surgical Industries for a range of hospital furniture and sterilisation products. The build quality is dependable, and the pricing allows us to stay competitive in the regional market. Their coordination and commitment to delivery timelines make them easy to work with.",
+        "We source hospital furniture and sterilisation products from Indian Surgical Industries on a regular basis. The build quality is dependable, pricing remains market-friendly, and their coordination on delivery timelines makes them easy to work with.",
+      image: "/reviews/r-srinivasan.jpeg",
     },
     {
       type: "Institutional / Hospital Feedback",
       name: "Dr. Vivek Malhotra",
-      role: "Senior Administrator",
+      role: "Senior Hospital Administrator",
       location: "Private Hospital, Jaipur",
       rating: 5,
       quote:
         "The equipment supplied by Indian Surgical Industries, particularly their autoclaves and dressing drums, has performed consistently in our day-to-day operations. The designs are practical, and maintenance requirements are minimal. Their service support team has also been prompt and cooperative whenever needed.",
+      image: "/reviews/dr-vivek-malhotra.jpeg",
     },
   ],
   contact: {

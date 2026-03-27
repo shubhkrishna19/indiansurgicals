@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" role="img" aria-label="FDA registered badge">
-  <rect width="320" height="220" rx="26" fill="#ffffff"/>
-  <rect x="36" y="46" width="118" height="92" rx="14" fill="#1565c0"/>
+    <rect x="36" y="46" width="118" height="92" rx="14" fill="#1565c0"/>
   <text x="95" y="102" text-anchor="middle" font-family="Arial, sans-serif" font-size="46" font-weight="800" fill="#ffffff">FDA</text>
   <text x="176" y="98" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#1565c0">REGISTERED</text>
   <rect x="176" y="110" width="104" height="3" rx="1.5" fill="#1565c0"/>
   <text x="36" y="170" font-family="Arial, sans-serif" font-size="16" fill="#4f5f70">U.S. Food &amp; Drug Administration</text>
 </svg>
+

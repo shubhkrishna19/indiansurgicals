@@ -289,7 +289,7 @@ const primaryContactHref = getPrimaryContactHref();
         const deltaSeconds = Math.min((time - lastTime) / 1000, 0.04);
         lastTime = time;
 
-        if (!isDragging && baseSpeed > 0 && segmentWidth > 0) {
+        if (!pointerDown && baseSpeed > 0 && segmentWidth > 0) {
           offset += baseSpeed * deltaSeconds;
           normalizeLoop();
           applyOffset();
@@ -805,21 +805,21 @@ const primaryContactHref = getPrimaryContactHref();
 
   .review-card {
     display: grid;
-    gap: 0.95rem;
-    padding: 1.2rem;
+    gap: 0.68rem;
+    padding: 1.05rem;
   }
 
   .review-card__meta {
     display: flex;
-    gap: 0.8rem;
+    gap: 0.68rem;
     align-items: flex-start;
   }
 
   .review-card__avatar {
-    width: 4.5rem;
-    height: 4.5rem;
-    flex: 0 0 4.5rem;
-    border-radius: 1rem;
+    width: 4.05rem;
+    height: 4.05rem;
+    flex: 0 0 4.05rem;
+    border-radius: 0.9rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -841,7 +841,7 @@ const primaryContactHref = getPrimaryContactHref();
 
   .review-card__meta div {
     display: grid;
-    gap: 0.18rem;
+    gap: 0.08rem;
   }
 
   .review-card__type {
@@ -854,11 +854,13 @@ const primaryContactHref = getPrimaryContactHref();
 
   .review-card__meta strong {
     font-size: 1.02rem;
+    line-height: 1.2;
   }
 
   .review-card__meta span,
   .review-card__meta small {
     color: var(--color-text-muted);
+    line-height: 1.35;
   }
 
   .review-card__stars {
@@ -867,9 +869,9 @@ const primaryContactHref = getPrimaryContactHref();
 
   .review-card__stars-fixed {
     margin: 0;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.14em;
     color: var(--color-accent);
-    font-size: 0.95rem;
+    font-size: 0.88rem;
   }
 
   .section--cta {

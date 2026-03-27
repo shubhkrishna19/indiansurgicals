@@ -5,8 +5,7 @@
       <stop offset="1" stop-color="#1f7a35"/>
     </linearGradient>
   </defs>
-  <rect width="320" height="220" rx="26" fill="#ffffff"/>
-  <g transform="translate(24 8)">
+    <g transform="translate(24 8)">
     <circle cx="86" cy="86" r="68" fill="url(#ring10993)"/>
     <circle cx="86" cy="86" r="54" fill="#ffffff"/>
     <path d="M56 95c12-26 48-30 61 0-12 18-48 26-61 0Z" fill="#43a047"/>
@@ -18,3 +17,4 @@
   <text x="194" y="113" font-family="Arial, sans-serif" font-size="14" fill="#516172">Biocompatibility</text>
   <text x="194" y="133" font-family="Arial, sans-serif" font-size="14" fill="#516172">Material Safety Standard</text>
 </svg>
+
