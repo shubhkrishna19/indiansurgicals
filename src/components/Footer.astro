@@ -379,10 +379,10 @@ const credentialBadges = [...business.credentialBadges, ...business.credentialBa
 
   .site-footer__trust-track {
     display: flex;
-    align-items: stretch;
-    gap: 0.9rem;
+    align-items: center;
+    gap: 1.35rem;
     width: max-content;
-    padding: 0.55rem 1rem 0.25rem;
+    padding: 0.5rem 1rem 0.15rem;
     animation: footer-trust-scroll 36s linear infinite;
   }
 
@@ -391,25 +391,24 @@ const credentialBadges = [...business.credentialBadges, ...business.credentialBa
   }
 
   .site-footer__trust-badge {
-    min-width: 10.6rem;
-    display: grid;
-    place-items: center;
-    padding: 0.7rem 0.85rem;
-    border-radius: 1rem;
-    background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(244, 248, 251, 0.88)),
-      rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(84, 96, 109, 0.14);
-    box-shadow: 0 10px 20px rgba(11, 27, 43, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
   }
 
   .site-footer__trust-badge-image {
-    width: 100%;
-    max-width: 8.5rem;
-    height: 4.1rem;
+    width: auto;
+    max-width: 9rem;
+    height: 4.2rem;
     display: block;
     object-fit: contain;
     object-position: center;
+    filter: drop-shadow(0 6px 14px rgba(11, 27, 43, 0.08));
   }
 
   @keyframes footer-trust-scroll {
@@ -442,8 +441,9 @@ const credentialBadges = [...business.credentialBadges, ...business.credentialBa
       width: 2rem;
     }
 
-    .site-footer__trust-badge {
-      min-width: 11rem;
+    .site-footer__trust-badge-image {
+      max-width: 7.8rem;
+      height: 3.8rem;
     }
   }
 

@@ -222,43 +222,56 @@ const primaryContactHref = getPrimaryContactHref();
 
       let pointerDown = false;
       let isDragging = false;
+      let activePointerId = null;
       let startX = 0;
-      let startScrollLeft = 0;
+      let startOffset = 0;
       let suppressClick = false;
       let rafId = 0;
       let lastTime = performance.now();
       let segmentWidth = 0;
+      let offset = 0;
 
       const cycleDurationSeconds = 36;
       const dragThreshold = 8;
       let baseSpeed = 0;
+
+      const applyOffset = () => {
+        track.style.transform = `translate3d(${-offset}px, 0, 0)`;
+      };
 
       const normalizeLoop = () => {
         if (!segmentWidth) {
           return;
         }
 
-        if (strip.scrollLeft <= segmentWidth * 0.5) {
-          strip.scrollLeft += segmentWidth;
-        } else if (strip.scrollLeft >= segmentWidth * 1.5) {
-          strip.scrollLeft -= segmentWidth;
+        while (offset < segmentWidth * 0.5) {
+          offset += segmentWidth;
+        }
+
+        while (offset >= segmentWidth * 1.5) {
+          offset -= segmentWidth;
         }
       };
 
       const syncRailMetrics = (resetPosition = false) => {
         const nextSegmentWidth = track.scrollWidth / 3;
         if (!nextSegmentWidth) {
-          return;
+          return false;
         }
 
+        const previousSegmentWidth = segmentWidth || nextSegmentWidth;
         segmentWidth = nextSegmentWidth;
         baseSpeed = segmentWidth / cycleDurationSeconds;
 
-        if (resetPosition || !strip.scrollLeft) {
-          strip.scrollLeft = segmentWidth;
+        if (resetPosition || !offset) {
+          offset = segmentWidth;
         } else {
-          normalizeLoop();
+          offset = (offset / previousSegmentWidth) * segmentWidth;
         }
+
+        normalizeLoop();
+        applyOffset();
+        return true;
       };
 
       const releaseDrag = () => {
@@ -268,6 +281,7 @@ const primaryContactHref = getPrimaryContactHref();
 
         pointerDown = false;
         isDragging = false;
+        activePointerId = null;
         strip.classList.remove("is-dragging");
       };
 
@@ -275,9 +289,10 @@ const primaryContactHref = getPrimaryContactHref();
         const deltaSeconds = Math.min((time - lastTime) / 1000, 0.04);
         lastTime = time;
 
-        if (!pointerDown) {
-          strip.scrollLeft += baseSpeed * deltaSeconds;
+        if (!isDragging && baseSpeed > 0 && segmentWidth > 0) {
+          offset += baseSpeed * deltaSeconds;
           normalizeLoop();
+          applyOffset();
         }
 
         rafId = window.requestAnimationFrame(tick);
@@ -290,13 +305,20 @@ const primaryContactHref = getPrimaryContactHref();
 
         pointerDown = true;
         isDragging = false;
+        activePointerId = event.pointerId;
         startX = event.clientX;
-        startScrollLeft = strip.scrollLeft;
+        startOffset = offset;
         suppressClick = false;
+        strip.setPointerCapture?.(event.pointerId);
       };
 
       const onPointerMove = (event) => {
-        if (!pointerDown) {
+        if (!pointerDown || event.pointerId !== activePointerId) {
+          return;
+        }
+
+        if (event.pointerType === "mouse" && event.buttons === 0) {
+          releaseDrag();
           return;
         }
 
@@ -310,8 +332,9 @@ const primaryContactHref = getPrimaryContactHref();
           return;
         }
 
-        strip.scrollLeft = startScrollLeft - delta;
+        offset = startOffset - delta;
         normalizeLoop();
+        applyOffset();
       };
 
       const onWheel = (event) => {
@@ -320,8 +343,9 @@ const primaryContactHref = getPrimaryContactHref();
           return;
         }
 
-        strip.scrollLeft += delta;
+        offset += delta;
         normalizeLoop();
+        applyOffset();
       };
 
       const onRailClick = (event) => {
@@ -342,7 +366,15 @@ const primaryContactHref = getPrimaryContactHref();
         }
       };
 
-      const onPointerUp = () => {
+      const onPointerUp = (event) => {
+        if (activePointerId !== null && event.pointerId !== activePointerId) {
+          return;
+        }
+
+        if (activePointerId !== null && strip.hasPointerCapture?.(activePointerId)) {
+          strip.releasePointerCapture?.(activePointerId);
+        }
+
         releaseDrag();
       };
 
@@ -354,26 +386,28 @@ const primaryContactHref = getPrimaryContactHref();
         lastTime = performance.now();
       };
 
+      const onWindowBlur = () => {
+        releaseDrag();
+      };
+
       const resizeObserver = new ResizeObserver(() => {
         syncRailMetrics(false);
       });
 
-      syncRailMetrics(true);
-      if (!segmentWidth) {
-        return;
-      }
-
       resizeObserver.observe(track);
+      syncRailMetrics(true);
 
       strip.addEventListener("pointerdown", onPointerDown);
       strip.addEventListener("pointermove", onPointerMove);
       strip.addEventListener("pointerup", onPointerUp);
       strip.addEventListener("pointercancel", releaseDrag);
+      strip.addEventListener("lostpointercapture", releaseDrag);
       strip.addEventListener("wheel", onWheel, { passive: true });
       strip.addEventListener("click", onRailClick);
       strip.addEventListener("dragstart", onDragStart);
       window.addEventListener("pointerup", onPointerUp);
       window.addEventListener("pointercancel", releaseDrag);
+      window.addEventListener("blur", onWindowBlur);
       document.addEventListener("visibilitychange", onVisibilityChange);
 
       rafId = window.requestAnimationFrame(tick);
@@ -381,15 +415,18 @@ const primaryContactHref = getPrimaryContactHref();
       cleanups.push(() => {
         window.cancelAnimationFrame(rafId);
         resizeObserver.disconnect();
+        track.style.transform = "";
         strip.removeEventListener("pointerdown", onPointerDown);
         strip.removeEventListener("pointermove", onPointerMove);
         strip.removeEventListener("pointerup", onPointerUp);
         strip.removeEventListener("pointercancel", releaseDrag);
+        strip.removeEventListener("lostpointercapture", releaseDrag);
         strip.removeEventListener("wheel", onWheel);
         strip.removeEventListener("click", onRailClick);
         strip.removeEventListener("dragstart", onDragStart);
         window.removeEventListener("pointerup", onPointerUp);
         window.removeEventListener("pointercancel", releaseDrag);
+        window.removeEventListener("blur", onWindowBlur);
         document.removeEventListener("visibilitychange", onVisibilityChange);
       });
     });
@@ -565,23 +602,18 @@ const primaryContactHref = getPrimaryContactHref();
 
   .category-strip {
     margin-top: 1.5rem;
-    overflow-x: auto;
+    overflow: hidden;
     padding: 0.15rem 0 0.55rem;
-    scrollbar-width: none;
     cursor: grab;
     touch-action: pan-y;
-    -webkit-overflow-scrolling: touch;
     mask-image: linear-gradient(90deg, transparent, black 4%, black 96%, transparent);
-  }
-
-  .category-strip::-webkit-scrollbar {
-    display: none;
   }
 
   .category-strip__track {
     display: flex;
     gap: 0.72rem;
     width: max-content;
+    will-change: transform;
   }
 
   .category-strip.is-dragging {
