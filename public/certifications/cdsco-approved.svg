@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" role="img" aria-label="CDSCO approved badge">
+  <rect width="320" height="220" rx="26" fill="#ffffff"/>
+  <path d="M64 62 C102 32 142 32 184 62" fill="none" stroke="#f28c28" stroke-width="14" stroke-linecap="round"/>
+  <path d="M72 74 C108 48 142 48 176 74" fill="none" stroke="#ffffff" stroke-width="12" stroke-linecap="round"/>
+  <path d="M80 86 C112 64 142 64 170 86" fill="none" stroke="#1d8348" stroke-width="12" stroke-linecap="round"/>
+  <text x="126" y="126" text-anchor="middle" font-family="Arial, sans-serif" font-size="38" font-weight="800" fill="#1c4e94">CDSCO</text>
+  <text x="126" y="154" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#3b4a5a">APPROVED</text>
+  <text x="36" y="188" font-family="Arial, sans-serif" font-size="15" fill="#4f5f70">Central Drugs Standard Control Organization</text>
+</svg>

@@ -154,6 +154,12 @@ const credentialBadges = [...business.credentialBadges, ...business.credentialBa
     <div class="site-footer__trust-track">
       {credentialBadges.map((badge, index) => (
         <article class="site-footer__trust-badge" aria-hidden={index >= business.credentialBadges.length}>
+          <img
+            src={badge.image}
+            alt={`${badge.code} badge`}
+            class="site-footer__trust-badge-image"
+            loading="lazy"
+          />
           <strong>{badge.code}</strong>
           <span>{badge.label}</span>
         </article>
@@ -385,7 +391,9 @@ const credentialBadges = [...business.credentialBadges, ...business.credentialBa
   .site-footer__trust-badge {
     min-width: 13rem;
     display: grid;
-    gap: 0.18rem;
+    align-content: start;
+    justify-items: center;
+    gap: 0.22rem;
     padding: 0.9rem 1rem;
     border-radius: 1rem;
     background:
@@ -395,17 +403,29 @@ const credentialBadges = [...business.credentialBadges, ...business.credentialBa
     box-shadow: 0 10px 20px rgba(11, 27, 43, 0.06);
   }
 
+  .site-footer__trust-badge-image {
+    width: 100%;
+    max-width: 9rem;
+    height: 3.9rem;
+    display: block;
+    object-fit: contain;
+    object-position: center;
+    margin-bottom: 0.1rem;
+  }
+
   .site-footer__trust-badge strong {
     color: var(--color-primary);
-    font-size: 1rem;
+    font-size: 0.92rem;
     font-weight: 700;
     letter-spacing: 0.04em;
+    text-align: center;
   }
 
   .site-footer__trust-badge span {
     color: var(--color-text-muted);
     font-size: 0.78rem;
     line-height: 1.4;
+    text-align: center;
   }
 
   @keyframes footer-trust-scroll {

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" role="img" aria-label="ISO 14971 certified badge">
+  <defs>
+    <linearGradient id="ring14971" x1="0" x2="1">
+      <stop offset="0" stop-color="#ef5766"/>
+      <stop offset="1" stop-color="#b51e35"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="220" rx="26" fill="#ffffff"/>
+  <g transform="translate(24 8)">
+    <circle cx="86" cy="86" r="68" fill="url(#ring14971)"/>
+    <circle cx="86" cy="86" r="54" fill="#ffffff"/>
+    <path d="M45 138 64 172 86 150 108 172 127 138" fill="#c62839"/>
+    <text x="86" y="68" text-anchor="middle" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#b51e35">ISO</text>
+    <text x="86" y="96" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#b51e35">14971</text>
+    <text x="86" y="122" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#3b4a5a">CERTIFIED</text>
+  </g>
+  <text x="194" y="84" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#a81f34">ISO 14971</text>
+  <text x="194" y="113" font-family="Arial, sans-serif" font-size="14" fill="#516172">Risk Management</text>
+  <text x="194" y="133" font-family="Arial, sans-serif" font-size="14" fill="#516172">For Medical Devices</text>
+</svg>

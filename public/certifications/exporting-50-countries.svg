@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" role="img" aria-label="Exporting to 50 plus countries badge">
+  <rect width="320" height="220" rx="26" fill="#ffffff"/>
+  <g transform="translate(28 18)">
+    <circle cx="86" cy="72" r="58" fill="#2f7de1"/>
+    <path d="M28 72h116M86 14c-18 16-18 100 0 116M86 14c18 16 18 100 0 116" fill="none" stroke="#ffffff" stroke-width="5"/>
+    <path d="M34 42c26 10 94 10 104 0M34 102c26-10 94-10 104 0" fill="none" stroke="#ffffff" stroke-width="5"/>
+    <path d="M46 34h16v16H46Z" fill="#f39c12"/>
+    <path d="M66 34h16v16H66Z" fill="#16a085"/>
+    <path d="M86 34h16v16H86Z" fill="#e74c3c"/>
+    <path d="M106 34h16v16H106Z" fill="#8e44ad"/>
+    <path d="M126 34h16v16H126Z" fill="#f1c40f"/>
+  </g>
+  <text x="176" y="102" font-family="Arial, sans-serif" font-size="27" font-weight="800" fill="#1c4e94">EXPORTING TO</text>
+  <text x="176" y="138" font-family="Arial, sans-serif" font-size="34" font-weight="800" fill="#1c4e94">50+ COUNTRIES</text>
+</svg>

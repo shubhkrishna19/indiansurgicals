@@ -11,6 +11,7 @@ export interface BusinessProfile {
   credentialBadges: {
     code: string;
     label: string;
+    image: string;
   }[];
   focusAreas: string[];
   customerSegments: string[];
@@ -67,50 +68,62 @@ export const business: BusinessProfile = {
     {
       code: "ISO 13485",
       label: "Medical Devices Quality Management System",
+      image: "/certifications/iso-13485.svg",
     },
     {
       code: "ISO 9001",
       label: "Quality Management System",
+      image: "/certifications/iso-9001.svg",
     },
     {
       code: "ISO 14971",
       label: "Risk Management for Medical Devices",
+      image: "/certifications/iso-14971.svg",
     },
     {
       code: "CE",
       label: "CE Certified",
+      image: "/certifications/ce-certified.svg",
     },
     {
       code: "FDA",
       label: "Registered",
+      image: "/certifications/fda-registered.svg",
     },
     {
       code: "CDSCO",
       label: "Approved",
+      image: "/certifications/cdsco-approved.svg",
     },
     {
       code: "MSME",
       label: "Registered",
+      image: "/certifications/msme-registered.svg",
     },
     {
       code: "GST",
       label: "Goods and Services Tax",
+      image: "/certifications/gst.svg",
     },
     {
       code: "IEC",
       label: "Import Export Code",
+      image: "/certifications/iec.svg",
     },
     {
       code: "ISO 10993",
       label: "Biocompatible",
+      image: "/certifications/iso-10993.svg",
     },
     {
       code: "OEM",
       label: "Manufacturing and Private Label Support",
+      image: "/certifications/oem-manufacturing.svg",
     },
     {
       code: "50+ Countries",
       label: "Export Supply Capability",
+      image: "/certifications/exporting-50-countries.svg",
     },
   ],
   focusAreas: [

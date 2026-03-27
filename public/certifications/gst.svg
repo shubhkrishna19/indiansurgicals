@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" role="img" aria-label="GST badge">
+  <rect width="320" height="220" rx="26" fill="#ffffff"/>
+  <text x="40" y="116" font-family="Arial, sans-serif" font-size="82" font-weight="800" fill="#f39c12">G</text>
+  <text x="96" y="116" font-family="Arial, sans-serif" font-size="82" font-weight="800" fill="#2e7d32">S</text>
+  <text x="146" y="116" font-family="Arial, sans-serif" font-size="82" font-weight="800" fill="#e74c3c">T</text>
+  <text x="40" y="156" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#3b4a5a">GOODS &amp; SERVICES TAX</text>
+</svg>

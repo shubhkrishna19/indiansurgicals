@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" role="img" aria-label="IEC badge">
+  <rect width="320" height="220" rx="26" fill="#ffffff"/>
+  <g transform="translate(36 38)">
+    <circle cx="58" cy="58" r="50" fill="none" stroke="#1c7cc1" stroke-width="10"/>
+    <path d="M10 58h96M26 28h64M26 88h64M58 8c-18 16-18 84 0 100M58 8c18 16 18 84 0 100" fill="none" stroke="#1c7cc1" stroke-width="6"/>
+  </g>
+  <text x="168" y="98" font-family="Arial, sans-serif" font-size="54" font-weight="800" fill="#1c4e94">IEC</text>
+  <text x="168" y="132" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#3b4a5a">IMPORT EXPORT CODE</text>
+</svg>
