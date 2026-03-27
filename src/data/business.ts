@@ -206,7 +206,7 @@ export const business: BusinessProfile = {
       rating: 5,
       quote:
         "We have been sourcing sterilisation and suction equipment from Indian Surgical Industries for several years. The autoclaves and OT equipment have proven reliable in daily hospital use, and the service support has been prompt whenever required. Their consistent quality and practical design make them a dependable supplier for hospital procurement.",
-      image: "/reviews/dr-anil-mehra.png",
+      image: "/reviews/dr-anil-mehra.jpeg",
     },
     {
       type: "Dealer / Channel Partner Feedback",
@@ -216,7 +216,7 @@ export const business: BusinessProfile = {
       rating: 5,
       quote:
         "As a channel partner supplying hospitals and clinics, we value manufacturers who maintain consistent product quality and timely deliveries. Indian Surgical Industries has consistently delivered on both fronts. Their range of autoclaves, suction machines, and hospital furniture has strong demand in the market, and their after-sales support helps us maintain long-term relationships with our customers.",
-      image: "/reviews/sanjay-aggarwal.png",
+      image: "/reviews/sanjay-aggarwal.jpeg",
     },
     {
       type: "Dealer / Distributor Feedback",
@@ -226,7 +226,7 @@ export const business: BusinessProfile = {
       rating: 5,
       quote:
         "We have been working with Indian Surgical Industries for quite some time now, and the experience has been consistently positive. The product quality is reliable, especially for hospital furniture and basic medical equipment, which meets the expectations of our clients across South India. What stands out is their timely delivery and responsive support team. Even in urgent requirements, they have managed to maintain good coordination and supply. Their pricing is also competitive, which helps us stay strong in the market. Overall, a dependable manufacturing partner for distributors like us.",
-      image: "/reviews/s-murugan.png",
+      image: "/reviews/s-murugan.jpeg",
     },
     {
       type: "International Buyer Feedback",
@@ -235,7 +235,7 @@ export const business: BusinessProfile = {
       rating: 5,
       quote:
         "We selected Indian Surgical Industries as our manufacturing partner because of their strong production capability and product reliability. Their sterilisation and hospital equipment range meets international buyer expectations in terms of build quality, packaging, and documentation. We look forward to expanding our cooperation in global markets.",
-      image: "/reviews/michael-carter.png",
+      image: "/reviews/michael-carter.jpeg",
     },
     {
       type: "Dealer / Distributor Feedback",
@@ -245,7 +245,6 @@ export const business: BusinessProfile = {
       rating: 5,
       quote:
         "We have been dealing with Indian Surgical Industries for a range of hospital furniture and sterilisation products. The build quality is dependable, and the pricing allows us to stay competitive in the regional market. Their coordination and commitment to delivery timelines make them easy to work with.",
-      image: "/reviews/r-srinivasan.png",
     },
     {
       type: "Institutional / Hospital Feedback",
@@ -255,7 +254,6 @@ export const business: BusinessProfile = {
       rating: 5,
       quote:
         "The equipment supplied by Indian Surgical Industries, particularly their autoclaves and dressing drums, has performed consistently in our day-to-day operations. The designs are practical, and maintenance requirements are minimal. Their service support team has also been prompt and cooperative whenever needed.",
-      image: "/reviews/dr-vivek-malhotra.png",
     },
   ],
   contact: {
