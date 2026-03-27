@@ -39,7 +39,7 @@ const primaryContactHref = getPrimaryContactHref();
   <section class="hero section">
     <div class="container hero__grid">
       <div class="hero__content panel" data-parallax-group>
-        <span class="eyebrow" data-parallax-speed="0.08">Indian Surgical Industries</span>
+        <span class="eyebrow" data-parallax-speed="0.08">Medical And Surgical Equipment Manufacturer</span>
         <h1 data-parallax-speed="0.16">Greetings from Indian Surgical Industries!</h1>
         <div class="hero__copy hero__copy--stacked" data-parallax-speed="0.12">
           <p>
@@ -220,16 +220,18 @@ const primaryContactHref = getPrimaryContactHref();
       let startScrollLeft = 0;
       let pointerId = null;
       let suppressClick = false;
+      let pressedLink = null;
       let rafId = 0;
       let lastTime = performance.now();
       let lastPageY = window.scrollY;
       let pageDirection = 1;
-      const baseSpeed = 24;
 
       const segmentWidth = track.scrollWidth / 3;
       if (!segmentWidth) {
         return;
       }
+      const cycleDurationSeconds = 36;
+      const baseSpeed = segmentWidth / cycleDurationSeconds;
 
       strip.scrollLeft = segmentWidth;
 
@@ -276,6 +278,7 @@ const primaryContactHref = getPrimaryContactHref();
         startScrollLeft = strip.scrollLeft;
         pointerId = event.pointerId;
         suppressClick = false;
+        pressedLink = event.target.closest(".category-card");
         strip.classList.add("is-dragging");
         strip.setPointerCapture?.(event.pointerId);
       };
@@ -315,6 +318,24 @@ const primaryContactHref = getPrimaryContactHref();
         lastPageY = currentPageY;
       };
 
+      const onPointerUp = (event) => {
+        const releasedLink = event.target.closest(".category-card");
+        const shouldNavigate =
+          !suppressClick &&
+          pressedLink &&
+          releasedLink &&
+          pressedLink === releasedLink &&
+          releasedLink.href;
+
+        endDrag();
+
+        if (shouldNavigate) {
+          window.location.href = releasedLink.href;
+        }
+
+        pressedLink = null;
+      };
+
       const onClick = (event) => {
         if (!suppressClick) {
           return;
@@ -327,7 +348,7 @@ const primaryContactHref = getPrimaryContactHref();
 
       strip.addEventListener("pointerdown", onPointerDown);
       strip.addEventListener("pointermove", onPointerMove);
-      strip.addEventListener("pointerup", endDrag);
+      strip.addEventListener("pointerup", onPointerUp);
       strip.addEventListener("pointercancel", endDrag);
       strip.addEventListener("lostpointercapture", endDrag);
       strip.addEventListener("wheel", onWheel, { passive: true });
@@ -340,7 +361,7 @@ const primaryContactHref = getPrimaryContactHref();
         window.cancelAnimationFrame(rafId);
         strip.removeEventListener("pointerdown", onPointerDown);
         strip.removeEventListener("pointermove", onPointerMove);
-        strip.removeEventListener("pointerup", endDrag);
+        strip.removeEventListener("pointerup", onPointerUp);
         strip.removeEventListener("pointercancel", endDrag);
         strip.removeEventListener("lostpointercapture", endDrag);
         strip.removeEventListener("wheel", onWheel);

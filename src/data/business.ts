@@ -213,7 +213,7 @@ export const business: BusinessProfile = {
     telephones: ["+91-120-4240656"],
     whatsappNumber: "919350042221",
     email: "indiansurgical@gmail.com",
-    emails: ["indiansurgical@gmail.com", "info@indiansurgical.com"],
+    emails: ["indiansurgical@gmail.com"],
     website: "Lifelinemedicalsystem.com",
     addressLines: [],
   },
