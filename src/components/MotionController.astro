@@ -6,7 +6,6 @@
 
   const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
   const SCRUB_SELECTORS = [
-    ".category-card",
     ".showcase-card",
     ".family-card",
     ".category-tile",
@@ -115,9 +114,9 @@
           gsap.fromTo(
             node,
             {
-              autoAlpha: 0.18,
-              y: isCardLike ? 42 : 28,
-              scale: isCardLike ? 0.968 : 0.985,
+              autoAlpha: 0.32,
+              y: isCardLike ? 30 : 20,
+              scale: isCardLike ? 0.982 : 0.992,
               force3D: true,
             },
             {
@@ -128,9 +127,9 @@
               force3D: true,
               scrollTrigger: {
                 trigger: node,
-                start: "top 92%",
-                end: "top 60%",
-                scrub: 0.45,
+                start: "top 90%",
+                end: "top 68%",
+                scrub: 0.32,
                 invalidateOnRefresh: true,
               },
             },
@@ -143,13 +142,13 @@
         items.forEach((item) => {
           const speed = Number(item.getAttribute("data-parallax-speed") ?? "0.1");
           gsap.to(item, {
-            yPercent: speed * -60,
+            yPercent: speed * -34,
             ease: "none",
             scrollTrigger: {
               trigger: group,
               start: "top bottom",
               end: "bottom top",
-              scrub: 0.35,
+              scrub: 0.24,
               invalidateOnRefresh: true,
             },
           });

@@ -220,16 +220,14 @@ const primaryContactHref = getPrimaryContactHref();
         return;
       }
 
-      let pointerActive = false;
+      let pointerDown = false;
+      let isDragging = false;
       let startX = 0;
       let startScrollLeft = 0;
       let pointerId = null;
       let suppressClick = false;
-      let pressedLink = null;
       let rafId = 0;
       let lastTime = performance.now();
-      let lastPageY = window.scrollY;
-      let pageDirection = 1;
 
       const segmentWidth = track.scrollWidth / 3;
       if (!segmentWidth) {
@@ -237,6 +235,7 @@ const primaryContactHref = getPrimaryContactHref();
       }
       const cycleDurationSeconds = 36;
       const baseSpeed = segmentWidth / cycleDurationSeconds;
+      const dragThreshold = 8;
 
       strip.scrollLeft = segmentWidth;
 
@@ -248,25 +247,29 @@ const primaryContactHref = getPrimaryContactHref();
         }
       };
 
-      const endDrag = () => {
-        pointerActive = false;
-        strip.classList.remove("is-dragging");
-
+      const releaseDrag = () => {
         if (pointerId !== null) {
           try {
             strip.releasePointerCapture(pointerId);
           } catch {}
         }
 
+        if (isDragging) {
+          suppressClick = true;
+        }
+
+        pointerDown = false;
+        isDragging = false;
         pointerId = null;
+        strip.classList.remove("is-dragging");
       };
 
       const tick = (time) => {
         const deltaSeconds = Math.min((time - lastTime) / 1000, 0.04);
         lastTime = time;
 
-        if (!pointerActive) {
-          strip.scrollLeft += baseSpeed * pageDirection * deltaSeconds;
+        if (!pointerDown) {
+          strip.scrollLeft += baseSpeed * deltaSeconds;
           normalizeLoop();
         }
 
@@ -278,24 +281,28 @@ const primaryContactHref = getPrimaryContactHref();
           return;
         }
 
-        pointerActive = true;
+        pointerDown = true;
+        isDragging = false;
         startX = event.clientX;
         startScrollLeft = strip.scrollLeft;
         pointerId = event.pointerId;
         suppressClick = false;
-        pressedLink = event.target.closest(".category-card");
-        strip.classList.add("is-dragging");
         strip.setPointerCapture?.(event.pointerId);
       };
 
       const onPointerMove = (event) => {
-        if (!pointerActive) {
+        if (!pointerDown) {
           return;
         }
 
         const delta = event.clientX - startX;
-        if (Math.abs(delta) > 6) {
-          suppressClick = true;
+        if (!isDragging && Math.abs(delta) > dragThreshold) {
+          isDragging = true;
+          strip.classList.add("is-dragging");
+        }
+
+        if (!isDragging) {
+          return;
         }
 
         strip.scrollLeft = startScrollLeft - delta;
@@ -312,33 +319,8 @@ const primaryContactHref = getPrimaryContactHref();
         normalizeLoop();
       };
 
-      const onPageScroll = () => {
-        const currentPageY = window.scrollY;
-        const deltaY = currentPageY - lastPageY;
-
-        if (Math.abs(deltaY) > 1) {
-          pageDirection = deltaY > 0 ? 1 : -1;
-        }
-
-        lastPageY = currentPageY;
-      };
-
-      const onPointerUp = (event) => {
-        const releasedLink = event.target.closest(".category-card");
-        const shouldNavigate =
-          !suppressClick &&
-          pressedLink &&
-          releasedLink &&
-          pressedLink === releasedLink &&
-          releasedLink.href;
-
-        endDrag();
-
-        if (shouldNavigate) {
-          window.location.href = releasedLink.href;
-        }
-
-        pressedLink = null;
+      const onPointerUp = () => {
+        releaseDrag();
       };
 
       const onClick = (event) => {
@@ -351,14 +333,18 @@ const primaryContactHref = getPrimaryContactHref();
         suppressClick = false;
       };
 
+      const onDragStart = (event) => {
+        event.preventDefault();
+      };
+
       strip.addEventListener("pointerdown", onPointerDown);
       strip.addEventListener("pointermove", onPointerMove);
       strip.addEventListener("pointerup", onPointerUp);
-      strip.addEventListener("pointercancel", endDrag);
-      strip.addEventListener("lostpointercapture", endDrag);
+      strip.addEventListener("pointercancel", releaseDrag);
+      strip.addEventListener("lostpointercapture", releaseDrag);
       strip.addEventListener("wheel", onWheel, { passive: true });
       strip.addEventListener("click", onClick);
-      window.addEventListener("scroll", onPageScroll, { passive: true });
+      strip.addEventListener("dragstart", onDragStart);
 
       rafId = window.requestAnimationFrame(tick);
 
@@ -367,11 +353,11 @@ const primaryContactHref = getPrimaryContactHref();
         strip.removeEventListener("pointerdown", onPointerDown);
         strip.removeEventListener("pointermove", onPointerMove);
         strip.removeEventListener("pointerup", onPointerUp);
-        strip.removeEventListener("pointercancel", endDrag);
-        strip.removeEventListener("lostpointercapture", endDrag);
+        strip.removeEventListener("pointercancel", releaseDrag);
+        strip.removeEventListener("lostpointercapture", releaseDrag);
         strip.removeEventListener("wheel", onWheel);
         strip.removeEventListener("click", onClick);
-        window.removeEventListener("scroll", onPageScroll);
+        strip.removeEventListener("dragstart", onDragStart);
       });
     });
 
@@ -535,13 +521,22 @@ const primaryContactHref = getPrimaryContactHref();
       radial-gradient(circle at top left, rgba(25, 77, 128, 0.05), transparent 48%);
   }
 
+  .section--categories :global(.section-title) {
+    max-width: 68rem;
+    margin-bottom: 1.9rem;
+  }
+
+  .section--categories :global(.section-title h2) {
+    font-size: clamp(1.85rem, 3vw, 2.7rem);
+  }
+
   .category-strip {
     margin-top: 1.5rem;
     overflow-x: auto;
     padding: 0.15rem 0 0.55rem;
     scrollbar-width: none;
     cursor: grab;
-    touch-action: pan-x;
+    touch-action: pan-y;
     -webkit-overflow-scrolling: touch;
     mask-image: linear-gradient(90deg, transparent, black 4%, black 96%, transparent);
   }
@@ -558,10 +553,7 @@ const primaryContactHref = getPrimaryContactHref();
 
   .category-strip.is-dragging {
     cursor: grabbing;
-  }
-
-  .category-strip.is-dragging :global(.category-card) {
-    pointer-events: none;
+    user-select: none;
   }
 
   .category-strip :global(.category-card) {
