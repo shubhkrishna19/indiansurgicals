@@ -309,7 +309,6 @@ const primaryContactHref = getPrimaryContactHref();
         startX = event.clientX;
         startOffset = offset;
         suppressClick = false;
-        strip.setPointerCapture?.(event.pointerId);
       };
 
       const onPointerMove = (event) => {
@@ -326,6 +325,7 @@ const primaryContactHref = getPrimaryContactHref();
         if (!isDragging && Math.abs(delta) > dragThreshold) {
           isDragging = true;
           strip.classList.add("is-dragging");
+          strip.setPointerCapture?.(event.pointerId);
         }
 
         if (!isDragging) {
@@ -353,16 +353,6 @@ const primaryContactHref = getPrimaryContactHref();
           event.preventDefault();
           event.stopPropagation();
           suppressClick = false;
-          return;
-        }
-
-        if (!(event.target instanceof Element)) {
-          return;
-        }
-
-        const link = event.target.closest(".category-card");
-        if (link?.href && event.target.closest(".category-strip")) {
-          window.location.href = link.href;
         }
       };
 
