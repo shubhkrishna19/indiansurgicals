@@ -21,6 +21,7 @@ body {
   background: #e9f0f5;
   color: var(--color-text);
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 body::before,
@@ -53,6 +54,10 @@ main {
 
 main > .section:last-child {
   padding-bottom: 2rem;
+}
+
+body.mobile-nav-open {
+  overflow: hidden;
 }
 
 a {
@@ -115,7 +120,7 @@ p {
 
 ::view-transition-old(root),
 ::view-transition-new(root) {
-  animation-duration: 320ms;
+  animation-duration: 220ms;
   animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -135,14 +140,14 @@ p {
 
   to {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(4px);
   }
 }
 
 @keyframes route-fade-in {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(6px);
   }
 
   to {
@@ -210,8 +215,16 @@ p {
 }
 
 @media (max-width: 720px) {
+  .container {
+    width: min(var(--container), calc(100% - 1.25rem));
+  }
+
   .section {
-    padding: 3.6rem 0;
+    padding: 3.25rem 0;
+  }
+
+  .panel {
+    border-radius: 1.2rem;
   }
 }
 

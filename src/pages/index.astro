@@ -13,11 +13,18 @@ import {
 const categories = getAllCategories();
 const categoryCarousel = [...categories, ...categories, ...categories];
 const categoryNames = new Map(categories.map((category) => [category.slug, category.name]));
+const showcaseLeadOverrides = new Map([
+  ["autoclaves", "autoclave-triple-wall-horizontal"],
+]);
 const showcaseFamilies = categories
   .reduce<ProductFamily[]>((collection, category) => {
-    const leadFamily = [...getFamiliesByCategory(category.slug)]
-      .filter((family) => family.images.length > 0)
-      .sort(
+    const categoryFamilies = [...getFamiliesByCategory(category.slug)].filter(
+      (family) => family.images.length > 0,
+    );
+    const preferredSlug = showcaseLeadOverrides.get(category.slug);
+    const leadFamily =
+      categoryFamilies.find((family) => family.slug === preferredSlug) ??
+      categoryFamilies.sort(
         (left, right) =>
           right.images.length - left.images.length || right.variants.length - left.variants.length,
       )[0];
@@ -947,6 +954,10 @@ const primaryContactHref = getPrimaryContactHref();
       background-position: center;
     }
 
+    .hero__metrics {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .hero__metrics,
     .leadership-grid,
     .review-grid {
@@ -966,6 +977,18 @@ const primaryContactHref = getPrimaryContactHref();
 
     .hero__content {
       padding: 1.2rem;
+      gap: 1.1rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.15rem, 11vw, 3.35rem);
+      line-height: 0.98;
+      max-width: 10ch;
+    }
+
+    .hero__copy {
+      font-size: 0.97rem;
+      line-height: 1.68;
     }
 
     .hero__metrics,
@@ -977,6 +1000,36 @@ const primaryContactHref = getPrimaryContactHref();
 
     .category-strip {
       mask-image: none;
+    }
+
+    .category-strip :global(.category-card) {
+      width: 8rem;
+    }
+
+    .showcase-card {
+      grid-template-rows: 14rem 1fr;
+    }
+
+    .showcase-card__media {
+      min-height: 14rem;
+      padding-inline: 0.8rem;
+    }
+
+    .showcase-card__body {
+      padding: 0.85rem 0.9rem 0.95rem;
+    }
+
+    .review-card {
+      padding: 0.95rem;
+    }
+
+    .cta {
+      padding: 1.25rem;
+    }
+
+    .cta h2 {
+      font-size: clamp(1.4rem, 8vw, 1.9rem);
+      max-width: 18ch;
     }
   }
 </style>

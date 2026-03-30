@@ -30,7 +30,9 @@ HQ_MEDIA_DIR = ROOT / "public" / "catalogue-media-hq"
 INDIAMART_MEDIA_DIR = ROOT / "public" / "catalogue-media-indiamart"
 IMAGE_REPORT_JSON = GENERATED_DIR / "catalogue-image-report.json"
 DOWNLOADS_DIR = ROOT / "public" / "downloads"
+OFFICIAL_CATALOGUE_SOURCE = ROOT / "72 Page Catalogue F_compressed_compressed (1).pdf"
 EXPORT_WORKBOOK = DOWNLOADS_DIR / "indian-surgical-industries-official-catalogue.pdf"
+GENERATED_WORKBOOK = GENERATED_DIR / "indian-surgical-industries-catalogue.xlsx"
 EXPORT_PREVIEW_PATH = "/catalogue-preview"
 EXPORT_WORKBOOK_PATH = f"/downloads/{EXPORT_WORKBOOK.name}"
 INDIAMART_BASE_URL = "https://www.indiamart.com/indiansurgicalindustries/"
@@ -61,6 +63,28 @@ INDIAMART_PAGE_CATEGORY_MAP = {
     "suction-machines.html": "suction-units",
     "vertical-autoclave.html": "autoclaves",
     "ward-equipments.html": "ward-equipments",
+}
+INVALID_IMAGE_PATHS = {
+    "/catalogue-media/image62.png",
+}
+GENERIC_ALIAS_TOKENS = {
+    "cover",
+    "equipment",
+    "hospital",
+    "instrument",
+    "instruments",
+    "lid",
+    "medical",
+    "products",
+    "ss",
+    "steel",
+    "stainless",
+    "system",
+    "tray",
+    "trays",
+    "unit",
+    "with",
+    "without",
 }
 CANONICAL_FAMILY_MERGES = {
     "Dressing Drums Seamless Jointless": "Dressing Drum Seamless (Jointless)",
@@ -356,7 +380,7 @@ FAMILY_IMAGE_QUERY_RULES = [
 CATEGORY_IMAGE_FALLBACKS = {
     "autoclaves": ["autoclave"],
     "sterilizers": ["sterilizer"],
-    "hospital-hollowares": ["bedpan"],
+    "hospital-hollowares": [],
     "suction-units": ["suction"],
     "needle-destroyers": [],
     "fumigators-foggers": [],
@@ -415,14 +439,20 @@ def build_name_aliases(name: str, model: str = "") -> list[str]:
     normalized_model = normalize_key(model)
     if normalized_model and aliases[0].startswith(f"{normalized_model} "):
         aliases.append(aliases[0][len(normalized_model) + 1 :].strip())
-    stripped = normalize_key(re.sub(r"^[A-Za-z0-9./()'-]+\s+", "", name).strip())
-    if stripped and stripped != aliases[0]:
-        aliases.append(stripped)
     return unique_preserve([alias for alias in aliases if alias])
 
 
 def build_token_signature(name: str) -> str:
     return " ".join(sorted(set(tokenize_text(name))))
+
+
+def is_generic_alias(alias: str) -> bool:
+    tokens = [token for token in alias.split() if token]
+    if not tokens:
+        return True
+    if len(tokens) == 1 and tokens[0] in GENERIC_ALIAS_TOKENS:
+        return True
+    return len(tokens) <= 3 and all(token in GENERIC_ALIAS_TOKENS for token in tokens)
 
 
 def indiamart_session() -> requests.Session:
@@ -579,6 +609,7 @@ def style_body_cells(sheet: Any, start_row: int, end_row: int) -> None:
 
 def write_catalogue_workbook(catalogue: dict[str, Any], generated_at: str) -> None:
     DOWNLOADS_DIR.mkdir(parents=True, exist_ok=True)
+    GENERATED_DIR.mkdir(parents=True, exist_ok=True)
 
     workbook = Workbook()
     overview = workbook.active
@@ -740,7 +771,10 @@ def write_catalogue_workbook(catalogue: dict[str, Any], generated_at: str) -> No
     models_sheet.freeze_panes = "A4"
     autosize_sheet(models_sheet, min_width=14, max_width=52)
 
-    workbook.save(EXPORT_WORKBOOK)
+    workbook.save(GENERATED_WORKBOOK)
+
+    if OFFICIAL_CATALOGUE_SOURCE.exists():
+        shutil.copyfile(OFFICIAL_CATALOGUE_SOURCE, EXPORT_WORKBOOK)
 
 
 def tokenize_text(value: str) -> list[str]:
@@ -1691,7 +1725,8 @@ def image_priority(image_path: str) -> tuple[int, str]:
 
 
 def prioritize_images(images: list[str]) -> list[str]:
-    return sorted(unique_preserve(images), key=image_priority)
+    valid_images = [image for image in unique_preserve(images) if image and image not in INVALID_IMAGE_PATHS]
+    return sorted(valid_images, key=image_priority)
 
 
 def score_indiamart_match(
@@ -1703,11 +1738,16 @@ def score_indiamart_match(
     variant_model = normalize_key(variant["model"])
     family_tokens = set(tokenize_text(" ".join([family["name"], family.get("subheading", ""), variant["model"]])))
     product_tokens = set(product.get("tokens", []))
+    name_similarity = SequenceMatcher(None, family_name, product["normalizedName"]).ratio()
 
     if variant_model and product.get("modelKey") == variant_model:
         score += 14
     if product["normalizedName"] == family_name or product["normalizedName"] in family_aliases:
         score += 12
+    elif name_similarity >= 0.93:
+        score += 10
+    elif name_similarity >= 0.86:
+        score += 6
     elif product["normalizedName"] in family_name or family_name in product["normalizedName"]:
         score += 7
     elif any(alias and (alias in product["normalizedName"] or product["normalizedName"] in alias) for alias in family_aliases):
@@ -1744,8 +1784,12 @@ def enrich_catalogue_with_indiamart(
         family_matches: list[tuple[int, dict[str, Any], dict[str, Any]]] = []
         family_aliases = build_name_aliases(family["name"])
         for variant in family["variants"]:
+            variant_model = normalize_key(variant["model"])
+            family_name = normalize_key(family["name"])
             name_candidates: list[dict[str, Any]] = []
             for alias in family_aliases:
+                if is_generic_alias(alias):
+                    continue
                 name_candidates.extend(by_name.get(alias, []))
             candidates = unique_indiamart_products(by_model.get(normalize_key(variant["model"]), []) + name_candidates)
             best_match: dict[str, Any] | None = None
@@ -1755,7 +1799,19 @@ def enrich_catalogue_with_indiamart(
                 if score > best_score:
                     best_score = score
                     best_match = candidate
-            if not best_match or best_score < 9:
+            if not best_match or best_score < 11:
+                continue
+
+            exact_or_model_match = bool(
+                (variant_model and best_match.get("modelKey") == variant_model)
+                or best_match["normalizedName"] == family_name
+                or best_match["normalizedName"] in family_aliases
+            )
+            near_exact_name = (
+                best_match.get("categorySlug") == family["categorySlug"]
+                and SequenceMatcher(None, family_name, best_match["normalizedName"]).ratio() >= 0.86
+            )
+            if not exact_or_model_match and not near_exact_name:
                 continue
 
             matched_ids.add(best_match["productId"])
@@ -1777,12 +1833,6 @@ def enrich_catalogue_with_indiamart(
 
         if not family_matches:
             continue
-
-        category_votes = [match["categorySlug"] for _, _, match in family_matches if match.get("categorySlug")]
-        if category_votes:
-            top_category = max(set(category_votes), key=category_votes.count)
-            if category_votes.count(top_category) == len(category_votes):
-                family["categorySlug"] = top_category
 
         if len(family["variants"]) == 1:
             _, variant, match = max(family_matches, key=lambda item: item[0])

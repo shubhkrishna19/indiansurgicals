@@ -203,6 +203,7 @@ export const business: BusinessProfile = {
       type: "Hospital Procurement / Institutional Review",
       name: "Dr. Anil Mehra",
       role: "Procurement Head, Multi-Specialty Hospital Network",
+      location: "Pan-India Network",
       rating: 5,
       quote:
         "We have sourced sterilisation and suction equipment from Indian Surgical Industries for several years. Their autoclaves and OT equipment perform reliably in daily hospital use, and the service support is prompt whenever needed. The build quality is consistent, the designs are practical, and they remain a dependable supplier for hospital procurement.",
@@ -232,6 +233,7 @@ export const business: BusinessProfile = {
       type: "International Buyer Feedback",
       name: "Michael Carter",
       role: "International Medical Equipment Buyer",
+      location: "Global Markets",
       rating: 5,
       quote:
         "We chose Indian Surgical Industries for their manufacturing capability and product reliability. Their sterilisation and hospital equipment range meets our expectations for build quality, packaging, and documentation, and we see strong potential to grow with them in global markets.",
@@ -259,7 +261,7 @@ export const business: BusinessProfile = {
     },
   ],
   contact: {
-    phones: ["+91-9350042221", "+91-9999941419"],
+    phones: ["+91-9350042221", "+91-9999741419"],
     telephones: ["+91-120-4240656"],
     whatsappNumber: "919350042221",
     email: "indiansurgical@gmail.com",

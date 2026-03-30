@@ -90,4 +90,29 @@ const { category, inert = false } = Astro.props;
     letter-spacing: -0.02em;
     text-wrap: balance;
   }
+
+  @media (max-width: 720px) {
+    .category-card {
+      border-radius: 0.88rem;
+    }
+
+    .category-card__media {
+      min-height: 6.5rem;
+    }
+
+    .category-card__media img,
+    .category-card__placeholder {
+      padding: 0.55rem;
+    }
+
+    .category-card__body {
+      min-height: 3rem;
+      padding: 0.58rem 0.62rem 0.68rem;
+    }
+
+    .category-card h3 {
+      font-size: 0.79rem;
+      line-height: 1.22;
+    }
+  }
 </style>

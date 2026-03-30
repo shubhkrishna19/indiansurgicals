@@ -51,4 +51,28 @@ const { title, subtitle = "", kicker = "", align = "left" } = Astro.props;
     font-size: 1.02rem;
     line-height: 1.7;
   }
+
+  @media (max-width: 720px) {
+    .section-title {
+      gap: 0.7rem;
+      margin-bottom: 1.65rem;
+      max-width: 100%;
+    }
+
+    .section-title__kicker {
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+    }
+
+    .section-title h2 {
+      font-size: clamp(1.7rem, 8vw, 2.35rem);
+      line-height: 1.08;
+      text-wrap: pretty;
+    }
+
+    .section-title__subtitle {
+      font-size: 0.94rem;
+      line-height: 1.6;
+    }
+  }
 </style>

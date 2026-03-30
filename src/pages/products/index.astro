@@ -188,8 +188,33 @@ const families = getAllFamilies();
   }
 
   @media (max-width: 700px) {
+    .catalogue-toolbar {
+      padding: 0.95rem;
+      margin-top: 1rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .catalogue-toolbar__search input {
+      padding: 0.82rem 0.9rem;
+    }
+
+    .catalogue-toolbar__filters {
+      gap: 0.5rem;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      padding-bottom: 0.15rem;
+      scrollbar-width: thin;
+    }
+
+    .catalogue-toolbar__filters button {
+      white-space: nowrap;
+      padding: 0.58rem 0.82rem;
+      font-size: 0.82rem;
+    }
+
     .catalogue-grid {
       grid-template-columns: 1fr;
+      gap: 0.95rem;
     }
   }
 </style>

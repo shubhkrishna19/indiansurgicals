@@ -11,7 +11,6 @@
     ".category-tile",
     ".section-title",
     ".catalogue-download",
-    ".catalogue-toolbar",
     ".contact-card",
     ".gallery-empty",
     ".leadership-card",
@@ -22,15 +21,11 @@
     ".quote-chip",
     ".quote-step",
     ".review-card",
-    ".section-list",
     ".status-card",
     ".trust-shell",
     ".variant-panel",
     ".preview-category",
     ".catalogue-grid__item",
-    ".subcategory-row span",
-    ".site-footer__grid > section",
-    ".site-footer__shipping",
   ];
 
   const HERO_GROUPS = [
@@ -71,9 +66,12 @@
     ]);
 
     gsap.registerPlugin(ScrollTrigger);
+    ScrollTrigger.config({ ignoreMobileResize: true });
+    gsap.ticker.lagSmoothing(500, 33);
 
     const context = gsap.context(() => {
       gsap.set("main", { opacity: 1 });
+      const isCompactViewport = window.matchMedia("(max-width: 960px)").matches;
 
       HERO_GROUPS.forEach((selector) => {
         const nodes = gsap.utils.toArray<HTMLElement>(selector);
@@ -81,21 +79,30 @@
 
         gsap.fromTo(
           nodes,
-          { autoAlpha: 0, y: 28 },
+          { autoAlpha: 0, y: isCompactViewport ? 16 : 22 },
           {
             autoAlpha: 1,
             y: 0,
-            duration: 0.9,
+            duration: isCompactViewport ? 0.48 : 0.58,
             ease: "power3.out",
-            stagger: 0.09,
+            stagger: isCompactViewport ? 0.035 : 0.05,
             force3D: true,
             clearProps: "opacity,visibility,transform",
           },
         );
       });
 
+      const scrubSelectors = isCompactViewport
+        ? SCRUB_SELECTORS.filter(
+            (selector) =>
+              !selector.includes(".review-card") &&
+              !selector.includes(".catalogue-grid__item") &&
+              !selector.includes(".variant-panel"),
+          )
+        : SCRUB_SELECTORS;
+
       const scrubNodes = Array.from(
-        new Set(SCRUB_SELECTORS.flatMap((selector) => gsap.utils.toArray<HTMLElement>(selector))),
+        new Set(scrubSelectors.flatMap((selector) => gsap.utils.toArray<HTMLElement>(selector))),
       );
 
       if (scrubNodes.length > 0) {
@@ -114,9 +121,9 @@
           gsap.fromTo(
             node,
             {
-              autoAlpha: 0.32,
-              y: isCardLike ? 30 : 20,
-              scale: isCardLike ? 0.982 : 0.992,
+              autoAlpha: isCardLike ? 0.82 : 0.9,
+              y: isCardLike ? (isCompactViewport ? 12 : 16) : 8,
+              scale: isCardLike ? 0.994 : 0.998,
               force3D: true,
             },
             {
@@ -127,9 +134,9 @@
               force3D: true,
               scrollTrigger: {
                 trigger: node,
-                start: "top 90%",
-                end: "top 68%",
-                scrub: 0.32,
+                start: "top 94%",
+                end: "top 80%",
+                scrub: 0.14,
                 invalidateOnRefresh: true,
               },
             },
@@ -142,13 +149,13 @@
         items.forEach((item) => {
           const speed = Number(item.getAttribute("data-parallax-speed") ?? "0.1");
           gsap.to(item, {
-            yPercent: speed * -34,
+            yPercent: speed * (isCompactViewport ? -10 : -18),
             ease: "none",
             scrollTrigger: {
               trigger: group,
               start: "top bottom",
               end: "bottom top",
-              scrub: 0.24,
+              scrub: 0.16,
               invalidateOnRefresh: true,
             },
           });

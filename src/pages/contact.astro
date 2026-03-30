@@ -318,6 +318,36 @@ const otherWebsiteHref = business.contact.website ? `https://${business.contact.
       grid-template-columns: 1fr;
     }
 
+    .contact-hero {
+      padding-top: 3.3rem;
+    }
+
+    .contact-hero__content {
+      gap: 0.95rem;
+    }
+
+    .contact-hero__content h1 {
+      font-size: clamp(2rem, 10vw, 3rem);
+      line-height: 1;
+      max-width: 11ch;
+    }
+
+    .contact-hero__copy {
+      font-size: 0.96rem;
+      line-height: 1.65;
+    }
+
+    .contact-hero__actions .button {
+      width: 100%;
+    }
+
+    .contact-hero__panel,
+    .contact-card,
+    .status-card,
+    .section-list {
+      padding: 1rem;
+    }
+
     .contact-card--email a {
       white-space: normal;
     }

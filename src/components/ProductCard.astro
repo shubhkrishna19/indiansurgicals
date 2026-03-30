@@ -189,4 +189,54 @@ const href = `/products/${family.categorySlug}/${family.slug}`;
     color: var(--color-text-muted);
     font-size: 0.82rem;
   }
+
+  @media (max-width: 720px) {
+    .family-card {
+      border-radius: 1.18rem;
+    }
+
+    .family-card__media {
+      aspect-ratio: 16 / 11;
+    }
+
+    .family-card__media img,
+    .family-card__placeholder {
+      padding: 0.8rem;
+    }
+
+    .family-card__badge,
+    .family-card__views {
+      bottom: 0.7rem;
+      font-size: 0.68rem;
+    }
+
+    .family-card__badge {
+      right: 0.7rem;
+      padding: 0.42rem 0.72rem;
+    }
+
+    .family-card__views {
+      left: 0.7rem;
+      padding: 0.38rem 0.66rem;
+    }
+
+    .family-card__body {
+      gap: 0.78rem;
+      padding: 0.95rem 0.95rem 1rem;
+    }
+
+    .family-card h3 {
+      font-size: 1rem;
+    }
+
+    .family-card__summary {
+      font-size: 0.89rem;
+      line-height: 1.55;
+    }
+
+    .family-card__footer {
+      font-size: 0.76rem;
+      padding-top: 0.78rem;
+    }
+  }
 </style>
