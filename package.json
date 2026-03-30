@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "prebuild": "python scripts/generate_catalogue.py",
+    "generate:catalogue": "python scripts/generate_catalogue.py",
     "check": "astro check",
     "build": "astro check && astro build",
     "preview": "astro preview",
