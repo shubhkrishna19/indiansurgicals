@@ -16,6 +16,10 @@ const categoryNames = new Map(categories.map((category) => [category.slug, categ
 const showcaseLeadOverrides = new Map([
   ["autoclaves", "autoclave-triple-wall-horizontal"],
 ]);
+const showcaseMediaAdjustments = new Set([
+  "autoclave-triple-wall-horizontal",
+  "multipurpose-fumigator",
+]);
 const showcaseFamilies = categories
   .reduce<ProductFamily[]>((collection, category) => {
     const categoryFamilies = [...getFamiliesByCategory(category.slug)].filter(
@@ -111,7 +115,13 @@ const primaryContactHref = getPrimaryContactHref();
       <div class="showcase-grid">
         {showcaseFamilies.map((family) => (
           <a href={`/products/${family.categorySlug}/${family.slug}`} class="showcase-card">
-            <div class="showcase-card__media">
+            <div
+              class:list={[
+                "showcase-card__media",
+                showcaseMediaAdjustments.has(family.slug) &&
+                  "showcase-card__media--featured-fit",
+              ]}
+            >
               {family.images[0] ? (
                 <img src={family.images[0]} alt={family.name} loading="lazy" />
               ) : (
@@ -682,6 +692,12 @@ const primaryContactHref = getPrimaryContactHref();
     max-height: 92%;
     object-fit: contain;
     object-position: center bottom;
+  }
+
+  .showcase-card__media--featured-fit img {
+    max-width: 84%;
+    max-height: 84%;
+    object-position: center 54%;
   }
 
   .showcase-card__placeholder {
