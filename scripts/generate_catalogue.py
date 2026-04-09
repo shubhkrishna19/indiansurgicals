@@ -99,83 +99,230 @@ CANONICAL_FAMILY_MERGES = {
 }
 
 
-CATEGORY_CONFIG = [
+AUTOCLAVE_FAMILY_NAME_OVERRIDES = {
+    "autoclave-fully-automatic-with-pre-post-vacuum-lcd-touch-screen-plc-hmi-automatic-exhaust-printer": (
+        "Autoclave Fully Automatic with Pre & Post Vacuum"
+    ),
+    "autoclave-horizontal-cylindrical-triple-wall-fully-automatic-with-plc-based-hmi-touch-panel-printer": (
+        "Autoclave Horizontal Cylindrical Triple Wall Fully Automatic"
+    ),
+    "autoclave-horizontal-rectangular-triple-wall-fully-automatic-with-plc-hmi-printer-with-pre-post-vacuum-water-feed-pump": (
+        "Autoclave Horizontal Rectangular Triple Wall Fully Automatic"
+    ),
+    "autoclave-portable-pressure-cooker-double-drums": "Autoclave Portable Pressure Cooker Double Drums",
+    "autoclave-vertical-double-wall-ss-radial-locking-with-digital-contorller-semi-automatic": (
+        "Autoclave Vertical Double Wall SS Radial Locking with Digital Controller"
+    ),
+    "autoclave-vertical-double-wall-with-digital-controller-nut-locking": (
+        "Autoclave Vertical Double Wall Nut Locking with Digital Controller"
+    ),
+    "autoclave-vertical-double-wall-ss-radial-locking": "Autoclave Vertical Double Wall SS Radial Locking",
+    "autoclave-vertical-triple-wall-hi-pressure-nut-locking": (
+        "Autoclave Vertical Triple Wall Hi-Pressure Nut Locking"
+    ),
+    "autoclave-vertical-triple-wall-radial-locking-with-steam-storag-vacuum-drying-feature-semi-automatic": (
+        "Autoclave Vertical Triple Wall Radial Locking with Steam Storage and Vacuum Drying"
+    ),
+    "autoclave-vertical-triple-wall-with-digital-controller-and-vacuum-drying-option-radial-type": (
+        "Autoclave Vertical Triple Wall Radial Type with Digital Controller and Vacuum Drying"
+    ),
+    "autoclave-vertical-triple-wall-with-steam-storage": "Autoclave Vertical Triple Wall with Steam Storage",
+    "autoclave-vertical-triple-wall-ss-radial-locking-with-digital-controller": (
+        "Autoclave Vertical Triple Wall SS Radial Locking with Digital Controller"
+    ),
+    "autoclave-vertival-triple-wall-radial-locking-with-steam-storage": (
+        "Autoclave Vertical Triple Wall Radial Locking with Steam Storage"
+    ),
+    "cylindrical-horizontal-autoclave-double-wall-semi-automatic": (
+        "Cylindrical Horizontal Autoclave Double Wall"
+    ),
+    "cylindrical-horizontal-autoclave-triple-wall-automatic-sterilization-cycle-with-automatic-steam-transfer-jacket-to-chamber-automatic-exhaust-vacuum": (
+        "Cylindrical Horizontal Autoclave Triple Wall Automatic"
+    ),
+    "table-top-autoclave-front-loading-b-class-with-vacuum-and-dry": (
+        "Table Top Autoclave Front Loading (B Class with Vacuum and Dry)"
+    ),
+    "table-top-front-loading-autoclave-n-class": "Table Top Front Loading Autoclave (N Class)",
+    "table-top-front-loading-autoclave-b-class-with-vacuum-and-dry-cycle": (
+        "Table Top Front Loading Autoclave (B Class with Vacuum and Dry Cycle)"
+    ),
+    "triple-wall-vertical-hi-pressure-nut-locking": "Triple Wall Vertical Hi-Pressure Nut Locking",
+    "triple-wall-vertical-hi-pressure-nut-steam-storage-vacuum-drying-feature": (
+        "Triple Wall Vertical Hi-Pressure Nut Locking with Steam Storage and Vacuum Drying"
+    ),
+}
+
+
+AUTOCLAVE_FAMILY_IMAGE_OVERRIDES = {
+    "autoclave-aluminium-p-type": [
+        "/catalogue-media-hq/autoclave-p-type.jpg",
+        "/catalogue-media-hq/autoclave.jpg",
+    ],
+    "autoclave-aluminium-p-type-with-digital-controller": [
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-indiamart/26097083473.jpeg",
+    ],
+    "autoclave-double-wall-horizontal": [
+        "/catalogue-media-indiamart/27300292730.jpeg",
+    ],
+    "autoclave-fully-automatic-with-pre-post-vacuum-lcd-touch-screen-plc-hmi-automatic-exhaust-printer": [
+        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
+        "/catalogue-media-indiamart/27300292212.jpeg",
+    ],
+    "autoclave-horizontal-cylindrical-triple-wall-fully-automatic-with-plc-based-hmi-touch-panel-printer": [
+        "/catalogue-media-indiamart/26097168730.jpeg",
+    ],
+    "autoclave-horizontal-rectangular-triple-wall-fully-automatic-with-plc-hmi-printer-with-pre-post-vacuum-water-feed-pump": [
+        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
+        "/catalogue-media-indiamart/26097237633.jpeg",
+    ],
+    "autoclave-portable": [
+        "/catalogue-media-indiamart/27294448262.jpeg",
+    ],
+    "autoclave-stainless-steel-p-type": [
+        "/catalogue-media-indiamart/27294448691.jpeg",
+    ],
+    "autoclave-triple-wall-horizontal": [
+        "/catalogue-media-indiamart/26097168730.jpeg",
+    ],
+    "autoclave-vertical-double-wall-ss-radial-locking-with-digital-contorller-semi-automatic": [
+        "/catalogue-media-indiamart/23804592697.jpg",
+    ],
+    "autoclave-vertical-double-wall-with-digital-controller-nut-locking": [
+        "/catalogue-media-indiamart/23829851491.jpeg",
+    ],
+    "autoclave-vertical-double-wall-ss-radial-locking": [
+        "/catalogue-media-indiamart/23802526533.jpg",
+    ],
+    "autoclave-vertical-stainless-steel-double-wall": [
+        "/catalogue-media-indiamart/26097286012.jpeg",
+    ],
+    "autoclave-vertical-triple-wall-hi-pressure-nut-locking": [
+        "/catalogue-media-indiamart/27575322588.jpg",
+    ],
+    "autoclave-vertical-triple-wall-with-steam-storage": [
+        "/catalogue-media-indiamart/23804588933.jpeg",
+    ],
+    "autoclave-vertical-triple-wall-ss-radial-locking-with-digital-controller": [
+        "/catalogue-media-indiamart/26097084191.jpeg",
+    ],
+    "autoclave-vertival-triple-wall-radial-locking-with-steam-storage": [
+        "/catalogue-media-indiamart/27300292212.jpeg",
+    ],
+    "autoclave-with-timer": [
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-indiamart/26097083473.jpeg",
+    ],
+    "cylindrical-horizontal-autoclave-triple-wall-automatic-sterilization-cycle-with-automatic-steam-transfer-jacket-to-chamber-automatic-exhaust-vacuum": [
+        "/catalogue-media-indiamart/26097168730.jpeg",
+    ],
+    "table-top-front-loading-autoclave-b-class-with-vacuum-and-dry-cycle": [
+        "/catalogue-media-indiamart/26097167948.jpeg",
+    ],
+    "triple-wall-vertical-hi-pressure-nut-locking": [
+        "/catalogue-media-indiamart/27575322588.jpg",
+    ],
+}
+
+
+PUBLIC_CATEGORY_CONFIG = [
     {
-        "slug": "autoclaves",
-        "name": "Autoclaves",
-        "summary": "Portable, vertical, horizontal, dental, semi automatic, and fully automatic sterilization systems.",
-        "intro": "Sterilization systems for clinics, hospitals, CSSD workflows, and institutional setups.",
+        "slug": "autoclaves-and-sterilizers",
+        "name": "Autoclaves and Sterilizers",
+        "summary": "Portable, horizontal, table-top, and sterilizer ranges presented in the same public bucket used on IndiaMART.",
+        "intro": "Review autoclaves, pressure cooker types, horizontal systems, and sterilizer models in one combined range.",
         "order": 1,
     },
     {
-        "slug": "sterilizers",
-        "name": "Sterilizers",
-        "summary": "Instrument and utensil sterilizers in multiple constructions, sizes, and heating formats.",
-        "intro": "Dedicated sterilizer ranges for instrument handling, tray lifting, and routine utility sterilization.",
+        "slug": "vertical-autoclave",
+        "name": "Vertical Autoclave",
+        "summary": "Vertical autoclave models including double wall, triple wall, radial locking, nut locking, and steam storage variants.",
+        "intro": "Browse the vertical autoclave range by construction, controller option, and locking format.",
         "order": 2,
+    },
+    {
+        "slug": "hospital-furnitures",
+        "name": "Hospital Furnitures",
+        "summary": "General hospital furniture, examination couches, attendant beds, chairs, and procedural support units.",
+        "intro": "Browse general hospital furniture for patient support, examination, recovery, and everyday clinical use.",
+        "order": 3,
+    },
+    {
+        "slug": "hospital-bed",
+        "name": "Hospital Bed",
+        "summary": "Hospital bed, Fowler bed, ICU bed, mattress, and related patient bed systems.",
+        "intro": "Review hospital bed and ICU bed options, along with Fowler beds, mattresses, and bed-side accessories.",
+        "order": 4,
+    },
+    {
+        "slug": "operation-tables",
+        "name": "Operation Tables",
+        "summary": "Operation tables, hydraulic operating tables, labour tables, and OT support tables.",
+        "intro": "Compare operation table configurations used for OT, labour, and procedure-room requirements.",
+        "order": 5,
     },
     {
         "slug": "hospital-hollowares",
         "name": "Hospital Hollowares",
-        "summary": "Dressing drums, trays, kidney trays, bowls, basins, jars, and ward utility stainless steel products.",
-        "intro": "Stainless steel holloware for OT, ward, dressing, and general hospital utility use.",
-        "order": 3,
-    },
-    {
-        "slug": "suction-units",
-        "name": "Suction Units",
-        "summary": "Electric, manual, portable, ambulance, pediatric, and foot-operated suction solutions.",
-        "intro": "Suction systems and accessories for general procedures, transport, and emergency applications.",
-        "order": 4,
-    },
-    {
-        "slug": "needle-destroyers",
-        "name": "Needle Destroyers",
-        "summary": "Manual and electrical needle and syringe destruction solutions.",
-        "intro": "Compact disposal support products for safer sharps handling workflows.",
-        "order": 5,
-    },
-    {
-        "slug": "fumigators-foggers",
-        "name": "Fumigators and Foggers",
-        "summary": "Portable fumigation and fogging equipment for disinfection and controlled application.",
-        "intro": "Disinfection support products for hospital and facility hygiene routines.",
+        "summary": "Dressing drums, bowls, basins, jars, bedpans, and hospital utility stainless steel products.",
+        "intro": "Browse holloware products used for dressing, ward utility, sterilization support, and bedside care.",
         "order": 6,
     },
     {
-        "slug": "x-ray-illuminators",
-        "name": "X-Ray Illuminators",
-        "summary": "Single, double, multi-film, and slim X-ray viewer systems.",
-        "intro": "Illumination systems for film viewing and diagnostic interpretation workflows.",
+        "slug": "hospital-utensils",
+        "name": "Hospital Utensils",
+        "summary": "Public utility items and mixed hospital-use products grouped the same way as the IndiaMART listing.",
+        "intro": "Review selected hospital utility products grouped under the public IndiaMART utensils range.",
         "order": 7,
     },
     {
-        "slug": "hospital-furniture",
-        "name": "Hospital Furniture",
-        "summary": "ICU beds, Fowler beds, couches, delivery tables, operation tables, and patient furniture.",
-        "intro": "Patient care furniture, beds, couches, and procedural support platforms for healthcare facilities.",
+        "slug": "stainless-steel-tray",
+        "name": "Stainless Steel Tray",
+        "summary": "Kidney trays, dental trays, catheter trays, instrument trays, and other stainless steel tray products.",
+        "intro": "Open the tray range to compare stainless steel tray formats used across OT and ward routines.",
         "order": 8,
+    },
+    {
+        "slug": "suction-machines",
+        "name": "Suction Machines",
+        "summary": "Electric, manual, pediatric, deluxe, and foot-operated suction systems.",
+        "intro": "Browse suction machine configurations for hospital, transport, and procedural applications.",
+        "order": 9,
     },
     {
         "slug": "ward-equipments",
         "name": "Ward Equipments",
-        "summary": "Ward utility trolleys, stools, bins, cabinets, cradles, and daily-use support equipment.",
-        "intro": "Hospital support equipment for ward organization, bedside utility, and movement inside facilities.",
-        "order": 9,
+        "summary": "Ward utility trolleys, stools, cabinets, screens, stands, and patient support accessories.",
+        "intro": "Review ward support equipment used for movement, bedside utility, storage, and daily hospital workflow.",
+        "order": 10,
     },
     {
         "slug": "patient-transfer-trolleys",
         "name": "Patient Transfer Trolleys",
-        "summary": "Stretchers, emergency recovery trolleys, and transfer solutions.",
-        "intro": "Transfer and movement equipment for emergency, recovery, and intra-facility transport.",
-        "order": 10,
+        "summary": "Stretchers, ambulance stretchers, spine boards, and patient transfer products.",
+        "intro": "Browse patient transfer and emergency movement products for hospital and ambulance use.",
+        "order": 11,
     },
     {
-        "slug": "operation-theater-lights",
-        "name": "Operation Theater Lights",
-        "summary": "Examination lights and OT light systems in mobile, ceiling, and twin ceiling configurations.",
-        "intro": "Lighting systems for examination, OT, and procedure rooms.",
-        "order": 11,
+        "slug": "operation-theatre-lights",
+        "name": "Operation Theatre Lights",
+        "summary": "Mobile, ceiling, twin, and LED operation theatre light systems.",
+        "intro": "Review OT light options for operation theatres, examination rooms, and procedure lighting.",
+        "order": 12,
+    },
+    {
+        "slug": "x-ray-illuminators",
+        "name": "X-Ray Illuminators",
+        "summary": "Single, double, and multi-film X-ray viewer systems from the official catalogue range.",
+        "intro": "Browse X-ray illuminator models retained from the official catalogue range.",
+        "order": 13,
+    },
+    {
+        "slug": "needle-destroyers",
+        "name": "Needle Destroyers",
+        "summary": "Manual and electrical needle destroyer products from the official catalogue range.",
+        "intro": "Review needle destroyer options retained from the official catalogue range.",
+        "order": 14,
     },
 ]
 
@@ -1729,6 +1876,183 @@ def prioritize_images(images: list[str]) -> list[str]:
     return sorted(valid_images, key=image_priority)
 
 
+def apply_autoclave_family_overrides(family: dict[str, Any]) -> list[str] | None:
+    if family.get("categorySlug") != "autoclaves":
+        return None
+
+    override_name = AUTOCLAVE_FAMILY_NAME_OVERRIDES.get(family["slug"])
+    if override_name:
+        family["name"] = override_name
+
+    for variant in family.get("variants", []):
+        if not variant.get("displayName"):
+            variant["displayName"] = family["name"]
+
+    override_images = [
+        image
+        for image in AUTOCLAVE_FAMILY_IMAGE_OVERRIDES.get(family["slug"], [])
+        if image and image not in INVALID_IMAGE_PATHS
+    ]
+    if not override_images:
+        return None
+
+    curated_images = unique_preserve(override_images)
+    family["images"] = curated_images[:10]
+    for variant in family.get("variants", []):
+        variant["images"] = curated_images[:10]
+        variant["displayName"] = family["name"]
+    return curated_images[:10]
+
+
+INDIAMART_PUBLIC_CATEGORY_MAP = {
+    "autoclaves-and-sterilizers.html": "autoclaves-and-sterilizers",
+    "hospital-furnitures.html": "hospital-furnitures",
+    "hospital-hollowares.html": "hospital-hollowares",
+    "hospital-utensils.html": "hospital-utensils",
+    "hospital-bed.html": "hospital-bed",
+    "operation-tables.html": "operation-tables",
+    "operation-theatre-lights.html": "operation-theatre-lights",
+    "patient-transfer-trolleys.html": "patient-transfer-trolleys",
+    "stainless-steel-tray.html": "stainless-steel-tray",
+    "suction-machines.html": "suction-machines",
+    "vertical-autoclave.html": "vertical-autoclave",
+    "ward-equipments.html": "ward-equipments",
+}
+
+
+def dominant_indiamart_public_category(family: dict[str, Any]) -> str:
+    page_counts: dict[str, int] = {}
+    for ref in family.get("sourceRefs", []):
+        if ref.get("workbook") != "IndiaMART":
+            continue
+        page = ref.get("sheet")
+        slug = INDIAMART_PUBLIC_CATEGORY_MAP.get(page)
+        if not slug:
+            continue
+        page_counts[slug] = page_counts.get(slug, 0) + 1
+    if not page_counts:
+        return ""
+    return max(page_counts.items(), key=lambda item: item[1])[0]
+
+
+def determine_public_category_slug(family: dict[str, Any]) -> str:
+    current_slug = family.get("categorySlug", "")
+    normalized_text = normalize_key(
+        " ".join(
+            [
+                family.get("name", ""),
+                family.get("subheading", ""),
+                " ".join(variant.get("model", "") for variant in family.get("variants", [])[:6]),
+            ]
+        )
+    )
+    dominant_page_slug = dominant_indiamart_public_category(family)
+
+    tray_keywords = (
+        " tray",
+        "trays",
+        "kidney tray",
+        "catheter tray",
+        "cidex tray",
+        "dental tray",
+        "instrument tray",
+        "mayo and dental",
+    )
+    bed_keywords = (
+        "hospital bed",
+        "fowler bed",
+        "icu bed",
+        "semi fowler",
+        "mattress",
+        "pediatric bed",
+        "delivery bed",
+        "delivery table",
+        "spica table",
+    )
+    operation_table_keywords = (
+        "operation table",
+        "operating table",
+        "hydraulic operation",
+        "hydraulic surgical",
+        "c-arm",
+        "labour table",
+        "obstetric",
+        "gynaec examination table",
+    )
+    transfer_keywords = (
+        "stretcher",
+        "spine board",
+        "ambulance",
+        "transfer trolley",
+    )
+    ward_keywords = (
+        "screen",
+        "stool",
+        "cardiac table",
+        "utility trolley",
+        "medicine trolley",
+        "kick bowl",
+        "foot step",
+        "wash basin stand",
+        "medicine cupboard",
+        "baby bassinet",
+        "baby cradle",
+        "oxygen cylinder",
+        "instrument trolley",
+        "mayo",
+        "wheelchair",
+        "dressing trolley",
+        "linen trolley",
+        "i.v",
+        "iv stand",
+        "surgeon chair",
+        "waiting area chair",
+        "patient's opd couch",
+    )
+
+    if "x ray" in normalized_text or "x-ray" in normalized_text or "illuminator" in normalized_text:
+        return "x-ray-illuminators"
+    if "needle destroy" in normalized_text:
+        return "needle-destroyers"
+    if "suction" in normalized_text or "vacuum extractor" in normalized_text:
+        return "suction-machines"
+    if "fumigator" in normalized_text or "fogger" in normalized_text:
+        return "hospital-utensils"
+    if "autoclave" in normalized_text:
+        if "vertical" in normalized_text or dominant_page_slug == "vertical-autoclave":
+            return "vertical-autoclave"
+        return "autoclaves-and-sterilizers"
+    if "sterilizer" in normalized_text or current_slug == "sterilizers":
+        return "autoclaves-and-sterilizers"
+    if any(keyword in normalized_text for keyword in operation_table_keywords):
+        return "operation-tables"
+    if any(keyword in normalized_text for keyword in bed_keywords):
+        return "hospital-bed"
+    if any(keyword in normalized_text for keyword in transfer_keywords):
+        return "patient-transfer-trolleys"
+    if any(keyword in normalized_text for keyword in tray_keywords):
+        return "stainless-steel-tray"
+    if any(keyword in normalized_text for keyword in ward_keywords):
+        return "ward-equipments"
+    if dominant_page_slug:
+        return dominant_page_slug
+    if current_slug == "hospital-furniture":
+        return "hospital-furnitures"
+    if current_slug == "hospital-hollowares":
+        return "hospital-hollowares"
+    if current_slug == "suction-units":
+        return "suction-machines"
+    if current_slug == "operation-theater-lights":
+        return "operation-theatre-lights"
+    if current_slug == "patient-transfer-trolleys":
+        return "patient-transfer-trolleys"
+    if current_slug == "ward-equipments":
+        return "ward-equipments"
+    if current_slug == "fumigators-foggers":
+        return "hospital-utensils"
+    return current_slug
+
+
 def score_indiamart_match(
     family: dict[str, Any], variant: dict[str, Any], product: dict[str, Any]
 ) -> int:
@@ -2115,6 +2439,7 @@ def build_catalogue() -> tuple[dict[str, Any], dict[str, Any]]:
     image_report: list[dict[str, Any]] = []
     for family in family_list:
         family["variants"].sort(key=lambda item: item["model"])
+        override_images = apply_autoclave_family_overrides(family)
         if not family["summary"]:
             family["summary"] = (
                 f"Available in {len(family['variants'])} model option{'s' if len(family['variants']) != 1 else ''}."
@@ -2137,16 +2462,23 @@ def build_catalogue() -> tuple[dict[str, Any], dict[str, Any]]:
                 if attribute["label"] not in labels:
                     labels.append(attribute["label"])
         family["tableColumns"] = ["Model"] + labels
-        hq_family_images = collect_hq_family_images(
-            family["categorySlug"],
-            family["name"],
-            family.get("subheading", ""),
-            hq_images,
-        )
-        family["images"] = prioritize_images(family["images"] + hq_family_images)[:10]
+        hq_family_images: list[str] = []
+        if override_images is None:
+            hq_family_images = collect_hq_family_images(
+                family["categorySlug"],
+                family["name"],
+                family.get("subheading", ""),
+                hq_images,
+            )
+            family["images"] = prioritize_images(family["images"] + hq_family_images)[:10]
+        else:
+            family["images"] = unique_preserve(override_images)[:10]
         family["notes"] = unique_preserve(family["notes"])
         for variant in family["variants"]:
-            variant["images"] = prioritize_images(variant.get("images", []) + family["images"])[:10]
+            if override_images is None:
+                variant["images"] = prioritize_images(variant.get("images", []) + family["images"])[:10]
+            else:
+                variant["images"] = unique_preserve(override_images)[:10]
             if variant.get("descriptionLines"):
                 variant["descriptionLines"] = unique_preserve(variant["descriptionLines"])
         image_report.append(
@@ -2159,8 +2491,14 @@ def build_catalogue() -> tuple[dict[str, Any], dict[str, Any]]:
             }
         )
 
+    for family in family_list:
+        family["legacyCategorySlug"] = family["categorySlug"]
+        family["categorySlug"] = determine_public_category_slug(family)
+
+    family_list = sorted(family_list, key=lambda item: (item["categorySlug"], item["name"]))
+
     categories: list[dict[str, Any]] = []
-    for category in CATEGORY_CONFIG:
+    for category in PUBLIC_CATEGORY_CONFIG:
         related = [family for family in family_list if family["categorySlug"] == category["slug"]]
         preview_images: list[str] = []
         for family in related:

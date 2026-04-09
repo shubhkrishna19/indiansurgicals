@@ -22,55 +22,40 @@
     {
       "family": "Autoclave Aluminium 'P' Type",
       "categorySlug": "autoclaves",
-      "matchedHqImages": 4,
-      "finalImages": 6,
+      "matchedHqImages": 0,
+      "finalImages": 2,
       "images": [
-        "/catalogue-media-hq/autoclave-2.jpg",
-        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
         "/catalogue-media-hq/autoclave-p-type.jpg",
-        "/catalogue-media-hq/autoclave.jpg",
-        "/catalogue-media/image110.png",
-        "/catalogue-media/image146.png"
+        "/catalogue-media-hq/autoclave.jpg"
       ]
     },
     {
       "family": "Autoclave Aluminium 'P' Type With Digital Controller",
       "categorySlug": "autoclaves",
-      "matchedHqImages": 5,
-      "finalImages": 6,
+      "matchedHqImages": 0,
+      "finalImages": 2,
       "images": [
-        "/catalogue-media-hq/autoclave-2.jpg",
         "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
-        "/catalogue-media-hq/autoclave-p-type.jpg",
-        "/catalogue-media-hq/autoclave.jpg",
-        "/catalogue-media-hq/p-type-with-controller.jpg",
-        "/catalogue-media/image111.png"
+        "/catalogue-media-indiamart/26097083473.jpeg"
       ]
     },
     {
       "family": "Autoclave Double Wall Horizontal",
       "categorySlug": "autoclaves",
-      "matchedHqImages": 4,
-      "finalImages": 5,
+      "matchedHqImages": 0,
+      "finalImages": 1,
       "images": [
-        "/catalogue-media-hq/autoclave-2.jpg",
-        "/catalogue-media-hq/autoclave-double-wall.jpg",
-        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
-        "/catalogue-media-hq/autoclave.jpg",
-        "/catalogue-media/image71.png"
+        "/catalogue-media-indiamart/27300292730.jpeg"
       ]
     },
     {
-      "family": "Autoclave Fully Automatic with Pre & Post vacuum, LCD touch screen , PLC, HMI, Automatic Exhaust & Printer.",
+      "family": "Autoclave Fully Automatic with Pre & Post Vacuum",
       "categorySlug": "autoclaves",
-      "matchedHqImages": 4,
-      "finalImages": 5,
+      "matchedHqImages": 0,
+      "finalImages": 2,
       "images": [
-        "/catalogue-media-hq/autoclave-2.jpg",
         "/catalogue-media-hq/autoclave-fully-automatic.jpg",
-        "/catalogue-media-hq/autoclave.jpg",
-        "/catalogue-media-hq/fully-automatic-1.png",
-        "/catalogue-media/image152.png"
+        "/catalogue-media-indiamart/27300292212.jpeg"
       ]
     },
     {
@@ -90,34 +75,22 @@
       ]
     },
     {
-      "family": "Autoclave Horizontal Cylindrical, Triple Wall ,Fully Automatic with PLC Based, HMI, touch panel & printer",
+      "family": "Autoclave Horizontal Cylindrical Triple Wall Fully Automatic",
       "categorySlug": "autoclaves",
-      "matchedHqImages": 6,
-      "finalImages": 8,
+      "matchedHqImages": 0,
+      "finalImages": 1,
       "images": [
-        "/catalogue-media-hq/autoclave-2.jpg",
-        "/catalogue-media-hq/autoclave-double-wall.jpg",
-        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
-        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
-        "/catalogue-media-hq/autoclave.jpg",
-        "/catalogue-media-hq/fully-automatic-1.png",
-        "/catalogue-media/image142.png",
-        "/catalogue-media/image143.png"
+        "/catalogue-media-indiamart/26097168730.jpeg"
       ]
     },
     {
-      "family": "Autoclave Horizontal Rectangular, Triple Wall ,Fully Automatic with PLC, HMI , Printer with Pre & Post Vacuum & Water Feed Pump.",
+      "family": "Autoclave Horizontal Rectangular Triple Wall Fully Automatic",
       "categorySlug": "autoclaves",
-      "matchedHqImages": 6,
-      "finalImages": 7,
+      "matchedHqImages": 0,
+      "finalImages": 2,
       "images": [
-        "/catalogue-media-hq/autoclave-2.jpg",
-        "/catalogue-media-hq/autoclave-double-wall.jpg",
-        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
         "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
-        "/catalogue-media-hq/autoclave.jpg",
-        "/catalogue-media-hq/fully-automatic-1.png",
-        "/catalogue-media/image141.png"
+        "/catalogue-media-indiamart/26097237633.jpeg"
       ]
     },
     {
@@ -136,17 +109,10 @@
     {
       "family": "Autoclave Portable",
       "categorySlug": "autoclaves",
-      "matchedHqImages": 8,
-      "finalImages": 9,
+      "matchedHqImages": 0,
+      "finalImages": 1,
       "images": [
-        "/catalogue-media-hq/autoclave-2.jpg",
-        "/catalogue-media-hq/autoclave-double-wall.jpg",
-        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
-        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
-        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
-        "/catalogue-media-hq/autoclave-p-type.jpg",
-        "/catalogue-media-hq/autoclave-wing-nut-type.jpg",
-        "/catalogue-media-hq/autoclave.jpg"
+        "/catalogue-media-indiamart/27294448262.jpeg"
       ]
     },
     {
@@ -179,7 +145,7 @@
       ]
     },
     {
-      "family": "Autoclave Portable Pressure Cooker double drums",
+      "family": "Autoclave Portable Pressure Cooker Double Drums",
       "categorySlug": "autoclaves",
       "matchedHqImages": 5,
       "finalImages": 6,
@@ -223,30 +189,19 @@
     {
       "family": "Autoclave Stainless Steel 'P' Type",
       "categorySlug": "autoclaves",
-      "matchedHqImages": 4,
-      "finalImages": 5,
+      "matchedHqImages": 0,
+      "finalImages": 1,
       "images": [
-        "/catalogue-media-hq/autoclave-2.jpg",
-        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
-        "/catalogue-media-hq/autoclave-p-type.jpg",
-        "/catalogue-media-hq/autoclave.jpg",
-        "/catalogue-media/image147.png"
+        "/catalogue-media-indiamart/27294448691.jpeg"
       ]
     },
     {
       "family": "Autoclave Triple Wall Horizontal",
       "categorySlug": "autoclaves",
-      "matchedHqImages": 8,
-      "finalImages": 9,
+      "matchedHqImages": 0,
+      "finalImages": 1,
       "images": [
-        "/catalogue-media-hq/autoclave-2.jpg",
-        "/catalogue-media-hq/autoclave-double-wall.jpg",
-        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
-        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
-        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
-        "/catalogue-media-hq/autoclave-p-type.jpg",
-        "/catalogue-media-hq/autoclave-wing-nut-type.jpg",
-        "/catalogue-media-hq/autoclave.jpg"
+        "/catalogue-media-indiamart/26097168730.jpeg"
       ]
     },
     {
@@ -292,43 +247,30 @@
       ]
     },
     {
-      "family": "Autoclave Vertical Double Wall SS Radial Locking With Digital Contorller (Semi Automatic)",
+      "family": "Autoclave Vertical Double Wall SS Radial Locking with Digital Controller",
       "categorySlug": "autoclaves",
-      "matchedHqImages": 5,
-      "finalImages": 5,
+      "matchedHqImages": 0,
+      "finalImages": 1,
       "images": [
-        "/catalogue-media-hq/autoclave-2.jpg",
-        "/catalogue-media-hq/autoclave-double-wall.jpg",
-        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
-        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
-        "/catalogue-media-hq/autoclave.jpg"
+        "/catalogue-media-indiamart/23804592697.jpg"
       ]
     },
     {
-      "family": "Autoclave Vertical Double Wall with Digital Controller nut locking",
+      "family": "Autoclave Vertical Double Wall Nut Locking with Digital Controller",
       "categorySlug": "autoclaves",
-      "matchedHqImages": 6,
-      "finalImages": 7,
+      "matchedHqImages": 0,
+      "finalImages": 1,
       "images": [
-        "/catalogue-media-hq/autoclave-2.jpg",
-        "/catalogue-media-hq/autoclave-double-wall.jpg",
-        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
-        "/catalogue-media-hq/autoclave-wing-nut-type.jpg",
-        "/catalogue-media-hq/autoclave.jpg",
-        "/catalogue-media-hq/p-type-with-controller.jpg",
-        "/catalogue-media/image64.jpeg"
+        "/catalogue-media-indiamart/23829851491.jpeg"
       ]
     },
     {
-      "family": "Autoclave Vertical Double wall SS Radial Locking",
+      "family": "Autoclave Vertical Double Wall SS Radial Locking",
       "categorySlug": "autoclaves",
-      "matchedHqImages": 3,
-      "finalImages": 4,
+      "matchedHqImages": 0,
+      "finalImages": 1,
       "images": [
-        "/catalogue-media-hq/autoclave-2.jpg",
-        "/catalogue-media-hq/autoclave-double-wall.jpg",
-        "/catalogue-media-hq/autoclave.jpg",
-        "/catalogue-media/image67.jpeg"
+        "/catalogue-media-indiamart/23802526533.jpg"
       ]
     },
     {
@@ -349,14 +291,10 @@
     {
       "family": "Autoclave Vertical Stainless Steel Double Wall",
       "categorySlug": "autoclaves",
-      "matchedHqImages": 3,
-      "finalImages": 5,
+      "matchedHqImages": 0,
+      "finalImages": 1,
       "images": [
-        "/catalogue-media-hq/autoclave-2.jpg",
-        "/catalogue-media-hq/autoclave-double-wall.jpg",
-        "/catalogue-media-hq/autoclave.jpg",
-        "/catalogue-media/image112.png",
-        "/catalogue-media/image63.jpeg"
+        "/catalogue-media-indiamart/26097286012.jpeg"
       ]
     },
     {
@@ -392,23 +330,16 @@
       ]
     },
     {
-      "family": "Autoclave Vertical Triple Wall Hi- Pressure Nut Locking",
+      "family": "Autoclave Vertical Triple Wall Hi-Pressure Nut Locking",
       "categorySlug": "autoclaves",
-      "matchedHqImages": 8,
-      "finalImages": 9,
+      "matchedHqImages": 0,
+      "finalImages": 1,
       "images": [
-        "/catalogue-media-hq/autoclave-2.jpg",
-        "/catalogue-media-hq/autoclave-double-wall.jpg",
-        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
-        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
-        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
-        "/catalogue-media-hq/autoclave-p-type.jpg",
-        "/catalogue-media-hq/autoclave-wing-nut-type.jpg",
-        "/catalogue-media-hq/autoclave.jpg"
+        "/catalogue-media-indiamart/27575322588.jpg"
       ]
     },
     {
-      "family": "Autoclave Vertical Triple Wall Radial locking with Steam storag & Vacuum drying Feature(Semi Automatic)",
+      "family": "Autoclave Vertical Triple Wall Radial Locking with Steam Storage and Vacuum Drying",
       "categorySlug": "autoclaves",
       "matchedHqImages": 5,
       "finalImages": 7,
@@ -423,7 +354,7 @@
       ]
     },
     {
-      "family": "Autoclave Vertical Triple Wall With Digital Controller And Vacuum Drying Option , Radial Type",
+      "family": "Autoclave Vertical Triple Wall Radial Type with Digital Controller and Vacuum Drying",
       "categorySlug": "autoclaves",
       "matchedHqImages": 5,
       "finalImages": 6,
@@ -439,64 +370,38 @@
     {
       "family": "Autoclave Vertical Triple Wall with Steam Storage",
       "categorySlug": "autoclaves",
-      "matchedHqImages": 8,
-      "finalImages": 9,
+      "matchedHqImages": 0,
+      "finalImages": 1,
       "images": [
-        "/catalogue-media-hq/autoclave-2.jpg",
-        "/catalogue-media-hq/autoclave-double-wall.jpg",
-        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
-        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
-        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
-        "/catalogue-media-hq/autoclave-p-type.jpg",
-        "/catalogue-media-hq/autoclave-wing-nut-type.jpg",
-        "/catalogue-media-hq/autoclave.jpg"
+        "/catalogue-media-indiamart/23804588933.jpeg"
       ]
     },
     {
-      "family": "Autoclave Vertical Triple wall SS Radial Locking with Digital controller",
+      "family": "Autoclave Vertical Triple Wall SS Radial Locking with Digital Controller",
       "categorySlug": "autoclaves",
-      "matchedHqImages": 5,
-      "finalImages": 7,
+      "matchedHqImages": 0,
+      "finalImages": 1,
       "images": [
-        "/catalogue-media-indiamart/26097286191.jpeg",
-        "/catalogue-media-hq/autoclave-2.jpg",
-        "/catalogue-media-hq/autoclave-double-wall.jpg",
-        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
-        "/catalogue-media-hq/autoclave.jpg",
-        "/catalogue-media-hq/p-type-with-controller.jpg",
-        "/catalogue-media/image69.png"
+        "/catalogue-media-indiamart/26097084191.jpeg"
       ]
     },
     {
-      "family": "Autoclave Vertival Triple Wall Radial locking with Steam storage.",
+      "family": "Autoclave Vertical Triple Wall Radial Locking with Steam Storage",
       "categorySlug": "autoclaves",
-      "matchedHqImages": 8,
-      "finalImages": 9,
+      "matchedHqImages": 0,
+      "finalImages": 1,
       "images": [
-        "/catalogue-media-hq/autoclave-2.jpg",
-        "/catalogue-media-hq/autoclave-double-wall.jpg",
-        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
-        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
-        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
-        "/catalogue-media-hq/autoclave-p-type.jpg",
-        "/catalogue-media-hq/autoclave-wing-nut-type.jpg",
-        "/catalogue-media-hq/autoclave.jpg"
+        "/catalogue-media-indiamart/27300292212.jpeg"
       ]
     },
     {
       "family": "Autoclave with Timer",
       "categorySlug": "autoclaves",
-      "matchedHqImages": 8,
-      "finalImages": 9,
+      "matchedHqImages": 0,
+      "finalImages": 2,
       "images": [
-        "/catalogue-media-hq/autoclave-2.jpg",
-        "/catalogue-media-hq/autoclave-double-wall.jpg",
-        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
-        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
         "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
-        "/catalogue-media-hq/autoclave-p-type.jpg",
-        "/catalogue-media-hq/autoclave-wing-nut-type.jpg",
-        "/catalogue-media-hq/autoclave.jpg"
+        "/catalogue-media-indiamart/26097083473.jpeg"
       ]
     },
     {
@@ -513,33 +418,25 @@
       ]
     },
     {
-      "family": "Cylindrical Horizontal Autoclave Double Wall (Semi Automatic)",
+      "family": "Cylindrical Horizontal Autoclave Double Wall",
       "categorySlug": "autoclaves",
-      "matchedHqImages": 5,
-      "finalImages": 6,
+      "matchedHqImages": 4,
+      "finalImages": 5,
       "images": [
         "/catalogue-media-indiamart/27300292730.jpeg",
         "/catalogue-media-hq/autoclave-2.jpg",
         "/catalogue-media-hq/autoclave-double-wall.jpg",
-        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
         "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
         "/catalogue-media-hq/autoclave.jpg"
       ]
     },
     {
-      "family": "Cylindrical Horizontal Autoclave Triple Wall, Automatic Sterilization cycle with automatic steam transfer Jacket to Chamber Automatic exhaust & vacuum",
+      "family": "Cylindrical Horizontal Autoclave Triple Wall Automatic",
       "categorySlug": "autoclaves",
-      "matchedHqImages": 8,
-      "finalImages": 8,
+      "matchedHqImages": 0,
+      "finalImages": 1,
       "images": [
-        "/catalogue-media-hq/autoclave-2.jpg",
-        "/catalogue-media-hq/autoclave-double-wall.jpg",
-        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
-        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
-        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
-        "/catalogue-media-hq/autoclave-p-type.jpg",
-        "/catalogue-media-hq/autoclave-wing-nut-type.jpg",
-        "/catalogue-media-hq/autoclave.jpg"
+        "/catalogue-media-indiamart/26097168730.jpeg"
       ]
     },
     {
@@ -679,7 +576,7 @@
       ]
     },
     {
-      "family": "Table Top Autoclave Front Loading (b Class) With Vacuum And Dry",
+      "family": "Table Top Autoclave Front Loading (B Class with Vacuum and Dry)",
       "categorySlug": "autoclaves",
       "matchedHqImages": 3,
       "finalImages": 4,
@@ -691,7 +588,7 @@
       ]
     },
     {
-      "family": "Table top front loading Autoclave ( N Class )",
+      "family": "Table Top Front Loading Autoclave (N Class)",
       "categorySlug": "autoclaves",
       "matchedHqImages": 3,
       "finalImages": 4,
@@ -703,35 +600,25 @@
       ]
     },
     {
-      "family": "Table top front loading Autoclave. (B Class with vacuum and dry cycle)",
+      "family": "Table Top Front Loading Autoclave (B Class with Vacuum and Dry Cycle)",
       "categorySlug": "autoclaves",
-      "matchedHqImages": 3,
-      "finalImages": 4,
+      "matchedHqImages": 0,
+      "finalImages": 1,
       "images": [
-        "/catalogue-media-hq/autoclave-2.jpg",
-        "/catalogue-media-hq/autoclave.jpg",
-        "/catalogue-media-hq/table-top-autoclave.jpeg",
-        "/catalogue-media/image154.jpeg"
+        "/catalogue-media-indiamart/26097167948.jpeg"
       ]
     },
     {
       "family": "Triple Wall Vertical Hi-Pressure Nut Locking",
       "categorySlug": "autoclaves",
-      "matchedHqImages": 8,
-      "finalImages": 9,
+      "matchedHqImages": 0,
+      "finalImages": 1,
       "images": [
-        "/catalogue-media-indiamart/24451961488.jpg",
-        "/catalogue-media-hq/autoclave-2.jpg",
-        "/catalogue-media-hq/autoclave-double-wall.jpg",
-        "/catalogue-media-hq/autoclave-fully-automatic.jpg",
-        "/catalogue-media-hq/autoclave-horizontal-rectangular.png",
-        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
-        "/catalogue-media-hq/autoclave-p-type.jpg",
-        "/catalogue-media-hq/autoclave-wing-nut-type.jpg"
+        "/catalogue-media-indiamart/27575322588.jpg"
       ]
     },
     {
-      "family": "Triple Wall Vertical Hi-Pressure Nut Steam Storage & Vacuum Drying Feature",
+      "family": "Triple Wall Vertical Hi-Pressure Nut Locking with Steam Storage and Vacuum Drying",
       "categorySlug": "autoclaves",
       "matchedHqImages": 8,
       "finalImages": 9,

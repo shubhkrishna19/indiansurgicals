@@ -49,6 +49,7 @@ export interface ProductFamily {
   slug: string;
   name: string;
   categorySlug: string;
+  legacyCategorySlug?: string;
   sectionSerials: string[];
   subheading: string;
   summary: string;
@@ -139,9 +140,13 @@ export const catalogueFamilies = rawFamilies.map((family) => normalizeFamily(fam
 export const catalogueExports = source.exports as CatalogueExports;
 
 const categoryBySlug = new Map(catalogueCategories.map((category) => [category.slug, category]));
-const familyByKey = new Map(
-  catalogueFamilies.map((family) => [`${family.categorySlug}/${family.slug}`, family]),
-);
+const familyByKey = new Map<string, ProductFamily>();
+for (const family of catalogueFamilies) {
+  familyByKey.set(`${family.categorySlug}/${family.slug}`, family);
+  if (family.legacyCategorySlug && family.legacyCategorySlug !== family.categorySlug) {
+    familyByKey.set(`${family.legacyCategorySlug}/${family.slug}`, family);
+  }
+}
 
 export function getCategoryBySlug(slug: string): CatalogueCategory | undefined {
   return categoryBySlug.get(slug);

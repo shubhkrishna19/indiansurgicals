@@ -7,6 +7,36 @@
       "source": "/catalogue-preview",
       "destination": "/products",
       "permanent": true
+    },
+    {
+      "source": "/products/autoclaves",
+      "destination": "/products/autoclaves-and-sterilizers",
+      "permanent": true
+    },
+    {
+      "source": "/products/sterilizers",
+      "destination": "/products/autoclaves-and-sterilizers",
+      "permanent": true
+    },
+    {
+      "source": "/products/hospital-furniture",
+      "destination": "/products/hospital-furnitures",
+      "permanent": true
+    },
+    {
+      "source": "/products/suction-units",
+      "destination": "/products/suction-machines",
+      "permanent": true
+    },
+    {
+      "source": "/products/fumigators-foggers",
+      "destination": "/products/hospital-utensils",
+      "permanent": true
+    },
+    {
+      "source": "/products/operation-theater-lights",
+      "destination": "/products/operation-theatre-lights",
+      "permanent": true
     }
   ]
 }
