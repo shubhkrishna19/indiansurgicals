@@ -15,9 +15,9 @@ const families = getAllFamilies();
   <section class="section">
     <div class="container">
       <SectionTitle
-        kicker="Full Catalogue"
-        title="Browse the full product range by category, family, and model."
-        subtitle="Each card opens a product family with photos, key details, and listed models to help you shortlist faster."
+        kicker="Product Catalogue"
+        title="Browse Categories, Product Families, and Available Models"
+        subtitle="Open any product family to review images, listed models, and specification details before requesting a quotation."
         align="left"
       />
 
@@ -26,6 +26,16 @@ const families = getAllFamilies();
           <label for="catalogue-search">Search products</label>
           <input id="catalogue-search" type="search" placeholder="Search by family, category, or model" />
         </div>
+
+        <label class="catalogue-toolbar__mobile-select">
+          <span>Category</span>
+          <select id="catalogue-mobile-filter">
+            <option value="all">All categories</option>
+            {categories.map((category) => (
+              <option value={category.slug}>{category.name}</option>
+            ))}
+          </select>
+        </label>
 
         <div class="catalogue-toolbar__filters" aria-label="Category filters">
           <button class="is-active" data-filter="all">All categories</button>
@@ -61,6 +71,7 @@ const families = getAllFamilies();
 
 <script>
   const searchInput = document.getElementById("catalogue-search");
+  const mobileFilter = document.getElementById("catalogue-mobile-filter");
   const filterButtons = Array.from(document.querySelectorAll("[data-filter]"));
   const catalogueItems = Array.from(document.querySelectorAll(".catalogue-grid__item"));
   const countNode = document.getElementById("catalogue-count");
@@ -94,11 +105,21 @@ const families = getAllFamilies();
   }
 
   searchInput?.addEventListener("input", applyFilters);
+  mobileFilter?.addEventListener("change", () => {
+    activeFilter = mobileFilter instanceof HTMLSelectElement ? mobileFilter.value : "all";
+    filterButtons.forEach((candidate) => candidate.classList.remove("is-active"));
+    const activeButton = filterButtons.find((button) => button.getAttribute("data-filter") === activeFilter);
+    activeButton?.classList.add("is-active");
+    applyFilters();
+  });
   filterButtons.forEach((button) => {
     button.addEventListener("click", () => {
       activeFilter = button.getAttribute("data-filter") ?? "all";
       filterButtons.forEach((candidate) => candidate.classList.remove("is-active"));
       button.classList.add("is-active");
+      if (mobileFilter instanceof HTMLSelectElement) {
+        mobileFilter.value = activeFilter;
+      }
       applyFilters();
     });
   });
@@ -137,6 +158,28 @@ const families = getAllFamilies();
     display: flex;
     flex-wrap: wrap;
     gap: 0.7rem;
+  }
+
+  .catalogue-toolbar__mobile-select {
+    display: none;
+    gap: 0.55rem;
+  }
+
+  .catalogue-toolbar__mobile-select span {
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+  }
+
+  .catalogue-toolbar__mobile-select select {
+    width: 100%;
+    border: 1px solid rgba(84, 96, 109, 0.18);
+    border-radius: 1rem;
+    padding: 0.82rem 0.95rem;
+    background: rgba(255, 255, 255, 0.88);
+    color: var(--color-text);
   }
 
   .catalogue-toolbar__filters button {
@@ -194,22 +237,16 @@ const families = getAllFamilies();
       margin-bottom: 1.1rem;
     }
 
+    .catalogue-toolbar__mobile-select {
+      display: grid;
+    }
+
     .catalogue-toolbar__search input {
       padding: 0.82rem 0.9rem;
     }
 
     .catalogue-toolbar__filters {
-      gap: 0.5rem;
-      overflow-x: auto;
-      flex-wrap: nowrap;
-      padding-bottom: 0.15rem;
-      scrollbar-width: thin;
-    }
-
-    .catalogue-toolbar__filters button {
-      white-space: nowrap;
-      padding: 0.58rem 0.82rem;
-      font-size: 0.82rem;
+      display: none;
     }
 
     .catalogue-grid {

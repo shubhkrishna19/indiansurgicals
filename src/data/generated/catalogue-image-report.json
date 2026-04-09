@@ -1,6 +1,6 @@
 {
   "importedHighQualityImages": 172,
-  "familiesWithImages": 257,
+  "familiesWithImages": 258,
   "familiesWithoutImages": [],
   "families": [
     {
@@ -219,7 +219,7 @@
       ]
     },
     {
-      "family": "Autoclave Triple Wall Vertical Hi-Pressure Nut Locking with Digital Controller",
+      "family": "Autoclave Triple Wall Vertical Hi-Pressure Nut Locking With Digital Controller",
       "categorySlug": "autoclaves",
       "matchedHqImages": 6,
       "finalImages": 7,
@@ -247,24 +247,6 @@
       ]
     },
     {
-      "family": "Autoclave Vertical Double Wall SS Radial Locking with Digital Controller",
-      "categorySlug": "autoclaves",
-      "matchedHqImages": 0,
-      "finalImages": 1,
-      "images": [
-        "/catalogue-media-indiamart/23804592697.jpg"
-      ]
-    },
-    {
-      "family": "Autoclave Vertical Double Wall Nut Locking with Digital Controller",
-      "categorySlug": "autoclaves",
-      "matchedHqImages": 0,
-      "finalImages": 1,
-      "images": [
-        "/catalogue-media-indiamart/23829851491.jpeg"
-      ]
-    },
-    {
       "family": "Autoclave Vertical Double Wall SS Radial Locking",
       "categorySlug": "autoclaves",
       "matchedHqImages": 0,
@@ -274,7 +256,16 @@
       ]
     },
     {
-      "family": "Autoclave Vertical Double wall SS Radial Locking with Digital controller.",
+      "family": "Autoclave Vertical Double Wall SS Radial Locking with Digital Controller",
+      "categorySlug": "autoclaves",
+      "matchedHqImages": 0,
+      "finalImages": 1,
+      "images": [
+        "/catalogue-media-indiamart/23804592697.jpg"
+      ]
+    },
+    {
+      "family": "Autoclave Vertical Double Wall SS Radial Locking With Digital Controller.",
       "categorySlug": "autoclaves",
       "matchedHqImages": 5,
       "finalImages": 7,
@@ -286,6 +277,15 @@
         "/catalogue-media-hq/autoclave.jpg",
         "/catalogue-media-hq/p-type-with-controller.jpg",
         "/catalogue-media/image68.jpeg"
+      ]
+    },
+    {
+      "family": "Autoclave Vertical Double Wall Nut Locking with Digital Controller",
+      "categorySlug": "autoclaves",
+      "matchedHqImages": 0,
+      "finalImages": 1,
+      "images": [
+        "/catalogue-media-indiamart/23829851491.jpeg"
       ]
     },
     {
@@ -354,6 +354,24 @@
       ]
     },
     {
+      "family": "Autoclave Vertical Triple Wall Radial Locking with Steam Storage",
+      "categorySlug": "autoclaves",
+      "matchedHqImages": 0,
+      "finalImages": 1,
+      "images": [
+        "/catalogue-media-indiamart/27300292212.jpeg"
+      ]
+    },
+    {
+      "family": "Autoclave Vertical Triple Wall SS Radial Locking with Digital Controller",
+      "categorySlug": "autoclaves",
+      "matchedHqImages": 0,
+      "finalImages": 1,
+      "images": [
+        "/catalogue-media-indiamart/26097084191.jpeg"
+      ]
+    },
+    {
       "family": "Autoclave Vertical Triple Wall Radial Type with Digital Controller and Vacuum Drying",
       "categorySlug": "autoclaves",
       "matchedHqImages": 5,
@@ -377,25 +395,7 @@
       ]
     },
     {
-      "family": "Autoclave Vertical Triple Wall SS Radial Locking with Digital Controller",
-      "categorySlug": "autoclaves",
-      "matchedHqImages": 0,
-      "finalImages": 1,
-      "images": [
-        "/catalogue-media-indiamart/26097084191.jpeg"
-      ]
-    },
-    {
-      "family": "Autoclave Vertical Triple Wall Radial Locking with Steam Storage",
-      "categorySlug": "autoclaves",
-      "matchedHqImages": 0,
-      "finalImages": 1,
-      "images": [
-        "/catalogue-media-indiamart/27300292212.jpeg"
-      ]
-    },
-    {
-      "family": "Autoclave with Timer",
+      "family": "Autoclave With Timer",
       "categorySlug": "autoclaves",
       "matchedHqImages": 0,
       "finalImages": 2,
@@ -663,6 +663,20 @@
       ]
     },
     {
+      "family": "Vertical Autoclave Double Wall With Digital Controller",
+      "categorySlug": "autoclaves",
+      "matchedHqImages": 5,
+      "finalImages": 6,
+      "images": [
+        "/catalogue-media-indiamart/23829851491.jpeg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/p-type-with-controller.jpg"
+      ]
+    },
+    {
       "family": "Vertical Autoclave Radial Locking Double Wall",
       "categorySlug": "autoclaves",
       "matchedHqImages": 3,
@@ -676,7 +690,7 @@
       ]
     },
     {
-      "family": "Vertical Autoclave Stainless Steel Nut Locking Double wall",
+      "family": "Vertical Autoclave Stainless Steel Nut Locking Double Wall",
       "categorySlug": "autoclaves",
       "matchedHqImages": 4,
       "finalImages": 5,
@@ -686,20 +700,6 @@
         "/catalogue-media-hq/autoclave-double-wall.jpg",
         "/catalogue-media-hq/autoclave-wing-nut-type.jpg",
         "/catalogue-media-hq/autoclave.jpg"
-      ]
-    },
-    {
-      "family": "Vertical Autoclave double wall with digital controller",
-      "categorySlug": "autoclaves",
-      "matchedHqImages": 5,
-      "finalImages": 6,
-      "images": [
-        "/catalogue-media-indiamart/23829851491.jpeg",
-        "/catalogue-media-hq/autoclave-2.jpg",
-        "/catalogue-media-hq/autoclave-double-wall.jpg",
-        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
-        "/catalogue-media-hq/autoclave.jpg",
-        "/catalogue-media-hq/p-type-with-controller.jpg"
       ]
     },
     {
@@ -950,7 +950,7 @@
       ]
     },
     {
-      "family": "Four Section Mattress for Fowler / I.C.U. Beds",
+      "family": "Four Section Mattress For Fowler / I.C.U. Beds",
       "categorySlug": "hospital-furniture",
       "matchedHqImages": 3,
       "finalImages": 5,
@@ -973,7 +973,7 @@
       ]
     },
     {
-      "family": "HFB-1 Hospital Fowler Bed",
+      "family": "Hfb-1 Hospital Fowler Bed",
       "categorySlug": "hospital-furniture",
       "matchedHqImages": 4,
       "finalImages": 9,
@@ -989,7 +989,7 @@
       ]
     },
     {
-      "family": "HFBE-1 Fowler Bed Electric",
+      "family": "Hfbe-1 Fowler Bed Electric",
       "categorySlug": "hospital-furniture",
       "matchedHqImages": 4,
       "finalImages": 6,
@@ -1003,7 +1003,7 @@
       ]
     },
     {
-      "family": "HFBM-1 Hospital Fowler Bed Mechanical",
+      "family": "Hfbm-1 Hospital Fowler Bed Mechanical",
       "categorySlug": "hospital-furniture",
       "matchedHqImages": 4,
       "finalImages": 5,
@@ -1016,18 +1016,17 @@
       ]
     },
     {
-      "family": "HPB-1 Hospital Bed",
+      "family": "Hospital Bed Plain",
       "categorySlug": "hospital-furniture",
       "matchedHqImages": 1,
-      "finalImages": 3,
+      "finalImages": 2,
       "images": [
-        "/catalogue-media-indiamart/27094756862.jpg",
-        "/catalogue-media-hq/28-hospital-bed.jpg",
-        "/catalogue-media/image22.jpeg"
+        "/catalogue-media-indiamart/26097236188.jpeg",
+        "/catalogue-media-hq/28-hospital-bed.jpg"
       ]
     },
     {
-      "family": "Hospital Bed Semi Fowler With Abs Panel And Wheels",
+      "family": "Hospital Bed Semi Fowler With ABS Panel And Wheels",
       "categorySlug": "hospital-furniture",
       "matchedHqImages": 5,
       "finalImages": 6,
@@ -1037,16 +1036,6 @@
         "/catalogue-media-hq/25-fowler-bed.jpg",
         "/catalogue-media-hq/26-fowler-bed.jpg",
         "/catalogue-media-hq/27-fowler-bed.jpg",
-        "/catalogue-media-hq/28-hospital-bed.jpg"
-      ]
-    },
-    {
-      "family": "Hospital Bed plain",
-      "categorySlug": "hospital-furniture",
-      "matchedHqImages": 1,
-      "finalImages": 2,
-      "images": [
-        "/catalogue-media-indiamart/26097236188.jpeg",
         "/catalogue-media-hq/28-hospital-bed.jpg"
       ]
     },
@@ -1062,7 +1051,7 @@
       ]
     },
     {
-      "family": "Hospital Fowler Bed Abs Panel With Collapsible Side Rails",
+      "family": "Hospital Fowler Bed ABS Panel With Collapsible Side Rails",
       "categorySlug": "hospital-furniture",
       "matchedHqImages": 6,
       "finalImages": 7,
@@ -1105,6 +1094,17 @@
       ]
     },
     {
+      "family": "Hpb-1 Hospital Bed",
+      "categorySlug": "hospital-furniture",
+      "matchedHqImages": 1,
+      "finalImages": 3,
+      "images": [
+        "/catalogue-media-indiamart/27094756862.jpg",
+        "/catalogue-media-hq/28-hospital-bed.jpg",
+        "/catalogue-media/image22.jpeg"
+      ]
+    },
+    {
       "family": "Hydraulic Operation Table Side End Control",
       "categorySlug": "hospital-furniture",
       "matchedHqImages": 5,
@@ -1131,6 +1131,22 @@
         "/catalogue-media-hq/104-operating-table.jpg",
         "/catalogue-media-hq/93-operation-table.jpg",
         "/catalogue-media-hq/table.jpeg"
+      ]
+    },
+    {
+      "family": "ICU Bed Chair Position",
+      "categorySlug": "hospital-furniture",
+      "matchedHqImages": 8,
+      "finalImages": 9,
+      "images": [
+        "/catalogue-media-indiamart/26097106530.jpeg",
+        "/catalogue-media-hq/12-icu-bed.jpg",
+        "/catalogue-media-hq/13-icu-bed.jpg",
+        "/catalogue-media-hq/14-icu-bed.jpg",
+        "/catalogue-media-hq/15-icu-bed.jpg",
+        "/catalogue-media-hq/16-icu-bed.jpg",
+        "/catalogue-media-hq/17-icu-bed.jpg",
+        "/catalogue-media-hq/18-icu-bed.jpg"
       ]
     },
     {
@@ -1166,23 +1182,7 @@
       ]
     },
     {
-      "family": "Icu Bed Chair Position",
-      "categorySlug": "hospital-furniture",
-      "matchedHqImages": 8,
-      "finalImages": 9,
-      "images": [
-        "/catalogue-media-indiamart/26097106530.jpeg",
-        "/catalogue-media-hq/12-icu-bed.jpg",
-        "/catalogue-media-hq/13-icu-bed.jpg",
-        "/catalogue-media-hq/14-icu-bed.jpg",
-        "/catalogue-media-hq/15-icu-bed.jpg",
-        "/catalogue-media-hq/16-icu-bed.jpg",
-        "/catalogue-media-hq/17-icu-bed.jpg",
-        "/catalogue-media-hq/18-icu-bed.jpg"
-      ]
-    },
-    {
-      "family": "Icu Bed Mechanical With Abs Panels And Abs Rails",
+      "family": "ICU Bed Mechanical With ABS Panels And ABS Rails",
       "categorySlug": "hospital-furniture",
       "matchedHqImages": 8,
       "finalImages": 9,
@@ -1247,20 +1247,6 @@
       ]
     },
     {
-      "family": "MPB-1 Mattress for Hospital Beds",
-      "categorySlug": "hospital-furniture",
-      "matchedHqImages": 4,
-      "finalImages": 6,
-      "images": [
-        "/catalogue-media-indiamart/27094877833.jpg",
-        "/catalogue-media-hq/28-hospital-bed.jpg",
-        "/catalogue-media-hq/33-mattress.jpg",
-        "/catalogue-media-hq/34-mattress.jpg",
-        "/catalogue-media-hq/35-mattress.jpg",
-        "/catalogue-media/image3.jpeg"
-      ]
-    },
-    {
       "family": "MS Obstetric Labour Table",
       "categorySlug": "hospital-furniture",
       "matchedHqImages": 3,
@@ -1307,6 +1293,20 @@
       ]
     },
     {
+      "family": "Mpb-1 Mattress For Hospital Beds",
+      "categorySlug": "hospital-furniture",
+      "matchedHqImages": 4,
+      "finalImages": 6,
+      "images": [
+        "/catalogue-media-indiamart/27094877833.jpg",
+        "/catalogue-media-hq/28-hospital-bed.jpg",
+        "/catalogue-media-hq/33-mattress.jpg",
+        "/catalogue-media-hq/34-mattress.jpg",
+        "/catalogue-media-hq/35-mattress.jpg",
+        "/catalogue-media/image3.jpeg"
+      ]
+    },
+    {
       "family": "OPDC-1 Patient's OPD Couch/ Chair",
       "categorySlug": "hospital-furniture",
       "matchedHqImages": 2,
@@ -1334,7 +1334,7 @@
       ]
     },
     {
-      "family": "Operation Table Manual , Hi Low",
+      "family": "Operation Table Manual, Hi Low",
       "categorySlug": "hospital-furniture",
       "matchedHqImages": 5,
       "finalImages": 6,
@@ -1391,7 +1391,7 @@
       ]
     },
     {
-      "family": "TRAP-1 Hospital Bed Mattress",
+      "family": "Trap-1 Hospital Bed Mattress",
       "categorySlug": "hospital-furniture",
       "matchedHqImages": 4,
       "finalImages": 5,
@@ -1487,7 +1487,7 @@
       ]
     },
     {
-      "family": "Baby Tray BT-1620",
+      "family": "Baby Tray Bt-1620",
       "categorySlug": "hospital-hollowares",
       "matchedHqImages": 0,
       "finalImages": 1,
@@ -2156,7 +2156,7 @@
       ]
     },
     {
-      "family": "OTL-M6C Operation Theater Light",
+      "family": "OTL-M6C Operation Theatre Light",
       "categorySlug": "operation-theater-lights",
       "matchedHqImages": 8,
       "finalImages": 9,
@@ -2308,7 +2308,7 @@
       ]
     },
     {
-      "family": "Instrument Sterilizer Electrical With tray Lifting Jointless/ Seamless",
+      "family": "Instrument Sterilizer Electrical With Tray Lifting Jointless/ Seamless",
       "categorySlug": "sterilizers",
       "matchedHqImages": 4,
       "finalImages": 5,
@@ -2335,17 +2335,29 @@
       ]
     },
     {
-      "family": "Instrument Sterilizers Electrical jointed with Tray lifting Thermostat",
+      "family": "Instrument Sterilizers Electrical (Jointed) with Tray Lifting and Thermostat.",
       "categorySlug": "sterilizers",
       "matchedHqImages": 4,
-      "finalImages": 6,
+      "finalImages": 5,
       "images": [
-        "/catalogue-media-indiamart/27312122530.jpg",
         "/catalogue-media-hq/bowl-sterilizer.jpeg",
         "/catalogue-media-hq/bowl-sterilizer.png",
         "/catalogue-media-hq/eto-sterilizer.png",
         "/catalogue-media-hq/sterilizer.jpg",
         "/catalogue-media/image73.png"
+      ]
+    },
+    {
+      "family": "Instrument Sterilizers Electrical Jointed With Tray Lifting Thermostat",
+      "categorySlug": "sterilizers",
+      "matchedHqImages": 4,
+      "finalImages": 5,
+      "images": [
+        "/catalogue-media-indiamart/27312122530.jpg",
+        "/catalogue-media-hq/bowl-sterilizer.jpeg",
+        "/catalogue-media-hq/bowl-sterilizer.png",
+        "/catalogue-media-hq/eto-sterilizer.png",
+        "/catalogue-media-hq/sterilizer.jpg"
       ]
     },
     {
@@ -2497,7 +2509,7 @@
       ]
     },
     {
-      "family": "Suction 0.5 HP",
+      "family": "Suction 0.5 Hp",
       "categorySlug": "suction-units",
       "matchedHqImages": 8,
       "finalImages": 9,
@@ -2529,7 +2541,7 @@
       ]
     },
     {
-      "family": "Suction Apparatus 0.25 HP",
+      "family": "Suction Apparatus 0.25 Hp",
       "categorySlug": "suction-units",
       "matchedHqImages": 8,
       "finalImages": 9,
@@ -2593,12 +2605,12 @@
       ]
     },
     {
-      "family": "Suction Unit 0.5HP with Poly Jars, Deluxe",
+      "family": "Suction Unit 0.5HP with Tray",
       "categorySlug": "suction-units",
       "matchedHqImages": 8,
-      "finalImages": 9,
+      "finalImages": 10,
       "images": [
-        "/catalogue-media-indiamart/27301160273.jpeg",
+        "/catalogue-media-indiamart/27301160962.jpeg",
         "/catalogue-media-hq/10-suction-acce10.jpg",
         "/catalogue-media-hq/11-suction-acce11.jpg",
         "/catalogue-media-hq/6-suction-acce6.jpg",
@@ -2609,12 +2621,12 @@
       ]
     },
     {
-      "family": "Suction Unit 0.5HP with Tray",
+      "family": "Suction Unit 0.5Hp With Poly Jars, Deluxe",
       "categorySlug": "suction-units",
       "matchedHqImages": 8,
-      "finalImages": 10,
+      "finalImages": 9,
       "images": [
-        "/catalogue-media-indiamart/27301160962.jpeg",
+        "/catalogue-media-indiamart/27301160273.jpeg",
         "/catalogue-media-hq/10-suction-acce10.jpg",
         "/catalogue-media-hq/11-suction-acce11.jpg",
         "/catalogue-media-hq/6-suction-acce6.jpg",
@@ -2890,21 +2902,6 @@
       ]
     },
     {
-      "family": "MTSS-1 O.T. Mayo's Instrument Trolley With S.S. Tray",
-      "categorySlug": "ward-equipments",
-      "matchedHqImages": 5,
-      "finalImages": 7,
-      "images": [
-        "/catalogue-media-indiamart/27093324073.jpg",
-        "/catalogue-media-hq/42-mayo-s-instrument-trolley-ss.jpg",
-        "/catalogue-media-hq/43-mayo-s-instrument-trolley-ss.jpg",
-        "/catalogue-media-hq/63-trolley.jpg",
-        "/catalogue-media-hq/64-trolley.jpg",
-        "/catalogue-media-hq/65-trolley.jpg",
-        "/catalogue-media/image30.jpeg"
-      ]
-    },
-    {
       "family": "Medicine Trolley with 4 Drawers",
       "categorySlug": "ward-equipments",
       "matchedHqImages": 5,
@@ -2917,6 +2914,21 @@
         "/catalogue-media-hq/64-trolley.jpg",
         "/catalogue-media-hq/65-trolley.jpg",
         "/catalogue-media/image38.jpeg"
+      ]
+    },
+    {
+      "family": "Mtss-1 O.T. Mayo'S Instrument Trolley With S.S. Tray",
+      "categorySlug": "ward-equipments",
+      "matchedHqImages": 5,
+      "finalImages": 7,
+      "images": [
+        "/catalogue-media-indiamart/27093324073.jpg",
+        "/catalogue-media-hq/42-mayo-s-instrument-trolley-ss.jpg",
+        "/catalogue-media-hq/43-mayo-s-instrument-trolley-ss.jpg",
+        "/catalogue-media-hq/63-trolley.jpg",
+        "/catalogue-media-hq/64-trolley.jpg",
+        "/catalogue-media-hq/65-trolley.jpg",
+        "/catalogue-media/image30.jpeg"
       ]
     },
     {

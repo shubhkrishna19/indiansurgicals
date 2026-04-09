@@ -75,12 +75,29 @@ const SOURCE_COPY_PATTERNS = [
   /normalized business structure/i,
 ];
 
+const DISPLAY_LABEL_REPLACEMENTS: Array<[RegExp, string]> = [
+  [/\bOperation Theater\b/gi, "Operation Theatre"],
+  [/\bHospital Furnitures\b/gi, "Hospital Furniture"],
+  [/\bWard Equipments\b/gi, "Ward Equipment"],
+  [/\bHospital Bed plain\b/gi, "Hospital Bed Plain"],
+  [/\bContorller\b/gi, "Controller"],
+  [/\bVertival\b/gi, "Vertical"],
+];
+
 function normalizeText(value?: string): string {
   return (value ?? "")
     .replace(/\s+/g, " ")
     .replace(/\s+,/g, ",")
     .replace(/\s+\./g, ".")
     .trim();
+}
+
+function normalizeDisplayLabel(value?: string): string {
+  let normalized = normalizeText(value);
+  for (const [pattern, replacement] of DISPLAY_LABEL_REPLACEMENTS) {
+    normalized = normalized.replace(pattern, replacement);
+  }
+  return normalized;
 }
 
 function looksLikeSourceCopy(value?: string): boolean {
@@ -101,11 +118,15 @@ function buildFamilyDescription(family: ProductFamily, categoryName: string): st
   return `${family.name} is part of the ${categoryName.toLowerCase()} range manufactured by Indian Surgical Industries. Review the available ${modelLabel}, key specifications, and product images here before requesting a quotation.`;
 }
 
-const categoryNameBySlug = new Map(rawCategories.map((category) => [category.slug, category.name]));
+const categoryNameBySlug = new Map(
+  rawCategories.map((category) => [category.slug, normalizeDisplayLabel(category.name)]),
+);
 
 function normalizeVariant(variant: ProductVariant): ProductVariant {
   return {
     ...variant,
+    label: normalizeDisplayLabel(variant.label),
+    displayName: normalizeDisplayLabel(variant.displayName),
     descriptionLines: uniqueStrings(variant.descriptionLines ?? []).filter(
       (line) => !looksLikeSourceCopy(line),
     ),
@@ -122,9 +143,10 @@ function normalizeFamily(family: ProductFamily): ProductFamily {
 
   return {
     ...family,
+    name: normalizeDisplayLabel(family.name),
     summary,
     description,
-    subheading: normalizeText(family.subheading) || categoryName,
+    subheading: normalizeDisplayLabel(family.subheading) || categoryName,
     highlights: uniqueStrings(family.highlights ?? []).filter((item) => !looksLikeSourceCopy(item)),
     notes: uniqueStrings(family.notes ?? []).filter((item) => !looksLikeSourceCopy(item)),
     images: uniqueStrings(family.images ?? []),
@@ -132,9 +154,14 @@ function normalizeFamily(family: ProductFamily): ProductFamily {
   };
 }
 
-export const catalogueCategories = [...rawCategories].sort(
-  (left, right) => left.order - right.order,
-);
+export const catalogueCategories = [...rawCategories]
+  .map((category) => ({
+    ...category,
+    name: normalizeDisplayLabel(category.name),
+    summary: normalizeText(category.summary),
+    intro: normalizeText(category.intro),
+  }))
+  .sort((left, right) => left.order - right.order);
 
 export const catalogueFamilies = rawFamilies.map((family) => normalizeFamily(family));
 export const catalogueExports = source.exports as CatalogueExports;

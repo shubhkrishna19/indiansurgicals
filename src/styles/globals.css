@@ -228,6 +228,29 @@ p {
   }
 }
 
+@media (max-width: 900px) {
+  body::before {
+    transform: none;
+  }
+
+  .section::before {
+    background:
+      linear-gradient(180deg, rgba(248, 251, 253, 0.7), rgba(239, 245, 249, 0.64)),
+      radial-gradient(circle at top center, rgba(255, 255, 255, 0.12), transparent 56%);
+    backdrop-filter: blur(1.5px);
+  }
+
+  .panel {
+    background: rgba(255, 255, 255, 0.93);
+    backdrop-filter: none;
+  }
+
+  .button--secondary {
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html,
   html.motion-ready {

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-09T16:21:22+05:30",
+  "generatedAt": "2026-04-09T17:30:47+05:30",
   "pages": [
     {
       "page": "autoclaves-and-sterilizers.html",
@@ -54,6 +54,7 @@
     {
       "productId": "23758544662",
       "name": "Auto Exhaust Vertical Autoclave",
+      "displayName": "Auto Exhaust Vertical Autoclave",
       "slug": "auto-exhaust-vertical-autoclave",
       "model": "",
       "modelKey": "",
@@ -124,6 +125,7 @@
     {
       "productId": "26097168730",
       "name": "Autoclave Horizontal Cylindrical Triple Wall",
+      "displayName": "Autoclave Horizontal Cylindrical Triple Wall",
       "slug": "autoclave-horizontal-cylindrical-triple-wall",
       "model": "",
       "modelKey": "",
@@ -212,6 +214,7 @@
     {
       "productId": "26097083473",
       "name": "Autoclave P Type Aluminium Digital",
+      "displayName": "Autoclave P Type Aluminium Digital",
       "slug": "autoclave-p-type-aluminium-digital",
       "model": "",
       "modelKey": "",
@@ -286,6 +289,7 @@
     {
       "productId": "27300291833",
       "name": "Autoclave Portable Aluminium Six Wing Nut Type",
+      "displayName": "Autoclave Portable Aluminium Six Wing Nut Type",
       "slug": "autoclave-portable-aluminium-six-wing-nut-type",
       "model": "",
       "modelKey": "",
@@ -357,6 +361,7 @@
     {
       "productId": "27294448262",
       "name": "Autoclave Portable Cooker Type",
+      "displayName": "Autoclave Portable Cooker Type",
       "slug": "autoclave-portable-cooker-type",
       "model": "",
       "modelKey": "",
@@ -449,6 +454,7 @@
     {
       "productId": "27294448330",
       "name": "Autoclave Portable Pressure Cooker double drums",
+      "displayName": "Autoclave Portable Pressure Cooker Double Drums",
       "slug": "autoclave-portable-pressure-cooker-double-drums",
       "model": "",
       "modelKey": "",
@@ -511,6 +517,7 @@
     {
       "productId": "27289599597",
       "name": "Autoclave Portable Stainless Steel Six Wing Nut Type",
+      "displayName": "Autoclave Portable Stainless Steel Six Wing Nut Type",
       "slug": "autoclave-portable-stainless-steel-six-wing-nut-type",
       "model": "",
       "modelKey": "",
@@ -583,6 +590,7 @@
     {
       "productId": "27575322588",
       "name": "Autoclave Triple Wall Vertical Hi-Pressure Nut Locking with Digital Controller",
+      "displayName": "Autoclave Triple Wall Vertical Hi-Pressure Nut Locking With Digital Controller",
       "slug": "autoclave-triple-wall-vertical-hi-pressure-nut-locking-with-digital-controller",
       "model": "",
       "modelKey": "",
@@ -660,6 +668,7 @@
     {
       "productId": "26097286012",
       "name": "Autoclave Vertical Double Wall S/S",
+      "displayName": "Autoclave Vertical Double Wall S/S",
       "slug": "autoclave-vertical-double-wall-s-s",
       "model": "",
       "modelKey": "",
@@ -728,6 +737,7 @@
     {
       "productId": "23804592697",
       "name": "Autoclave Vertical Double Wall SS Radial Locking with Digital Controller",
+      "displayName": "Autoclave Vertical Double Wall SS Radial Locking With Digital Controller",
       "slug": "autoclave-vertical-double-wall-ss-radial-locking-with-digital-controller",
       "model": "",
       "modelKey": "",
@@ -824,6 +834,7 @@
     {
       "productId": "26097084048",
       "name": "Autoclave Vertical Radial Locking Double Wall",
+      "displayName": "Autoclave Vertical Radial Locking Double Wall",
       "slug": "autoclave-vertical-radial-locking-double-wall",
       "model": "",
       "modelKey": "",
@@ -927,6 +938,7 @@
     {
       "productId": "26097083548",
       "name": "Autoclave Vertical Stainless Steel Economy Model",
+      "displayName": "Autoclave Vertical Stainless Steel Economy Model",
       "slug": "autoclave-vertical-stainless-steel-economy-model",
       "model": "",
       "modelKey": "",
@@ -1021,6 +1033,7 @@
     {
       "productId": "23804646712",
       "name": "Autoclave Vertical Stainless Steel Nut Locking",
+      "displayName": "Autoclave Vertical Stainless Steel Nut Locking",
       "slug": "autoclave-vertical-stainless-steel-nut-locking",
       "model": "",
       "modelKey": "",
@@ -1121,6 +1134,7 @@
     {
       "productId": "26097286191",
       "name": "Autoclave Vertical Triple Wall Hi-Pressure Nut Locking with Digital Controller",
+      "displayName": "Autoclave Vertical Triple Wall Hi-Pressure Nut Locking With Digital Controller",
       "slug": "autoclave-vertical-triple-wall-hi-pressure-nut-locking-with-digital-controller",
       "model": "",
       "modelKey": "",
@@ -1241,6 +1255,7 @@
     {
       "productId": "27300292212",
       "name": "Autoclave Vertical Triple Wall Radial Locking With Steam Storage & Vaccum Drying Feature",
+      "displayName": "Autoclave Vertical Triple Wall Radial Locking With Steam Storage & Vaccum Drying Feature",
       "slug": "autoclave-vertical-triple-wall-radial-locking-with-steam-storage-vaccum-drying-feature",
       "model": "",
       "modelKey": "",
@@ -1328,6 +1343,7 @@
     {
       "productId": "26097084191",
       "name": "Autoclave Vertical Triple Wall With Digital Controller And Vacuum Drying Option , Radial Type",
+      "displayName": "Autoclave Vertical Triple Wall With Digital Controller And Vacuum Drying Option, Radial Type",
       "slug": "autoclave-vertical-triple-wall-with-digital-controller-and-vacuum-drying-option-radial-type",
       "model": "",
       "modelKey": "",
@@ -1412,6 +1428,7 @@
     {
       "productId": "27294448691",
       "name": "Autoclaves Portable Stainless Steel Pressure Cooker Type \"P\" Type",
+      "displayName": "Autoclaves Portable Stainless Steel Pressure Cooker Type \"P\" Type",
       "slug": "autoclaves-portable-stainless-steel-pressure-cooker-type-p-type",
       "model": "",
       "modelKey": "",
@@ -1468,6 +1485,7 @@
     {
       "productId": "26097133333",
       "name": "Bowls And Utensils Sterilizer S/S",
+      "displayName": "Bowls And Utensils Sterilizer S/S",
       "slug": "bowls-and-utensils-sterilizer-s-s",
       "model": "",
       "modelKey": "",
@@ -1542,6 +1560,7 @@
     {
       "productId": "27300292730",
       "name": "Cylindrical Horizontal Autoclave Double Wall",
+      "displayName": "Cylindrical Horizontal Autoclave Double Wall",
       "slug": "cylindrical-horizontal-autoclave-double-wall",
       "model": "",
       "modelKey": "",
@@ -1621,6 +1640,7 @@
     {
       "productId": "27300292391",
       "name": "Dental Autoclave",
+      "displayName": "Dental Autoclave",
       "slug": "dental-autoclave",
       "model": "",
       "modelKey": "",
@@ -1676,6 +1696,7 @@
     {
       "productId": "23804585188",
       "name": "Digital Controller Double Walled Vertical Autoclave",
+      "displayName": "Digital Controller Double Walled Vertical Autoclave",
       "slug": "digital-controller-double-walled-vertical-autoclave",
       "model": "",
       "modelKey": "",
@@ -1744,6 +1765,7 @@
     {
       "productId": "23804644173",
       "name": "Digital Controller Triple Wall Vertical Autoclave",
+      "displayName": "Digital Controller Triple Wall Vertical Autoclave",
       "slug": "digital-controller-triple-wall-vertical-autoclave",
       "model": "",
       "modelKey": "",
@@ -1808,6 +1830,7 @@
     {
       "productId": "23818293312",
       "name": "Digital Triple Wall Vertical Autoclave",
+      "displayName": "Digital Triple Wall Vertical Autoclave",
       "slug": "digital-triple-wall-vertical-autoclave",
       "model": "",
       "modelKey": "",
@@ -1875,6 +1898,7 @@
     {
       "productId": "23804651391",
       "name": "Double Wall Vertical Autoclave",
+      "displayName": "Double Wall Vertical Autoclave",
       "slug": "double-wall-vertical-autoclave",
       "model": "",
       "modelKey": "",
@@ -1933,6 +1957,7 @@
     {
       "productId": "23802516512",
       "name": "Economy Vertical Autoclave",
+      "displayName": "Economy Vertical Autoclave",
       "slug": "economy-vertical-autoclave",
       "model": "",
       "modelKey": "",
@@ -1994,6 +2019,7 @@
     {
       "productId": "23804655055",
       "name": "Electric Cum Gas Vertical Autoclave",
+      "displayName": "Electric Cum Gas Vertical Autoclave",
       "slug": "electric-cum-gas-vertical-autoclave",
       "model": "",
       "modelKey": "",
@@ -2060,6 +2086,7 @@
     {
       "productId": "26097202230",
       "name": "Instrument Sterilizer Electrical With tray Lifting Jointless/ Seamless",
+      "displayName": "Instrument Sterilizer Electrical With Tray Lifting Jointless/ Seamless",
       "slug": "instrument-sterilizer-electrical-with-tray-lifting-jointless-seamless",
       "model": "",
       "modelKey": "",
@@ -2126,6 +2153,7 @@
     {
       "productId": "26097285833",
       "name": "Instrument Sterilizer Non Electrical Jointed",
+      "displayName": "Instrument Sterilizer Non Electrical Jointed",
       "slug": "instrument-sterilizer-non-electrical-jointed",
       "model": "",
       "modelKey": "",
@@ -2214,6 +2242,7 @@
     {
       "productId": "27312122530",
       "name": "Instrument Sterilizers Electrical jointed with Tray lifting Thermostat",
+      "displayName": "Instrument Sterilizers Electrical Jointed With Tray Lifting Thermostat",
       "slug": "instrument-sterilizers-electrical-jointed-with-tray-lifting-thermostat",
       "model": "",
       "modelKey": "",
@@ -2276,6 +2305,7 @@
     {
       "productId": "23758552030",
       "name": "Radial Steam Storage Vertical Autoclave",
+      "displayName": "Radial Steam Storage Vertical Autoclave",
       "slug": "radial-steam-storage-vertical-autoclave",
       "model": "",
       "modelKey": "",
@@ -2347,6 +2377,7 @@
     {
       "productId": "26097237633",
       "name": "Rectangular Autoclave horizontal Triple Wall",
+      "displayName": "Rectangular Autoclave Horizontal Triple Wall",
       "slug": "rectangular-autoclave-horizontal-triple-wall",
       "model": "",
       "modelKey": "",
@@ -2434,6 +2465,7 @@
     {
       "productId": "23804588933",
       "name": "Steam Storage Vertical Autoclave",
+      "displayName": "Steam Storage Vertical Autoclave",
       "slug": "steam-storage-vertical-autoclave",
       "model": "",
       "modelKey": "",
@@ -2504,6 +2536,7 @@
     {
       "productId": "26097167948",
       "name": "Table Top Autoclave Front Loading (b Class) With Vacuum And Dry",
+      "displayName": "Table Top Autoclave Front Loading (B Class) With Vacuum And Dry",
       "slug": "table-top-autoclave-front-loading-b-class-with-vacuum-and-dry",
       "model": "",
       "modelKey": "",
@@ -2585,6 +2618,7 @@
     {
       "productId": "23815483488",
       "name": "Table Top Front Loading Autoclave (N Class)",
+      "displayName": "Table Top Front Loading Autoclave (N Class)",
       "slug": "table-top-front-loading-autoclave-n-class",
       "model": "",
       "modelKey": "",
@@ -2649,6 +2683,7 @@
     {
       "productId": "27300291948",
       "name": "Triple Wall Vertical Hi-Pressure Nut Locking Autoclave(With Steam Storage & Vaccum Drying Feature",
+      "displayName": "Triple Wall Vertical Hi-Pressure Nut Locking Autoclave(With Steam Storage & Vaccum Drying Feature",
       "slug": "triple-wall-vertical-hi-pressure-nut-locking-autoclave-with-steam-storage-vaccum-drying-feature",
       "model": "",
       "modelKey": "",
@@ -2730,6 +2765,7 @@
     {
       "productId": "24451961488",
       "name": "Triple Wall Vertical Hi-Pressure Radial Locking",
+      "displayName": "Triple Wall Vertical Hi-Pressure Radial Locking",
       "slug": "triple-wall-vertical-hi-pressure-radial-locking",
       "model": "",
       "modelKey": "",
@@ -2824,6 +2860,7 @@
     {
       "productId": "23758552233",
       "name": "Triple Wall Wing Nut Vertical Autoclave",
+      "displayName": "Triple Wall Wing Nut Vertical Autoclave",
       "slug": "triple-wall-wing-nut-vertical-autoclave",
       "model": "",
       "modelKey": "",
@@ -2892,6 +2929,7 @@
     {
       "productId": "26097049973",
       "name": "Vertical Autoclave",
+      "displayName": "Vertical Autoclave",
       "slug": "vertical-autoclave",
       "model": "",
       "modelKey": "",
@@ -2964,6 +3002,7 @@
     {
       "productId": "23802526533",
       "name": "Vertical Autoclave Radial Locking Double Wall",
+      "displayName": "Vertical Autoclave Radial Locking Double Wall",
       "slug": "vertical-autoclave-radial-locking-double-wall",
       "model": "",
       "modelKey": "",
@@ -3058,6 +3097,7 @@
     {
       "productId": "26097237562",
       "name": "Vertical Autoclave Stainless Steel Nut Locking Double wall",
+      "displayName": "Vertical Autoclave Stainless Steel Nut Locking Double Wall",
       "slug": "vertical-autoclave-stainless-steel-nut-locking-double-wall",
       "model": "",
       "modelKey": "",
@@ -3167,6 +3207,7 @@
     {
       "productId": "23829851491",
       "name": "Vertical Autoclave double wall with digital controller",
+      "displayName": "Vertical Autoclave Double Wall With Digital Controller",
       "slug": "vertical-autoclave-double-wall-with-digital-controller",
       "model": "",
       "modelKey": "",
@@ -3263,6 +3304,7 @@
     {
       "productId": "23804582948",
       "name": "Vertical Double Wall Radial Lock Autoclave",
+      "displayName": "Vertical Double Wall Radial Lock Autoclave",
       "slug": "vertical-double-wall-radial-lock-autoclave",
       "model": "",
       "modelKey": "",
@@ -3335,6 +3377,7 @@
     {
       "productId": "27094767088",
       "name": "AB-1 Attendent Bed",
+      "displayName": "AB-1 Attendent Bed",
       "slug": "ab-1-attendent-bed",
       "model": "AB-1",
       "modelKey": "ab 1",
@@ -3439,6 +3482,7 @@
     {
       "productId": "27093442797",
       "name": "BSS - 3F Bed Side Screen (3 Panels)",
+      "displayName": "BSS - 3F Bed Side Screen (3 Panels)",
       "slug": "bss-3f-bed-side-screen-3-panels",
       "model": "BSS - 3F",
       "modelKey": "bss 3f",
@@ -3524,6 +3568,7 @@
     {
       "productId": "27093376555",
       "name": "BSS-4F Bed Side Screen (4 Panels)",
+      "displayName": "BSS-4F Bed Side Screen (4 Panels)",
       "slug": "bss-4f-bed-side-screen-4-panels",
       "model": "BSS-4F",
       "modelKey": "bss 4f",
@@ -3608,6 +3653,7 @@
     {
       "productId": "26097084312",
       "name": "Bed Side Screen Three Fold",
+      "displayName": "Bed Side Screen Three Fold",
       "slug": "bed-side-screen-three-fold",
       "model": "",
       "modelKey": "",
@@ -3682,6 +3728,7 @@
     {
       "productId": "27095968933",
       "name": "C-ARM Compatible Hydraulic Operating Table",
+      "displayName": "C-ARM Compatible Hydraulic Operating Table",
       "slug": "c-arm-compatible-hydraulic-operating-table",
       "model": "OTHC-1",
       "modelKey": "othc 1",
@@ -3795,6 +3842,7 @@
     {
       "productId": "26097203333",
       "name": "Delivery Bed (Hydraullic)",
+      "displayName": "Delivery Bed (Hydraullic)",
       "slug": "delivery-bed-hydraullic",
       "model": "",
       "modelKey": "",
@@ -3876,6 +3924,7 @@
     {
       "productId": "26097133588",
       "name": "Delivery Table Mechanical",
+      "displayName": "Delivery Table Mechanical",
       "slug": "delivery-table-mechanical",
       "model": "",
       "modelKey": "",
@@ -3967,6 +4016,7 @@
     {
       "productId": "27095909697",
       "name": "EC-1D Examination Coach",
+      "displayName": "EC-1D Examination Coach",
       "slug": "ec-1d-examination-coach",
       "model": "EC-1D",
       "modelKey": "ec 1d",
@@ -4062,6 +4112,7 @@
     {
       "productId": "27095920312",
       "name": "EC-1G Gynaec Examination Table",
+      "displayName": "EC-1G Gynaec Examination Table",
       "slug": "ec-1g-gynaec-examination-table",
       "model": "EC-1G",
       "modelKey": "ec 1g",
@@ -4173,6 +4224,7 @@
     {
       "productId": "27094285962",
       "name": "ERTH-1 Emergency & Recovery Trolley (Hydraulic)",
+      "displayName": "ERTH-1 Emergency & Recovery Trolley (Hydraulic)",
       "slug": "erth-1-emergency-recovery-trolley-hydraulic",
       "model": "",
       "modelKey": "",
@@ -4261,6 +4313,7 @@
     {
       "productId": "27094342297",
       "name": "ERTH-1D Emergency & Recovery Trolley Hydraulic",
+      "displayName": "ERTH-1D Emergency & Recovery Trolley Hydraulic",
       "slug": "erth-1d-emergency-recovery-trolley-hydraulic",
       "model": "",
       "modelKey": "",
@@ -4340,6 +4393,7 @@
     {
       "productId": "27094895555",
       "name": "Four Section Mattress for Fowler / I.C.U. Beds",
+      "displayName": "Four Section Mattress For Fowler / I.C.U. Beds",
       "slug": "four-section-mattress-for-fowler-i-c-u-beds",
       "model": "",
       "modelKey": "",
@@ -4428,6 +4482,7 @@
     {
       "productId": "26097168097",
       "name": "Fowler Bed Electric",
+      "displayName": "Fowler Bed Electric",
       "slug": "fowler-bed-electric",
       "model": "",
       "modelKey": "",
@@ -4508,6 +4563,7 @@
     {
       "productId": "26097168897",
       "name": "Gynec Examination Couch",
+      "displayName": "Gynec Examination Couch",
       "slug": "gynec-examination-couch",
       "model": "",
       "modelKey": "",
@@ -4593,6 +4649,7 @@
     {
       "productId": "27094725055",
       "name": "HFB-1 Hospital Fowler Bed",
+      "displayName": "Hfb-1 Hospital Fowler Bed",
       "slug": "hfb-1-hospital-fowler-bed",
       "model": "HFB-1",
       "modelKey": "hfb 1",
@@ -4704,6 +4761,7 @@
     {
       "productId": "27094718448",
       "name": "HFBE-1 Fowler Bed Electric",
+      "displayName": "Hfbe-1 Fowler Bed Electric",
       "slug": "hfbe-1-fowler-bed-electric",
       "model": "HFBE-1",
       "modelKey": "hfbe 1",
@@ -4816,6 +4874,7 @@
     {
       "productId": "27094714033",
       "name": "HFBM-1 Hospital Fowler Bed Mechanical",
+      "displayName": "Hfbm-1 Hospital Fowler Bed Mechanical",
       "slug": "hfbm-1-hospital-fowler-bed-mechanical",
       "model": "HFBM-1",
       "modelKey": "hfbm 1",
@@ -4928,6 +4987,7 @@
     {
       "productId": "27094756862",
       "name": "HPB-1 Hospital Bed",
+      "displayName": "Hpb-1 Hospital Bed",
       "slug": "hpb-1-hospital-bed",
       "model": "HPB-1",
       "modelKey": "hpb 1",
@@ -5046,6 +5106,7 @@
     {
       "productId": "27094750191",
       "name": "HSFB-1 Hospital Semi Fowler Bed",
+      "displayName": "Hsfb-1 Hospital Semi Fowler Bed",
       "slug": "hsfb-1-hospital-semi-fowler-bed",
       "model": "",
       "modelKey": "",
@@ -5160,6 +5221,7 @@
     {
       "productId": "26097168548",
       "name": "Hospital Bed Semi Fowler With Abs Panel And Wheels",
+      "displayName": "Hospital Bed Semi Fowler With ABS Panel And Wheels",
       "slug": "hospital-bed-semi-fowler-with-abs-panel-and-wheels",
       "model": "",
       "modelKey": "",
@@ -5251,6 +5313,7 @@
     {
       "productId": "26097236188",
       "name": "Hospital Bed plain",
+      "displayName": "Hospital Bed Plain",
       "slug": "hospital-bed-plain",
       "model": "",
       "modelKey": "",
@@ -5326,6 +5389,7 @@
     {
       "productId": "26097235973",
       "name": "Hospital Chair",
+      "displayName": "Hospital Chair",
       "slug": "hospital-chair",
       "model": "",
       "modelKey": "",
@@ -5397,6 +5461,7 @@
     {
       "productId": "23802541130",
       "name": "Hospital Fowler Bed",
+      "displayName": "Hospital Fowler Bed",
       "slug": "hospital-fowler-bed",
       "model": "",
       "modelKey": "",
@@ -5457,6 +5522,7 @@
     {
       "productId": "26097237433",
       "name": "Hospital Fowler Bed",
+      "displayName": "Hospital Fowler Bed",
       "slug": "hospital-fowler-bed",
       "model": "",
       "modelKey": "",
@@ -5537,6 +5603,7 @@
     {
       "productId": "26097168433",
       "name": "Hospital Fowler Bed Abs Panel With Collapsible Side Rails",
+      "displayName": "Hospital Fowler Bed ABS Panel With Collapsible Side Rails",
       "slug": "hospital-fowler-bed-abs-panel-with-collapsible-side-rails",
       "model": "",
       "modelKey": "",
@@ -5630,6 +5697,7 @@
     {
       "productId": "26097168212",
       "name": "Hospital Fowler Bed Metal Panels",
+      "displayName": "Hospital Fowler Bed Metal Panels",
       "slug": "hospital-fowler-bed-metal-panels",
       "model": "",
       "modelKey": "",
@@ -5711,6 +5779,7 @@
     {
       "productId": "26097105833",
       "name": "Hydraulic Operating Table C-Arm Compatible",
+      "displayName": "Hydraulic Operating Table C-Arm Compatible",
       "slug": "hydraulic-operating-table-c-arm-compatible",
       "model": "",
       "modelKey": "",
@@ -5793,6 +5862,7 @@
     {
       "productId": "27095953848",
       "name": "Hydraulic Operation Table Side End Control",
+      "displayName": "Hydraulic Operation Table Side End Control",
       "slug": "hydraulic-operation-table-side-end-control",
       "model": "",
       "modelKey": "",
@@ -5906,6 +5976,7 @@
     {
       "productId": "27095977473",
       "name": "Hydraulic Surgical Operating Table",
+      "displayName": "Hydraulic Surgical Operating Table",
       "slug": "hydraulic-surgical-operating-table",
       "model": "",
       "modelKey": "",
@@ -6006,6 +6077,7 @@
     {
       "productId": "26097184248",
       "name": "ICU Bed Electric",
+      "displayName": "ICU Bed Electric",
       "slug": "icu-bed-electric",
       "model": "",
       "modelKey": "",
@@ -6086,6 +6158,7 @@
     {
       "productId": "27574517448",
       "name": "ICU Bed Electric ICUE-1",
+      "displayName": "ICU Bed Electric ICUE-1",
       "slug": "icu-bed-electric-icue-1",
       "model": "",
       "modelKey": "",
@@ -6160,6 +6233,7 @@
     {
       "productId": "27094422712",
       "name": "ICUE-1 Icu Bed Electric",
+      "displayName": "ICUE-1 ICU Bed Electric",
       "slug": "icue-1-icu-bed-electric",
       "model": "ICUE-1",
       "modelKey": "icue 1",
@@ -6261,6 +6335,7 @@
     {
       "productId": "27094446012",
       "name": "ICUE-2 Icu Bed Electric",
+      "displayName": "ICUE-2 ICU Bed Electric",
       "slug": "icue-2-icu-bed-electric",
       "model": "ICUE-2",
       "modelKey": "icue 2",
@@ -6370,6 +6445,7 @@
     {
       "productId": "27094450591",
       "name": "ICUE-3 Icu Bed Electric",
+      "displayName": "ICUE-3 ICU Bed Electric",
       "slug": "icue-3-icu-bed-electric",
       "model": "ICUE-3",
       "modelKey": "icue 3",
@@ -6487,6 +6563,7 @@
     {
       "productId": "27094492348",
       "name": "ICUE-4 ICU Bed Electric",
+      "displayName": "ICUE-4 ICU Bed Electric",
       "slug": "icue-4-icu-bed-electric",
       "model": "ICUE-4",
       "modelKey": "icue 4",
@@ -6602,6 +6679,7 @@
     {
       "productId": "27094698873",
       "name": "ICUE-5 ICU Bed Electric",
+      "displayName": "ICUE-5 ICU Bed Electric",
       "slug": "icue-5-icu-bed-electric",
       "model": "ICUE-5",
       "modelKey": "icue 5",
@@ -6720,6 +6798,7 @@
     {
       "productId": "27094702962",
       "name": "ICUM-1 ICU Bed Machanical",
+      "displayName": "ICUM-1 ICU Bed Mechanical",
       "slug": "icum-1-icu-bed-machanical",
       "model": "ICUM-1",
       "modelKey": "icum 1",
@@ -6842,6 +6921,7 @@
     {
       "productId": "27094711730",
       "name": "ICUM-2 ICU Bed Machanical",
+      "displayName": "ICUM-2 ICU Bed Mechanical",
       "slug": "icum-2-icu-bed-machanical",
       "model": "ICUM-2",
       "modelKey": "icum 2",
@@ -6961,6 +7041,7 @@
     {
       "productId": "26097106530",
       "name": "Icu Bed Chair Position",
+      "displayName": "ICU Bed Chair Position",
       "slug": "icu-bed-chair-position",
       "model": "",
       "modelKey": "",
@@ -7043,6 +7124,7 @@
     {
       "productId": "26097184612",
       "name": "Icu Bed Electric",
+      "displayName": "ICU Bed Electric",
       "slug": "icu-bed-electric",
       "model": "",
       "modelKey": "",
@@ -7127,6 +7209,7 @@
     {
       "productId": "26097184755",
       "name": "Icu Bed Mechanical With Abs Panels And Abs Rails",
+      "displayName": "ICU Bed Mechanical With ABS Panels And ABS Rails",
       "slug": "icu-bed-mechanical-with-abs-panels-and-abs-rails",
       "model": "",
       "modelKey": "",
@@ -7211,6 +7294,7 @@
     {
       "productId": "27094366862",
       "name": "LM-1 Laparoscopic Monitor Trolley",
+      "displayName": "LM-1 Laparoscopic Monitor Trolley",
       "slug": "lm-1-laparoscopic-monitor-trolley",
       "model": "",
       "modelKey": "",
@@ -7294,6 +7378,7 @@
     {
       "productId": "26097203188",
       "name": "Labour Table Ss",
+      "displayName": "Labour Table SS",
       "slug": "labour-table-ss",
       "model": "",
       "modelKey": "",
@@ -7373,6 +7458,7 @@
     {
       "productId": "27094877833",
       "name": "MPB-1 Mattress for Hospital Beds",
+      "displayName": "Mpb-1 Mattress For Hospital Beds",
       "slug": "mpb-1-mattress-for-hospital-beds",
       "model": "MPB-1",
       "modelKey": "mpb 1",
@@ -7447,6 +7533,7 @@
     {
       "productId": "26097236430",
       "name": "Medical And Doctor Stool",
+      "displayName": "Medical And Doctor Stool",
       "slug": "medical-and-doctor-stool",
       "model": "",
       "modelKey": "",
@@ -7520,6 +7607,7 @@
     {
       "productId": "27094774633",
       "name": "OPDC-1 Patient's OPD Couch/ Chair",
+      "displayName": "OPDC-1 Patient's OPD Couch/ Chair",
       "slug": "opdc-1-patient-s-opd-couch-chair",
       "model": "OPDC-1",
       "modelKey": "opdc 1",
@@ -7616,6 +7704,7 @@
     {
       "productId": "27095927855",
       "name": "OTT-1M Operation Table",
+      "displayName": "Ott-1M Operation Table",
       "slug": "ott-1m-operation-table",
       "model": "OTT-1M",
       "modelKey": "ott 1m",
@@ -7704,6 +7793,7 @@
     {
       "productId": "26097285912",
       "name": "Operation Table Manual , Hi Low",
+      "displayName": "Operation Table Manual, Hi Low",
       "slug": "operation-table-manual-hi-low",
       "model": "",
       "modelKey": "",
@@ -7773,6 +7863,7 @@
     {
       "productId": "27094858997",
       "name": "PDB-1 Pediatric Bed",
+      "displayName": "PDB-1 Pediatric Bed",
       "slug": "pdb-1-pediatric-bed",
       "model": "PDB-1",
       "modelKey": "pdb 1",
@@ -7890,6 +7981,7 @@
     {
       "productId": "26097236630",
       "name": "Pediatric Bed",
+      "displayName": "Pediatric Bed",
       "slug": "pediatric-bed",
       "model": "",
       "modelKey": "",
@@ -7974,6 +8066,7 @@
     {
       "productId": "27093656755",
       "name": "SC-1 Surgeon Chair",
+      "displayName": "SC-1 Surgeon Chair",
       "slug": "sc-1-surgeon-chair",
       "model": "",
       "modelKey": "",
@@ -8062,6 +8155,7 @@
     {
       "productId": "26097202355",
       "name": "Stainless Steel I.V Stand With Plastic Base",
+      "displayName": "Stainless Steel I.V Stand With Plastic Base",
       "slug": "stainless-steel-i-v-stand-with-plastic-base",
       "model": "",
       "modelKey": "",
@@ -8127,6 +8221,7 @@
     {
       "productId": "23802542833",
       "name": "Steel Hospital Bed",
+      "displayName": "Steel Hospital Bed",
       "slug": "steel-hospital-bed",
       "model": "",
       "modelKey": "",
@@ -8187,6 +8282,7 @@
     {
       "productId": "27094887430",
       "name": "TRAP-1 Hospital Bed Mattress",
+      "displayName": "Trap-1 Hospital Bed Mattress",
       "slug": "trap-1-hospital-bed-mattress",
       "model": "",
       "modelKey": "",
@@ -8268,6 +8364,7 @@
     {
       "productId": "27093667762",
       "name": "WAC-1 Waiting Area Chair",
+      "displayName": "WAC-1 Waiting Area Chair",
       "slug": "wac-1-waiting-area-chair",
       "model": "",
       "modelKey": "",
@@ -8340,6 +8437,7 @@
     {
       "productId": "27093684012",
       "name": "WC-1F Wheelchair Fix/ Folding",
+      "displayName": "WC-1F Wheelchair Fix/ Folding",
       "slug": "wc-1f-wheelchair-fix-folding",
       "model": "",
       "modelKey": "",
@@ -8436,6 +8534,7 @@
     {
       "productId": "27095939048",
       "name": "WJ-1 Spica Table",
+      "displayName": "WJ-1 Spica Table",
       "slug": "wj-1-spica-table",
       "model": "WJ-1",
       "modelKey": "wj 1",
@@ -8539,6 +8638,7 @@
     {
       "productId": "23827727697",
       "name": "Autoclave SS",
+      "displayName": "Autoclave SS",
       "slug": "autoclave-ss",
       "model": "",
       "modelKey": "",
@@ -8602,6 +8702,7 @@
     {
       "productId": "27312325448",
       "name": "Baby Tray BT-1620",
+      "displayName": "Baby Tray Bt-1620",
       "slug": "baby-tray-bt-1620",
       "model": "",
       "modelKey": "",
@@ -8643,6 +8744,7 @@
     {
       "productId": "27312269833",
       "name": "Baby Tray(SS)",
+      "displayName": "Baby Tray(SS)",
       "slug": "baby-tray-ss",
       "model": "",
       "modelKey": "",
@@ -8698,6 +8800,7 @@
     {
       "productId": "23815500948",
       "name": "Bed Pan Stainless Steel Male With Cover",
+      "displayName": "Bed Pan Stainless Steel Male With Cover",
       "slug": "bed-pan-stainless-steel-male-with-cover",
       "model": "",
       "modelKey": "",
@@ -8771,6 +8874,7 @@
     {
       "productId": "26097105612",
       "name": "Bed Pan Stainless Steel Round With Lid",
+      "displayName": "Bed Pan Stainless Steel Round With Lid",
       "slug": "bed-pan-stainless-steel-round-with-lid",
       "model": "",
       "modelKey": "",
@@ -8852,6 +8956,7 @@
     {
       "productId": "26097105933",
       "name": "Bed Pans Stainless Steel Female With without Lid Cover",
+      "displayName": "Bed Pans Stainless Steel Female With without Lid Cover",
       "slug": "bed-pans-stainless-steel-female-with-without-lid-cover",
       "model": "",
       "modelKey": "",
@@ -8945,6 +9050,7 @@
     {
       "productId": "26097106033",
       "name": "Catheter Tray With Lid (Cover)",
+      "displayName": "Catheter Tray With Lid (Cover)",
       "slug": "catheter-tray-with-lid-cover",
       "model": "",
       "modelKey": "",
@@ -9017,6 +9123,7 @@
     {
       "productId": "23817074948",
       "name": "Dressing Drum Jointed",
+      "displayName": "Dressing Drum Jointed",
       "slug": "dressing-drum-jointed",
       "model": "",
       "modelKey": "",
@@ -9127,6 +9234,7 @@
     {
       "productId": "23817074762",
       "name": "Dressing Drum Seamless (Jointless)",
+      "displayName": "Dressing Drum Seamless (Jointless)",
       "slug": "dressing-drum-seamless-jointless",
       "model": "",
       "modelKey": "",
@@ -9214,6 +9322,7 @@
     {
       "productId": "26097132991",
       "name": "Dressing Jar S/S",
+      "displayName": "Dressing Jar S/S",
       "slug": "dressing-jar-s-s",
       "model": "",
       "modelKey": "",
@@ -9305,6 +9414,7 @@
     {
       "productId": "26097133691",
       "name": "Enema Can Ss",
+      "displayName": "Enema Can SS",
       "slug": "enema-can-ss",
       "model": "",
       "modelKey": "",
@@ -9373,6 +9483,7 @@
     {
       "productId": "26097167655",
       "name": "Forcep Jar",
+      "displayName": "Forcep Jar",
       "slug": "forcep-jar",
       "model": "",
       "modelKey": "",
@@ -9433,6 +9544,7 @@
     {
       "productId": "26097168391",
       "name": "Gallipot S.S. Without Cover",
+      "displayName": "Gallipot S.S. Without Cover",
       "slug": "gallipot-s-s-without-cover",
       "model": "",
       "modelKey": "",
@@ -9530,6 +9642,7 @@
     {
       "productId": "23833933733",
       "name": "Hospital Three Fold Screen",
+      "displayName": "Hospital Three Fold Screen",
       "slug": "hospital-three-fold-screen",
       "model": "",
       "modelKey": "",
@@ -9598,6 +9711,7 @@
     {
       "productId": "26097202433",
       "name": "Instrument Tray With Cover SS",
+      "displayName": "Instrument Tray With Cover SS",
       "slug": "instrument-tray-with-cover-ss",
       "model": "",
       "modelKey": "",
@@ -9683,6 +9797,7 @@
     {
       "productId": "26097228730",
       "name": "Mayo and Dental Trays",
+      "displayName": "Mayo And Dental Trays",
       "slug": "mayo-and-dental-trays",
       "model": "",
       "modelKey": "",
@@ -9757,6 +9872,7 @@
     {
       "productId": "26097202697",
       "name": "S S Lotion Bowls",
+      "displayName": "S S Lotion Bowls",
       "slug": "s-s-lotion-bowls",
       "model": "",
       "modelKey": "",
@@ -9854,6 +9970,7 @@
     {
       "productId": "23817075262",
       "name": "SS Aerosol Fumigator",
+      "displayName": "SS Aerosol Fumigator",
       "slug": "ss-aerosol-fumigator",
       "model": "",
       "modelKey": "",
@@ -9910,6 +10027,7 @@
     {
       "productId": "23802537255",
       "name": "SS Kidney Tray",
+      "displayName": "SS Kidney Tray",
       "slug": "ss-kidney-tray",
       "model": "",
       "modelKey": "",
@@ -9965,6 +10083,7 @@
     {
       "productId": "23817075448",
       "name": "Seamless Instrument Sterilizer",
+      "displayName": "Seamless Instrument Sterilizer",
       "slug": "seamless-instrument-sterilizer",
       "model": "",
       "modelKey": "",
@@ -10022,6 +10141,7 @@
     {
       "productId": "26097084230",
       "name": "Stainless Steel Bedpan Female Seamless Weld With & Without Cover",
+      "displayName": "Stainless Steel Bedpan Female Seamless Weld With & Without Cover",
       "slug": "stainless-steel-bedpan-female-seamless-weld-with-without-cover",
       "model": "",
       "modelKey": "",
@@ -10109,6 +10229,7 @@
     {
       "productId": "23815483230",
       "name": "Stainless Steel Catheter Tray",
+      "displayName": "Stainless Steel Catheter Tray",
       "slug": "stainless-steel-catheter-tray",
       "model": "",
       "modelKey": "",
@@ -10166,6 +10287,7 @@
     {
       "productId": "26097106188",
       "name": "Stainless Steel Cidex Tray",
+      "displayName": "Stainless Steel Cidex Tray",
       "slug": "stainless-steel-cidex-tray",
       "model": "",
       "modelKey": "",
@@ -10240,6 +10362,7 @@
     {
       "productId": "23815483388",
       "name": "Stainless Steel Dental Tray",
+      "displayName": "Stainless Steel Dental Tray",
       "slug": "stainless-steel-dental-tray",
       "model": "",
       "modelKey": "",
@@ -10293,6 +10416,7 @@
     {
       "productId": "23802511630",
       "name": "Stainless Steel Dressing Drums",
+      "displayName": "Stainless Steel Dressing Drums",
       "slug": "stainless-steel-dressing-drums",
       "model": "",
       "modelKey": "",
@@ -10347,6 +10471,7 @@
     {
       "productId": "23815483188",
       "name": "Stainless Steel Enema Can",
+      "displayName": "Stainless Steel Enema Can",
       "slug": "stainless-steel-enema-can",
       "model": "",
       "modelKey": "",
@@ -10406,6 +10531,7 @@
     {
       "productId": "23815496597",
       "name": "Stainless Steel Female Bedpan",
+      "displayName": "Stainless Steel Female Bedpan",
       "slug": "stainless-steel-female-bedpan",
       "model": "",
       "modelKey": "",
@@ -10464,6 +10590,7 @@
     {
       "productId": "23817075691",
       "name": "Stainless Steel Forcep Jar",
+      "displayName": "Stainless Steel Forcep Jar",
       "slug": "stainless-steel-forcep-jar",
       "model": "",
       "modelKey": "",
@@ -10533,6 +10660,7 @@
     {
       "productId": "26097167712",
       "name": "Stainless Steel Gallipots With Cover",
+      "displayName": "Stainless Steel Gallipots With Cover",
       "slug": "stainless-steel-gallipots-with-cover",
       "model": "",
       "modelKey": "",
@@ -10625,6 +10753,7 @@
     {
       "productId": "23818281755",
       "name": "Stainless Steel Hospital Basins",
+      "displayName": "Stainless Steel Hospital Basins",
       "slug": "stainless-steel-hospital-basins",
       "model": "",
       "modelKey": "",
@@ -10701,6 +10830,7 @@
     {
       "productId": "23818314230",
       "name": "Stainless Steel Hospital Bowl",
+      "displayName": "Stainless Steel Hospital Bowl",
       "slug": "stainless-steel-hospital-bowl",
       "model": "",
       "modelKey": "",
@@ -10762,6 +10892,7 @@
     {
       "productId": "23802520748",
       "name": "Stainless Steel Instrument Tray",
+      "displayName": "Stainless Steel Instrument Tray",
       "slug": "stainless-steel-instrument-tray",
       "model": "",
       "modelKey": "",
@@ -10819,6 +10950,7 @@
     {
       "productId": "26097203288",
       "name": "Stainless Steel Kidney Tray Without Cover & With Cover",
+      "displayName": "Stainless Steel Kidney Tray Without Cover & With Cover",
       "slug": "stainless-steel-kidney-tray-without-cover-with-cover",
       "model": "",
       "modelKey": "",
@@ -10916,6 +11048,7 @@
     {
       "productId": "23819688112",
       "name": "Stainless Steel Measuring Jug",
+      "displayName": "Stainless Steel Measuring Jug",
       "slug": "stainless-steel-measuring-jug",
       "model": "",
       "modelKey": "",
@@ -10977,6 +11110,7 @@
     {
       "productId": "23803641930",
       "name": "Stainless Steel Round Bedpan",
+      "displayName": "Stainless Steel Round Bedpan",
       "slug": "stainless-steel-round-bedpan",
       "model": "",
       "modelKey": "",
@@ -11035,6 +11169,7 @@
     {
       "productId": "23815483588",
       "name": "Stainless Steel Sputum Mug",
+      "displayName": "Stainless Steel Sputum Mug",
       "slug": "stainless-steel-sputum-mug",
       "model": "",
       "modelKey": "",
@@ -11096,6 +11231,7 @@
     {
       "productId": "23819429930",
       "name": "Stainless Steel Thermometer Jar",
+      "displayName": "Stainless Steel Thermometer Jar",
       "slug": "stainless-steel-thermometer-jar",
       "model": "TJ-1",
       "modelKey": "tj 1",
@@ -11162,6 +11298,7 @@
     {
       "productId": "24283798833",
       "name": "Stainless Steel Tray",
+      "displayName": "Stainless Steel Tray",
       "slug": "stainless-steel-tray",
       "model": "",
       "modelKey": "",
@@ -11226,6 +11363,7 @@
     {
       "productId": "27300859348",
       "name": "Urine Pots Stainless Steel",
+      "displayName": "Urine Pots Stainless Steel",
       "slug": "urine-pots-stainless-steel",
       "model": "",
       "modelKey": "",
@@ -11277,6 +11415,7 @@
     {
       "productId": "26097285730",
       "name": "Ceiling OT Light LED, 3 Reflector, 63 LED",
+      "displayName": "Ceiling OT Light LED, 3 Reflector, 63 LED",
       "slug": "ceiling-ot-light-led-3-reflector-63-led",
       "model": "",
       "modelKey": "",
@@ -11351,6 +11490,7 @@
     {
       "productId": "27570986262",
       "name": "Mobile OT Light",
+      "displayName": "Mobile OT Light",
       "slug": "mobile-ot-light",
       "model": "",
       "modelKey": "",
@@ -11424,6 +11564,7 @@
     {
       "productId": "27571361312",
       "name": "Mobile OT Light",
+      "displayName": "Mobile OT Light",
       "slug": "mobile-ot-light",
       "model": "",
       "modelKey": "",
@@ -11497,6 +11638,7 @@
     {
       "productId": "27571542197",
       "name": "Mobile OT Light",
+      "displayName": "Mobile OT Light",
       "slug": "mobile-ot-light",
       "model": "",
       "modelKey": "",
@@ -11549,6 +11691,7 @@
     {
       "productId": "27571422633",
       "name": "Mobile OT Light",
+      "displayName": "Mobile OT Light",
       "slug": "mobile-ot-light",
       "model": "",
       "modelKey": "",
@@ -11601,6 +11744,7 @@
     {
       "productId": "27570743273",
       "name": "Mobile OT Lights",
+      "displayName": "Mobile OT Lights",
       "slug": "mobile-ot-lights",
       "model": "",
       "modelKey": "",
@@ -11676,6 +11820,7 @@
     {
       "productId": "27571199762",
       "name": "OT Light , Twin (Ceiling)",
+      "displayName": "OT Light, Twin (Ceiling)",
       "slug": "ot-light-twin-ceiling",
       "model": "",
       "modelKey": "",
@@ -11754,6 +11899,7 @@
     {
       "productId": "27540648988",
       "name": "OT Light ,Twin (Ceiling)",
+      "displayName": "OT Light,Twin (Ceiling)",
       "slug": "ot-light-twin-ceiling",
       "model": "",
       "modelKey": "",
@@ -11832,6 +11978,7 @@
     {
       "productId": "26097285673",
       "name": "OT Light LED, Twin Dooms Of Three Reflectors,126 LED",
+      "displayName": "OT Light LED, Twin Dooms Of Three Reflectors,126 LED",
       "slug": "ot-light-led-twin-dooms-of-three-reflectors-126-led",
       "model": "",
       "modelKey": "",
@@ -11911,6 +12058,7 @@
     {
       "productId": "27539933933",
       "name": "OT Light Twin (Ceiling)",
+      "displayName": "OT Light Twin (Ceiling)",
       "slug": "ot-light-twin-ceiling",
       "model": "",
       "modelKey": "",
@@ -11989,6 +12137,7 @@
     {
       "productId": "27539277462",
       "name": "OT Light Twin (Ceiling)",
+      "displayName": "OT Light Twin (Ceiling)",
       "slug": "ot-light-twin-ceiling",
       "model": "",
       "modelKey": "",
@@ -12067,6 +12216,7 @@
     {
       "productId": "27539933812",
       "name": "OT Light Twin (Ceiling)",
+      "displayName": "OT Light Twin (Ceiling)",
       "slug": "ot-light-twin-ceiling",
       "model": "",
       "modelKey": "",
@@ -12145,6 +12295,7 @@
     {
       "productId": "27570892433",
       "name": "OT Light, Twin (Ceiling)",
+      "displayName": "OT Light, Twin (Ceiling)",
       "slug": "ot-light-twin-ceiling",
       "model": "",
       "modelKey": "",
@@ -12223,6 +12374,7 @@
     {
       "productId": "27094264673",
       "name": "OTL-3 Operation Theater Lights",
+      "displayName": "OTL-3 Operation Theatre Lights",
       "slug": "otl-3-operation-theater-lights",
       "model": "",
       "modelKey": "",
@@ -12328,6 +12480,7 @@
     {
       "productId": "27094243712",
       "name": "OTL-33 Operation Theater Lights",
+      "displayName": "OTL-33 Operation Theatre Lights",
       "slug": "otl-33-operation-theater-lights",
       "model": "",
       "modelKey": "",
@@ -12437,6 +12590,7 @@
     {
       "productId": "27094261173",
       "name": "OTL-4 Operation Theater Lights",
+      "displayName": "OTL-4 Operation Theatre Lights",
       "slug": "otl-4-operation-theater-lights",
       "model": "",
       "modelKey": "",
@@ -12542,6 +12696,7 @@
     {
       "productId": "27094237912",
       "name": "OTL-43 Operation Theater Lights",
+      "displayName": "OTL-43 Operation Theatre Lights",
       "slug": "otl-43-operation-theater-lights",
       "model": "",
       "modelKey": "",
@@ -12651,6 +12806,7 @@
     {
       "productId": "27094229873",
       "name": "OTL-44 Operation Theater Lights",
+      "displayName": "OTL-44 Operation Theatre Lights",
       "slug": "otl-44-operation-theater-lights",
       "model": "",
       "modelKey": "",
@@ -12756,6 +12912,7 @@
     {
       "productId": "27094254273",
       "name": "OTL-5 Operation Theater Lights",
+      "displayName": "OTL-5 Operation Theatre Lights",
       "slug": "otl-5-operation-theater-lights",
       "model": "",
       "modelKey": "",
@@ -12861,6 +13018,7 @@
     {
       "productId": "27093882962",
       "name": "OTL-53 Operation Theater Lights",
+      "displayName": "OTL-53 Operation Theatre Lights",
       "slug": "otl-53-operation-theater-lights",
       "model": "",
       "modelKey": "",
@@ -12970,6 +13128,7 @@
     {
       "productId": "27093876762",
       "name": "OTL-54 Operation Theatre Lights",
+      "displayName": "OTL-54 Operation Theatre Lights",
       "slug": "otl-54-operation-theatre-lights",
       "model": "",
       "modelKey": "",
@@ -13075,6 +13234,7 @@
     {
       "productId": "27093861855",
       "name": "OTL-55 Operation Theater Lights",
+      "displayName": "OTL-55 Operation Theatre Lights",
       "slug": "otl-55-operation-theater-lights",
       "model": "",
       "modelKey": "",
@@ -13180,6 +13340,7 @@
     {
       "productId": "27094249873",
       "name": "OTL-6 Operation Theater Lights",
+      "displayName": "OTL-6 Operation Theatre Lights",
       "slug": "otl-6-operation-theater-lights",
       "model": "",
       "modelKey": "",
@@ -13285,6 +13446,7 @@
     {
       "productId": "27093854991",
       "name": "OTL-63 Operation Theater Lights",
+      "displayName": "OTL-63 Operation Theatre Lights",
       "slug": "otl-63-operation-theater-lights",
       "model": "",
       "modelKey": "",
@@ -13382,6 +13544,7 @@
     {
       "productId": "27093836773",
       "name": "OTL-M6C Operation Theater Light",
+      "displayName": "OTL-M6C Operation Theatre Light",
       "slug": "otl-m6c-operation-theater-light",
       "model": "",
       "modelKey": "",
@@ -13480,6 +13643,7 @@
     {
       "productId": "27094357230",
       "name": "AS-1 Ambulance Stretcher",
+      "displayName": "AS-1 Ambulance Stretcher",
       "slug": "as-1-ambulance-stretcher",
       "model": "",
       "modelKey": "",
@@ -13562,6 +13726,7 @@
     {
       "productId": "27094346430",
       "name": "FSA-1 Folding Stretcher 1 Fold, 2 Fold, 3 Fold & 4 Fold",
+      "displayName": "FSA-1 Folding Stretcher 1 Fold, 2 Fold, 3 Fold & 4 Fold",
       "slug": "fsa-1-folding-stretcher-1-fold-2-fold-3-fold-4-fold",
       "model": "",
       "modelKey": "",
@@ -13657,6 +13822,7 @@
     {
       "productId": "23803755012",
       "name": "Hospital Spine Board",
+      "displayName": "Hospital Spine Board",
       "slug": "hospital-spine-board",
       "model": "",
       "modelKey": "",
@@ -13705,6 +13871,7 @@
     {
       "productId": "27094323755",
       "name": "ST-1 Stretcher on Trolley",
+      "displayName": "ST-1 Stretcher on Trolley",
       "slug": "st-1-stretcher-on-trolley",
       "model": "",
       "modelKey": "",
@@ -13790,6 +13957,7 @@
     {
       "productId": "27094335055",
       "name": "ST-1M Stretcher Trolley with Mattress",
+      "displayName": "ST-1M Stretcher Trolley with Mattress",
       "slug": "st-1m-stretcher-trolley-with-mattress",
       "model": "",
       "modelKey": "",
@@ -13885,6 +14053,7 @@
     {
       "productId": "26097237148",
       "name": "Spin Board",
+      "displayName": "Spin Board",
       "slug": "spin-board",
       "model": "",
       "modelKey": "",
@@ -13969,6 +14138,7 @@
     {
       "productId": "27094351633",
       "name": "Spine Board",
+      "displayName": "Spine Board",
       "slug": "spine-board",
       "model": "SB-1",
       "modelKey": "sb 1",
@@ -14064,6 +14234,7 @@
     {
       "productId": "26097202188",
       "name": "Instrument Sterilizers Electrical",
+      "displayName": "Instrument Sterilizers Electrical",
       "slug": "instrument-sterilizers-electrical",
       "model": "",
       "modelKey": "",
@@ -14151,6 +14322,7 @@
     {
       "productId": "26097202055",
       "name": "Stainless Steel Instrument Sterilizer Seamless With Tray Lifting Arrangement",
+      "displayName": "Stainless Steel Instrument Sterilizer Seamless With Tray Lifting Arrangement",
       "slug": "stainless-steel-instrument-sterilizer-seamless-with-tray-lifting-arrangement",
       "model": "",
       "modelKey": "",
@@ -14216,6 +14388,7 @@
     {
       "productId": "26097134212",
       "name": "Electric Vacuum Extractor, Deluxe",
+      "displayName": "Electric Vacuum Extractor, Deluxe",
       "slug": "electric-vacuum-extractor-deluxe",
       "model": "",
       "modelKey": "",
@@ -14292,6 +14465,7 @@
     {
       "productId": "27301161112",
       "name": "Electric Vacuum Extractor, Deluxe",
+      "displayName": "Electric Vacuum Extractor, Deluxe",
       "slug": "electric-vacuum-extractor-deluxe",
       "model": "",
       "modelKey": "",
@@ -14358,6 +14532,7 @@
     {
       "productId": "27301160491",
       "name": "Foot Operated Heavy",
+      "displayName": "Foot Operated Heavy",
       "slug": "foot-operated-heavy",
       "model": "",
       "modelKey": "",
@@ -14414,6 +14589,7 @@
     {
       "productId": "26097106297",
       "name": "Foot Operated, Horzionantal",
+      "displayName": "Foot Operated, Horzionantal",
       "slug": "foot-operated-horzionantal",
       "model": "",
       "modelKey": "",
@@ -14497,6 +14673,7 @@
     {
       "productId": "26097106397",
       "name": "Slow Suction (Pediatric)",
+      "displayName": "Slow Suction (Pediatric)",
       "slug": "slow-suction-pediatric",
       "model": "",
       "modelKey": "",
@@ -14570,6 +14747,7 @@
     {
       "productId": "27301160373",
       "name": "Slow Suction Pediatric",
+      "displayName": "Slow Suction Pediatric",
       "slug": "slow-suction-pediatric",
       "model": "",
       "modelKey": "",
@@ -14631,6 +14809,7 @@
     {
       "productId": "27301160888",
       "name": "Suction 0.5 HP",
+      "displayName": "Suction 0.5 Hp",
       "slug": "suction-0-5-hp",
       "model": "",
       "modelKey": "",
@@ -14689,6 +14868,7 @@
     {
       "productId": "27301160962",
       "name": "Suction 0.5 Hp With Tray",
+      "displayName": "Suction 0.5 Hp With Tray",
       "slug": "suction-0-5-hp-with-tray",
       "model": "",
       "modelKey": "",
@@ -14764,6 +14944,7 @@
     {
       "productId": "27311612388",
       "name": "Suction Apparatus 0.25 HP",
+      "displayName": "Suction Apparatus 0.25 Hp",
       "slug": "suction-apparatus-0-25-hp",
       "model": "",
       "modelKey": "",
@@ -14819,6 +15000,7 @@
     {
       "productId": "26097049773",
       "name": "Suction Electric Cum Manual",
+      "displayName": "Suction Electric Cum Manual",
       "slug": "suction-electric-cum-manual",
       "model": "",
       "modelKey": "",
@@ -14887,6 +15069,7 @@
     {
       "productId": "26097237888",
       "name": "Suction Machine Electric Cum Manual",
+      "displayName": "Suction Machine Electric Cum Manual",
       "slug": "suction-machine-electric-cum-manual",
       "model": "",
       "modelKey": "",
@@ -14985,6 +15168,7 @@
     {
       "productId": "27301160273",
       "name": "Suction Unit 0.5HP with Poly Jars, Deluxe",
+      "displayName": "Suction Unit 0.5Hp With Poly Jars, Deluxe",
       "slug": "suction-unit-0-5hp-with-poly-jars-deluxe",
       "model": "",
       "modelKey": "",
@@ -15032,6 +15216,7 @@
     {
       "productId": "26097133733",
       "name": "Vacuum Extractor Electric, Economy",
+      "displayName": "Vacuum Extractor Electric, Economy",
       "slug": "vacuum-extractor-electric-economy",
       "model": "",
       "modelKey": "",
@@ -15113,6 +15298,7 @@
     {
       "productId": "2849390380691",
       "name": "Vacuum extractor",
+      "displayName": "Vacuum extractor",
       "slug": "vacuum-extractor",
       "model": "",
       "modelKey": "",
@@ -15157,6 +15343,7 @@
     {
       "productId": "27093752191",
       "name": "BBU-1 Baby Bassinet With Utility Box",
+      "displayName": "BBU-1 Baby Bassinet With Utility Box",
       "slug": "bbu-1-baby-bassinet-with-utility-box",
       "model": "",
       "modelKey": "",
@@ -15251,6 +15438,7 @@
     {
       "productId": "27093790691",
       "name": "BSL-1ABS Patient's Medicine Cupbard (ABS)",
+      "displayName": "BSL-1ABS Patient's Medicine Cupbard (ABS)",
       "slug": "bsl-1abs-patient-s-medicine-cupbard-abs",
       "model": "",
       "modelKey": "",
@@ -15329,6 +15517,7 @@
     {
       "productId": "27459417988",
       "name": "BSL-1D Patient's Medicine Cupboard (DLX)",
+      "displayName": "BSL-1D Patient's Medicine Cupboard (DLX)",
       "slug": "bsl-1d-patient-s-medicine-cupboard-dlx",
       "model": "",
       "modelKey": "",
@@ -15389,6 +15578,7 @@
     {
       "productId": "27093320688",
       "name": "CTF-1 Cardiac Table (fixed)",
+      "displayName": "CTF-1 Cardiac Table (fixed)",
       "slug": "ctf-1-cardiac-table-fixed",
       "model": "",
       "modelKey": "",
@@ -15475,6 +15665,7 @@
     {
       "productId": "27093312262",
       "name": "CTG-1 Cardiac Table (Gear Handle Adjustable)",
+      "displayName": "CTG-1 Cardiac Table (Gear Handle Adjustable)",
       "slug": "ctg-1-cardiac-table-gear-handle-adjustable",
       "model": "CTG-1",
       "modelKey": "ctg 1",
@@ -15558,6 +15749,7 @@
     {
       "productId": "27093314330",
       "name": "CTK-1 Cardiac Table (by Knob Adjustable)",
+      "displayName": "CTK-1 Cardiac Table (by Knob Adjustable)",
       "slug": "ctk-1-cardiac-table-by-knob-adjustable",
       "model": "",
       "modelKey": "",
@@ -15644,6 +15836,7 @@
     {
       "productId": "26097132897",
       "name": "Cardiac Table Adjustable By Knob",
+      "displayName": "Cardiac Table Adjustable By Knob",
       "slug": "cardiac-table-adjustable-by-knob",
       "model": "",
       "modelKey": "",
@@ -15730,6 +15923,7 @@
     {
       "productId": "27093472930",
       "name": "DT-1 SS Dressing Trolley",
+      "displayName": "DT-1 SS Dressing Trolley",
       "slug": "dt-1-ss-dressing-trolley",
       "model": "",
       "modelKey": "",
@@ -15824,6 +16018,7 @@
     {
       "productId": "27093501797",
       "name": "FSD-1 Foot Step Double Step",
+      "displayName": "FSD-1 Foot Step Double Step",
       "slug": "fsd-1-foot-step-double-step",
       "model": "",
       "modelKey": "",
@@ -15914,6 +16109,7 @@
     {
       "productId": "27093491412",
       "name": "FSS-1 Foot Step Single Step",
+      "displayName": "FSS-1 Foot Step Single Step",
       "slug": "fss-1-foot-step-single-step",
       "model": "",
       "modelKey": "",
@@ -15999,6 +16195,7 @@
     {
       "productId": "26097228855",
       "name": "Hospital Dressing Trolley",
+      "displayName": "Hospital Dressing Trolley",
       "slug": "hospital-dressing-trolley",
       "model": "",
       "modelKey": "",
@@ -16075,6 +16272,7 @@
     {
       "productId": "27459089648",
       "name": "I.V.Stand",
+      "displayName": "I.V.Stand",
       "slug": "i-v-stand",
       "model": "",
       "modelKey": "",
@@ -16132,6 +16330,7 @@
     {
       "productId": "27093477488",
       "name": "IT-1SS Instrument Trolley Two Shelves",
+      "displayName": "IT-1SS Instrument Trolley Two Shelves",
       "slug": "it-1ss-instrument-trolley-two-shelves",
       "model": "",
       "modelKey": "",
@@ -16228,6 +16427,7 @@
     {
       "productId": "26097202962",
       "name": "Iv Stand",
+      "displayName": "IV Stand",
       "slug": "iv-stand",
       "model": "",
       "modelKey": "",
@@ -16284,6 +16484,7 @@
     {
       "productId": "27093445712",
       "name": "KBSS-1 Kick Bowl Bucket",
+      "displayName": "KBSS-1 Kick Bowl Bucket",
       "slug": "kbss-1-kick-bowl-bucket",
       "model": "",
       "modelKey": "",
@@ -16373,6 +16574,7 @@
     {
       "productId": "27093482373",
       "name": "LT-1 Solid Linen Trolley with Canvas Bag",
+      "displayName": "LT-1 Solid Linen Trolley with Canvas Bag",
       "slug": "lt-1-solid-linen-trolley-with-canvas-bag",
       "model": "",
       "modelKey": "",
@@ -16462,6 +16664,7 @@
     {
       "productId": "27093462412",
       "name": "MT4D-1 Medicine Trolley with 4 Drawers",
+      "displayName": "MT4D-1 Medicine Trolley with 4 Drawers",
       "slug": "mt4d-1-medicine-trolley-with-4-drawers",
       "model": "",
       "modelKey": "",
@@ -16556,6 +16759,7 @@
     {
       "productId": "27093329648",
       "name": "MTOB-1 OT Instrument Mayo's Trolley Over the OT Table (Mechanically)",
+      "displayName": "MTOB-1 OT Instrument Mayo's Trolley Over the OT Table (Mechanically)",
       "slug": "mtob-1-ot-instrument-mayo-s-trolley-over-the-ot-table-mechanically",
       "model": "",
       "modelKey": "",
@@ -16646,6 +16850,7 @@
     {
       "productId": "27093324073",
       "name": "MTSS-1 O.T. Mayo's Instrument Trolley With S.S. Tray",
+      "displayName": "Mtss-1 O.T. Mayo'S Instrument Trolley With S.S. Tray",
       "slug": "mtss-1-o-t-mayo-s-instrument-trolley-with-s-s-tray",
       "model": "MTSS-1",
       "modelKey": "mtss 1",
@@ -16740,6 +16945,7 @@
     {
       "productId": "27093637797",
       "name": "OCT-1S Trolley For Oxygen Cylinder",
+      "displayName": "OCT-1S Trolley For Oxygen Cylinder",
       "slug": "oct-1s-trolley-for-oxygen-cylinder",
       "model": "OCT-1S",
       "modelKey": "oct 1s",
@@ -16833,6 +17039,7 @@
     {
       "productId": "27093648188",
       "name": "PRS-1MS Patient's Revolving Stool S.S Top",
+      "displayName": "PRS-1MS Patient's Revolving Stool S.S Top",
       "slug": "prs-1ms-patient-s-revolving-stool-s-s-top",
       "model": "PRS-1M",
       "modelKey": "prs 1m",
@@ -16922,6 +17129,7 @@
     {
       "productId": "27093652488",
       "name": "PSF-1 Patient's Stool (Fix)",
+      "displayName": "PSF-1 Patient's Stool (Fix)",
       "slug": "psf-1-patient-s-stool-fix",
       "model": "PSF-1",
       "modelKey": "psf 1",
@@ -17011,6 +17219,7 @@
     {
       "productId": "27093783262",
       "name": "Patient's Medicine Cupbard (STD)",
+      "displayName": "Patient's Medicine Cupbard (STD)",
       "slug": "patient-s-medicine-cupbard-std",
       "model": "",
       "modelKey": "",
@@ -17093,6 +17302,7 @@
     {
       "productId": "27093777488",
       "name": "Patient's Medicine Cupboard (DLX)",
+      "displayName": "Patient's Medicine Cupboard (DLX)",
       "slug": "patient-s-medicine-cupboard-dlx",
       "model": "",
       "modelKey": "",
@@ -17179,6 +17389,7 @@
     {
       "productId": "27093466233",
       "name": "UT-2S Utility Trolley Two Shelves",
+      "displayName": "UT-2S Utility Trolley Two Shelves",
       "slug": "ut-2s-utility-trolley-two-shelves",
       "model": "",
       "modelKey": "",
@@ -17264,6 +17475,7 @@
     {
       "productId": "27093334312",
       "name": "WBS-1D Wash Basin Stand (Double)",
+      "displayName": "WBS-1D Wash Basin Stand (Double)",
       "slug": "wbs-1d-wash-basin-stand-double",
       "model": "",
       "modelKey": "",
@@ -17348,6 +17560,7 @@
     {
       "productId": "27093341991",
       "name": "WBS-1S Wash Basin Stand (Single)",
+      "displayName": "WBS-1S Wash Basin Stand (Single)",
       "slug": "wbs-1s-wash-basin-stand-single",
       "model": "",
       "modelKey": "",

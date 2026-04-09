@@ -33,7 +33,7 @@ DOWNLOADS_DIR = ROOT / "public" / "downloads"
 OFFICIAL_CATALOGUE_SOURCE = ROOT / "72 Page Catalogue F_compressed_compressed (1).pdf"
 EXPORT_WORKBOOK = DOWNLOADS_DIR / "indian-surgical-industries-official-catalogue.pdf"
 GENERATED_WORKBOOK = GENERATED_DIR / "indian-surgical-industries-catalogue.xlsx"
-EXPORT_PREVIEW_PATH = "/catalogue-preview"
+EXPORT_PREVIEW_PATH = "/products"
 EXPORT_WORKBOOK_PATH = f"/downloads/{EXPORT_WORKBOOK.name}"
 INDIAMART_BASE_URL = "https://www.indiamart.com/indiansurgicalindustries/"
 INDIAMART_CATEGORY_PAGES = [
@@ -242,7 +242,7 @@ PUBLIC_CATEGORY_CONFIG = [
     },
     {
         "slug": "hospital-furnitures",
-        "name": "Hospital Furnitures",
+        "name": "Hospital Furniture",
         "summary": "General hospital furniture, examination couches, attendant beds, chairs, and procedural support units.",
         "intro": "Browse general hospital furniture for patient support, examination, recovery, and everyday clinical use.",
         "order": 3,
@@ -291,7 +291,7 @@ PUBLIC_CATEGORY_CONFIG = [
     },
     {
         "slug": "ward-equipments",
-        "name": "Ward Equipments",
+        "name": "Ward Equipment",
         "summary": "Ward utility trolleys, stools, cabinets, screens, stands, and patient support accessories.",
         "intro": "Review ward support equipment used for movement, bedside utility, storage, and daily hospital workflow.",
         "order": 10,
@@ -681,6 +681,90 @@ def humanize_title(value: str) -> str:
     )
 
 
+def normalize_indiamart_display_name(value: str) -> str:
+    text = clean_text(value)
+    if not text:
+        return ""
+
+    typo_replacements = {
+        r"\bAuctoclave\b": "Autoclave",
+        r"\bContorller\b": "Controller",
+        r"\bMachanical\b": "Mechanical",
+        r"\bHydralic\b": "Hydraulic",
+        r"\bMatterss\b": "Mattress",
+        r"\bFolwer\b": "Fowler",
+        r"\bObsteric\b": "Obstetric",
+        r"\bSterlilzer(s?)\b": r"Sterilizer\1",
+        r"\bSterlizers\b": "Sterilizers",
+        r"\bSterlilzers\b": "Sterilizers",
+        r"\bVertival\b": "Vertical",
+        r"\bVacum\b": "Vacuum",
+    }
+    for pattern, replacement in typo_replacements.items():
+        text = re.sub(pattern, replacement, text, flags=re.I)
+
+    text = re.sub(r"\bOperation Theater\b", "Operation Theatre", text, flags=re.I)
+    text = re.sub(r"\bTheater Lights\b", "Theatre Lights", text, flags=re.I)
+    text = re.sub(r"\bTheater Light\b", "Theatre Light", text, flags=re.I)
+
+    text = re.sub(r"\s+([,.;:])", r"\1", text)
+    text = re.sub(r"\s+", " ", text).strip()
+    if not text:
+        return ""
+
+    normalized = normalize_key(text)
+    if any(
+        token in normalized
+        for token in (
+            "autoclave",
+            "steriliz",
+            "holloware",
+            "hospital bed",
+            "operation table",
+            "patient transfer",
+            "suction",
+            "needle destroy",
+            "fumigator",
+            "fogger",
+            "x ray",
+            "illuminator",
+            "tray",
+            "fowler",
+        )
+    ):
+        text = text.title()
+    else:
+        text = humanize_title(text)
+
+    acronym_replacements = {
+        r"\bAbs\b": "ABS",
+        r"\bAc/Dc\b": "AC/DC",
+        r"\bCssd\b": "CSSD",
+        r"\bDwc\b": "DWC",
+        r"\bHmi\b": "HMI",
+        r"\bHplc\b": "HPLC",
+        r"\bHvac\b": "HVAC",
+        r"\bIcu\b": "ICU",
+        r"\bIv\b": "IV",
+        r"\bLed\b": "LED",
+        r"\bLcd\b": "LCD",
+        r"\bMs\b": "MS",
+        r"\bN Class\b": "N Class",
+        r"\bOt\b": "OT",
+        r"\bPvc\b": "PVC",
+        r"\bPlc\b": "PLC",
+        r"\bSs\b": "SS",
+        r"\bS/s\b": "S/S",
+        r"\bX Ray\b": "X-Ray",
+    }
+    for pattern, replacement in acronym_replacements.items():
+        text = re.sub(pattern, replacement, text)
+
+    text = text.replace(" & ", " & ")
+    text = text.replace("Pre & Post Vacuum", "Pre & Post Vacuum")
+    return text.strip(" -")
+
+
 def unique_preserve(items: list[str]) -> list[str]:
     seen: set[str] = set()
     result: list[str] = []
@@ -1026,6 +1110,9 @@ def fetch_indiamart_detail(
     product_name = clean_text(data.get("PC_ITEM_NAME") or data.get("PC_ITEM_DISPLAY_NAME") or "")
     if not product_name:
         return None
+    display_name = normalize_indiamart_display_name(product_name)
+    if not display_name:
+        display_name = humanize_title(product_name)
 
     attributes: list[dict[str, str]] = []
     model = ""
@@ -1056,6 +1143,7 @@ def fetch_indiamart_detail(
     return {
         "productId": product_id,
         "name": product_name,
+        "displayName": display_name,
         "slug": slugify(product_name),
         "model": model,
         "modelKey": normalize_key(model),
@@ -1744,7 +1832,7 @@ def attach_indiamart_product_to_family(family: dict[str, Any], product: dict[str
         family["variants"],
         key=lambda variant: score_indiamart_match(family, variant, product),
     )
-    target_variant["displayName"] = target_variant.get("displayName") or product["name"]
+    target_variant["displayName"] = target_variant.get("displayName") or product.get("displayName") or product["name"]
     target_variant["productUrl"] = target_variant.get("productUrl") or product["sourceUrl"]
     target_variant["images"] = unique_preserve(target_variant.get("images", []) + product.get("images", []))
     target_variant["descriptionLines"] = unique_preserve(
@@ -2094,6 +2182,27 @@ def ensure_unique_family_slug(family: dict[str, Any], families_by_key: dict[tupl
     family["slug"] = f"{desired_slug}-{suffix}"
 
 
+def normalize_public_display_labels(family: dict[str, Any]) -> None:
+    if family.get("categorySlug") not in {"autoclaves", "vertical-autoclave"}:
+        return
+
+    cleaned_name = normalize_indiamart_display_name(family.get("name", ""))
+    if cleaned_name:
+        family["name"] = cleaned_name
+
+    cleaned_subheading = normalize_indiamart_display_name(family.get("subheading", ""))
+    if cleaned_subheading:
+        family["subheading"] = cleaned_subheading
+
+    for variant in family.get("variants", []):
+        display_name = clean_text(variant.get("displayName", ""))
+        if not display_name:
+            continue
+        cleaned_display = normalize_indiamart_display_name(display_name)
+        if cleaned_display:
+            variant["displayName"] = cleaned_display
+
+
 def enrich_catalogue_with_indiamart(
     families: list[dict[str, Any]],
     indiamart_products: list[dict[str, Any]],
@@ -2139,7 +2248,7 @@ def enrich_catalogue_with_indiamart(
                 continue
 
             matched_ids.add(best_match["productId"])
-            variant["displayName"] = best_match["name"]
+            variant["displayName"] = best_match.get("displayName") or best_match["name"]
             variant["productUrl"] = best_match["sourceUrl"]
             variant["images"] = unique_preserve(best_match["images"] + variant.get("images", []))
             variant["descriptionLines"] = unique_preserve(
@@ -2160,7 +2269,7 @@ def enrich_catalogue_with_indiamart(
 
         if len(family["variants"]) == 1:
             _, variant, match = max(family_matches, key=lambda item: item[0])
-            family["name"] = match["name"]
+            family["name"] = match.get("displayName") or match["name"]
             family["summary"] = match.get("summary") or family.get("summary", "")
             if match.get("descriptionLines"):
                 family["description"] = " ".join(match["descriptionLines"])
@@ -2244,7 +2353,7 @@ def enrich_catalogue_with_indiamart(
             continue
         new_family = {
             "slug": slugify(product["name"]),
-            "name": product["name"],
+            "name": product.get("displayName") or product["name"],
             "categorySlug": product["categorySlug"],
             "sectionSerials": [],
             "subheading": "",
@@ -2262,7 +2371,7 @@ def enrich_catalogue_with_indiamart(
                     "model": product.get("model") or product["name"],
                     "slug": slugify(product.get("model") or product["name"]),
                     "label": product.get("model") or product["name"],
-                    "displayName": product["name"],
+                    "displayName": product.get("displayName") or product["name"],
                     "productUrl": product["sourceUrl"],
                     "attributes": merge_attributes([], product.get("attributes", [])),
                     "descriptionLines": product.get("descriptionLines", []),
@@ -2300,6 +2409,7 @@ def enrich_catalogue_with_indiamart(
     for family in families:
         ensure_unique_family_slug(family, families_by_key, family["variants"][0]["slug"])
         families_by_key[(family["categorySlug"], family["slug"])] = family
+        normalize_public_display_labels(family)
 
     return families
 

@@ -65,7 +65,7 @@ const leadershipHighlights = [
   {
     value: `${catalogueStats.categoryCount}`,
     label: "Major product categories",
-    note: "From autoclaves and sterilizers to hospital furniture, ward equipment, OT lighting, and specialty utility ranges.",
+    note: "From autoclaves and vertical autoclaves to hollowares, trays, beds, ward equipment, and OT lighting.",
   },
   {
     value: "ISO / CE",
@@ -77,7 +77,7 @@ const leadershipHighlights = [
 
 <BaseLayout
   title="Industrial Medical Equipment Catalogue"
-  description="Indian Surgical Industries manufactures autoclaves, sterilizers, hospital hollowares, hospital furniture, suction units, OT equipment, and allied medical products."
+  description="Indian Surgical Industries manufactures autoclaves and sterilizers, vertical autoclaves, hospital hollowares, stainless steel trays, suction machines, hospital beds, operation tables, and allied medical products."
 >
   <section class="hero section">
     <div class="container hero__grid">
@@ -118,7 +118,7 @@ const leadershipHighlights = [
         <SectionTitle
           kicker="Major Product Categories"
           title="Choose the Product Category You Need"
-          subtitle="Select the category that matches your requirement to open the relevant product range."
+          subtitle="Open the relevant section to compare product families, images, and available models."
           align="left"
         />
 
@@ -140,7 +140,7 @@ const leadershipHighlights = [
       <SectionTitle
         kicker="Explore Our Products"
         title="Featured Products Across Our Range"
-        subtitle="Selected product families from across the company range for quick review and enquiry."
+        subtitle="Review representative products from major categories before opening the full catalogue."
         align="center"
       />
 
@@ -272,6 +272,17 @@ const leadershipHighlights = [
     document.querySelectorAll(".js-category-carousel").forEach((strip) => {
       const track = strip.querySelector(".category-strip__track");
       if (!track) {
+        return;
+      }
+      const prefersNativeScroll = window.matchMedia("(max-width: 900px)");
+
+      if (prefersNativeScroll.matches) {
+        strip.classList.add("is-native");
+        track.style.transform = "";
+        cleanups.push(() => {
+          strip.classList.remove("is-native");
+          track.style.transform = "";
+        });
         return;
       }
 
@@ -1051,14 +1062,6 @@ const leadershipHighlights = [
       grid-template-columns: 1fr;
     }
 
-    .category-strip {
-      mask-image: none;
-    }
-
-    .category-strip :global(.category-card) {
-      width: 8rem;
-    }
-
     .showcase-card {
       grid-template-rows: 14rem 1fr;
     }
@@ -1083,6 +1086,35 @@ const leadershipHighlights = [
     .cta h2 {
       font-size: clamp(1.4rem, 8vw, 1.9rem);
       max-width: 18ch;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .category-strip {
+      overflow-x: auto;
+      cursor: auto;
+      touch-action: pan-x;
+      scroll-snap-type: x proximity;
+      scrollbar-width: none;
+      mask-image: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .category-strip::-webkit-scrollbar {
+      display: none;
+    }
+
+    .category-strip.is-native .category-strip__track {
+      transform: none !important;
+    }
+
+    .category-strip :global(.category-card[aria-hidden="true"]) {
+      display: none;
+    }
+
+    .category-strip :global(.category-card) {
+      width: min(10rem, 48vw);
+      scroll-snap-align: start;
     }
   }
 </style>

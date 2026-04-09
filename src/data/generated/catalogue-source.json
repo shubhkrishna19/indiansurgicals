@@ -9,8 +9,8 @@
   ],
   "approvedImageSource": "indian surgicals product images high quality",
   "exports": {
-    "generatedAt": "2026-04-09T16:21:04+05:30",
-    "previewPath": "/catalogue-preview",
+    "generatedAt": "2026-04-09T17:30:37+05:30",
+    "previewPath": "/products",
     "workbookPath": "/downloads/indian-surgical-industries-official-catalogue.pdf",
     "workbookName": "indian-surgical-industries-official-catalogue.pdf",
     "sheets": [
@@ -27,8 +27,8 @@
       "summary": "Portable, horizontal, table-top, and sterilizer ranges presented in the same public bucket used on IndiaMART.",
       "intro": "Review autoclaves, pressure cooker types, horizontal systems, and sterilizer models in one combined range.",
       "order": 1,
-      "familyCount": 34,
-      "variantCount": 184,
+      "familyCount": 35,
+      "variantCount": 185,
       "heroImage": "/catalogue-media-hq/autoclave-p-type.jpg",
       "gallery": [
         "/catalogue-media-hq/autoclave-p-type.jpg",
@@ -61,7 +61,7 @@
     },
     {
       "slug": "hospital-furnitures",
-      "name": "Hospital Furnitures",
+      "name": "Hospital Furniture",
       "summary": "General hospital furniture, examination couches, attendant beds, chairs, and procedural support units.",
       "intro": "Browse general hospital furniture for patient support, examination, recovery, and everyday clinical use.",
       "order": 3,
@@ -95,7 +95,7 @@
         "/catalogue-media-indiamart/23802541130.jpg",
         "/catalogue-media-indiamart/26097168097.jpeg",
         "/catalogue-media-indiamart/27094714033.jpg",
-        "/catalogue-media-indiamart/27094756862.jpg",
+        "/catalogue-media-indiamart/26097236188.jpeg",
         "/catalogue-media-indiamart/26097168548.jpeg"
       ]
     },
@@ -167,8 +167,8 @@
         "/catalogue-media/image92.png",
         "/catalogue-media-indiamart/26097202433.jpeg",
         "/catalogue-media/image114.png",
-        "/catalogue-media-indiamart/27093324073.jpg",
-        "/catalogue-media-indiamart/26097228730.jpeg"
+        "/catalogue-media-indiamart/26097228730.jpeg",
+        "/catalogue-media-indiamart/27093324073.jpg"
       ]
     },
     {
@@ -192,7 +192,7 @@
     },
     {
       "slug": "ward-equipments",
-      "name": "Ward Equipments",
+      "name": "Ward Equipment",
       "summary": "Ward utility trolleys, stools, cabinets, screens, stands, and patient support accessories.",
       "intro": "Review ward support equipment used for movement, bedside utility, storage, and daily hospital workflow.",
       "order": 10,
@@ -5688,7 +5688,7 @@
           "model": "Autoclave Portable Pressure Cooker double drums",
           "slug": "autoclave-portable-pressure-cooker-double-drums",
           "label": "Autoclave Portable Pressure Cooker double drums",
-          "displayName": "Autoclave Portable Pressure Cooker double drums",
+          "displayName": "Autoclave Portable Pressure Cooker Double Drums",
           "productUrl": "https://www.indiamart.com/proddetail/autoclave-portable-pressure-cooker-double-drums-27294448330.html",
           "attributes": [
             {
@@ -7482,7 +7482,7 @@
               "model": "26097237633"
             }
           ],
-          "displayName": "Rectangular Autoclave horizontal Triple Wall",
+          "displayName": "Rectangular Autoclave Horizontal Triple Wall",
           "productUrl": "https://www.indiamart.com/proddetail/rectangular-autoclave-horizontal-triple-wall-26097237633.html"
         },
         {
@@ -7705,7 +7705,7 @@
     },
     {
       "slug": "autoclave-with-timer",
-      "name": "Autoclave with Timer",
+      "name": "Autoclave With Timer",
       "categorySlug": "autoclaves-and-sterilizers",
       "sectionSerials": [
         "16"
@@ -7769,7 +7769,7 @@
               "model": "AAPT-10"
             }
           ],
-          "displayName": "Autoclave with Timer"
+          "displayName": "Autoclave With Timer"
         },
         {
           "model": "AAPT-12",
@@ -7818,7 +7818,7 @@
               "model": "AAPT-12"
             }
           ],
-          "displayName": "Autoclave with Timer"
+          "displayName": "Autoclave With Timer"
         },
         {
           "model": "AAPT-21",
@@ -7867,7 +7867,7 @@
               "model": "AAPT-21"
             }
           ],
-          "displayName": "Autoclave with Timer"
+          "displayName": "Autoclave With Timer"
         },
         {
           "model": "AAPT-9",
@@ -7920,7 +7920,7 @@
               "model": "AAPT-9"
             }
           ],
-          "displayName": "Autoclave with Timer"
+          "displayName": "Autoclave With Timer"
         }
       ],
       "sourceRefs": [
@@ -8881,7 +8881,7 @@
     },
     {
       "slug": "instrument-sterilizer-electrical-with-tray-lifting-jointless-seamless",
-      "name": "Instrument Sterilizer Electrical With tray Lifting Jointless/ Seamless",
+      "name": "Instrument Sterilizer Electrical With Tray Lifting Jointless/ Seamless",
       "categorySlug": "autoclaves-and-sterilizers",
       "sectionSerials": [],
       "subheading": "",
@@ -8908,7 +8908,7 @@
           "model": "Instrument Sterilizer Electrical With tray Lifting Jointless/ Seamless",
           "slug": "instrument-sterilizer-electrical-with-tray-lifting-jointless-seamless",
           "label": "Instrument Sterilizer Electrical With tray Lifting Jointless/ Seamless",
-          "displayName": "Instrument Sterilizer Electrical With tray Lifting Jointless/ Seamless",
+          "displayName": "Instrument Sterilizer Electrical With Tray Lifting Jointless/ Seamless",
           "productUrl": "https://www.indiamart.com/proddetail/instrument-sterilizer-electrical-with-tray-lifting-jointless-seamless-26097202230.html",
           "attributes": [
             {
@@ -9837,27 +9837,20 @@
       "legacyCategorySlug": "sterilizers"
     },
     {
-      "slug": "instrument-sterilizers-electrical-jointed-with-tray-lifting-thermostat",
-      "name": "Instrument Sterilizers Electrical jointed with Tray lifting Thermostat",
+      "slug": "instrument-sterilizers-electrical-jointed-with-tray-lifting-and-thermostat",
+      "name": "Instrument Sterilizers Electrical (Jointed) with Tray Lifting and Thermostat.",
       "categorySlug": "autoclaves-and-sterilizers",
       "sectionSerials": [
         "25"
       ],
       "subheading": "",
-      "summary": "Models",
-      "description": "Models Sizes(inch) ISTL-126 12\" x 6\" x 5.5\" ISTL-146 14\" x 6' x 5.5 ISTL-166 16\" x 6\" x 5.5\" ISTL-168 16\" x 8\" x 5.5\" ISTL- 178 17\" x 8\" x 7.5\" ISTL-188 18\" x 8\" x 7.5\" ISTL-208 20\" x 8\" x 7.5\" ISTL-248 24\" x 8\" x 7.5\" ISTL-2412 24\" x 12\" x 6\" ISTL-2412D 24\" x 12\" x 12\"",
+      "summary": "Instrument Sterilizers Electrical (Jointed)",
+      "description": "Instrument Sterilizers Electrical (Jointed)",
       "highlights": [
-        "Models",
-        "Sizes(inch)",
-        "ISTL-126",
-        "12\" x 6\" x 5.5\"",
-        "ISTL-146",
-        "14\" x 6' x 5.5",
         "Instrument Sterilizers Electrical (Jointed)"
       ],
       "notes": [],
       "images": [
-        "/catalogue-media-indiamart/27312122530.jpg",
         "/catalogue-media-hq/bowl-sterilizer.jpeg",
         "/catalogue-media-hq/bowl-sterilizer.png",
         "/catalogue-media-hq/eto-sterilizer.png",
@@ -9895,7 +9888,6 @@
             "Instrument Sterilizers Electrical (Jointed)"
           ],
           "images": [
-            "/catalogue-media-indiamart/27312122530.jpg",
             "/catalogue-media-hq/bowl-sterilizer.jpeg",
             "/catalogue-media-hq/bowl-sterilizer.png",
             "/catalogue-media-hq/eto-sterilizer.png",
@@ -9940,44 +9932,12 @@
             {
               "label": "product size in mm",
               "value": "300 x 150 x 150mm"
-            },
-            {
-              "label": "Country of Origin",
-              "value": "Made in India"
-            },
-            {
-              "label": "Availability",
-              "value": "In Stock"
             }
           ],
           "descriptionLines": [
-            "Instrument Sterilizers Electrical (Jointed)",
-            "Models",
-            "Sizes(inch)",
-            "ISTL-126",
-            "12\" x 6\" x 5.5\"",
-            "ISTL-146",
-            "14\" x 6' x 5.5",
-            "ISTL-166",
-            "16\" x 6\" x 5.5\"",
-            "ISTL-168",
-            "16\" x 8\" x 5.5\"",
-            "ISTL- 178",
-            "17\" x 8\" x 7.5\"",
-            "ISTL-188",
-            "18\" x 8\" x 7.5\"",
-            "ISTL-208",
-            "20\" x 8\" x 7.5\"",
-            "ISTL-248",
-            "24\" x 8\" x 7.5\"",
-            "ISTL-2412",
-            "24\" x 12\" x 6\"",
-            "ISTL-2412D",
-            "24\" x 12\" x 12\"",
-            "Models Sizes(inch) ISTL-126 12\" x 6\" x 5.5\" ISTL-146 14\" x 6' x 5.5 ISTL-166 16\" x 6\" x 5.5\" ISTL-168 16\" x 8\" x 5.5\" ISTL- 178 17\" x 8\" x 7.5\" ISTL-188 18\" x 8\" x 7.5\" ISTL-208 20\" x 8\" x 7.5\" ISTL-248 24\" x 8\" x 7.5\" ISTL-2412 24\" x 12\" x 6\" ISTL-2412D 24\" x 12\" x 12\""
+            "Instrument Sterilizers Electrical (Jointed)"
           ],
           "images": [
-            "/catalogue-media-indiamart/27312122530.jpg",
             "/catalogue-media-hq/bowl-sterilizer.jpeg",
             "/catalogue-media-hq/bowl-sterilizer.png",
             "/catalogue-media-hq/eto-sterilizer.png",
@@ -9995,15 +9955,8 @@
               "workbook": "AUTOCLAVE ALL SPECS  Specification (1).xlsx",
               "sheet": "Instrument Sterilizer",
               "model": "ISTL-126"
-            },
-            {
-              "workbook": "IndiaMART",
-              "sheet": "autoclaves-and-sterilizers.html",
-              "model": "27312122530"
             }
-          ],
-          "displayName": "Instrument Sterilizers Electrical jointed with Tray lifting Thermostat",
-          "productUrl": "https://www.indiamart.com/proddetail/instrument-sterilizers-electrical-jointed-with-tray-lifting-thermostat-27312122530.html"
+          ]
         },
         {
           "model": "ISTL-146",
@@ -10035,7 +9988,6 @@
             "Instrument Sterilizers Electrical (Jointed)"
           ],
           "images": [
-            "/catalogue-media-indiamart/27312122530.jpg",
             "/catalogue-media-hq/bowl-sterilizer.jpeg",
             "/catalogue-media-hq/bowl-sterilizer.png",
             "/catalogue-media-hq/eto-sterilizer.png",
@@ -10086,7 +10038,6 @@
             "Instrument Sterilizers Electrical (Jointed)"
           ],
           "images": [
-            "/catalogue-media-indiamart/27312122530.jpg",
             "/catalogue-media-hq/bowl-sterilizer.jpeg",
             "/catalogue-media-hq/bowl-sterilizer.png",
             "/catalogue-media-hq/eto-sterilizer.png",
@@ -10137,7 +10088,6 @@
             "Instrument Sterilizers Electrical (Jointed)"
           ],
           "images": [
-            "/catalogue-media-indiamart/27312122530.jpg",
             "/catalogue-media-hq/bowl-sterilizer.jpeg",
             "/catalogue-media-hq/bowl-sterilizer.png",
             "/catalogue-media-hq/eto-sterilizer.png",
@@ -10188,7 +10138,6 @@
             "Instrument Sterilizers Electrical (Jointed)"
           ],
           "images": [
-            "/catalogue-media-indiamart/27312122530.jpg",
             "/catalogue-media-hq/bowl-sterilizer.jpeg",
             "/catalogue-media-hq/bowl-sterilizer.png",
             "/catalogue-media-hq/eto-sterilizer.png",
@@ -10239,7 +10188,6 @@
             "Instrument Sterilizers Electrical (Jointed)"
           ],
           "images": [
-            "/catalogue-media-indiamart/27312122530.jpg",
             "/catalogue-media-hq/bowl-sterilizer.jpeg",
             "/catalogue-media-hq/bowl-sterilizer.png",
             "/catalogue-media-hq/eto-sterilizer.png",
@@ -10290,7 +10238,6 @@
             "Instrument Sterilizers Electrical (Jointed)"
           ],
           "images": [
-            "/catalogue-media-indiamart/27312122530.jpg",
             "/catalogue-media-hq/bowl-sterilizer.jpeg",
             "/catalogue-media-hq/bowl-sterilizer.png",
             "/catalogue-media-hq/eto-sterilizer.png",
@@ -10341,7 +10288,6 @@
             "Instrument Sterilizers Electrical (Jointed)"
           ],
           "images": [
-            "/catalogue-media-indiamart/27312122530.jpg",
             "/catalogue-media-hq/bowl-sterilizer.jpeg",
             "/catalogue-media-hq/bowl-sterilizer.png",
             "/catalogue-media-hq/eto-sterilizer.png",
@@ -10392,7 +10338,6 @@
             "Instrument Sterilizers Electrical (Jointed)"
           ],
           "images": [
-            "/catalogue-media-indiamart/27312122530.jpg",
             "/catalogue-media-hq/bowl-sterilizer.jpeg",
             "/catalogue-media-hq/bowl-sterilizer.png",
             "/catalogue-media-hq/eto-sterilizer.png",
@@ -10464,12 +10409,99 @@
           "workbook": "AUTOCLAVE ALL SPECS  Specification (1).xlsx",
           "sheet": "Instrument Sterilizer",
           "model": "ISTL-2412D"
-        },
+        }
+      ],
+      "tableColumns": [
+        "Model",
+        "Size in inches",
+        "Size in mm",
+        "sizes in inches",
+        "product size in mm"
+      ],
+      "legacyCategorySlug": "sterilizers"
+    },
+    {
+      "slug": "instrument-sterilizers-electrical-jointed-with-tray-lifting-thermostat",
+      "name": "Instrument Sterilizers Electrical Jointed With Tray Lifting Thermostat",
+      "categorySlug": "autoclaves-and-sterilizers",
+      "sectionSerials": [],
+      "subheading": "",
+      "summary": "Models",
+      "description": "Models Sizes(inch) ISTL-126 12\" x 6\" x 5.5\" ISTL-146 14\" x 6' x 5.5 ISTL-166 16\" x 6\" x 5.5\" ISTL-168 16\" x 8\" x 5.5\" ISTL- 178 17\" x 8\" x 7.5\" ISTL-188 18\" x 8\" x 7.5\" ISTL-208 20\" x 8\" x 7.5\" ISTL-248 24\" x 8\" x 7.5\" ISTL-2412 24\" x 12\" x 6\" ISTL-2412D 24\" x 12\" x 12\"",
+      "highlights": [
+        "Models",
+        "Sizes(inch)",
+        "ISTL-126",
+        "12\" x 6\" x 5.5\"",
+        "ISTL-146",
+        "14\" x 6' x 5.5"
+      ],
+      "notes": [],
+      "images": [
+        "/catalogue-media-indiamart/27312122530.jpg",
+        "/catalogue-media-hq/bowl-sterilizer.jpeg",
+        "/catalogue-media-hq/bowl-sterilizer.png",
+        "/catalogue-media-hq/eto-sterilizer.png",
+        "/catalogue-media-hq/sterilizer.jpg"
+      ],
+      "variants": [
         {
-          "workbook": "IndiaMART",
-          "sheet": "autoclaves-and-sterilizers.html",
-          "model": "27312122530"
-        },
+          "model": "Instrument Sterilizers Electrical jointed with Tray lifting Thermostat",
+          "slug": "instrument-sterilizers-electrical-jointed-with-tray-lifting-thermostat",
+          "label": "Instrument Sterilizers Electrical jointed with Tray lifting Thermostat",
+          "displayName": "Instrument Sterilizers Electrical Jointed With Tray Lifting Thermostat",
+          "productUrl": "https://www.indiamart.com/proddetail/instrument-sterilizers-electrical-jointed-with-tray-lifting-thermostat-27312122530.html",
+          "attributes": [
+            {
+              "label": "Country of Origin",
+              "value": "Made in India"
+            },
+            {
+              "label": "Availability",
+              "value": "In Stock"
+            }
+          ],
+          "descriptionLines": [
+            "Models",
+            "Sizes(inch)",
+            "ISTL-126",
+            "12\" x 6\" x 5.5\"",
+            "ISTL-146",
+            "14\" x 6' x 5.5",
+            "ISTL-166",
+            "16\" x 6\" x 5.5\"",
+            "ISTL-168",
+            "16\" x 8\" x 5.5\"",
+            "ISTL- 178",
+            "17\" x 8\" x 7.5\"",
+            "ISTL-188",
+            "18\" x 8\" x 7.5\"",
+            "ISTL-208",
+            "20\" x 8\" x 7.5\"",
+            "ISTL-248",
+            "24\" x 8\" x 7.5\"",
+            "ISTL-2412",
+            "24\" x 12\" x 6\"",
+            "ISTL-2412D",
+            "24\" x 12\" x 12\""
+          ],
+          "images": [
+            "/catalogue-media-indiamart/27312122530.jpg",
+            "/catalogue-media-hq/bowl-sterilizer.jpeg",
+            "/catalogue-media-hq/bowl-sterilizer.png",
+            "/catalogue-media-hq/eto-sterilizer.png",
+            "/catalogue-media-hq/sterilizer.jpg"
+          ],
+          "sourceRefs": [
+            {
+              "workbook": "IndiaMART",
+              "sheet": "autoclaves-and-sterilizers.html",
+              "model": "27312122530"
+            }
+          ]
+        }
+      ],
+      "sourceRefs": [
         {
           "workbook": "IndiaMART",
           "sheet": "autoclaves-and-sterilizers.html",
@@ -10478,10 +10510,6 @@
       ],
       "tableColumns": [
         "Model",
-        "Size in inches",
-        "Size in mm",
-        "sizes in inches",
-        "product size in mm",
         "Country of Origin",
         "Availability"
       ],
@@ -11545,7 +11573,7 @@
           "model": "Table Top Autoclave Front Loading (b Class) With Vacuum And Dry",
           "slug": "table-top-autoclave-front-loading-b-class-with-vacuum-and-dry",
           "label": "Table Top Autoclave Front Loading (b Class) With Vacuum And Dry",
-          "displayName": "Table Top Autoclave Front Loading (b Class) With Vacuum And Dry",
+          "displayName": "Table Top Autoclave Front Loading (B Class) With Vacuum And Dry",
           "productUrl": "https://www.indiamart.com/proddetail/table-top-autoclave-front-loading-b-class-with-vacuum-and-dry-26097167948.html",
           "attributes": [
             {
@@ -12776,7 +12804,7 @@
     },
     {
       "slug": "four-section-mattress-for-fowler-i-c-u-beds",
-      "name": "Four Section Mattress for Fowler / I.C.U. Beds",
+      "name": "Four Section Mattress For Fowler / I.C.U. Beds",
       "categorySlug": "hospital-bed",
       "sectionSerials": [
         "71"
@@ -12896,7 +12924,7 @@
               "model": "27094895555"
             }
           ],
-          "displayName": "Four Section Mattress for Fowler / I.C.U. Beds",
+          "displayName": "Four Section Mattress For Fowler / I.C.U. Beds",
           "productUrl": "https://www.indiamart.com/proddetail/four-section-mattress-for-fowler-i-c-u-beds-27094895555.html"
         }
       ],
@@ -12929,7 +12957,7 @@
     },
     {
       "slug": "hfb-1-hospital-fowler-bed",
-      "name": "HFB-1 Hospital Fowler Bed",
+      "name": "Hfb-1 Hospital Fowler Bed",
       "categorySlug": "hospital-bed",
       "sectionSerials": [
         "69"
@@ -13109,7 +13137,7 @@
               "model": "26097237433"
             }
           ],
-          "displayName": "HFB-1 Hospital Fowler Bed",
+          "displayName": "Hfb-1 Hospital Fowler Bed",
           "productUrl": "https://www.indiamart.com/proddetail/hfb-1-hospital-fowler-bed-27094725055.html"
         }
       ],
@@ -13154,7 +13182,7 @@
     },
     {
       "slug": "hfbe-1-fowler-bed-electric",
-      "name": "HFBE-1 Fowler Bed Electric",
+      "name": "Hfbe-1 Fowler Bed Electric",
       "categorySlug": "hospital-bed",
       "sectionSerials": [],
       "subheading": "",
@@ -13296,7 +13324,7 @@
               "model": "26097168097"
             }
           ],
-          "displayName": "HFBE-1 Fowler Bed Electric",
+          "displayName": "Hfbe-1 Fowler Bed Electric",
           "productUrl": "https://www.indiamart.com/proddetail/hfbe-1-fowler-bed-electric-27094718448.html"
         }
       ],
@@ -13335,7 +13363,7 @@
     },
     {
       "slug": "hfbm-1-hospital-fowler-bed-mechanical",
-      "name": "HFBM-1 Hospital Fowler Bed Mechanical",
+      "name": "Hfbm-1 Hospital Fowler Bed Mechanical",
       "categorySlug": "hospital-bed",
       "sectionSerials": [],
       "subheading": "",
@@ -13470,7 +13498,7 @@
               "model": "27094714033"
             }
           ],
-          "displayName": "HFBM-1 Hospital Fowler Bed Mechanical",
+          "displayName": "Hfbm-1 Hospital Fowler Bed Mechanical",
           "productUrl": "https://www.indiamart.com/proddetail/hfbm-1-hospital-fowler-bed-mechanical-27094714033.html"
         }
       ],
@@ -13503,106 +13531,64 @@
       "legacyCategorySlug": "hospital-furniture"
     },
     {
-      "slug": "hpb-1-hospital-bed",
-      "name": "HPB-1 Hospital Bed",
+      "slug": "hospital-bed-plain",
+      "name": "Hospital Bed Plain",
       "categorySlug": "hospital-bed",
-      "sectionSerials": [
-        "70"
-      ],
+      "sectionSerials": [],
       "subheading": "",
-      "summary": "Mild steel tubular Head and Foot Bows of unequal",
-      "description": "Mild steel tubular Head and Foot Bows of unequal hight with vertical tube support Framework made up of M.S. sheet Legs fitted with PVC stumps Four Location for I.V. Rod Finish: Pre - treated & Epoxy power coated Overall approx. size: 1900L x 910W x 600H mm Optional Plain Matress (MPB-1) S.S. Telescopic I.V. Road (TRAP-1) S.S Collapsible Railing (CR-1)",
+      "summary": "IndiaMART listed product from Indian Surgical Industries.",
+      "description": "Hospital Bed plain is listed in the public IndiaMART product catalogue.",
       "highlights": [
-        "Mild steel tubular Head and Foot Bows of unequal",
-        "hight with vertical tube support",
-        "Framework made up of M.S. sheet",
-        "Legs fitted with PVC stumps",
-        "Four Location for I.V. Rod",
-        "Finish: Pre - treated & Epoxy power coated"
+        "Source: IndiaMART public listing (hospital-furnitures.html)."
       ],
       "notes": [],
       "images": [
-        "/catalogue-media-indiamart/27094756862.jpg",
-        "/catalogue-media-hq/28-hospital-bed.jpg",
-        "/catalogue-media/image22.jpeg"
+        "/catalogue-media-indiamart/26097236188.jpeg",
+        "/catalogue-media-hq/28-hospital-bed.jpg"
       ],
       "variants": [
         {
-          "model": "HPB-1",
-          "slug": "hpb-1",
-          "label": "HPB-1",
+          "model": "Hospital Bed plain",
+          "slug": "hospital-bed-plain",
+          "label": "Hospital Bed plain",
+          "displayName": "Hospital Bed Plain",
+          "productUrl": "https://www.indiamart.com/proddetail/hospital-bed-plain-26097236188.html",
           "attributes": [
             {
-              "label": "Model",
-              "value": "HPB-1"
-            },
-            {
-              "label": "Size",
-              "value": "Hospital Bed (STANDARD)"
-            },
-            {
-              "label": "s no",
-              "value": "12"
-            },
-            {
               "label": "Frame Material",
-              "value": "Mild Steel"
+              "value": "Stainless Steel"
             },
             {
               "label": "Bed Type",
-              "value": "Fowler"
-            },
-            {
-              "label": "Material",
-              "value": "Stainless Steel"
+              "value": "ICU"
             },
             {
               "label": "Operating Type / Automation Grade",
               "value": "Manual"
             },
             {
-              "label": "Finish",
-              "value": "Polished"
-            },
-            {
-              "label": "Size/Dimension",
-              "value": "2000L x 900W x 600Hmm"
-            },
-            {
               "label": "Elevation",
-              "value": "No"
+              "value": "Head and Leg Both Side"
             },
             {
               "label": "Wheels available",
               "value": "No"
             },
             {
-              "label": "Color",
-              "value": "White"
-            },
-            {
-              "label": "Is It Foldable",
-              "value": "Non-Foldable"
-            },
-            {
               "label": "Usage/Application",
               "value": "Hospitals"
-            },
-            {
-              "label": "Model No",
-              "value": "HPB-1"
             },
             {
               "label": "Load Capacity",
               "value": "150 Kg"
             },
             {
-              "label": "Brand",
-              "value": "Indian Surgical Industries"
+              "label": "Finish",
+              "value": "Powder Coated"
             },
             {
-              "label": "Wheel Rotation",
-              "value": "Yes"
+              "label": "Brand",
+              "value": "Indian Surgical Industries"
             },
             {
               "label": "Shape",
@@ -13617,73 +13603,38 @@
               "value": "In Stock"
             }
           ],
-          "descriptionLines": [
-            "Mild steel tubular Head and Foot Bows of unequal",
-            "hight with vertical tube support",
-            "Framework made up of M.S. sheet",
-            "Legs fitted with PVC stumps",
-            "Four Location for I.V. Rod",
-            "Finish: Pre - treated & Epoxy power coated",
-            "Overall approx. size: 1900L x 910W x 600H mm",
-            "Optional",
-            "Plain Matress (MPB-1)",
-            "S.S. Telescopic I.V. Road (TRAP-1)",
-            "S.S Collapsible Railing (CR-1)",
-            "Description"
-          ],
+          "descriptionLines": [],
           "images": [
-            "/catalogue-media-indiamart/27094756862.jpg",
-            "/catalogue-media-hq/28-hospital-bed.jpg",
-            "/catalogue-media/image22.jpeg"
+            "/catalogue-media-indiamart/26097236188.jpeg",
+            "/catalogue-media-hq/28-hospital-bed.jpg"
           ],
           "sourceRefs": [
             {
-              "workbook": "catalogue frame.xlsx",
-              "sheet": "PRICE LIST",
-              "sectionSerial": 70,
-              "row": 1030
-            },
-            {
-              "workbook": "Hospital furniture  specs-2 part (1).xlsx",
-              "sheet": "Hospital Furniture",
-              "model": "HPB-1"
-            },
-            {
               "workbook": "IndiaMART",
               "sheet": "hospital-furnitures.html",
-              "model": "27094756862"
+              "model": "26097236188"
             }
-          ],
-          "displayName": "HPB-1 Hospital Bed",
-          "productUrl": "https://www.indiamart.com/proddetail/hpb-1-hospital-bed-27094756862.html"
+          ]
         }
       ],
       "sourceRefs": [
         {
-          "workbook": "Hospital furniture  specs-2 part (1).xlsx",
-          "sheet": "Hospital Furniture",
-          "model": "HPB-1"
+          "workbook": "IndiaMART",
+          "sheet": "hospital-furnitures.html",
+          "model": "26097236188"
         }
       ],
       "tableColumns": [
         "Model",
-        "Size",
-        "s no",
         "Frame Material",
         "Bed Type",
-        "Material",
         "Operating Type / Automation Grade",
-        "Finish",
-        "Size/Dimension",
         "Elevation",
         "Wheels available",
-        "Color",
-        "Is It Foldable",
         "Usage/Application",
-        "Model No",
         "Load Capacity",
+        "Finish",
         "Brand",
-        "Wheel Rotation",
         "Shape",
         "Country of Origin",
         "Availability"
@@ -13692,7 +13643,7 @@
     },
     {
       "slug": "hospital-bed-semi-fowler-with-abs-panel-and-wheels",
-      "name": "Hospital Bed Semi Fowler With Abs Panel And Wheels",
+      "name": "Hospital Bed Semi Fowler With ABS Panel And Wheels",
       "categorySlug": "hospital-bed",
       "sectionSerials": [],
       "subheading": "",
@@ -13715,7 +13666,7 @@
           "model": "Hospital Bed Semi Fowler With Abs Panel And Wheels",
           "slug": "hospital-bed-semi-fowler-with-abs-panel-and-wheels",
           "label": "Hospital Bed Semi Fowler With Abs Panel And Wheels",
-          "displayName": "Hospital Bed Semi Fowler With Abs Panel And Wheels",
+          "displayName": "Hospital Bed Semi Fowler With ABS Panel And Wheels",
           "productUrl": "https://www.indiamart.com/proddetail/hospital-bed-semi-fowler-with-abs-panel-and-wheels-26097168548.html",
           "attributes": [
             {
@@ -13825,119 +13776,8 @@
       "legacyCategorySlug": "hospital-furniture"
     },
     {
-      "slug": "hospital-bed-plain",
-      "name": "Hospital Bed plain",
-      "categorySlug": "hospital-bed",
-      "sectionSerials": [],
-      "subheading": "",
-      "summary": "IndiaMART listed product from Indian Surgical Industries.",
-      "description": "Hospital Bed plain is listed in the public IndiaMART product catalogue.",
-      "highlights": [
-        "Source: IndiaMART public listing (hospital-furnitures.html)."
-      ],
-      "notes": [],
-      "images": [
-        "/catalogue-media-indiamart/26097236188.jpeg",
-        "/catalogue-media-hq/28-hospital-bed.jpg"
-      ],
-      "variants": [
-        {
-          "model": "Hospital Bed plain",
-          "slug": "hospital-bed-plain",
-          "label": "Hospital Bed plain",
-          "displayName": "Hospital Bed plain",
-          "productUrl": "https://www.indiamart.com/proddetail/hospital-bed-plain-26097236188.html",
-          "attributes": [
-            {
-              "label": "Frame Material",
-              "value": "Stainless Steel"
-            },
-            {
-              "label": "Bed Type",
-              "value": "ICU"
-            },
-            {
-              "label": "Operating Type / Automation Grade",
-              "value": "Manual"
-            },
-            {
-              "label": "Elevation",
-              "value": "Head and Leg Both Side"
-            },
-            {
-              "label": "Wheels available",
-              "value": "No"
-            },
-            {
-              "label": "Usage/Application",
-              "value": "Hospitals"
-            },
-            {
-              "label": "Load Capacity",
-              "value": "150 Kg"
-            },
-            {
-              "label": "Finish",
-              "value": "Powder Coated"
-            },
-            {
-              "label": "Brand",
-              "value": "Indian Surgical Industries"
-            },
-            {
-              "label": "Shape",
-              "value": "Rectangle"
-            },
-            {
-              "label": "Country of Origin",
-              "value": "Made in India"
-            },
-            {
-              "label": "Availability",
-              "value": "In Stock"
-            }
-          ],
-          "descriptionLines": [],
-          "images": [
-            "/catalogue-media-indiamart/26097236188.jpeg",
-            "/catalogue-media-hq/28-hospital-bed.jpg"
-          ],
-          "sourceRefs": [
-            {
-              "workbook": "IndiaMART",
-              "sheet": "hospital-furnitures.html",
-              "model": "26097236188"
-            }
-          ]
-        }
-      ],
-      "sourceRefs": [
-        {
-          "workbook": "IndiaMART",
-          "sheet": "hospital-furnitures.html",
-          "model": "26097236188"
-        }
-      ],
-      "tableColumns": [
-        "Model",
-        "Frame Material",
-        "Bed Type",
-        "Operating Type / Automation Grade",
-        "Elevation",
-        "Wheels available",
-        "Usage/Application",
-        "Load Capacity",
-        "Finish",
-        "Brand",
-        "Shape",
-        "Country of Origin",
-        "Availability"
-      ],
-      "legacyCategorySlug": "hospital-furniture"
-    },
-    {
       "slug": "hospital-fowler-bed-abs-panel-with-collapsible-side-rails",
-      "name": "Hospital Fowler Bed Abs Panel With Collapsible Side Rails",
+      "name": "Hospital Fowler Bed ABS Panel With Collapsible Side Rails",
       "categorySlug": "hospital-bed",
       "sectionSerials": [],
       "subheading": "",
@@ -13961,7 +13801,7 @@
           "model": "Hospital Fowler Bed Abs Panel With Collapsible Side Rails",
           "slug": "hospital-fowler-bed-abs-panel-with-collapsible-side-rails",
           "label": "Hospital Fowler Bed Abs Panel With Collapsible Side Rails",
-          "displayName": "Hospital Fowler Bed Abs Panel With Collapsible Side Rails",
+          "displayName": "Hospital Fowler Bed ABS Panel With Collapsible Side Rails",
           "productUrl": "https://www.indiamart.com/proddetail/hospital-fowler-bed-abs-panel-with-collapsible-side-rails-26097168433.html",
           "attributes": [
             {
@@ -14353,7 +14193,7 @@
               "model": "27094750191"
             }
           ],
-          "displayName": "HSFB-1 Hospital Semi Fowler Bed",
+          "displayName": "Hsfb-1 Hospital Semi Fowler Bed",
           "productUrl": "https://www.indiamart.com/proddetail/hsfb-1-hospital-semi-fowler-bed-27094750191.html"
         }
       ],
@@ -14388,6 +14228,324 @@
         "Wheel Rotation",
         "Shape",
         "Model Number",
+        "Country of Origin",
+        "Availability"
+      ],
+      "legacyCategorySlug": "hospital-furniture"
+    },
+    {
+      "slug": "hpb-1-hospital-bed",
+      "name": "Hpb-1 Hospital Bed",
+      "categorySlug": "hospital-bed",
+      "sectionSerials": [
+        "70"
+      ],
+      "subheading": "",
+      "summary": "Mild steel tubular Head and Foot Bows of unequal",
+      "description": "Mild steel tubular Head and Foot Bows of unequal hight with vertical tube support Framework made up of M.S. sheet Legs fitted with PVC stumps Four Location for I.V. Rod Finish: Pre - treated & Epoxy power coated Overall approx. size: 1900L x 910W x 600H mm Optional Plain Matress (MPB-1) S.S. Telescopic I.V. Road (TRAP-1) S.S Collapsible Railing (CR-1)",
+      "highlights": [
+        "Mild steel tubular Head and Foot Bows of unequal",
+        "hight with vertical tube support",
+        "Framework made up of M.S. sheet",
+        "Legs fitted with PVC stumps",
+        "Four Location for I.V. Rod",
+        "Finish: Pre - treated & Epoxy power coated"
+      ],
+      "notes": [],
+      "images": [
+        "/catalogue-media-indiamart/27094756862.jpg",
+        "/catalogue-media-hq/28-hospital-bed.jpg",
+        "/catalogue-media/image22.jpeg"
+      ],
+      "variants": [
+        {
+          "model": "HPB-1",
+          "slug": "hpb-1",
+          "label": "HPB-1",
+          "attributes": [
+            {
+              "label": "Model",
+              "value": "HPB-1"
+            },
+            {
+              "label": "Size",
+              "value": "Hospital Bed (STANDARD)"
+            },
+            {
+              "label": "s no",
+              "value": "12"
+            },
+            {
+              "label": "Frame Material",
+              "value": "Mild Steel"
+            },
+            {
+              "label": "Bed Type",
+              "value": "Fowler"
+            },
+            {
+              "label": "Material",
+              "value": "Stainless Steel"
+            },
+            {
+              "label": "Operating Type / Automation Grade",
+              "value": "Manual"
+            },
+            {
+              "label": "Finish",
+              "value": "Polished"
+            },
+            {
+              "label": "Size/Dimension",
+              "value": "2000L x 900W x 600Hmm"
+            },
+            {
+              "label": "Elevation",
+              "value": "No"
+            },
+            {
+              "label": "Wheels available",
+              "value": "No"
+            },
+            {
+              "label": "Color",
+              "value": "White"
+            },
+            {
+              "label": "Is It Foldable",
+              "value": "Non-Foldable"
+            },
+            {
+              "label": "Usage/Application",
+              "value": "Hospitals"
+            },
+            {
+              "label": "Model No",
+              "value": "HPB-1"
+            },
+            {
+              "label": "Load Capacity",
+              "value": "150 Kg"
+            },
+            {
+              "label": "Brand",
+              "value": "Indian Surgical Industries"
+            },
+            {
+              "label": "Wheel Rotation",
+              "value": "Yes"
+            },
+            {
+              "label": "Shape",
+              "value": "Rectangle"
+            },
+            {
+              "label": "Country of Origin",
+              "value": "Made in India"
+            },
+            {
+              "label": "Availability",
+              "value": "In Stock"
+            }
+          ],
+          "descriptionLines": [
+            "Mild steel tubular Head and Foot Bows of unequal",
+            "hight with vertical tube support",
+            "Framework made up of M.S. sheet",
+            "Legs fitted with PVC stumps",
+            "Four Location for I.V. Rod",
+            "Finish: Pre - treated & Epoxy power coated",
+            "Overall approx. size: 1900L x 910W x 600H mm",
+            "Optional",
+            "Plain Matress (MPB-1)",
+            "S.S. Telescopic I.V. Road (TRAP-1)",
+            "S.S Collapsible Railing (CR-1)",
+            "Description"
+          ],
+          "images": [
+            "/catalogue-media-indiamart/27094756862.jpg",
+            "/catalogue-media-hq/28-hospital-bed.jpg",
+            "/catalogue-media/image22.jpeg"
+          ],
+          "sourceRefs": [
+            {
+              "workbook": "catalogue frame.xlsx",
+              "sheet": "PRICE LIST",
+              "sectionSerial": 70,
+              "row": 1030
+            },
+            {
+              "workbook": "Hospital furniture  specs-2 part (1).xlsx",
+              "sheet": "Hospital Furniture",
+              "model": "HPB-1"
+            },
+            {
+              "workbook": "IndiaMART",
+              "sheet": "hospital-furnitures.html",
+              "model": "27094756862"
+            }
+          ],
+          "displayName": "Hpb-1 Hospital Bed",
+          "productUrl": "https://www.indiamart.com/proddetail/hpb-1-hospital-bed-27094756862.html"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "workbook": "Hospital furniture  specs-2 part (1).xlsx",
+          "sheet": "Hospital Furniture",
+          "model": "HPB-1"
+        }
+      ],
+      "tableColumns": [
+        "Model",
+        "Size",
+        "s no",
+        "Frame Material",
+        "Bed Type",
+        "Material",
+        "Operating Type / Automation Grade",
+        "Finish",
+        "Size/Dimension",
+        "Elevation",
+        "Wheels available",
+        "Color",
+        "Is It Foldable",
+        "Usage/Application",
+        "Model No",
+        "Load Capacity",
+        "Brand",
+        "Wheel Rotation",
+        "Shape",
+        "Country of Origin",
+        "Availability"
+      ],
+      "legacyCategorySlug": "hospital-furniture"
+    },
+    {
+      "slug": "icu-bed-chair-position",
+      "name": "ICU Bed Chair Position",
+      "categorySlug": "hospital-bed",
+      "sectionSerials": [],
+      "subheading": "",
+      "summary": "IndiaMART listed product from Indian Surgical Industries.",
+      "description": "Icu Bed Chair Position is listed in the public IndiaMART product catalogue.",
+      "highlights": [
+        "Source: IndiaMART public listing (hospital-furnitures.html)."
+      ],
+      "notes": [],
+      "images": [
+        "/catalogue-media-indiamart/26097106530.jpeg",
+        "/catalogue-media-hq/12-icu-bed.jpg",
+        "/catalogue-media-hq/13-icu-bed.jpg",
+        "/catalogue-media-hq/14-icu-bed.jpg",
+        "/catalogue-media-hq/15-icu-bed.jpg",
+        "/catalogue-media-hq/16-icu-bed.jpg",
+        "/catalogue-media-hq/17-icu-bed.jpg",
+        "/catalogue-media-hq/18-icu-bed.jpg",
+        "/catalogue-media-hq/19-icu-bed.jpg"
+      ],
+      "variants": [
+        {
+          "model": "Icu Bed Chair Position",
+          "slug": "icu-bed-chair-position",
+          "label": "Icu Bed Chair Position",
+          "displayName": "ICU Bed Chair Position",
+          "productUrl": "https://www.indiamart.com/proddetail/icu-bed-chair-position-26097106530.html",
+          "attributes": [
+            {
+              "label": "Frame Material",
+              "value": "Stainless Steel"
+            },
+            {
+              "label": "Bed Type",
+              "value": "ICU"
+            },
+            {
+              "label": "Bed Function",
+              "value": "3 function"
+            },
+            {
+              "label": "Operating Type / Automation Grade",
+              "value": "Manual"
+            },
+            {
+              "label": "Elevation",
+              "value": "Head Side"
+            },
+            {
+              "label": "Wheels available",
+              "value": "Yes"
+            },
+            {
+              "label": "Usage/Application",
+              "value": "Hospitals"
+            },
+            {
+              "label": "Load Capacity",
+              "value": "80 Kg"
+            },
+            {
+              "label": "Finish",
+              "value": "Powder Coated"
+            },
+            {
+              "label": "Brand",
+              "value": "Indian Surgical Industries"
+            },
+            {
+              "label": "Wheel Rotation",
+              "value": "Yes"
+            },
+            {
+              "label": "Country of Origin",
+              "value": "Made in India"
+            },
+            {
+              "label": "Availability",
+              "value": "In Stock"
+            }
+          ],
+          "descriptionLines": [],
+          "images": [
+            "/catalogue-media-indiamart/26097106530.jpeg",
+            "/catalogue-media-hq/12-icu-bed.jpg",
+            "/catalogue-media-hq/13-icu-bed.jpg",
+            "/catalogue-media-hq/14-icu-bed.jpg",
+            "/catalogue-media-hq/15-icu-bed.jpg",
+            "/catalogue-media-hq/16-icu-bed.jpg",
+            "/catalogue-media-hq/17-icu-bed.jpg",
+            "/catalogue-media-hq/18-icu-bed.jpg",
+            "/catalogue-media-hq/19-icu-bed.jpg"
+          ],
+          "sourceRefs": [
+            {
+              "workbook": "IndiaMART",
+              "sheet": "hospital-furnitures.html",
+              "model": "26097106530"
+            }
+          ]
+        }
+      ],
+      "sourceRefs": [
+        {
+          "workbook": "IndiaMART",
+          "sheet": "hospital-furnitures.html",
+          "model": "26097106530"
+        }
+      ],
+      "tableColumns": [
+        "Model",
+        "Frame Material",
+        "Bed Type",
+        "Bed Function",
+        "Operating Type / Automation Grade",
+        "Elevation",
+        "Wheels available",
+        "Usage/Application",
+        "Load Capacity",
+        "Finish",
+        "Brand",
+        "Wheel Rotation",
         "Country of Origin",
         "Availability"
       ],
@@ -14556,7 +14714,7 @@
               "model": "27574517448"
             }
           ],
-          "displayName": "ICUE-1 Icu Bed Electric",
+          "displayName": "ICUE-1 ICU Bed Electric",
           "productUrl": "https://www.indiamart.com/proddetail/icue-1-icu-bed-electric-27094422712.html"
         },
         {
@@ -14687,7 +14845,7 @@
               "model": "27094446012"
             }
           ],
-          "displayName": "ICUE-2 Icu Bed Electric",
+          "displayName": "ICUE-2 ICU Bed Electric",
           "productUrl": "https://www.indiamart.com/proddetail/icue-2-icu-bed-electric-27094446012.html"
         },
         {
@@ -14826,7 +14984,7 @@
               "model": "27094450591"
             }
           ],
-          "displayName": "ICUE-3 Icu Bed Electric",
+          "displayName": "ICUE-3 ICU Bed Electric",
           "productUrl": "https://www.indiamart.com/proddetail/icue-3-icu-bed-electric-27094450591.html"
         },
         {
@@ -15369,7 +15527,7 @@
               "model": "27094702962"
             }
           ],
-          "displayName": "ICUM-1 ICU Bed Machanical",
+          "displayName": "ICUM-1 ICU Bed Mechanical",
           "productUrl": "https://www.indiamart.com/proddetail/icum-1-icu-bed-machanical-27094702962.html"
         },
         {
@@ -15505,7 +15663,7 @@
               "model": "27094711730"
             }
           ],
-          "displayName": "ICUM-2 ICU Bed Machanical",
+          "displayName": "ICUM-2 ICU Bed Mechanical",
           "productUrl": "https://www.indiamart.com/proddetail/icum-2-icu-bed-machanical-27094711730.html"
         }
       ],
@@ -15545,138 +15703,8 @@
       "legacyCategorySlug": "hospital-furniture"
     },
     {
-      "slug": "icu-bed-chair-position",
-      "name": "Icu Bed Chair Position",
-      "categorySlug": "hospital-bed",
-      "sectionSerials": [],
-      "subheading": "",
-      "summary": "IndiaMART listed product from Indian Surgical Industries.",
-      "description": "Icu Bed Chair Position is listed in the public IndiaMART product catalogue.",
-      "highlights": [
-        "Source: IndiaMART public listing (hospital-furnitures.html)."
-      ],
-      "notes": [],
-      "images": [
-        "/catalogue-media-indiamart/26097106530.jpeg",
-        "/catalogue-media-hq/12-icu-bed.jpg",
-        "/catalogue-media-hq/13-icu-bed.jpg",
-        "/catalogue-media-hq/14-icu-bed.jpg",
-        "/catalogue-media-hq/15-icu-bed.jpg",
-        "/catalogue-media-hq/16-icu-bed.jpg",
-        "/catalogue-media-hq/17-icu-bed.jpg",
-        "/catalogue-media-hq/18-icu-bed.jpg",
-        "/catalogue-media-hq/19-icu-bed.jpg"
-      ],
-      "variants": [
-        {
-          "model": "Icu Bed Chair Position",
-          "slug": "icu-bed-chair-position",
-          "label": "Icu Bed Chair Position",
-          "displayName": "Icu Bed Chair Position",
-          "productUrl": "https://www.indiamart.com/proddetail/icu-bed-chair-position-26097106530.html",
-          "attributes": [
-            {
-              "label": "Frame Material",
-              "value": "Stainless Steel"
-            },
-            {
-              "label": "Bed Type",
-              "value": "ICU"
-            },
-            {
-              "label": "Bed Function",
-              "value": "3 function"
-            },
-            {
-              "label": "Operating Type / Automation Grade",
-              "value": "Manual"
-            },
-            {
-              "label": "Elevation",
-              "value": "Head Side"
-            },
-            {
-              "label": "Wheels available",
-              "value": "Yes"
-            },
-            {
-              "label": "Usage/Application",
-              "value": "Hospitals"
-            },
-            {
-              "label": "Load Capacity",
-              "value": "80 Kg"
-            },
-            {
-              "label": "Finish",
-              "value": "Powder Coated"
-            },
-            {
-              "label": "Brand",
-              "value": "Indian Surgical Industries"
-            },
-            {
-              "label": "Wheel Rotation",
-              "value": "Yes"
-            },
-            {
-              "label": "Country of Origin",
-              "value": "Made in India"
-            },
-            {
-              "label": "Availability",
-              "value": "In Stock"
-            }
-          ],
-          "descriptionLines": [],
-          "images": [
-            "/catalogue-media-indiamart/26097106530.jpeg",
-            "/catalogue-media-hq/12-icu-bed.jpg",
-            "/catalogue-media-hq/13-icu-bed.jpg",
-            "/catalogue-media-hq/14-icu-bed.jpg",
-            "/catalogue-media-hq/15-icu-bed.jpg",
-            "/catalogue-media-hq/16-icu-bed.jpg",
-            "/catalogue-media-hq/17-icu-bed.jpg",
-            "/catalogue-media-hq/18-icu-bed.jpg",
-            "/catalogue-media-hq/19-icu-bed.jpg"
-          ],
-          "sourceRefs": [
-            {
-              "workbook": "IndiaMART",
-              "sheet": "hospital-furnitures.html",
-              "model": "26097106530"
-            }
-          ]
-        }
-      ],
-      "sourceRefs": [
-        {
-          "workbook": "IndiaMART",
-          "sheet": "hospital-furnitures.html",
-          "model": "26097106530"
-        }
-      ],
-      "tableColumns": [
-        "Model",
-        "Frame Material",
-        "Bed Type",
-        "Bed Function",
-        "Operating Type / Automation Grade",
-        "Elevation",
-        "Wheels available",
-        "Usage/Application",
-        "Load Capacity",
-        "Finish",
-        "Brand",
-        "Wheel Rotation",
-        "Country of Origin",
-        "Availability"
-      ],
-      "legacyCategorySlug": "hospital-furniture"
-    },
-    {
       "slug": "icu-bed-mechanical-with-abs-panels-and-abs-rails",
-      "name": "Icu Bed Mechanical With Abs Panels And Abs Rails",
+      "name": "ICU Bed Mechanical With ABS Panels And ABS Rails",
       "categorySlug": "hospital-bed",
       "sectionSerials": [],
       "subheading": "",
@@ -15702,7 +15730,7 @@
           "model": "Icu Bed Mechanical With Abs Panels And Abs Rails",
           "slug": "icu-bed-mechanical-with-abs-panels-and-abs-rails",
           "label": "Icu Bed Mechanical With Abs Panels And Abs Rails",
-          "displayName": "Icu Bed Mechanical With Abs Panels And Abs Rails",
+          "displayName": "ICU Bed Mechanical With ABS Panels And ABS Rails",
           "productUrl": "https://www.indiamart.com/proddetail/icu-bed-mechanical-with-abs-panels-and-abs-rails-26097184755.html",
           "attributes": [
             {
@@ -15805,8 +15833,278 @@
       "legacyCategorySlug": "hospital-furniture"
     },
     {
+      "slug": "mattress-for-hospital-beds",
+      "name": "Mattress For Hospital Beds",
+      "categorySlug": "hospital-bed",
+      "sectionSerials": [],
+      "subheading": "",
+      "summary": "Available in 3 model options.",
+      "description": "10 cms thick, 32/40 density foam mattress",
+      "highlights": [
+        "10 cms thick, 32/40 density foam mattress"
+      ],
+      "notes": [],
+      "images": [
+        "/catalogue-media-indiamart/27094877833.jpg",
+        "/catalogue-media-hq/28-hospital-bed.jpg",
+        "/catalogue-media-hq/33-mattress.jpg",
+        "/catalogue-media-hq/34-mattress.jpg",
+        "/catalogue-media-hq/35-mattress.jpg"
+      ],
+      "variants": [
+        {
+          "model": "A. MPB-1",
+          "slug": "a-mpb-1",
+          "label": "A. MPB-1",
+          "attributes": [
+            {
+              "label": "Model",
+              "value": "A. MPB-1"
+            },
+            {
+              "label": "Model",
+              "value": "MPB-1"
+            },
+            {
+              "label": "Brand",
+              "value": "Indian Surgical Industries"
+            },
+            {
+              "label": "Thickness",
+              "value": "10mm"
+            },
+            {
+              "label": "Usage/Application",
+              "value": "Hospital"
+            },
+            {
+              "label": "Color",
+              "value": "Gray"
+            },
+            {
+              "label": "Material",
+              "value": "Pu-Leather"
+            },
+            {
+              "label": "Folded",
+              "value": "No"
+            },
+            {
+              "label": "Country of Origin",
+              "value": "Made in India"
+            },
+            {
+              "label": "Model No",
+              "value": "MPB-1"
+            },
+            {
+              "label": "Availability",
+              "value": "In Stock"
+            }
+          ],
+          "descriptionLines": [
+            "10 cms thick, 32/40 density foam mattress",
+            "Covered with rexine closed with zip at one end."
+          ],
+          "images": [
+            "/catalogue-media-indiamart/27094877833.jpg",
+            "/catalogue-media-hq/28-hospital-bed.jpg",
+            "/catalogue-media-hq/33-mattress.jpg",
+            "/catalogue-media-hq/34-mattress.jpg",
+            "/catalogue-media-hq/35-mattress.jpg"
+          ],
+          "sourceRefs": [
+            {
+              "workbook": "Hospital furniture  specs-2 part (1).xlsx",
+              "sheet": "Hospital Furniture",
+              "model": "A. MPB-1"
+            },
+            {
+              "workbook": "IndiaMART",
+              "sheet": "hospital-furnitures.html",
+              "model": "27094877833"
+            }
+          ],
+          "displayName": "Mpb-1 Mattress For Hospital Beds",
+          "productUrl": "https://www.indiamart.com/proddetail/mpb-1-mattress-for-hospital-beds-27094877833.html"
+        },
+        {
+          "model": "B. MSB-1",
+          "slug": "b-msb-1",
+          "label": "B. MSB-1",
+          "attributes": [
+            {
+              "label": "Model",
+              "value": "B. MSB-1"
+            },
+            {
+              "label": "Model",
+              "value": "MPB-1"
+            },
+            {
+              "label": "Brand",
+              "value": "Indian Surgical Industries"
+            },
+            {
+              "label": "Thickness",
+              "value": "10mm"
+            },
+            {
+              "label": "Usage/Application",
+              "value": "Hospital"
+            },
+            {
+              "label": "Color",
+              "value": "Gray"
+            },
+            {
+              "label": "Material",
+              "value": "Pu-Leather"
+            },
+            {
+              "label": "Folded",
+              "value": "No"
+            },
+            {
+              "label": "Country of Origin",
+              "value": "Made in India"
+            },
+            {
+              "label": "Model No",
+              "value": "MPB-1"
+            },
+            {
+              "label": "Availability",
+              "value": "In Stock"
+            }
+          ],
+          "descriptionLines": [
+            "10 cms thick, 32/40 density foam mattress",
+            "Covered with rexine closed with zip at one end."
+          ],
+          "images": [
+            "/catalogue-media-indiamart/27094877833.jpg",
+            "/catalogue-media-hq/28-hospital-bed.jpg",
+            "/catalogue-media-hq/33-mattress.jpg",
+            "/catalogue-media-hq/34-mattress.jpg",
+            "/catalogue-media-hq/35-mattress.jpg"
+          ],
+          "sourceRefs": [
+            {
+              "workbook": "Hospital furniture  specs-2 part (1).xlsx",
+              "sheet": "Hospital Furniture",
+              "model": "B. MSB-1"
+            },
+            {
+              "workbook": "IndiaMART",
+              "sheet": "hospital-furnitures.html",
+              "model": "27094877833"
+            }
+          ],
+          "displayName": "Mpb-1 Mattress For Hospital Beds",
+          "productUrl": "https://www.indiamart.com/proddetail/mpb-1-mattress-for-hospital-beds-27094877833.html"
+        },
+        {
+          "model": "C. MFB-1",
+          "slug": "c-mfb-1",
+          "label": "C. MFB-1",
+          "attributes": [
+            {
+              "label": "Model",
+              "value": "C. MFB-1"
+            },
+            {
+              "label": "Model",
+              "value": "MPB-1"
+            },
+            {
+              "label": "Brand",
+              "value": "Indian Surgical Industries"
+            },
+            {
+              "label": "Thickness",
+              "value": "10mm"
+            },
+            {
+              "label": "Usage/Application",
+              "value": "Hospital"
+            },
+            {
+              "label": "Color",
+              "value": "Gray"
+            },
+            {
+              "label": "Material",
+              "value": "Pu-Leather"
+            },
+            {
+              "label": "Folded",
+              "value": "No"
+            },
+            {
+              "label": "Country of Origin",
+              "value": "Made in India"
+            },
+            {
+              "label": "Model No",
+              "value": "MPB-1"
+            },
+            {
+              "label": "Availability",
+              "value": "In Stock"
+            }
+          ],
+          "descriptionLines": [
+            "10 cms thick, 32/40 density foam mattress",
+            "Covered with rexine closed with zip at one end."
+          ],
+          "images": [
+            "/catalogue-media-indiamart/27094877833.jpg",
+            "/catalogue-media-hq/28-hospital-bed.jpg",
+            "/catalogue-media-hq/33-mattress.jpg",
+            "/catalogue-media-hq/34-mattress.jpg",
+            "/catalogue-media-hq/35-mattress.jpg"
+          ],
+          "sourceRefs": [
+            {
+              "workbook": "Hospital furniture  specs-2 part (1).xlsx",
+              "sheet": "Hospital Furniture",
+              "model": "C. MFB-1"
+            },
+            {
+              "workbook": "IndiaMART",
+              "sheet": "hospital-furnitures.html",
+              "model": "27094877833"
+            }
+          ],
+          "displayName": "Mpb-1 Mattress For Hospital Beds",
+          "productUrl": "https://www.indiamart.com/proddetail/mpb-1-mattress-for-hospital-beds-27094877833.html"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "workbook": "Hospital furniture  specs-2 part (1).xlsx",
+          "sheet": "Hospital Furniture",
+          "model": "A. MPB-1"
+        }
+      ],
+      "tableColumns": [
+        "Model",
+        "Brand",
+        "Thickness",
+        "Usage/Application",
+        "Color",
+        "Material",
+        "Folded",
+        "Country of Origin",
+        "Model No",
+        "Availability"
+      ],
+      "legacyCategorySlug": "hospital-furniture"
+    },
+    {
       "slug": "mpb-1-mattress-for-hospital-beds",
-      "name": "MPB-1 Mattress for Hospital Beds",
+      "name": "Mpb-1 Mattress For Hospital Beds",
       "categorySlug": "hospital-bed",
       "sectionSerials": [
         "71"
@@ -15912,7 +16210,7 @@
               "model": "27094877833"
             }
           ],
-          "displayName": "MPB-1 Mattress for Hospital Beds",
+          "displayName": "Mpb-1 Mattress For Hospital Beds",
           "productUrl": "https://www.indiamart.com/proddetail/mpb-1-mattress-for-hospital-beds-27094877833.html"
         }
       ],
@@ -15927,276 +16225,6 @@
         "Model",
         "Size",
         "s no",
-        "Brand",
-        "Thickness",
-        "Usage/Application",
-        "Color",
-        "Material",
-        "Folded",
-        "Country of Origin",
-        "Model No",
-        "Availability"
-      ],
-      "legacyCategorySlug": "hospital-furniture"
-    },
-    {
-      "slug": "mattress-for-hospital-beds",
-      "name": "Mattress For Hospital Beds",
-      "categorySlug": "hospital-bed",
-      "sectionSerials": [],
-      "subheading": "",
-      "summary": "Available in 3 model options.",
-      "description": "10 cms thick, 32/40 density foam mattress",
-      "highlights": [
-        "10 cms thick, 32/40 density foam mattress"
-      ],
-      "notes": [],
-      "images": [
-        "/catalogue-media-indiamart/27094877833.jpg",
-        "/catalogue-media-hq/28-hospital-bed.jpg",
-        "/catalogue-media-hq/33-mattress.jpg",
-        "/catalogue-media-hq/34-mattress.jpg",
-        "/catalogue-media-hq/35-mattress.jpg"
-      ],
-      "variants": [
-        {
-          "model": "A. MPB-1",
-          "slug": "a-mpb-1",
-          "label": "A. MPB-1",
-          "attributes": [
-            {
-              "label": "Model",
-              "value": "A. MPB-1"
-            },
-            {
-              "label": "Model",
-              "value": "MPB-1"
-            },
-            {
-              "label": "Brand",
-              "value": "Indian Surgical Industries"
-            },
-            {
-              "label": "Thickness",
-              "value": "10mm"
-            },
-            {
-              "label": "Usage/Application",
-              "value": "Hospital"
-            },
-            {
-              "label": "Color",
-              "value": "Gray"
-            },
-            {
-              "label": "Material",
-              "value": "Pu-Leather"
-            },
-            {
-              "label": "Folded",
-              "value": "No"
-            },
-            {
-              "label": "Country of Origin",
-              "value": "Made in India"
-            },
-            {
-              "label": "Model No",
-              "value": "MPB-1"
-            },
-            {
-              "label": "Availability",
-              "value": "In Stock"
-            }
-          ],
-          "descriptionLines": [
-            "10 cms thick, 32/40 density foam mattress",
-            "Covered with rexine closed with zip at one end."
-          ],
-          "images": [
-            "/catalogue-media-indiamart/27094877833.jpg",
-            "/catalogue-media-hq/28-hospital-bed.jpg",
-            "/catalogue-media-hq/33-mattress.jpg",
-            "/catalogue-media-hq/34-mattress.jpg",
-            "/catalogue-media-hq/35-mattress.jpg"
-          ],
-          "sourceRefs": [
-            {
-              "workbook": "Hospital furniture  specs-2 part (1).xlsx",
-              "sheet": "Hospital Furniture",
-              "model": "A. MPB-1"
-            },
-            {
-              "workbook": "IndiaMART",
-              "sheet": "hospital-furnitures.html",
-              "model": "27094877833"
-            }
-          ],
-          "displayName": "MPB-1 Mattress for Hospital Beds",
-          "productUrl": "https://www.indiamart.com/proddetail/mpb-1-mattress-for-hospital-beds-27094877833.html"
-        },
-        {
-          "model": "B. MSB-1",
-          "slug": "b-msb-1",
-          "label": "B. MSB-1",
-          "attributes": [
-            {
-              "label": "Model",
-              "value": "B. MSB-1"
-            },
-            {
-              "label": "Model",
-              "value": "MPB-1"
-            },
-            {
-              "label": "Brand",
-              "value": "Indian Surgical Industries"
-            },
-            {
-              "label": "Thickness",
-              "value": "10mm"
-            },
-            {
-              "label": "Usage/Application",
-              "value": "Hospital"
-            },
-            {
-              "label": "Color",
-              "value": "Gray"
-            },
-            {
-              "label": "Material",
-              "value": "Pu-Leather"
-            },
-            {
-              "label": "Folded",
-              "value": "No"
-            },
-            {
-              "label": "Country of Origin",
-              "value": "Made in India"
-            },
-            {
-              "label": "Model No",
-              "value": "MPB-1"
-            },
-            {
-              "label": "Availability",
-              "value": "In Stock"
-            }
-          ],
-          "descriptionLines": [
-            "10 cms thick, 32/40 density foam mattress",
-            "Covered with rexine closed with zip at one end."
-          ],
-          "images": [
-            "/catalogue-media-indiamart/27094877833.jpg",
-            "/catalogue-media-hq/28-hospital-bed.jpg",
-            "/catalogue-media-hq/33-mattress.jpg",
-            "/catalogue-media-hq/34-mattress.jpg",
-            "/catalogue-media-hq/35-mattress.jpg"
-          ],
-          "sourceRefs": [
-            {
-              "workbook": "Hospital furniture  specs-2 part (1).xlsx",
-              "sheet": "Hospital Furniture",
-              "model": "B. MSB-1"
-            },
-            {
-              "workbook": "IndiaMART",
-              "sheet": "hospital-furnitures.html",
-              "model": "27094877833"
-            }
-          ],
-          "displayName": "MPB-1 Mattress for Hospital Beds",
-          "productUrl": "https://www.indiamart.com/proddetail/mpb-1-mattress-for-hospital-beds-27094877833.html"
-        },
-        {
-          "model": "C. MFB-1",
-          "slug": "c-mfb-1",
-          "label": "C. MFB-1",
-          "attributes": [
-            {
-              "label": "Model",
-              "value": "C. MFB-1"
-            },
-            {
-              "label": "Model",
-              "value": "MPB-1"
-            },
-            {
-              "label": "Brand",
-              "value": "Indian Surgical Industries"
-            },
-            {
-              "label": "Thickness",
-              "value": "10mm"
-            },
-            {
-              "label": "Usage/Application",
-              "value": "Hospital"
-            },
-            {
-              "label": "Color",
-              "value": "Gray"
-            },
-            {
-              "label": "Material",
-              "value": "Pu-Leather"
-            },
-            {
-              "label": "Folded",
-              "value": "No"
-            },
-            {
-              "label": "Country of Origin",
-              "value": "Made in India"
-            },
-            {
-              "label": "Model No",
-              "value": "MPB-1"
-            },
-            {
-              "label": "Availability",
-              "value": "In Stock"
-            }
-          ],
-          "descriptionLines": [
-            "10 cms thick, 32/40 density foam mattress",
-            "Covered with rexine closed with zip at one end."
-          ],
-          "images": [
-            "/catalogue-media-indiamart/27094877833.jpg",
-            "/catalogue-media-hq/28-hospital-bed.jpg",
-            "/catalogue-media-hq/33-mattress.jpg",
-            "/catalogue-media-hq/34-mattress.jpg",
-            "/catalogue-media-hq/35-mattress.jpg"
-          ],
-          "sourceRefs": [
-            {
-              "workbook": "Hospital furniture  specs-2 part (1).xlsx",
-              "sheet": "Hospital Furniture",
-              "model": "C. MFB-1"
-            },
-            {
-              "workbook": "IndiaMART",
-              "sheet": "hospital-furnitures.html",
-              "model": "27094877833"
-            }
-          ],
-          "displayName": "MPB-1 Mattress for Hospital Beds",
-          "productUrl": "https://www.indiamart.com/proddetail/mpb-1-mattress-for-hospital-beds-27094877833.html"
-        }
-      ],
-      "sourceRefs": [
-        {
-          "workbook": "Hospital furniture  specs-2 part (1).xlsx",
-          "sheet": "Hospital Furniture",
-          "model": "A. MPB-1"
-        }
-      ],
-      "tableColumns": [
-        "Model",
         "Brand",
         "Thickness",
         "Usage/Application",
@@ -16793,7 +16821,7 @@
     },
     {
       "slug": "trap-1-hospital-bed-mattress",
-      "name": "TRAP-1 Hospital Bed Mattress",
+      "name": "Trap-1 Hospital Bed Mattress",
       "categorySlug": "hospital-bed",
       "sectionSerials": [],
       "subheading": "",
@@ -16816,7 +16844,7 @@
           "model": "TRAP-1 Hospital Bed Mattress",
           "slug": "trap-1-hospital-bed-mattress",
           "label": "TRAP-1 Hospital Bed Mattress",
-          "displayName": "TRAP-1 Hospital Bed Mattress",
+          "displayName": "Trap-1 Hospital Bed Mattress",
           "productUrl": "https://www.indiamart.com/proddetail/trap-1-hospital-bed-mattress-27094887430.html",
           "attributes": [
             {
@@ -22101,7 +22129,7 @@
               "model": "26097133691"
             }
           ],
-          "displayName": "Enema Can Ss",
+          "displayName": "Enema Can SS",
           "productUrl": "https://www.indiamart.com/proddetail/enema-can-ss-26097133691.html"
         },
         {
@@ -27168,7 +27196,7 @@
               "model": "26097203188"
             }
           ],
-          "displayName": "Labour Table Ss",
+          "displayName": "Labour Table SS",
           "productUrl": "https://www.indiamart.com/proddetail/labour-table-ss-26097203188.html"
         }
       ],
@@ -27442,7 +27470,7 @@
               "model": "27095927855"
             }
           ],
-          "displayName": "OTT-1M Operation Table",
+          "displayName": "Ott-1M Operation Table",
           "productUrl": "https://www.indiamart.com/proddetail/ott-1m-operation-table-27095927855.html"
         }
       ],
@@ -27466,7 +27494,7 @@
     },
     {
       "slug": "operation-table-manual-hi-low",
-      "name": "Operation Table Manual , Hi Low",
+      "name": "Operation Table Manual, Hi Low",
       "categorySlug": "operation-tables",
       "sectionSerials": [],
       "subheading": "",
@@ -27489,7 +27517,7 @@
           "model": "Operation Table Manual , Hi Low",
           "slug": "operation-table-manual-hi-low",
           "label": "Operation Table Manual , Hi Low",
-          "displayName": "Operation Table Manual , Hi Low",
+          "displayName": "Operation Table Manual, Hi Low",
           "productUrl": "https://www.indiamart.com/proddetail/operation-table-manual-hi-low-26097285912.html",
           "attributes": [
             {
@@ -28946,7 +28974,7 @@
               "model": "27570892433"
             }
           ],
-          "displayName": "OT Light , Twin (Ceiling)",
+          "displayName": "OT Light, Twin (Ceiling)",
           "productUrl": "https://www.indiamart.com/proddetail/ot-light-twin-ceiling-27571199762.html"
         },
         {
@@ -30644,8 +30672,8 @@
       "legacyCategorySlug": "operation-theater-lights"
     },
     {
-      "slug": "otl-m6c-operation-theater-light",
-      "name": "OTL-M6C Operation Theater Light",
+      "slug": "otl-m6c-operation-theatre-light",
+      "name": "OTL-M6C Operation Theatre Light",
       "categorySlug": "operation-theatre-lights",
       "sectionSerials": [],
       "subheading": "",
@@ -30676,7 +30704,7 @@
           "model": "OTL-M6C Operation Theater Light",
           "slug": "otl-m6c-operation-theater-light",
           "label": "OTL-M6C Operation Theater Light",
-          "displayName": "OTL-M6C Operation Theater Light",
+          "displayName": "OTL-M6C Operation Theatre Light",
           "productUrl": "https://www.indiamart.com/proddetail/otl-m6c-operation-theater-light-27093836773.html",
           "attributes": [
             {
@@ -30945,7 +30973,7 @@
               "model": "27094264673"
             }
           ],
-          "displayName": "OTL-3 Operation Theater Lights",
+          "displayName": "OTL-3 Operation Theatre Lights",
           "productUrl": "https://www.indiamart.com/proddetail/otl-3-operation-theater-lights-27094264673.html"
         },
         {
@@ -31073,7 +31101,7 @@
               "model": "27094243712"
             }
           ],
-          "displayName": "OTL-33 Operation Theater Lights",
+          "displayName": "OTL-33 Operation Theatre Lights",
           "productUrl": "https://www.indiamart.com/proddetail/otl-33-operation-theater-lights-27094243712.html"
         },
         {
@@ -31199,7 +31227,7 @@
               "model": "27094261173"
             }
           ],
-          "displayName": "OTL-4 Operation Theater Lights",
+          "displayName": "OTL-4 Operation Theatre Lights",
           "productUrl": "https://www.indiamart.com/proddetail/otl-4-operation-theater-lights-27094261173.html"
         },
         {
@@ -31327,7 +31355,7 @@
               "model": "27094237912"
             }
           ],
-          "displayName": "OTL-43 Operation Theater Lights",
+          "displayName": "OTL-43 Operation Theatre Lights",
           "productUrl": "https://www.indiamart.com/proddetail/otl-43-operation-theater-lights-27094237912.html"
         },
         {
@@ -31452,7 +31480,7 @@
               "model": "27094229873"
             }
           ],
-          "displayName": "OTL-44 Operation Theater Lights",
+          "displayName": "OTL-44 Operation Theatre Lights",
           "productUrl": "https://www.indiamart.com/proddetail/otl-44-operation-theater-lights-27094229873.html"
         },
         {
@@ -31578,7 +31606,7 @@
               "model": "27094254273"
             }
           ],
-          "displayName": "OTL-5 Operation Theater Lights",
+          "displayName": "OTL-5 Operation Theatre Lights",
           "productUrl": "https://www.indiamart.com/proddetail/otl-5-operation-theater-lights-27094254273.html"
         },
         {
@@ -31706,7 +31734,7 @@
               "model": "27093882962"
             }
           ],
-          "displayName": "OTL-53 Operation Theater Lights",
+          "displayName": "OTL-53 Operation Theatre Lights",
           "productUrl": "https://www.indiamart.com/proddetail/otl-53-operation-theater-lights-27093882962.html"
         },
         {
@@ -31885,7 +31913,7 @@
               "model": "27093861855"
             }
           ],
-          "displayName": "OTL-55 Operation Theater Lights",
+          "displayName": "OTL-55 Operation Theatre Lights",
           "productUrl": "https://www.indiamart.com/proddetail/otl-55-operation-theater-lights-27093861855.html"
         },
         {
@@ -32010,7 +32038,7 @@
               "model": "27094249873"
             }
           ],
-          "displayName": "OTL-6 Operation Theater Lights",
+          "displayName": "OTL-6 Operation Theatre Lights",
           "productUrl": "https://www.indiamart.com/proddetail/otl-6-operation-theater-lights-27094249873.html"
         },
         {
@@ -32126,7 +32154,7 @@
               "model": "27093854991"
             }
           ],
-          "displayName": "OTL-63 Operation Theater Lights",
+          "displayName": "OTL-63 Operation Theatre Lights",
           "productUrl": "https://www.indiamart.com/proddetail/otl-63-operation-theater-lights-27093854991.html"
         },
         {
@@ -33350,7 +33378,7 @@
     },
     {
       "slug": "baby-tray-bt-1620",
-      "name": "Baby Tray BT-1620",
+      "name": "Baby Tray Bt-1620",
       "categorySlug": "stainless-steel-tray",
       "sectionSerials": [],
       "subheading": "",
@@ -33368,7 +33396,7 @@
           "model": "Baby Tray BT-1620",
           "slug": "baby-tray-bt-1620",
           "label": "Baby Tray BT-1620",
-          "displayName": "Baby Tray BT-1620",
+          "displayName": "Baby Tray Bt-1620",
           "productUrl": "https://www.indiamart.com/proddetail/baby-tray-bt-1620-27312325448.html",
           "attributes": [
             {
@@ -34731,162 +34759,6 @@
       "legacyCategorySlug": "hospital-hollowares"
     },
     {
-      "slug": "mtss-1-o-t-mayo-s-instrument-trolley-with-s-s-tray",
-      "name": "MTSS-1 O.T. Mayo's Instrument Trolley With S.S. Tray",
-      "categorySlug": "stainless-steel-tray",
-      "sectionSerials": [
-        "75"
-      ],
-      "subheading": "",
-      "summary": "Tray S.S. size : 56 L x 40 W cms",
-      "description": "Tray S.S. size : 56 L x 40 W cms Rectangular CRC tubes mounted on 5 cms castors Height adjustable by side knob S.S. frame with S.S. top",
-      "highlights": [
-        "Tray S.S. size : 56 L x 40 W cms",
-        "Rectangular CRC tubes mounted on 5 cms castors",
-        "Height adjustable by side knob",
-        "S.S. frame with S.S. top"
-      ],
-      "notes": [],
-      "images": [
-        "/catalogue-media-indiamart/27093324073.jpg",
-        "/catalogue-media-hq/42-mayo-s-instrument-trolley-ss.jpg",
-        "/catalogue-media-hq/43-mayo-s-instrument-trolley-ss.jpg",
-        "/catalogue-media-hq/63-trolley.jpg",
-        "/catalogue-media-hq/64-trolley.jpg",
-        "/catalogue-media-hq/65-trolley.jpg",
-        "/catalogue-media/image30.jpeg"
-      ],
-      "variants": [
-        {
-          "model": "MTSS-1",
-          "slug": "mtss-1",
-          "label": "MTSS-1",
-          "attributes": [
-            {
-              "label": "Model",
-              "value": "MTSS-1"
-            },
-            {
-              "label": "Size",
-              "value": "O.T. Mayo's Instrumest Trolley S.S. Tray"
-            },
-            {
-              "label": "s no",
-              "value": "4"
-            },
-            {
-              "label": "Material",
-              "value": "Stainless Steel"
-            },
-            {
-              "label": "Brand",
-              "value": "Indian Surgical Industries"
-            },
-            {
-              "label": "Usage/Application",
-              "value": "Hospital"
-            },
-            {
-              "label": "Color",
-              "value": "Silver"
-            },
-            {
-              "label": "Shape",
-              "value": "Square"
-            },
-            {
-              "label": "Foldable",
-              "value": "Non-Foldable"
-            },
-            {
-              "label": "Is It Portable",
-              "value": "Portable"
-            },
-            {
-              "label": "Mounted",
-              "value": "Floor Mounted"
-            },
-            {
-              "label": "Country of Origin",
-              "value": "Made in India"
-            },
-            {
-              "label": "Tray S.S. Size",
-              "value": "56 L x 40 W cms"
-            },
-            {
-              "label": "Model No",
-              "value": "MTSS-1"
-            },
-            {
-              "label": "Availability",
-              "value": "In Stock"
-            }
-          ],
-          "descriptionLines": [
-            "Tray S.S. size : 56 L x 40 W cms",
-            "Rectangular CRC tubes mounted on 5 cms castors",
-            "Height adjustable by side knob",
-            "S.S. frame with S.S. top"
-          ],
-          "images": [
-            "/catalogue-media-indiamart/27093324073.jpg",
-            "/catalogue-media-hq/42-mayo-s-instrument-trolley-ss.jpg",
-            "/catalogue-media-hq/43-mayo-s-instrument-trolley-ss.jpg",
-            "/catalogue-media-hq/63-trolley.jpg",
-            "/catalogue-media-hq/64-trolley.jpg",
-            "/catalogue-media-hq/65-trolley.jpg",
-            "/catalogue-media/image30.jpeg"
-          ],
-          "sourceRefs": [
-            {
-              "workbook": "catalogue frame.xlsx",
-              "sheet": "PRICE LIST",
-              "sectionSerial": 75,
-              "row": 1102
-            },
-            {
-              "workbook": "Hospital furniture  specs-2 part (1).xlsx",
-              "sheet": "Ward Equipment",
-              "model": "MTSS-1"
-            },
-            {
-              "workbook": "IndiaMART",
-              "sheet": "ward-equipments.html",
-              "model": "27093324073"
-            }
-          ],
-          "displayName": "MTSS-1 O.T. Mayo's Instrument Trolley With S.S. Tray",
-          "productUrl": "https://www.indiamart.com/proddetail/mtss-1-o-t-mayo-s-instrument-trolley-with-s-s-tray-27093324073.html"
-        }
-      ],
-      "sourceRefs": [
-        {
-          "workbook": "Hospital furniture  specs-2 part (1).xlsx",
-          "sheet": "Ward Equipment",
-          "model": "MTSS-1"
-        }
-      ],
-      "tableColumns": [
-        "Model",
-        "Size",
-        "s no",
-        "Material",
-        "Brand",
-        "Usage/Application",
-        "Color",
-        "Shape",
-        "Foldable",
-        "Is It Portable",
-        "Mounted",
-        "Country of Origin",
-        "Tray S.S. Size",
-        "Model No",
-        "Availability"
-      ],
-      "legacyCategorySlug": "ward-equipments"
-    },
-    {
       "slug": "mayo-and-dental-tray",
       "name": "Mayo and Dental Tray",
       "categorySlug": "stainless-steel-tray",
@@ -35037,7 +34909,7 @@
               "model": "26097228730"
             }
           ],
-          "displayName": "Mayo and Dental Trays",
+          "displayName": "Mayo And Dental Trays",
           "productUrl": "https://www.indiamart.com/proddetail/mayo-and-dental-trays-26097228730.html"
         },
         {
@@ -35210,6 +35082,162 @@
         "Availability"
       ],
       "legacyCategorySlug": "hospital-hollowares"
+    },
+    {
+      "slug": "mtss-1-o-t-mayo-s-instrument-trolley-with-s-s-tray",
+      "name": "Mtss-1 O.T. Mayo'S Instrument Trolley With S.S. Tray",
+      "categorySlug": "stainless-steel-tray",
+      "sectionSerials": [
+        "75"
+      ],
+      "subheading": "",
+      "summary": "Tray S.S. size : 56 L x 40 W cms",
+      "description": "Tray S.S. size : 56 L x 40 W cms Rectangular CRC tubes mounted on 5 cms castors Height adjustable by side knob S.S. frame with S.S. top",
+      "highlights": [
+        "Tray S.S. size : 56 L x 40 W cms",
+        "Rectangular CRC tubes mounted on 5 cms castors",
+        "Height adjustable by side knob",
+        "S.S. frame with S.S. top"
+      ],
+      "notes": [],
+      "images": [
+        "/catalogue-media-indiamart/27093324073.jpg",
+        "/catalogue-media-hq/42-mayo-s-instrument-trolley-ss.jpg",
+        "/catalogue-media-hq/43-mayo-s-instrument-trolley-ss.jpg",
+        "/catalogue-media-hq/63-trolley.jpg",
+        "/catalogue-media-hq/64-trolley.jpg",
+        "/catalogue-media-hq/65-trolley.jpg",
+        "/catalogue-media/image30.jpeg"
+      ],
+      "variants": [
+        {
+          "model": "MTSS-1",
+          "slug": "mtss-1",
+          "label": "MTSS-1",
+          "attributes": [
+            {
+              "label": "Model",
+              "value": "MTSS-1"
+            },
+            {
+              "label": "Size",
+              "value": "O.T. Mayo's Instrumest Trolley S.S. Tray"
+            },
+            {
+              "label": "s no",
+              "value": "4"
+            },
+            {
+              "label": "Material",
+              "value": "Stainless Steel"
+            },
+            {
+              "label": "Brand",
+              "value": "Indian Surgical Industries"
+            },
+            {
+              "label": "Usage/Application",
+              "value": "Hospital"
+            },
+            {
+              "label": "Color",
+              "value": "Silver"
+            },
+            {
+              "label": "Shape",
+              "value": "Square"
+            },
+            {
+              "label": "Foldable",
+              "value": "Non-Foldable"
+            },
+            {
+              "label": "Is It Portable",
+              "value": "Portable"
+            },
+            {
+              "label": "Mounted",
+              "value": "Floor Mounted"
+            },
+            {
+              "label": "Country of Origin",
+              "value": "Made in India"
+            },
+            {
+              "label": "Tray S.S. Size",
+              "value": "56 L x 40 W cms"
+            },
+            {
+              "label": "Model No",
+              "value": "MTSS-1"
+            },
+            {
+              "label": "Availability",
+              "value": "In Stock"
+            }
+          ],
+          "descriptionLines": [
+            "Tray S.S. size : 56 L x 40 W cms",
+            "Rectangular CRC tubes mounted on 5 cms castors",
+            "Height adjustable by side knob",
+            "S.S. frame with S.S. top"
+          ],
+          "images": [
+            "/catalogue-media-indiamart/27093324073.jpg",
+            "/catalogue-media-hq/42-mayo-s-instrument-trolley-ss.jpg",
+            "/catalogue-media-hq/43-mayo-s-instrument-trolley-ss.jpg",
+            "/catalogue-media-hq/63-trolley.jpg",
+            "/catalogue-media-hq/64-trolley.jpg",
+            "/catalogue-media-hq/65-trolley.jpg",
+            "/catalogue-media/image30.jpeg"
+          ],
+          "sourceRefs": [
+            {
+              "workbook": "catalogue frame.xlsx",
+              "sheet": "PRICE LIST",
+              "sectionSerial": 75,
+              "row": 1102
+            },
+            {
+              "workbook": "Hospital furniture  specs-2 part (1).xlsx",
+              "sheet": "Ward Equipment",
+              "model": "MTSS-1"
+            },
+            {
+              "workbook": "IndiaMART",
+              "sheet": "ward-equipments.html",
+              "model": "27093324073"
+            }
+          ],
+          "displayName": "Mtss-1 O.T. Mayo'S Instrument Trolley With S.S. Tray",
+          "productUrl": "https://www.indiamart.com/proddetail/mtss-1-o-t-mayo-s-instrument-trolley-with-s-s-tray-27093324073.html"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "workbook": "Hospital furniture  specs-2 part (1).xlsx",
+          "sheet": "Ward Equipment",
+          "model": "MTSS-1"
+        }
+      ],
+      "tableColumns": [
+        "Model",
+        "Size",
+        "s no",
+        "Material",
+        "Brand",
+        "Usage/Application",
+        "Color",
+        "Shape",
+        "Foldable",
+        "Is It Portable",
+        "Mounted",
+        "Country of Origin",
+        "Tray S.S. Size",
+        "Model No",
+        "Availability"
+      ],
+      "legacyCategorySlug": "ward-equipments"
     },
     {
       "slug": "ss-kidney-tray",
@@ -37423,7 +37451,7 @@
     },
     {
       "slug": "suction-0-5-hp",
-      "name": "Suction 0.5 HP",
+      "name": "Suction 0.5 Hp",
       "categorySlug": "suction-machines",
       "sectionSerials": [],
       "subheading": "",
@@ -37449,7 +37477,7 @@
           "model": "Suction 0.5 HP",
           "slug": "suction-0-5-hp",
           "label": "Suction 0.5 HP",
-          "displayName": "Suction 0.5 HP",
+          "displayName": "Suction 0.5 Hp",
           "productUrl": "https://www.indiamart.com/proddetail/suction-0-5-hp-27301160888.html",
           "attributes": [
             {
@@ -37795,7 +37823,7 @@
     },
     {
       "slug": "suction-apparatus-0-25-hp",
-      "name": "Suction Apparatus 0.25 HP",
+      "name": "Suction Apparatus 0.25 Hp",
       "categorySlug": "suction-machines",
       "sectionSerials": [],
       "subheading": "",
@@ -37821,7 +37849,7 @@
           "model": "Suction Apparatus 0.25 HP",
           "slug": "suction-apparatus-0-25-hp",
           "label": "Suction Apparatus 0.25 HP",
-          "displayName": "Suction Apparatus 0.25 HP",
+          "displayName": "Suction Apparatus 0.25 Hp",
           "productUrl": "https://www.indiamart.com/proddetail/suction-apparatus-0-25-hp-27311612388.html",
           "attributes": [
             {
@@ -38272,134 +38300,6 @@
       "legacyCategorySlug": "suction-units"
     },
     {
-      "slug": "suction-unit-0-5hp-with-poly-jars-deluxe",
-      "name": "Suction Unit 0.5HP with Poly Jars, Deluxe",
-      "categorySlug": "suction-machines",
-      "sectionSerials": [
-        "53"
-      ],
-      "subheading": "",
-      "summary": "Suction Unit 0.5HP with poly Jars, Deluxe",
-      "description": "Description Suction Unit 0.5HP with poly Jars, Deluxe Hivac suction unit Mounted on 4 swivel castors body constructed from M.S. sheet and epoxy poweder coated Side panel fitted with A.C. power socket and foot pedal socket for foot pedal Panel fitted with bactrial filter, Vacuum Gauge, ON/OFF Switch cum indicator Vacuum Control Knob One jar fitted with over-flow Cut-off Device Supplied wirh patient suction tube and electric lead Technical Specification: Capacity :760mmHg \u00b1 10 having a flow rate of approx.50 to 60 Lit/min Double jar:2 x2 Lit graduated polycabonate with rubber lids Pump:Oil immersed vacuum pump operates on 220-240V 50Hz. A.C. mains Optional accessories on extra cost Foot Switch Suction Canula (Metal) Bacterial Filter Polycarbonate jars instead of glass available in all S.S.body",
-      "highlights": [
-        "Suction Unit 0.5HP with poly Jars, Deluxe",
-        "Hivac suction unit",
-        "Mounted on 4 swivel castors",
-        "body constructed from M.S. sheet and epoxy poweder coated",
-        "Side panel fitted with A.C. power socket and foot pedal socket for foot pedal",
-        "Panel fitted with bactrial filter, Vacuum Gauge, ON/OFF Switch cum indicator Vacuum Control Knob"
-      ],
-      "notes": [],
-      "images": [
-        "/catalogue-media-indiamart/27301160273.jpeg",
-        "/catalogue-media-hq/10-suction-acce10.jpg",
-        "/catalogue-media-hq/11-suction-acce11.jpg",
-        "/catalogue-media-hq/6-suction-acce6.jpg",
-        "/catalogue-media-hq/7-suction-acce7.jpg",
-        "/catalogue-media-hq/8-suction-acce8.jpg",
-        "/catalogue-media-hq/suction-2.jpg",
-        "/catalogue-media-hq/suction-deluxe.png",
-        "/catalogue-media-hq/suction.jpg"
-      ],
-      "variants": [
-        {
-          "model": "SE-50D",
-          "slug": "se-50d",
-          "label": "SE-50D",
-          "attributes": [
-            {
-              "label": "Model",
-              "value": "SE-50D"
-            },
-            {
-              "label": "Usage/Application",
-              "value": "Hospital"
-            },
-            {
-              "label": "Model Name/Number",
-              "value": "SE-50D"
-            },
-            {
-              "label": "Country of Origin",
-              "value": "Made in India"
-            },
-            {
-              "label": "Availability",
-              "value": "In Stock"
-            }
-          ],
-          "descriptionLines": [
-            "Description",
-            "Suction Unit 0.5HP with poly Jars, Deluxe",
-            "Hivac suction unit",
-            "Mounted on 4 swivel castors",
-            "body constructed from M.S. sheet and epoxy poweder coated",
-            "Side panel fitted with A.C. power socket and foot pedal socket for foot pedal",
-            "Panel fitted with bactrial filter, Vacuum Gauge, ON/OFF Switch cum indicator Vacuum Control Knob",
-            "One jar fitted with over-flow Cut-off Device",
-            "Supplied wirh patient suction tube and electric lead",
-            "Technical Specification:",
-            "Capacity :760mmHg \u00b1 10 having a flow rate of approx.50 to 60 Lit/min",
-            "Double jar:2 x2 Lit graduated polycabonate with rubber lids",
-            "Pump:Oil immersed vacuum pump",
-            "operates on 220-240V 50Hz. A.C. mains",
-            "Optional accessories on extra cost",
-            "Foot Switch",
-            "Suction Canula (Metal)",
-            "Bacterial Filter",
-            "Polycarbonate jars instead of glass",
-            "available in all S.S.body"
-          ],
-          "images": [
-            "/catalogue-media-indiamart/27301160273.jpeg",
-            "/catalogue-media-hq/10-suction-acce10.jpg",
-            "/catalogue-media-hq/11-suction-acce11.jpg",
-            "/catalogue-media-hq/6-suction-acce6.jpg",
-            "/catalogue-media-hq/7-suction-acce7.jpg",
-            "/catalogue-media-hq/8-suction-acce8.jpg",
-            "/catalogue-media-hq/suction-2.jpg",
-            "/catalogue-media-hq/suction-deluxe.png",
-            "/catalogue-media-hq/suction.jpg"
-          ],
-          "sourceRefs": [
-            {
-              "workbook": "catalogue frame.xlsx",
-              "sheet": "PRICE LIST",
-              "sectionSerial": 53,
-              "row": 868
-            },
-            {
-              "workbook": "AUTOCLAVE ALL SPECS  Specification (1).xlsx",
-              "sheet": "Suction units",
-              "model": "SE-50D"
-            },
-            {
-              "workbook": "IndiaMART",
-              "sheet": "suction-machines.html",
-              "model": "27301160273"
-            }
-          ],
-          "displayName": "Suction Unit 0.5HP with Poly Jars, Deluxe",
-          "productUrl": "https://www.indiamart.com/proddetail/suction-unit-0-5hp-with-poly-jars-deluxe-27301160273.html"
-        }
-      ],
-      "sourceRefs": [
-        {
-          "workbook": "AUTOCLAVE ALL SPECS  Specification (1).xlsx",
-          "sheet": "Suction units",
-          "model": "SE-50D"
-        }
-      ],
-      "tableColumns": [
-        "Model",
-        "Usage/Application",
-        "Model Name/Number",
-        "Country of Origin",
-        "Availability"
-      ],
-      "legacyCategorySlug": "suction-units"
-    },
-    {
       "slug": "suction-unit-0-5hp-with-tray",
       "name": "Suction Unit 0.5HP with Tray",
       "categorySlug": "suction-machines",
@@ -38576,6 +38476,134 @@
         "Material",
         "Capacity",
         "Pump Type",
+        "Availability"
+      ],
+      "legacyCategorySlug": "suction-units"
+    },
+    {
+      "slug": "suction-unit-0-5hp-with-poly-jars-deluxe",
+      "name": "Suction Unit 0.5Hp With Poly Jars, Deluxe",
+      "categorySlug": "suction-machines",
+      "sectionSerials": [
+        "53"
+      ],
+      "subheading": "",
+      "summary": "Suction Unit 0.5HP with poly Jars, Deluxe",
+      "description": "Description Suction Unit 0.5HP with poly Jars, Deluxe Hivac suction unit Mounted on 4 swivel castors body constructed from M.S. sheet and epoxy poweder coated Side panel fitted with A.C. power socket and foot pedal socket for foot pedal Panel fitted with bactrial filter, Vacuum Gauge, ON/OFF Switch cum indicator Vacuum Control Knob One jar fitted with over-flow Cut-off Device Supplied wirh patient suction tube and electric lead Technical Specification: Capacity :760mmHg \u00b1 10 having a flow rate of approx.50 to 60 Lit/min Double jar:2 x2 Lit graduated polycabonate with rubber lids Pump:Oil immersed vacuum pump operates on 220-240V 50Hz. A.C. mains Optional accessories on extra cost Foot Switch Suction Canula (Metal) Bacterial Filter Polycarbonate jars instead of glass available in all S.S.body",
+      "highlights": [
+        "Suction Unit 0.5HP with poly Jars, Deluxe",
+        "Hivac suction unit",
+        "Mounted on 4 swivel castors",
+        "body constructed from M.S. sheet and epoxy poweder coated",
+        "Side panel fitted with A.C. power socket and foot pedal socket for foot pedal",
+        "Panel fitted with bactrial filter, Vacuum Gauge, ON/OFF Switch cum indicator Vacuum Control Knob"
+      ],
+      "notes": [],
+      "images": [
+        "/catalogue-media-indiamart/27301160273.jpeg",
+        "/catalogue-media-hq/10-suction-acce10.jpg",
+        "/catalogue-media-hq/11-suction-acce11.jpg",
+        "/catalogue-media-hq/6-suction-acce6.jpg",
+        "/catalogue-media-hq/7-suction-acce7.jpg",
+        "/catalogue-media-hq/8-suction-acce8.jpg",
+        "/catalogue-media-hq/suction-2.jpg",
+        "/catalogue-media-hq/suction-deluxe.png",
+        "/catalogue-media-hq/suction.jpg"
+      ],
+      "variants": [
+        {
+          "model": "SE-50D",
+          "slug": "se-50d",
+          "label": "SE-50D",
+          "attributes": [
+            {
+              "label": "Model",
+              "value": "SE-50D"
+            },
+            {
+              "label": "Usage/Application",
+              "value": "Hospital"
+            },
+            {
+              "label": "Model Name/Number",
+              "value": "SE-50D"
+            },
+            {
+              "label": "Country of Origin",
+              "value": "Made in India"
+            },
+            {
+              "label": "Availability",
+              "value": "In Stock"
+            }
+          ],
+          "descriptionLines": [
+            "Description",
+            "Suction Unit 0.5HP with poly Jars, Deluxe",
+            "Hivac suction unit",
+            "Mounted on 4 swivel castors",
+            "body constructed from M.S. sheet and epoxy poweder coated",
+            "Side panel fitted with A.C. power socket and foot pedal socket for foot pedal",
+            "Panel fitted with bactrial filter, Vacuum Gauge, ON/OFF Switch cum indicator Vacuum Control Knob",
+            "One jar fitted with over-flow Cut-off Device",
+            "Supplied wirh patient suction tube and electric lead",
+            "Technical Specification:",
+            "Capacity :760mmHg \u00b1 10 having a flow rate of approx.50 to 60 Lit/min",
+            "Double jar:2 x2 Lit graduated polycabonate with rubber lids",
+            "Pump:Oil immersed vacuum pump",
+            "operates on 220-240V 50Hz. A.C. mains",
+            "Optional accessories on extra cost",
+            "Foot Switch",
+            "Suction Canula (Metal)",
+            "Bacterial Filter",
+            "Polycarbonate jars instead of glass",
+            "available in all S.S.body"
+          ],
+          "images": [
+            "/catalogue-media-indiamart/27301160273.jpeg",
+            "/catalogue-media-hq/10-suction-acce10.jpg",
+            "/catalogue-media-hq/11-suction-acce11.jpg",
+            "/catalogue-media-hq/6-suction-acce6.jpg",
+            "/catalogue-media-hq/7-suction-acce7.jpg",
+            "/catalogue-media-hq/8-suction-acce8.jpg",
+            "/catalogue-media-hq/suction-2.jpg",
+            "/catalogue-media-hq/suction-deluxe.png",
+            "/catalogue-media-hq/suction.jpg"
+          ],
+          "sourceRefs": [
+            {
+              "workbook": "catalogue frame.xlsx",
+              "sheet": "PRICE LIST",
+              "sectionSerial": 53,
+              "row": 868
+            },
+            {
+              "workbook": "AUTOCLAVE ALL SPECS  Specification (1).xlsx",
+              "sheet": "Suction units",
+              "model": "SE-50D"
+            },
+            {
+              "workbook": "IndiaMART",
+              "sheet": "suction-machines.html",
+              "model": "27301160273"
+            }
+          ],
+          "displayName": "Suction Unit 0.5Hp With Poly Jars, Deluxe",
+          "productUrl": "https://www.indiamart.com/proddetail/suction-unit-0-5hp-with-poly-jars-deluxe-27301160273.html"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "workbook": "AUTOCLAVE ALL SPECS  Specification (1).xlsx",
+          "sheet": "Suction units",
+          "model": "SE-50D"
+        }
+      ],
+      "tableColumns": [
+        "Model",
+        "Usage/Application",
+        "Model Name/Number",
+        "Country of Origin",
         "Availability"
       ],
       "legacyCategorySlug": "suction-units"
@@ -38809,7 +38837,7 @@
     },
     {
       "slug": "autoclave-triple-wall-vertical-hi-pressure-nut-locking-with-digital-controller",
-      "name": "Autoclave Triple Wall Vertical Hi-Pressure Nut Locking with Digital Controller",
+      "name": "Autoclave Triple Wall Vertical Hi-Pressure Nut Locking With Digital Controller",
       "categorySlug": "vertical-autoclave",
       "sectionSerials": [],
       "subheading": "",
@@ -38838,7 +38866,7 @@
           "model": "Autoclave Triple Wall Vertical Hi-Pressure Nut Locking with Digital Controller",
           "slug": "autoclave-triple-wall-vertical-hi-pressure-nut-locking-with-digital-controller",
           "label": "Autoclave Triple Wall Vertical Hi-Pressure Nut Locking with Digital Controller",
-          "displayName": "Autoclave Triple Wall Vertical Hi-Pressure Nut Locking with Digital Controller",
+          "displayName": "Autoclave Triple Wall Vertical Hi-Pressure Nut Locking With Digital Controller",
           "productUrl": "https://www.indiamart.com/proddetail/autoclave-triple-wall-vertical-hi-pressure-nut-locking-with-digital-controller-27575322588.html",
           "attributes": [
             {
@@ -40252,72 +40280,8 @@
       "legacyCategorySlug": "autoclaves"
     },
     {
-      "slug": "autoclave-vertical-double-wall-ss-radial-locking-with-digital-contorller-semi-automatic",
-      "name": "Autoclave Vertical Double Wall SS Radial Locking with Digital Controller",
-      "categorySlug": "vertical-autoclave",
-      "sectionSerials": [
-        "12"
-      ],
-      "subheading": "",
-      "summary": "Available in 1 model option.",
-      "description": "Autoclave Vertical Double Wall SS Radial Locking with Digital Controller is part of the Indian Surgical Industries range and is available in 1 model option. Representative models include AVDR-150D.",
-      "highlights": [
-        "Available in 1 model option."
-      ],
-      "notes": [],
-      "images": [
-        "/catalogue-media-indiamart/23804592697.jpg"
-      ],
-      "variants": [
-        {
-          "model": "AVDR-150D",
-          "slug": "avdr-150d",
-          "label": "AVDR-150D",
-          "attributes": [
-            {
-              "label": "Model",
-              "value": "AVDR-150D"
-            },
-            {
-              "label": "Capacity",
-              "value": "150 Litres"
-            },
-            {
-              "label": "Size",
-              "value": "20\" x 30\""
-            },
-            {
-              "label": "Variants",
-              "value": "Electrical"
-            }
-          ],
-          "descriptionLines": [],
-          "images": [
-            "/catalogue-media-indiamart/23804592697.jpg"
-          ],
-          "sourceRefs": [
-            {
-              "workbook": "catalogue frame.xlsx",
-              "sheet": "PRICE LIST",
-              "sectionSerial": 12,
-              "row": 226
-            }
-          ],
-          "displayName": "Autoclave Vertical Double Wall SS Radial Locking with Digital Controller"
-        }
-      ],
-      "sourceRefs": [],
-      "tableColumns": [
-        "Model",
-        "Capacity",
-        "Size",
-        "Variants"
-      ],
-      "legacyCategorySlug": "autoclaves"
-    },
-    {
       "slug": "autoclave-vertical-double-wall-ss-radial-locking-with-digital-controller",
-      "name": "Autoclave Vertical Double wall SS Radial Locking with Digital controller.",
+      "name": "Autoclave Vertical Double Wall SS Radial Locking With Digital Controller.",
       "categorySlug": "vertical-autoclave",
       "sectionSerials": [
         "12"
@@ -40457,7 +40421,7 @@
               "model": "23804592697"
             }
           ],
-          "displayName": "Autoclave Vertical Double Wall SS Radial Locking with Digital Controller",
+          "displayName": "Autoclave Vertical Double Wall SS Radial Locking With Digital Controller",
           "productUrl": "https://www.indiamart.com/proddetail/autoclave-vertical-double-wall-ss-radial-locking-with-digital-controller-23804592697.html"
         },
         {
@@ -40578,7 +40542,7 @@
               "model": "23804592697"
             }
           ],
-          "displayName": "Autoclave Vertical Double Wall SS Radial Locking with Digital Controller",
+          "displayName": "Autoclave Vertical Double Wall SS Radial Locking With Digital Controller",
           "productUrl": "https://www.indiamart.com/proddetail/autoclave-vertical-double-wall-ss-radial-locking-with-digital-controller-23804592697.html"
         },
         {
@@ -40703,7 +40667,7 @@
               "model": "23804592697"
             }
           ],
-          "displayName": "Autoclave Vertical Double Wall SS Radial Locking with Digital Controller",
+          "displayName": "Autoclave Vertical Double Wall SS Radial Locking With Digital Controller",
           "productUrl": "https://www.indiamart.com/proddetail/autoclave-vertical-double-wall-ss-radial-locking-with-digital-controller-23804592697.html"
         },
         {
@@ -40824,7 +40788,7 @@
               "model": "23804592697"
             }
           ],
-          "displayName": "Autoclave Vertical Double Wall SS Radial Locking with Digital Controller",
+          "displayName": "Autoclave Vertical Double Wall SS Radial Locking With Digital Controller",
           "productUrl": "https://www.indiamart.com/proddetail/autoclave-vertical-double-wall-ss-radial-locking-with-digital-controller-23804592697.html"
         },
         {
@@ -40945,7 +40909,7 @@
               "model": "23804592697"
             }
           ],
-          "displayName": "Autoclave Vertical Double Wall SS Radial Locking with Digital Controller",
+          "displayName": "Autoclave Vertical Double Wall SS Radial Locking With Digital Controller",
           "productUrl": "https://www.indiamart.com/proddetail/autoclave-vertical-double-wall-ss-radial-locking-with-digital-controller-23804592697.html"
         },
         {
@@ -41066,7 +41030,7 @@
               "model": "23804592697"
             }
           ],
-          "displayName": "Autoclave Vertical Double Wall SS Radial Locking with Digital Controller",
+          "displayName": "Autoclave Vertical Double Wall SS Radial Locking With Digital Controller",
           "productUrl": "https://www.indiamart.com/proddetail/autoclave-vertical-double-wall-ss-radial-locking-with-digital-controller-23804592697.html"
         },
         {
@@ -41187,7 +41151,7 @@
               "model": "23804592697"
             }
           ],
-          "displayName": "Autoclave Vertical Double Wall SS Radial Locking with Digital Controller",
+          "displayName": "Autoclave Vertical Double Wall SS Radial Locking With Digital Controller",
           "productUrl": "https://www.indiamart.com/proddetail/autoclave-vertical-double-wall-ss-radial-locking-with-digital-controller-23804592697.html"
         }
       ],
@@ -41241,6 +41205,70 @@
         "Country of Origin",
         "Availability",
         "1"
+      ],
+      "legacyCategorySlug": "autoclaves"
+    },
+    {
+      "slug": "autoclave-vertical-double-wall-ss-radial-locking-with-digital-contorller-semi-automatic",
+      "name": "Autoclave Vertical Double Wall SS Radial Locking with Digital Controller",
+      "categorySlug": "vertical-autoclave",
+      "sectionSerials": [
+        "12"
+      ],
+      "subheading": "",
+      "summary": "Available in 1 model option.",
+      "description": "Autoclave Vertical Double Wall SS Radial Locking with Digital Controller is part of the Indian Surgical Industries range and is available in 1 model option. Representative models include AVDR-150D.",
+      "highlights": [
+        "Available in 1 model option."
+      ],
+      "notes": [],
+      "images": [
+        "/catalogue-media-indiamart/23804592697.jpg"
+      ],
+      "variants": [
+        {
+          "model": "AVDR-150D",
+          "slug": "avdr-150d",
+          "label": "AVDR-150D",
+          "attributes": [
+            {
+              "label": "Model",
+              "value": "AVDR-150D"
+            },
+            {
+              "label": "Capacity",
+              "value": "150 Litres"
+            },
+            {
+              "label": "Size",
+              "value": "20\" x 30\""
+            },
+            {
+              "label": "Variants",
+              "value": "Electrical"
+            }
+          ],
+          "descriptionLines": [],
+          "images": [
+            "/catalogue-media-indiamart/23804592697.jpg"
+          ],
+          "sourceRefs": [
+            {
+              "workbook": "catalogue frame.xlsx",
+              "sheet": "PRICE LIST",
+              "sectionSerial": 12,
+              "row": 226
+            }
+          ],
+          "displayName": "Autoclave Vertical Double Wall SS Radial Locking with Digital Controller"
+        }
+      ],
+      "sourceRefs": [],
+      "tableColumns": [
+        "Model",
+        "Capacity",
+        "Size",
+        "Variants"
       ],
       "legacyCategorySlug": "autoclaves"
     },
@@ -42731,7 +42759,7 @@
       "sectionSerials": [
         "14"
       ],
-      "subheading": "Autoclave Vertical Triple Wall Radial locking Fully Automatic with Printer",
+      "subheading": "Autoclave Vertical Triple Wall Radial Locking Fully Automatic With Printer",
       "summary": "Available in 5 model options.",
       "description": "Autoclave Vertical Triple Wall Radial Locking with Steam Storage and Vacuum Drying is part of the Indian Surgical Industries range and is available in 5 model options. Representative models include AVTRV-100A, AVTRV-180A, AVTRV-40A, AVTRV-60A, AVTRV-78A.",
       "highlights": [
@@ -43060,7 +43088,7 @@
           "model": "Autoclave Vertical Triple Wall With Digital Controller And Vacuum Drying Option , Radial Type",
           "slug": "autoclave-vertical-triple-wall-with-digital-controller-and-vacuum-drying-option-radial-type",
           "label": "Autoclave Vertical Triple Wall With Digital Controller And Vacuum Drying Option , Radial Type",
-          "displayName": "Autoclave Vertical Triple Wall With Digital Controller And Vacuum Drying Option , Radial Type",
+          "displayName": "Autoclave Vertical Triple Wall With Digital Controller And Vacuum Drying Option, Radial Type",
           "productUrl": "https://www.indiamart.com/proddetail/autoclave-vertical-triple-wall-with-digital-controller-and-vacuum-drying-option-radial-type-26097084191.html",
           "attributes": [
             {
@@ -44953,6 +44981,141 @@
       "legacyCategorySlug": "autoclaves"
     },
     {
+      "slug": "vertical-autoclave-double-wall-with-digital-controller",
+      "name": "Vertical Autoclave Double Wall With Digital Controller",
+      "categorySlug": "vertical-autoclave",
+      "sectionSerials": [],
+      "subheading": "",
+      "summary": "Autoclave Double Wall, Single Chamber. The Inner Chamber, Lid, Ring are made of Stainless Steel 304 Grade material. The Outer Wall is made of Stainless Steel Sheet, Legs are made of S.S. 304 grade material. Equipped with Pressure Gauge, Safety Valve, Double Safety Valve, Steam Release Valve, Water Drain Valve, Rubber Gasket, Inner Tripod Stand. The autoclave can hold the pressure in between 5 PSI to 20 PSI. Equpped with Digital Temperature Controller with Digital Timer, Low Water Cut off Device & Alarm.",
+      "description": "Autoclave Double Wall, Single Chamber. The Inner Chamber, Lid, Ring are made of Stainless Steel 304 Grade material. The Outer Wall is made of Stainless Steel Sheet, Legs are made of S.S. 304 grade material. Equipped with Pressure Gauge, Safety Valve, Double Safety Valve, Steam Release Valve, Water Drain Valve, Rubber Gasket, Inner Tripod Stand. The autoclave can hold the pressure in between 5 PSI to 20 PSI. Equpped with Digital Temperature Controller with Digital Timer, Low Water Cut off Device & Alarm. AVD-23D 23 Litres 10\"x18\" Electrical AVD-40D 40 Litres 12\"x22\" AVD-50D 50 Litres 12\"x28\" AVD-52D 52 Litres 14\"x22\" AVD-60D 60 Litres 14\"x25\" AVD-78D 78 Litres 16\"x24\" AVD-90D 90 Litres 16\"x28\" AVD-100D 100 Litres 18\"x24\" AVD-120D 120 Litres 18\"x30\" AVD-150D 150 Litres 20\"x30\" AVD-180D 180 Litres 22\"x30\"",
+      "highlights": [
+        "Autoclave Double Wall, Single Chamber. The Inner Chamber, Lid, Ring are made of Stainless Steel 304 Grade material. The Outer Wall is made of Stainless Steel Sheet, Legs are made of S.S. 304 grade material. Equipped with Pressure Gauge, Safety Valve, Double Safety Valve, Steam Release Valve, Water Drain Valve, Rubber Gasket, Inner Tripod Stand. The autoclave can hold the pressure in between 5 PSI to 20 PSI. Equpped with Digital Temperature Controller with Digital Timer, Low Water Cut off Device & Alarm.",
+        "AVD-23D",
+        "23 Litres",
+        "10\"x18\"",
+        "Electrical",
+        "AVD-40D"
+      ],
+      "notes": [],
+      "images": [
+        "/catalogue-media-indiamart/23829851491.jpeg",
+        "/catalogue-media-hq/autoclave-2.jpg",
+        "/catalogue-media-hq/autoclave-double-wall.jpg",
+        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+        "/catalogue-media-hq/autoclave.jpg",
+        "/catalogue-media-hq/p-type-with-controller.jpg"
+      ],
+      "variants": [
+        {
+          "model": "Vertical Autoclave double wall with digital controller",
+          "slug": "vertical-autoclave-double-wall-with-digital-controller",
+          "label": "Vertical Autoclave double wall with digital controller",
+          "displayName": "Vertical Autoclave Double Wall With Digital Controller",
+          "productUrl": "https://www.indiamart.com/proddetail/vertical-autoclave-double-wall-with-digital-controller-23829851491.html",
+          "attributes": [
+            {
+              "label": "Pressure Range",
+              "value": "5 to 20 psi"
+            },
+            {
+              "label": "Material",
+              "value": "304 ss"
+            },
+            {
+              "label": "Automation Grade",
+              "value": "Fully Automatic"
+            },
+            {
+              "label": "Size",
+              "value": "Standard"
+            },
+            {
+              "label": "Is It Rust Proof",
+              "value": "Yes"
+            },
+            {
+              "label": "Country of Origin",
+              "value": "Made in India"
+            },
+            {
+              "label": "Availability",
+              "value": "In Stock"
+            }
+          ],
+          "descriptionLines": [
+            "Autoclave Double Wall, Single Chamber. The Inner Chamber, Lid, Ring are made of Stainless Steel 304 Grade material. The Outer Wall is made of Stainless Steel Sheet, Legs are made of S.S. 304 grade material. Equipped with Pressure Gauge, Safety Valve, Double Safety Valve, Steam Release Valve, Water Drain Valve, Rubber Gasket, Inner Tripod Stand. The autoclave can hold the pressure in between 5 PSI to 20 PSI. Equpped with Digital Temperature Controller with Digital Timer, Low Water Cut off Device & Alarm.",
+            "AVD-23D",
+            "23 Litres",
+            "10\"x18\"",
+            "Electrical",
+            "AVD-40D",
+            "40 Litres",
+            "12\"x22\"",
+            "AVD-50D",
+            "50 Litres",
+            "12\"x28\"",
+            "AVD-52D",
+            "52 Litres",
+            "14\"x22\"",
+            "AVD-60D",
+            "60 Litres",
+            "14\"x25\"",
+            "AVD-78D",
+            "78 Litres",
+            "16\"x24\"",
+            "AVD-90D",
+            "90 Litres",
+            "16\"x28\"",
+            "AVD-100D",
+            "100 Litres",
+            "18\"x24\"",
+            "AVD-120D",
+            "120 Litres",
+            "18\"x30\"",
+            "AVD-150D",
+            "150 Litres",
+            "20\"x30\"",
+            "AVD-180D",
+            "180 Litres",
+            "22\"x30\""
+          ],
+          "images": [
+            "/catalogue-media-indiamart/23829851491.jpeg",
+            "/catalogue-media-hq/autoclave-2.jpg",
+            "/catalogue-media-hq/autoclave-double-wall.jpg",
+            "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
+            "/catalogue-media-hq/autoclave.jpg",
+            "/catalogue-media-hq/p-type-with-controller.jpg"
+          ],
+          "sourceRefs": [
+            {
+              "workbook": "IndiaMART",
+              "sheet": "autoclaves-and-sterilizers.html",
+              "model": "23829851491"
+            }
+          ]
+        }
+      ],
+      "sourceRefs": [
+        {
+          "workbook": "IndiaMART",
+          "sheet": "autoclaves-and-sterilizers.html",
+          "model": "23829851491"
+        }
+      ],
+      "tableColumns": [
+        "Model",
+        "Pressure Range",
+        "Material",
+        "Automation Grade",
+        "Size",
+        "Is It Rust Proof",
+        "Country of Origin",
+        "Availability"
+      ],
+      "legacyCategorySlug": "autoclaves"
+    },
+    {
       "slug": "vertical-autoclave-radial-locking-double-wall",
       "name": "Vertical Autoclave Radial Locking Double Wall",
       "categorySlug": "vertical-autoclave",
@@ -45151,7 +45314,7 @@
     },
     {
       "slug": "vertical-autoclave-stainless-steel-nut-locking-double-wall",
-      "name": "Vertical Autoclave Stainless Steel Nut Locking Double wall",
+      "name": "Vertical Autoclave Stainless Steel Nut Locking Double Wall",
       "categorySlug": "vertical-autoclave",
       "sectionSerials": [],
       "subheading": "",
@@ -45178,7 +45341,7 @@
           "model": "Vertical Autoclave Stainless Steel Nut Locking Double wall",
           "slug": "vertical-autoclave-stainless-steel-nut-locking-double-wall",
           "label": "Vertical Autoclave Stainless Steel Nut Locking Double wall",
-          "displayName": "Vertical Autoclave Stainless Steel Nut Locking Double wall",
+          "displayName": "Vertical Autoclave Stainless Steel Nut Locking Double Wall",
           "productUrl": "https://www.indiamart.com/proddetail/vertical-autoclave-stainless-steel-nut-locking-double-wall-26097237562.html",
           "attributes": [
             {
@@ -45291,141 +45454,6 @@
         "Power Source",
         "Power Supply",
         "Brand Name",
-        "Country of Origin",
-        "Availability"
-      ],
-      "legacyCategorySlug": "autoclaves"
-    },
-    {
-      "slug": "vertical-autoclave-double-wall-with-digital-controller",
-      "name": "Vertical Autoclave double wall with digital controller",
-      "categorySlug": "vertical-autoclave",
-      "sectionSerials": [],
-      "subheading": "",
-      "summary": "Autoclave Double Wall, Single Chamber. The Inner Chamber, Lid, Ring are made of Stainless Steel 304 Grade material. The Outer Wall is made of Stainless Steel Sheet, Legs are made of S.S. 304 grade material. Equipped with Pressure Gauge, Safety Valve, Double Safety Valve, Steam Release Valve, Water Drain Valve, Rubber Gasket, Inner Tripod Stand. The autoclave can hold the pressure in between 5 PSI to 20 PSI. Equpped with Digital Temperature Controller with Digital Timer, Low Water Cut off Device & Alarm.",
-      "description": "Autoclave Double Wall, Single Chamber. The Inner Chamber, Lid, Ring are made of Stainless Steel 304 Grade material. The Outer Wall is made of Stainless Steel Sheet, Legs are made of S.S. 304 grade material. Equipped with Pressure Gauge, Safety Valve, Double Safety Valve, Steam Release Valve, Water Drain Valve, Rubber Gasket, Inner Tripod Stand. The autoclave can hold the pressure in between 5 PSI to 20 PSI. Equpped with Digital Temperature Controller with Digital Timer, Low Water Cut off Device & Alarm. AVD-23D 23 Litres 10\"x18\" Electrical AVD-40D 40 Litres 12\"x22\" AVD-50D 50 Litres 12\"x28\" AVD-52D 52 Litres 14\"x22\" AVD-60D 60 Litres 14\"x25\" AVD-78D 78 Litres 16\"x24\" AVD-90D 90 Litres 16\"x28\" AVD-100D 100 Litres 18\"x24\" AVD-120D 120 Litres 18\"x30\" AVD-150D 150 Litres 20\"x30\" AVD-180D 180 Litres 22\"x30\"",
-      "highlights": [
-        "Autoclave Double Wall, Single Chamber. The Inner Chamber, Lid, Ring are made of Stainless Steel 304 Grade material. The Outer Wall is made of Stainless Steel Sheet, Legs are made of S.S. 304 grade material. Equipped with Pressure Gauge, Safety Valve, Double Safety Valve, Steam Release Valve, Water Drain Valve, Rubber Gasket, Inner Tripod Stand. The autoclave can hold the pressure in between 5 PSI to 20 PSI. Equpped with Digital Temperature Controller with Digital Timer, Low Water Cut off Device & Alarm.",
-        "AVD-23D",
-        "23 Litres",
-        "10\"x18\"",
-        "Electrical",
-        "AVD-40D"
-      ],
-      "notes": [],
-      "images": [
-        "/catalogue-media-indiamart/23829851491.jpeg",
-        "/catalogue-media-hq/autoclave-2.jpg",
-        "/catalogue-media-hq/autoclave-double-wall.jpg",
-        "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
-        "/catalogue-media-hq/autoclave.jpg",
-        "/catalogue-media-hq/p-type-with-controller.jpg"
-      ],
-      "variants": [
-        {
-          "model": "Vertical Autoclave double wall with digital controller",
-          "slug": "vertical-autoclave-double-wall-with-digital-controller",
-          "label": "Vertical Autoclave double wall with digital controller",
-          "displayName": "Vertical Autoclave double wall with digital controller",
-          "productUrl": "https://www.indiamart.com/proddetail/vertical-autoclave-double-wall-with-digital-controller-23829851491.html",
-          "attributes": [
-            {
-              "label": "Pressure Range",
-              "value": "5 to 20 psi"
-            },
-            {
-              "label": "Material",
-              "value": "304 ss"
-            },
-            {
-              "label": "Automation Grade",
-              "value": "Fully Automatic"
-            },
-            {
-              "label": "Size",
-              "value": "Standard"
-            },
-            {
-              "label": "Is It Rust Proof",
-              "value": "Yes"
-            },
-            {
-              "label": "Country of Origin",
-              "value": "Made in India"
-            },
-            {
-              "label": "Availability",
-              "value": "In Stock"
-            }
-          ],
-          "descriptionLines": [
-            "Autoclave Double Wall, Single Chamber. The Inner Chamber, Lid, Ring are made of Stainless Steel 304 Grade material. The Outer Wall is made of Stainless Steel Sheet, Legs are made of S.S. 304 grade material. Equipped with Pressure Gauge, Safety Valve, Double Safety Valve, Steam Release Valve, Water Drain Valve, Rubber Gasket, Inner Tripod Stand. The autoclave can hold the pressure in between 5 PSI to 20 PSI. Equpped with Digital Temperature Controller with Digital Timer, Low Water Cut off Device & Alarm.",
-            "AVD-23D",
-            "23 Litres",
-            "10\"x18\"",
-            "Electrical",
-            "AVD-40D",
-            "40 Litres",
-            "12\"x22\"",
-            "AVD-50D",
-            "50 Litres",
-            "12\"x28\"",
-            "AVD-52D",
-            "52 Litres",
-            "14\"x22\"",
-            "AVD-60D",
-            "60 Litres",
-            "14\"x25\"",
-            "AVD-78D",
-            "78 Litres",
-            "16\"x24\"",
-            "AVD-90D",
-            "90 Litres",
-            "16\"x28\"",
-            "AVD-100D",
-            "100 Litres",
-            "18\"x24\"",
-            "AVD-120D",
-            "120 Litres",
-            "18\"x30\"",
-            "AVD-150D",
-            "150 Litres",
-            "20\"x30\"",
-            "AVD-180D",
-            "180 Litres",
-            "22\"x30\""
-          ],
-          "images": [
-            "/catalogue-media-indiamart/23829851491.jpeg",
-            "/catalogue-media-hq/autoclave-2.jpg",
-            "/catalogue-media-hq/autoclave-double-wall.jpg",
-            "/catalogue-media-hq/autoclave-p-type-digital.jpeg",
-            "/catalogue-media-hq/autoclave.jpg",
-            "/catalogue-media-hq/p-type-with-controller.jpg"
-          ],
-          "sourceRefs": [
-            {
-              "workbook": "IndiaMART",
-              "sheet": "autoclaves-and-sterilizers.html",
-              "model": "23829851491"
-            }
-          ]
-        }
-      ],
-      "sourceRefs": [
-        {
-          "workbook": "IndiaMART",
-          "sheet": "autoclaves-and-sterilizers.html",
-          "model": "23829851491"
-        }
-      ],
-      "tableColumns": [
-        "Model",
-        "Pressure Range",
-        "Material",
-        "Automation Grade",
-        "Size",
-        "Is It Rust Proof",
         "Country of Origin",
         "Availability"
       ],
@@ -52587,7 +52615,7 @@
     }
   ],
   "indiamart": {
-    "generatedAt": "2026-04-09T16:21:22+05:30",
+    "generatedAt": "2026-04-09T17:30:47+05:30",
     "pageCount": 12,
     "productCount": 213
   }

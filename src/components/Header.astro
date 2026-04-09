@@ -42,7 +42,7 @@ const aboutMenu = [
   {
     href: "/contact",
     label: "Contact and enquiry desk",
-    note: "Works address and published contact details",
+    note: "Published phone, WhatsApp, email, and enquiry details",
   },
   {
     href: catalogueExports.workbookPath,
@@ -192,6 +192,23 @@ const isAboutActive = currentPath.startsWith("/about");
     </div>
 
     <nav class="site-header__nav" aria-label="Primary" id="primary-navigation" data-mobile-nav>
+      <div class="site-header__mobile-search">
+        <label class="site-header__search-field site-header__search-field--mobile">
+          <span class="site-header__sr-only">Search the website</span>
+          <input
+            type="search"
+            placeholder="Search products, categories, pages"
+            autocomplete="off"
+            data-mobile-site-search-input
+          />
+        </label>
+        <div
+          class="site-header__search-results site-header__search-results--mobile"
+          data-mobile-site-search-results
+          hidden
+        ></div>
+      </div>
+
       <a href="/" class:list={["site-header__link", { "is-active": isActive("/") }]}>
         Home
       </a>
@@ -277,6 +294,8 @@ const isAboutActive = currentPath.startsWith("/about");
   const searchPanel = document.querySelector<HTMLElement>("[data-site-search-panel]");
   const searchInput = document.querySelector<HTMLInputElement>("[data-site-search-input]");
   const searchResults = document.querySelector<HTMLElement>("[data-site-search-results]");
+  const mobileSearchInput = document.querySelector<HTMLInputElement>("[data-mobile-site-search-input]");
+  const mobileSearchResults = document.querySelector<HTMLElement>("[data-mobile-site-search-results]");
   const searchDataNode = document.getElementById("site-header-search-data");
   const searchItems: SearchItem[] = searchDataNode?.textContent
     ? (JSON.parse(searchDataNode.textContent) as SearchItem[])
@@ -294,19 +313,23 @@ const isAboutActive = currentPath.startsWith("/about");
 
     if (!open) {
       menus.forEach((menu) => menu.removeAttribute("open"));
+      if (mobileSearchInput instanceof HTMLInputElement) {
+        mobileSearchInput.value = "";
+      }
+      renderSearchResults(mobileSearchResults, "");
     }
   };
 
-  const renderSearchResults = (query = "") => {
-    if (!(searchResults instanceof HTMLElement)) {
+  const renderSearchResults = (target: HTMLElement | null, query = "") => {
+    if (!(target instanceof HTMLElement)) {
       return;
     }
 
     const normalizedQuery = query.trim().toLowerCase();
-    searchResults.hidden = !normalizedQuery;
+    target.hidden = !normalizedQuery;
 
     if (!normalizedQuery) {
-      searchResults.replaceChildren();
+      target.replaceChildren();
       return;
     }
 
@@ -325,13 +348,13 @@ const isAboutActive = currentPath.startsWith("/about");
       })
       .slice(0, normalizedQuery ? 8 : 6);
 
-    searchResults.replaceChildren();
+    target.replaceChildren();
 
     if (!results.length) {
       const empty = document.createElement("p");
       empty.className = "site-header__search-empty";
       empty.textContent = "No matching pages or products found.";
-      searchResults.appendChild(empty);
+      target.appendChild(empty);
       return;
     }
 
@@ -356,7 +379,7 @@ const isAboutActive = currentPath.startsWith("/about");
       list.appendChild(link);
     });
 
-    searchResults.appendChild(list);
+    target.appendChild(list);
   };
 
   const setSearchOpen = (open: boolean) => {
@@ -369,7 +392,7 @@ const isAboutActive = currentPath.startsWith("/about");
     searchPanel.hidden = !open;
 
     if (open) {
-      renderSearchResults(searchInput?.value ?? "");
+      renderSearchResults(searchResults, searchInput?.value ?? "");
       window.requestAnimationFrame(() => searchInput?.focus());
     }
   };
@@ -475,7 +498,11 @@ const isAboutActive = currentPath.startsWith("/about");
   });
 
   searchInput?.addEventListener("input", () => {
-    renderSearchResults(searchInput.value);
+    renderSearchResults(searchResults, searchInput.value);
+  });
+
+  mobileSearchInput?.addEventListener("input", () => {
+    renderSearchResults(mobileSearchResults, mobileSearchInput.value);
   });
 
   document.addEventListener("click", (event) => {
@@ -519,7 +546,8 @@ const isAboutActive = currentPath.startsWith("/about");
     }
   });
 
-  renderSearchResults("");
+  renderSearchResults(searchResults, "");
+  renderSearchResults(mobileSearchResults, "");
 </script>
 
 <style>
@@ -551,19 +579,18 @@ const isAboutActive = currentPath.startsWith("/about");
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
     align-items: center;
-    column-gap: 1rem;
+    gap: 1rem;
     min-height: 5.35rem;
     padding-block: 0.75rem;
-    position: relative;
   }
 
   .site-header__brand {
+    grid-column: 1;
     display: flex;
     align-items: center;
     gap: 0.95rem;
     min-width: 0;
-    max-width: 24.5rem;
-    grid-column: 1;
+    max-width: 24rem;
     justify-self: start;
   }
 
@@ -607,28 +634,31 @@ const isAboutActive = currentPath.startsWith("/about");
   }
 
   .site-header__nav {
+    grid-column: 2;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 1.05rem;
     white-space: nowrap;
     min-width: 0;
-    grid-column: 2;
     justify-self: center;
   }
 
   .site-header__actions {
+    grid-column: 3;
     display: flex;
     align-items: center;
     gap: 0.65rem;
-    grid-column: 3;
-    justify-self: end;
     position: relative;
-    flex: 0 0 auto;
+    justify-self: end;
   }
 
   .site-header__search {
     position: relative;
+  }
+
+  .site-header__mobile-search {
+    display: none;
   }
 
   .site-header__search-toggle {
@@ -808,12 +838,8 @@ const isAboutActive = currentPath.startsWith("/about");
   }
 
   @media (max-width: 1280px) {
-    .site-header__bar {
-      grid-template-columns: minmax(0, 22rem) auto minmax(0, 16rem);
-    }
-
     .site-header__brand-copy small {
-      max-width: 17rem;
+      max-width: 15rem;
       font-size: 0.72rem;
     }
 
@@ -828,18 +854,12 @@ const isAboutActive = currentPath.startsWith("/about");
   }
 
   @media (max-width: 1100px) {
-    .site-header__bar {
-      grid-template-columns: minmax(0, 19rem) auto minmax(0, 14.5rem);
-      column-gap: 0.85rem;
-    }
-
     .site-header__brand-copy strong {
       font-size: 0.92rem;
     }
 
     .site-header__brand-copy small {
-      max-width: 14.5rem;
-      font-size: 0.67rem;
+      display: none;
     }
 
     .site-header__nav {
@@ -1139,40 +1159,12 @@ const isAboutActive = currentPath.startsWith("/about");
     }
 
     .site-header__brand-copy small {
-      max-width: none;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 2;
-      overflow: hidden;
-      font-size: 0.73rem;
-      line-height: 1.35;
-    }
-
-    .site-header__cta {
-      padding: 0.74rem 0.86rem;
-      border-radius: 0.92rem;
-    }
-
-    .site-header__cta-kicker {
       display: none;
-    }
-
-    .site-header__cta strong {
-      font-size: 0.92rem;
     }
 
     .site-header__cta--mobile,
     .site-header__toggle {
       display: inline-flex;
-    }
-
-    .site-header__search-panel {
-      right: 0;
-      width: min(24rem, calc(100vw - 1.5rem));
-    }
-
-    .site-header__search-toggle span:last-child {
-      display: inline;
     }
 
     .site-header__cta--mobile {
@@ -1182,14 +1174,30 @@ const isAboutActive = currentPath.startsWith("/about");
       margin-top: 0.35rem;
     }
 
-    .site-header__actions .site-header__cta {
-      display: inline-flex;
+    .site-header__actions .site-header__cta,
+    .site-header__actions .site-header__search {
+      display: none;
     }
 
     .site-header__menu {
       min-width: 0;
       padding-bottom: 0;
       margin-bottom: 0;
+    }
+
+    .site-header__mobile-search {
+      display: grid;
+      gap: 0.7rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .site-header__search-field--mobile input {
+      padding: 0.88rem 0.95rem;
+      background: rgba(255, 255, 255, 0.94);
+    }
+
+    .site-header__search-results--mobile {
+      margin-top: 0;
     }
 
     .site-header__summary,
@@ -1237,10 +1245,6 @@ const isAboutActive = currentPath.startsWith("/about");
   }
 
   @media (max-width: 640px) {
-    .site-header {
-      backdrop-filter: blur(12px);
-    }
-
     .site-header__mark {
       width: 2.8rem;
       height: 2.8rem;
@@ -1270,14 +1274,6 @@ const isAboutActive = currentPath.startsWith("/about");
 
     .site-header__toggle-label {
       font-size: 0.78rem;
-    }
-
-    .site-header__search-toggle span:last-child {
-      display: none;
-    }
-
-    .site-header__search-toggle {
-      padding-inline: 0.82rem;
     }
   }
 </style>

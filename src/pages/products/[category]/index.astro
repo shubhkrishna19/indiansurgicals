@@ -46,9 +46,9 @@ const subheadings = [...new Set(families.map((family) => family.subheading).filt
   <section class="section">
     <div class="container">
       <SectionTitle
-        kicker="Available Product Families"
-        title={`${category.name} range`}
-        subtitle="Open the relevant family to review product photos, listed models, and enquiry-ready details."
+        kicker="Products in This Category"
+        title={`${category.name} Product Families`}
+        subtitle="Open the relevant product family to review photos, listed models, and enquiry-ready details."
       />
 
       {subheadings.length > 0 && (
@@ -162,9 +162,56 @@ const subheadings = [...new Set(families.map((family) => family.subheading).filt
   }
 
   @media (max-width: 760px) {
+    .category-hero {
+      padding-top: 2.5rem;
+      padding-bottom: 0.5rem;
+    }
+
     .category-hero__panel,
     .family-grid {
       grid-template-columns: 1fr;
+    }
+
+    .category-hero__panel {
+      gap: 1rem;
+      padding: 1.1rem;
+    }
+
+    .category-hero__copy {
+      gap: 0.65rem;
+    }
+
+    .category-hero__copy h1 {
+      font-size: clamp(2.05rem, 9vw, 2.8rem);
+      line-height: 0.98;
+    }
+
+    .category-hero__copy p {
+      line-height: 1.65;
+    }
+
+    .category-hero__stats {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+
+    .category-hero__stats div {
+      padding: 0.85rem;
+    }
+
+    .subcategory-row {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding-bottom: 0.1rem;
+      margin-bottom: 1rem;
+      scrollbar-width: thin;
+    }
+
+    .subcategory-row span {
+      white-space: nowrap;
+      flex: 0 0 auto;
+      padding: 0.44rem 0.72rem;
+      font-size: 0.76rem;
     }
   }
 </style>

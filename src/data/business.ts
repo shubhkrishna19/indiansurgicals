@@ -1,3 +1,5 @@
+import { getCatalogueStats } from "./catalogue";
+
 export interface BusinessProfile {
   brand: string;
   brandMark: string;
@@ -46,13 +48,15 @@ export interface BusinessProfile {
   heroMetrics: { label: string; value: string }[];
 }
 
+const catalogueStats = getCatalogueStats();
+
 export const business: BusinessProfile = {
   brand: "Indian Surgical Industries",
   brandMark: "LIFE EQUIP",
   tagline:
-    "Manufacturer of Autoclaves, Sterilisers, Hospital Furniture, Hollowares, Suction Machine, OT Equipment, X-Ray Illuminators, Fumigator/Fogger, Instrument Trays, Kidney Trays",
+    "Manufacturer of Autoclaves and Sterilizers, Vertical Autoclaves, Hospital Hollowares, Hospital Beds, Operation Tables, Stainless Steel Trays, Suction Machines, Ward Equipment, Patient Transfer Trolleys, Operation Theatre Lights, X-Ray Illuminators, and Needle Destroyers.",
   shortDescription:
-    "Manufacturer of autoclaves, sterilizers, hospital hollowares, suction units, hospital furniture, OT equipment, X-ray illuminators, and allied medical products.",
+    "Manufacturer of autoclaves and sterilizers, vertical autoclaves, hospital hollowares, stainless steel trays, suction machines, hospital beds, operation tables, ward equipment, and allied medical products.",
   story: [
     "Indian Surgical Industries has been manufacturing medical and hospital equipment for more than four decades.",
     "The company supplies hospitals, clinics, nursing homes, medical colleges, research institutions, and procurement teams across sterilization, patient care, ward utility, and OT support requirements.",
@@ -127,10 +131,10 @@ export const business: BusinessProfile = {
     },
   ],
   focusAreas: [
-    "Autoclaves and sterilization systems",
-    "Hospital hollowares and stainless steel utility products",
-    "Patient care furniture and ward equipment",
-    "Transfer, trolley, and OT support solutions",
+    "Autoclaves, sterilizers, and vertical autoclaves",
+    "Hospital hollowares, utensils, and stainless steel tray products",
+    "Hospital furniture, hospital beds, and ward equipment",
+    "Patient transfer trolleys, suction machines, and operation theatre support products",
   ],
   customerSegments: [
     "Corporate hospitals",
@@ -183,14 +187,14 @@ export const business: BusinessProfile = {
       note: "A long-standing operating base across sterilization, utility, patient care, and OT support products.",
     },
     {
-      value: "170+",
+      value: `${catalogueStats.familyCount}`,
       label: "Product families",
       note: "A broad manufacturing range across sterilization, furniture, ward utility, transfer systems, and OT support.",
     },
     {
-      value: "11",
+      value: `${catalogueStats.categoryCount}`,
       label: "Major product categories",
-      note: "From autoclaves and sterilizers to hospital furniture, ward equipment, and OT lighting.",
+      note: "From autoclaves and vertical autoclaves to hollowares, trays, beds, ward equipment, and operation theatre lights.",
     },
     {
       value: "ISO / CE",
@@ -276,8 +280,8 @@ export const business: BusinessProfile = {
   },
   heroMetrics: [
     { label: "Years of manufacturing", value: "40+" },
-    { label: "Product families", value: "170+" },
-    { label: "Product categories", value: "11" },
+    { label: "Product families", value: `${catalogueStats.familyCount}` },
+    { label: "Product categories", value: `${catalogueStats.categoryCount}` },
     { label: "Quality certifications", value: "ISO / CE" },
   ],
 };
