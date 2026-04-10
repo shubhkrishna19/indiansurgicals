@@ -1,20 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" role="img" aria-label="ISO 10993 biocompatible badge">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 120" role="img" aria-label="ISO 10993 biocompatible badge">
   <defs>
     <linearGradient id="ring10993" x1="0" x2="1">
       <stop offset="0" stop-color="#43a047"/>
       <stop offset="1" stop-color="#1f7a35"/>
     </linearGradient>
   </defs>
-    <g transform="translate(24 8)">
-    <circle cx="86" cy="86" r="68" fill="url(#ring10993)"/>
-    <circle cx="86" cy="86" r="54" fill="#ffffff"/>
-    <path d="M56 95c12-26 48-30 61 0-12 18-48 26-61 0Z" fill="#43a047"/>
-    <circle cx="72" cy="84" r="4" fill="#ffffff"/>
-    <circle cx="101" cy="84" r="4" fill="#ffffff"/>
-    <text x="86" y="132" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#2f6840">BIOCOMPATIBLE</text>
+  <g fill="none" fill-rule="evenodd">
+    <circle cx="60" cy="60" r="44" fill="url(#ring10993)"/>
+    <circle cx="60" cy="60" r="34" fill="#ffffff"/>
+    <path d="M42 66c7-16 28-18 35 0-7 11-28 15-35 0Z" fill="#43a047"/>
+    <circle cx="51" cy="58" r="2.8" fill="#ffffff"/>
+    <circle cx="68" cy="58" r="2.8" fill="#ffffff"/>
+    <text x="60" y="82" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#2f6840" letter-spacing="0.04em">BIOCOMPATIBLE</text>
   </g>
-  <text x="194" y="84" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#1f7a35">ISO 10993</text>
-  <text x="194" y="113" font-family="Arial, sans-serif" font-size="14" fill="#516172">Biocompatibility</text>
-  <text x="194" y="133" font-family="Arial, sans-serif" font-size="14" fill="#516172">Material Safety Standard</text>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="122" y="52" font-size="26" font-weight="800" fill="#1f7a35">ISO 10993</text>
+    <text x="122" y="74" font-size="14" font-weight="700" fill="#516172">Biocompatibility</text>
+    <text x="122" y="92" font-size="14" font-weight="700" fill="#516172">Material safety standard</text>
+  </g>
 </svg>
-

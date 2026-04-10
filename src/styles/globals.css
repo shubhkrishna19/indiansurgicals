@@ -18,7 +18,7 @@ body {
   position: relative;
   margin: 0;
   font-family: var(--font-body);
-  background: #e9f0f5;
+  background: #e2e9ef;
   color: var(--color-text);
   min-height: 100vh;
   overflow-x: hidden;
@@ -41,9 +41,9 @@ body::before {
 body::after {
   z-index: -1;
   background:
-    linear-gradient(180deg, rgba(236, 244, 250, 0.42), rgba(233, 240, 245, 0.62)),
-    radial-gradient(circle at top left, rgba(201, 111, 40, 0.08), transparent 28%),
-    linear-gradient(90deg, rgba(7, 31, 53, 0.14), rgba(7, 31, 53, 0.03) 42%, rgba(255, 255, 255, 0.06));
+    linear-gradient(180deg, rgba(229, 236, 242, 0.52), rgba(223, 230, 236, 0.72)),
+    radial-gradient(circle at top left, rgba(201, 111, 40, 0.07), transparent 28%),
+    linear-gradient(90deg, rgba(7, 31, 53, 0.15), rgba(7, 31, 53, 0.05) 42%, rgba(242, 245, 247, 0.1));
 }
 
 main {
@@ -53,7 +53,7 @@ main {
 }
 
 main > .section:last-child {
-  padding-bottom: 2rem;
+  padding-bottom: clamp(1.5rem, 3vw, 2.5rem);
 }
 
 body.mobile-nav-open {
@@ -68,6 +68,7 @@ a {
 img {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
 button,
@@ -94,12 +95,13 @@ p {
 .container {
   width: min(var(--container), calc(100% - 2rem));
   margin-inline: auto;
+  min-width: 0;
 }
 
 .section {
   position: relative;
   isolation: isolate;
-  padding: 5rem 0;
+  padding: clamp(3.6rem, 6.2vw, 5rem) 0;
 }
 
 .section::before {
@@ -108,14 +110,15 @@ p {
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(180deg, rgba(248, 251, 253, 0.58), rgba(239, 245, 249, 0.5)),
-    radial-gradient(circle at top center, rgba(255, 255, 255, 0.14), transparent 56%);
-  backdrop-filter: blur(4px);
+    linear-gradient(180deg, rgba(242, 246, 249, 0.66), rgba(231, 237, 242, 0.58)),
+    radial-gradient(circle at top center, rgba(248, 250, 251, 0.16), transparent 56%);
+  backdrop-filter: blur(3px);
 }
 
 .section > .container {
   position: relative;
   z-index: 1;
+  min-width: 0;
 }
 
 ::view-transition-old(root),
@@ -200,18 +203,22 @@ p {
 }
 
 .button--secondary {
-  background: rgba(255, 255, 255, 0.76);
+  background: rgba(255, 255, 255, 0.9);
   color: var(--color-text);
-  border: 1px solid rgba(84, 96, 109, 0.18);
+  border: 1px solid rgba(25, 77, 128, 0.16);
   backdrop-filter: blur(8px);
+  box-shadow: 0 12px 24px rgba(13, 45, 76, 0.08);
 }
 
 .panel {
-  border: 1px solid rgba(84, 96, 109, 0.16);
+  border: 1px solid rgba(25, 77, 128, 0.18);
   border-radius: 1.5rem;
-  background: rgba(255, 255, 255, 0.84);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(247, 250, 253, 0.93));
   backdrop-filter: blur(10px);
-  box-shadow: var(--shadow-soft);
+  box-shadow:
+    0 18px 36px rgba(13, 45, 76, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
 @media (max-width: 720px) {
@@ -220,11 +227,15 @@ p {
   }
 
   .section {
-    padding: 3.25rem 0;
+    padding: clamp(2.7rem, 7vw, 3.25rem) 0;
   }
 
   .panel {
     border-radius: 1.2rem;
+  }
+
+  main > .section:last-child {
+    padding-bottom: 1.4rem;
   }
 }
 
@@ -235,18 +246,18 @@ p {
 
   .section::before {
     background:
-      linear-gradient(180deg, rgba(248, 251, 253, 0.7), rgba(239, 245, 249, 0.64)),
-      radial-gradient(circle at top center, rgba(255, 255, 255, 0.12), transparent 56%);
-    backdrop-filter: blur(1.5px);
+      linear-gradient(180deg, rgba(243, 247, 249, 0.76), rgba(232, 238, 242, 0.7)),
+      radial-gradient(circle at top center, rgba(249, 250, 251, 0.12), transparent 56%);
+    backdrop-filter: blur(1px);
   }
 
   .panel {
-    background: rgba(255, 255, 255, 0.93);
+    background: rgba(255, 255, 255, 0.96);
     backdrop-filter: none;
   }
 
   .button--secondary {
-    background: rgba(255, 255, 255, 0.94);
+    background: rgba(255, 255, 255, 0.97);
     backdrop-filter: none;
   }
 }

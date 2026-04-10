@@ -11,6 +11,7 @@ const showWebsiteInFooter =
   business.contact.website &&
   business.contact.website.trim().toLowerCase() !== "example.com";
 const credentialBadges = [...business.credentialBadges, ...business.credentialBadges];
+const wideBadgeCodes = new Set(["OEM", "50+ Countries"]);
 ---
 
 <footer class="site-footer">
@@ -161,7 +162,10 @@ const credentialBadges = [...business.credentialBadges, ...business.credentialBa
           <img
             src={badge.image}
             alt={`${badge.code} badge`}
-            class="site-footer__trust-badge-image"
+            class:list={[
+              "site-footer__trust-badge-image",
+              { "site-footer__trust-badge-image--wide": wideBadgeCodes.has(badge.code) },
+            ]}
             loading="lazy"
           />
         </article>
@@ -409,6 +413,10 @@ const credentialBadges = [...business.credentialBadges, ...business.credentialBa
     object-fit: contain;
     object-position: center;
     filter: drop-shadow(0 6px 14px rgba(11, 27, 43, 0.08));
+  }
+
+  .site-footer__trust-badge-image--wide {
+    max-width: 11.5rem;
   }
 
   @keyframes footer-trust-scroll {

@@ -174,7 +174,7 @@ const subheadings = [...new Set(families.map((family) => family.subheading).filt
 
     .category-hero__panel {
       gap: 1rem;
-      padding: 1.1rem;
+      padding: 1.05rem;
     }
 
     .category-hero__copy {
@@ -184,10 +184,12 @@ const subheadings = [...new Set(families.map((family) => family.subheading).filt
     .category-hero__copy h1 {
       font-size: clamp(2.05rem, 9vw, 2.8rem);
       line-height: 0.98;
+      max-width: 100%;
     }
 
     .category-hero__copy p {
-      line-height: 1.65;
+      max-width: 100%;
+      line-height: 1.62;
     }
 
     .category-hero__stats {
@@ -212,6 +214,26 @@ const subheadings = [...new Set(families.map((family) => family.subheading).filt
       flex: 0 0 auto;
       padding: 0.44rem 0.72rem;
       font-size: 0.76rem;
+    }
+  }
+
+  @media (max-width: 980px) {
+    .category-hero__panel {
+      grid-template-columns: 1fr;
+    }
+
+    .category-hero__stats {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .category-hero__copy p {
+      max-width: 42rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .category-hero__stats {
+      grid-template-columns: 1fr;
     }
   }
 </style>

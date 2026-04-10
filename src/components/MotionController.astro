@@ -3,8 +3,10 @@
 
 <script>
   let cleanupAnimations = () => {};
+  let viewportModeCleanup = () => {};
 
   const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
+  const COMPACT_VIEWPORT_QUERY = "(max-width: 960px)";
   const SCRUB_SELECTORS = [
     ".showcase-card",
     ".family-card",
@@ -24,6 +26,13 @@
     ".trust-shell",
     ".variant-panel",
     ".catalogue-grid__item",
+  ];
+  const COMPACT_SCRUB_SELECTORS = [
+    ".showcase-card",
+    ".family-card",
+    ".review-card",
+    ".product-gallery",
+    ".variant-panel",
   ];
 
   const HERO_GROUPS = [
@@ -48,6 +57,7 @@
 
   async function initMotion() {
     cleanupAnimations();
+    viewportModeCleanup();
 
     if (prefersReducedMotion()) {
       document.documentElement.classList.remove("motion-ready");
@@ -69,7 +79,18 @@
 
     const context = gsap.context(() => {
       gsap.set("main", { opacity: 1 });
-      const isCompactViewport = window.matchMedia("(max-width: 960px)").matches;
+      const viewportQuery = window.matchMedia(COMPACT_VIEWPORT_QUERY);
+      const isCompactViewport = viewportQuery.matches;
+
+      const viewportListener = () => {
+        scheduleInit();
+      };
+
+      viewportQuery.addEventListener("change", viewportListener);
+      viewportModeCleanup = () => {
+        viewportQuery.removeEventListener("change", viewportListener);
+        viewportModeCleanup = () => {};
+      };
 
       HERO_GROUPS.forEach((selector) => {
         const nodes = gsap.utils.toArray<HTMLElement>(selector);
@@ -77,27 +98,20 @@
 
         gsap.fromTo(
           nodes,
-          { autoAlpha: 0, y: isCompactViewport ? 16 : 22 },
+          { autoAlpha: 0, y: isCompactViewport ? 12 : 22 },
           {
             autoAlpha: 1,
             y: 0,
-            duration: isCompactViewport ? 0.48 : 0.58,
+            duration: isCompactViewport ? 0.42 : 0.58,
             ease: "power3.out",
-            stagger: isCompactViewport ? 0.035 : 0.05,
+            stagger: isCompactViewport ? 0.028 : 0.05,
             force3D: true,
             clearProps: "opacity,visibility,transform",
           },
         );
       });
 
-      const scrubSelectors = isCompactViewport
-        ? SCRUB_SELECTORS.filter(
-            (selector) =>
-              !selector.includes(".review-card") &&
-              !selector.includes(".catalogue-grid__item") &&
-              !selector.includes(".variant-panel"),
-          )
-        : SCRUB_SELECTORS;
+      const scrubSelectors = isCompactViewport ? COMPACT_SCRUB_SELECTORS : SCRUB_SELECTORS;
 
       const scrubNodes = Array.from(
         new Set(scrubSelectors.flatMap((selector) => gsap.utils.toArray<HTMLElement>(selector))),
@@ -120,7 +134,7 @@
             node,
             {
               autoAlpha: isCardLike ? 0.82 : 0.9,
-              y: isCardLike ? (isCompactViewport ? 12 : 16) : 8,
+              y: isCardLike ? (isCompactViewport ? 10 : 16) : 8,
               scale: isCardLike ? 0.994 : 0.998,
               force3D: true,
             },
@@ -132,9 +146,9 @@
               force3D: true,
               scrollTrigger: {
                 trigger: node,
-                start: "top 94%",
-                end: "top 80%",
-                scrub: 0.14,
+                start: isCompactViewport ? "top 96%" : "top 94%",
+                end: isCompactViewport ? "top 88%" : "top 80%",
+                scrub: isCompactViewport ? 0.08 : 0.14,
                 invalidateOnRefresh: true,
               },
             },
@@ -147,13 +161,13 @@
         items.forEach((item) => {
           const speed = Number(item.getAttribute("data-parallax-speed") ?? "0.1");
           gsap.to(item, {
-            yPercent: speed * (isCompactViewport ? -10 : -18),
+            yPercent: speed * (isCompactViewport ? -8 : -18),
             ease: "none",
             scrollTrigger: {
               trigger: group,
               start: "top bottom",
               end: "bottom top",
-              scrub: 0.16,
+              scrub: isCompactViewport ? 0.12 : 0.16,
               invalidateOnRefresh: true,
             },
           });
@@ -167,6 +181,7 @@
     cleanupAnimations = () => {
       context.revert();
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      viewportModeCleanup();
     };
   }
 

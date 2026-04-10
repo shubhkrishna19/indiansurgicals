@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import CatalogueDownloadPanel from "../components/CatalogueDownloadPanel.astro";
 import CategoryCard from "../components/CategoryCard.astro";
 import SectionTitle from "../components/SectionTitle.astro";
-import { business, getPrimaryContactHref } from "../data/business";
+import { business } from "../data/business";
 import {
   getAllCategories,
   getCatalogueStats,
@@ -24,6 +24,21 @@ const showcaseMediaAdjustmentClass = new Map([
   ["autoclave-triple-wall-horizontal", "showcase-card__media--autoclave-fit"],
   ["multipurpose-fumigator", "showcase-card__media--fumigator-fit"],
 ]);
+const getShowcaseMediaClass = (family: ProductFamily) => {
+  if (showcaseMediaAdjustmentClass.has(family.slug)) {
+    return showcaseMediaAdjustmentClass.get(family.slug);
+  }
+
+  if (family.slug.includes("autoclave")) {
+    return "showcase-card__media--autoclave-fit";
+  }
+
+  if (family.slug.includes("fumigator")) {
+    return "showcase-card__media--fumigator-fit";
+  }
+
+  return undefined;
+};
 const showcaseFamilies = categories
   .reduce<ProductFamily[]>((collection, category) => {
     const categoryFamilies = [...getFamiliesByCategory(category.slug)].filter(
@@ -44,7 +59,6 @@ const showcaseFamilies = categories
     return collection;
   }, [])
   .slice(0, 8);
-const primaryContactHref = getPrimaryContactHref();
 const heroMetrics = [
   { value: business.experienceClaim, label: "Years of manufacturing" },
   { value: `${catalogueStats.familyCount}`, label: "Product families" },
@@ -150,7 +164,7 @@ const leadershipHighlights = [
             <div
               class:list={[
                 "showcase-card__media",
-                showcaseMediaAdjustmentClass.get(family.slug),
+                getShowcaseMediaClass(family),
               ]}
             >
               {family.images[0] ? (
@@ -212,7 +226,12 @@ const leadershipHighlights = [
             <article class="review-card panel">
               <div class="review-card__meta">
                 {item.image ? (
-                  <img class="review-card__avatar review-card__avatar--image" src={item.image} alt={item.name} loading="lazy" />
+                  <img
+                    class="review-card__avatar review-card__avatar--image"
+                    src={item.image}
+                    alt={item.name}
+                    loading="lazy"
+                  />
                 ) : (
                   <div class="review-card__avatar" aria-hidden="true">{item.name.charAt(0)}</div>
                 )}
@@ -226,7 +245,7 @@ const leadershipHighlights = [
               <div class="review-card__rating" aria-label={`${item.rating} out of 5 stars`}>
                 <div class="review-card__stars" aria-hidden="true">
                   {Array.from({ length: item.rating }).map(() => (
-                    <span>★</span>
+                    <span>&#9733;</span>
                   ))}
                 </div>
                 <span class="review-card__rating-label">Verified review</span>
@@ -248,17 +267,6 @@ const leadershipHighlights = [
     </div>
   </section>
 
-  <section class="section section--cta">
-      <div class="container cta panel">
-        <div>
-          <span class="eyebrow">Enquiries And Quotations</span>
-          <h2>Contact Indian Surgical Industries for model selection, quantities, and quotations.</h2>
-        </div>
-        <div class="cta__actions">
-          <a href={primaryContactHref} class="button button--primary">Request a quote</a>
-        </div>
-      </div>
-    </section>
 </BaseLayout>
 
 <script is:inline>
@@ -296,6 +304,9 @@ const leadershipHighlights = [
       let lastTime = performance.now();
       let segmentWidth = 0;
       let offset = 0;
+      let pendingDragOffset = null;
+      let pendingWheelDelta = 0;
+      let frameQueued = false;
 
       const cycleDurationSeconds = 36;
       const dragThreshold = 8;
@@ -303,6 +314,36 @@ const leadershipHighlights = [
 
       const applyOffset = () => {
         track.style.transform = `translate3d(${-offset}px, 0, 0)`;
+      };
+
+      const queueFrame = () => {
+        if (frameQueued) {
+          return;
+        }
+
+        frameQueued = true;
+        window.requestAnimationFrame(() => {
+          frameQueued = false;
+
+          let mutated = false;
+
+          if (pendingDragOffset !== null) {
+            offset = pendingDragOffset;
+            pendingDragOffset = null;
+            mutated = true;
+          }
+
+          if (pendingWheelDelta !== 0) {
+            offset += pendingWheelDelta;
+            pendingWheelDelta = 0;
+            mutated = true;
+          }
+
+          if (mutated) {
+            normalizeLoop();
+            applyOffset();
+          }
+        });
       };
 
       const normalizeLoop = () => {
@@ -348,6 +389,8 @@ const leadershipHighlights = [
         pointerDown = false;
         isDragging = false;
         activePointerId = null;
+        pendingDragOffset = null;
+        pendingWheelDelta = 0;
         strip.classList.remove("is-dragging");
       };
 
@@ -398,9 +441,8 @@ const leadershipHighlights = [
           return;
         }
 
-        offset = startOffset - delta;
-        normalizeLoop();
-        applyOffset();
+        pendingDragOffset = startOffset - delta;
+        queueFrame();
       };
 
       const onWheel = (event) => {
@@ -409,9 +451,8 @@ const leadershipHighlights = [
           return;
         }
 
-        offset += delta;
-        normalizeLoop();
-        applyOffset();
+        pendingWheelDelta += delta;
+        queueFrame();
       };
 
       const onRailClick = (event) => {
@@ -471,6 +512,9 @@ const leadershipHighlights = [
       cleanups.push(() => {
         window.cancelAnimationFrame(rafId);
         resizeObserver.disconnect();
+        pendingDragOffset = null;
+        pendingWheelDelta = 0;
+        frameQueued = false;
         track.style.transform = "";
         strip.removeEventListener("pointerdown", onPointerDown);
         strip.removeEventListener("pointermove", onPointerMove);
@@ -642,6 +686,7 @@ const leadershipHighlights = [
   }
 
   .section--categories {
+    padding-bottom: 2.15rem;
     background:
       linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(247, 249, 251, 0.98)),
       radial-gradient(circle at top left, rgba(25, 77, 128, 0.05), transparent 48%);
@@ -683,8 +728,9 @@ const leadershipHighlights = [
   }
 
   .section--explore {
+    padding-top: 2.1rem;
     background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(247, 249, 251, 0.98)),
+      linear-gradient(180deg, rgba(241, 246, 249, 0.92), rgba(232, 238, 242, 0.96)),
       radial-gradient(circle at top center, rgba(25, 77, 128, 0.04), transparent 58%);
   }
 
@@ -696,13 +742,16 @@ const leadershipHighlights = [
 
   .showcase-card {
     display: grid;
-    grid-template-rows: 17rem 1fr;
+    grid-template-rows: minmax(15rem, 17rem) 1fr;
     min-height: 100%;
-    border: 1px solid rgba(84, 96, 109, 0.12);
+    border: 1px solid rgba(25, 77, 128, 0.17);
     border-radius: 1.1rem;
     overflow: hidden;
-    background: rgba(255, 255, 255, 0.94);
-    box-shadow: var(--shadow-card);
+    background:
+      linear-gradient(180deg, rgba(252, 253, 254, 0.96), rgba(241, 245, 248, 0.95));
+    box-shadow:
+      0 16px 30px rgba(13, 45, 76, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.68);
     transition:
       transform 180ms ease,
       box-shadow 180ms ease,
@@ -711,41 +760,43 @@ const leadershipHighlights = [
 
   .showcase-card:hover {
     transform: translateY(-4px);
-    border-color: rgba(25, 77, 128, 0.2);
-    box-shadow: var(--shadow-card-hover);
+    border-color: rgba(25, 77, 128, 0.24);
+    box-shadow:
+      0 24px 42px rgba(13, 45, 76, 0.14),
+      inset 0 1px 0 rgba(255, 255, 255, 0.72);
   }
 
   .showcase-card__media {
     display: grid;
-    place-items: end center;
-    min-height: 17rem;
+    place-items: center;
+    min-height: 15rem;
     padding: 1.15rem 1rem 0.85rem;
     overflow: hidden;
     background:
-      radial-gradient(circle at top left, rgba(25, 77, 128, 0.1), transparent 48%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(243, 247, 249, 0.98));
+      radial-gradient(circle at top left, rgba(25, 77, 128, 0.08), transparent 48%),
+      linear-gradient(180deg, rgba(248, 251, 253, 0.98), rgba(236, 241, 245, 0.98));
   }
 
   .showcase-card__media img,
   .showcase-card__placeholder {
     width: auto;
     height: auto;
-    max-width: 92%;
-    max-height: 92%;
+    max-width: 84%;
+    max-height: 84%;
     object-fit: contain;
-    object-position: center bottom;
+    object-position: center center;
   }
 
   .showcase-card__media--autoclave-fit img {
-    max-width: 76%;
-    max-height: 80%;
-    object-position: center 52%;
+    max-width: 66%;
+    max-height: 74%;
+    object-position: center center;
   }
 
   .showcase-card__media--fumigator-fit img {
-    max-width: 82%;
-    max-height: 82%;
-    object-position: center 54%;
+    max-width: 68%;
+    max-height: 76%;
+    object-position: center center;
   }
 
   .showcase-card__placeholder {
@@ -766,7 +817,8 @@ const leadershipHighlights = [
     grid-template-rows: auto minmax(4.2rem, auto);
     gap: 0.45rem;
     padding: 0.95rem 1rem 1rem;
-    border-top: 1px solid rgba(84, 96, 109, 0.08);
+    border-top: 1px solid rgba(25, 77, 128, 0.08);
+    background: linear-gradient(180deg, rgba(250, 252, 253, 0.76), rgba(240, 245, 248, 0.9));
   }
 
   .showcase-card__category {
@@ -796,10 +848,13 @@ const leadershipHighlights = [
   }
 
   .section--band {
+    padding-top: 1.85rem;
+    padding-bottom: 3.1rem;
     background: linear-gradient(180deg, rgba(25, 77, 128, 0.04), rgba(25, 77, 128, 0.01));
   }
 
   .section--trust {
+    padding-bottom: 2.2rem;
     background:
       radial-gradient(circle at top right, rgba(201, 111, 40, 0.08), transparent 28%),
       linear-gradient(180deg, rgba(25, 77, 128, 0.04), rgba(25, 77, 128, 0.01));
@@ -881,10 +936,12 @@ const leadershipHighlights = [
   }
 
   .review-card__meta {
-    display: flex;
-    gap: 0.8rem;
+    display: grid;
+    grid-template-columns: 3.9rem minmax(0, 1fr);
+    column-gap: 0.8rem;
     align-items: flex-start;
     width: 100%;
+    min-height: 6.85rem;
   }
 
   .review-card__avatar {
@@ -907,7 +964,7 @@ const leadershipHighlights = [
   .review-card__avatar--image {
     display: block;
     object-fit: cover;
-    object-position: center 18%;
+    object-position: center;
     background: rgba(255, 255, 255, 0.9);
   }
 
@@ -1031,6 +1088,10 @@ const leadershipHighlights = [
     .showcase-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+
+    .review-card__meta {
+      min-height: 0;
+    }
   }
 
   @media (max-width: 700px) {
@@ -1063,12 +1124,18 @@ const leadershipHighlights = [
     }
 
     .showcase-card {
-      grid-template-rows: 14rem 1fr;
+      grid-template-rows: minmax(12.5rem, 14rem) 1fr;
     }
 
     .showcase-card__media {
-      min-height: 14rem;
+      min-height: 12.5rem;
       padding-inline: 0.8rem;
+    }
+
+    .showcase-card__media img,
+    .showcase-card__placeholder {
+      max-width: 74%;
+      max-height: 76%;
     }
 
     .showcase-card__body {
@@ -1077,6 +1144,27 @@ const leadershipHighlights = [
 
     .review-card {
       padding: 0.95rem;
+    }
+
+    .review-card__meta {
+      min-height: 0;
+    }
+
+    .section--trust {
+      padding-bottom: 1.5rem;
+    }
+
+    .section--categories {
+      padding-bottom: 1.55rem;
+    }
+
+    .section--explore {
+      padding-top: 1.45rem;
+    }
+
+    .section--band {
+      padding-top: 1.2rem;
+      padding-bottom: 2.2rem;
     }
 
     .cta {
@@ -1113,7 +1201,7 @@ const leadershipHighlights = [
     }
 
     .category-strip :global(.category-card) {
-      width: min(10rem, 48vw);
+      width: clamp(8.4rem, 42vw, 9.6rem);
       scroll-snap-align: start;
     }
   }

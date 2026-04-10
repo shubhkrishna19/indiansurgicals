@@ -142,65 +142,17 @@ const isAboutActive = currentPath.startsWith("/about");
       </span>
     </a>
 
-    <div class="site-header__actions">
-      <div class="site-header__search" data-site-search>
-        <button
-          class="site-header__search-toggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="site-header-search-panel"
-          data-site-search-toggle
-        >
-          <span class="site-header__search-icon" aria-hidden="true"></span>
-          <span>Search</span>
-        </button>
-
-        <div
-          class="site-header__search-panel"
-          id="site-header-search-panel"
-          hidden
-          data-site-search-panel
-        >
-          <label class="site-header__search-field">
-            <span class="site-header__sr-only">Search the website</span>
-            <input
-              type="search"
-              placeholder="Search products, categories, pages"
-              autocomplete="off"
-              data-site-search-input
-            />
-          </label>
-          <div class="site-header__search-results" data-site-search-results></div>
-        </div>
-      </div>
-
-      <a href="/get-quote" class="site-header__cta">
-        <span class="site-header__cta-kicker">Quick enquiry support</span>
-        <strong>Get Quote</strong>
-      </a>
-
-      <button
-        class="site-header__toggle"
-        type="button"
-        aria-expanded="false"
-        aria-controls="primary-navigation"
-        data-mobile-nav-toggle
-      >
-        <span class="site-header__toggle-lines" aria-hidden="true"></span>
-        <span class="site-header__toggle-label">Menu</span>
-      </button>
-    </div>
-
     <nav class="site-header__nav" aria-label="Primary" id="primary-navigation" data-mobile-nav>
       <div class="site-header__mobile-search">
         <label class="site-header__search-field site-header__search-field--mobile">
-          <span class="site-header__sr-only">Search the website</span>
+          <span class="site-header__search-field-label">Search the website</span>
           <input
             type="search"
             placeholder="Search products, categories, pages"
             autocomplete="off"
             data-mobile-site-search-input
           />
+          <span class="site-header__search-field-hint">Product families, categories, and company pages.</span>
         </label>
         <div
           class="site-header__search-results site-header__search-results--mobile"
@@ -258,6 +210,63 @@ const isAboutActive = currentPath.startsWith("/about");
         <strong>Get Quote</strong>
       </a>
     </nav>
+
+    <div class="site-header__actions">
+      <div class="site-header__search" data-site-search>
+        <button
+          class="site-header__search-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-header-search-panel"
+          data-site-search-toggle
+        >
+          <span class="site-header__search-icon" aria-hidden="true"></span>
+          <span class="site-header__search-label">Search site</span>
+        </button>
+
+        <div
+          class="site-header__search-panel"
+          id="site-header-search-panel"
+          hidden
+          data-site-search-panel
+        >
+          <div class="site-header__search-panel-head">
+            <p class="site-header__search-panel-kicker">Quick site search</p>
+            <h3 class="site-header__search-panel-title">Find products, pages, and enquiry routes</h3>
+            <p class="site-header__search-panel-note">
+              Search by product family, category, or company page.
+            </p>
+          </div>
+
+          <label class="site-header__search-field">
+            <span class="site-header__search-field-label">Search the website</span>
+            <input
+              type="search"
+              placeholder="Search products, categories, pages"
+              autocomplete="off"
+              data-site-search-input
+            />
+          </label>
+          <div class="site-header__search-results" data-site-search-results></div>
+        </div>
+      </div>
+
+      <a href="/get-quote" class="site-header__cta">
+        <span class="site-header__cta-kicker">Quick enquiry support</span>
+        <strong>Get Quote</strong>
+      </a>
+
+      <button
+        class="site-header__toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="primary-navigation"
+        data-mobile-nav-toggle
+      >
+        <span class="site-header__toggle-lines" aria-hidden="true"></span>
+        <span class="site-header__toggle-label">Menu</span>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -269,285 +278,374 @@ const isAboutActive = currentPath.startsWith("/about");
 ></script>
 
 <script>
-  type SearchItem = {
-    href: string;
-    label: string;
-    note: string;
-    type: string;
-    keywords?: string[];
-  };
+  (() => {
+    type SearchItem = {
+      href: string;
+      label: string;
+      note: string;
+      type: string;
+      keywords?: string[];
+    };
 
-  const desktopNav = window.matchMedia("(min-width: 921px)");
-  const mobileNav = window.matchMedia("(max-width: 920px)");
-  const header = document.querySelector(".site-header");
-  const mobileNavElement = document.querySelector<HTMLElement>("[data-mobile-nav]");
-  const mobileToggle = document.querySelector<HTMLButtonElement>("[data-mobile-nav-toggle]");
-  const navLinks = Array.from(
-    document.querySelectorAll<HTMLAnchorElement>(".site-header__nav a"),
-  );
-  const menus = Array.from(
-    document.querySelectorAll<HTMLDetailsElement>("[data-nav-menu]"),
-  );
-  const closeTimers = new WeakMap<HTMLDetailsElement, number>();
-  const searchRoot = document.querySelector<HTMLElement>("[data-site-search]");
-  const searchToggle = document.querySelector<HTMLButtonElement>("[data-site-search-toggle]");
-  const searchPanel = document.querySelector<HTMLElement>("[data-site-search-panel]");
-  const searchInput = document.querySelector<HTMLInputElement>("[data-site-search-input]");
-  const searchResults = document.querySelector<HTMLElement>("[data-site-search-results]");
-  const mobileSearchInput = document.querySelector<HTMLInputElement>("[data-mobile-site-search-input]");
-  const mobileSearchResults = document.querySelector<HTMLElement>("[data-mobile-site-search-results]");
-  const searchDataNode = document.getElementById("site-header-search-data");
-  const searchItems: SearchItem[] = searchDataNode?.textContent
-    ? (JSON.parse(searchDataNode.textContent) as SearchItem[])
-    : [];
+    const win = window as Window & {
+      __isiHeaderCleanup?: () => void;
+      __isiHeaderPageLoadBound?: boolean;
+    };
 
-  const setMobileMenuState = (open: boolean) => {
-    if (!(mobileNavElement instanceof HTMLElement) || !(mobileToggle instanceof HTMLButtonElement)) {
-      return;
-    }
+    const setupHeader = () => {
+      win.__isiHeaderCleanup?.();
 
-    mobileNavElement.classList.toggle("is-open", open);
-    mobileToggle.setAttribute("aria-expanded", String(open));
-    header?.classList.toggle("is-mobile-open", open);
-    document.body.classList.toggle("mobile-nav-open", open);
+      const header = document.querySelector(".site-header");
+      if (!(header instanceof HTMLElement)) return;
 
-    if (!open) {
-      menus.forEach((menu) => menu.removeAttribute("open"));
-      if (mobileSearchInput instanceof HTMLInputElement) {
-        mobileSearchInput.value = "";
+      const desktopNav = window.matchMedia("(min-width: 921px)");
+      const mobileNav = window.matchMedia("(max-width: 920px)");
+      const mobileNavElement = header.querySelector<HTMLElement>("[data-mobile-nav]");
+      const mobileToggle = header.querySelector<HTMLButtonElement>("[data-mobile-nav-toggle]");
+      const navLinks = Array.from(header.querySelectorAll<HTMLAnchorElement>(".site-header__nav a"));
+      const menus = Array.from(header.querySelectorAll<HTMLDetailsElement>("[data-nav-menu]"));
+      const closeTimers = new WeakMap<HTMLDetailsElement, number>();
+      const searchRoot = header.querySelector<HTMLElement>("[data-site-search]");
+      const searchToggle = header.querySelector<HTMLButtonElement>("[data-site-search-toggle]");
+      const searchPanel = header.querySelector<HTMLElement>("[data-site-search-panel]");
+      const searchInput = header.querySelector<HTMLInputElement>("[data-site-search-input]");
+      const searchResults = header.querySelector<HTMLElement>("[data-site-search-results]");
+      const mobileSearchInput = header.querySelector<HTMLInputElement>("[data-mobile-site-search-input]");
+      const mobileSearchResults = header.querySelector<HTMLElement>("[data-mobile-site-search-results]");
+      const searchDataNode = document.getElementById("site-header-search-data");
+      const searchItems: SearchItem[] = searchDataNode?.textContent
+        ? (JSON.parse(searchDataNode.textContent) as SearchItem[])
+        : [];
+
+      if (
+        !(mobileNavElement instanceof HTMLElement) ||
+        !(mobileToggle instanceof HTMLButtonElement) ||
+        !(searchToggle instanceof HTMLButtonElement) ||
+        !(searchPanel instanceof HTMLElement)
+      ) {
+        return;
       }
-      renderSearchResults(mobileSearchResults, "");
-    }
-  };
 
-  const renderSearchResults = (target: HTMLElement | null, query = "") => {
-    if (!(target instanceof HTMLElement)) {
-      return;
-    }
+      const cleanupFns: Array<() => void> = [];
 
-    const normalizedQuery = query.trim().toLowerCase();
-    target.hidden = !normalizedQuery;
+      const rankSearchItem = (item: SearchItem, query: string) => {
+        const label = String(item.label ?? "").toLowerCase();
+        const note = String(item.note ?? "").toLowerCase();
+        const keywords = Array.isArray(item.keywords) ? item.keywords.join(" ").toLowerCase() : "";
 
-    if (!normalizedQuery) {
-      target.replaceChildren();
-      return;
-    }
+        if (label === query) return 0;
+        if (label.startsWith(query)) return 1;
+        if (label.includes(query)) return 2;
+        if (keywords.includes(query)) return 3;
+        if (note.includes(query)) return 4;
+        return 5;
+      };
 
-    const results = searchItems
-      .filter((item: SearchItem) => {
-        const haystack = [
-          item.label,
-          item.note,
-          item.type,
-          ...(Array.isArray(item.keywords) ? item.keywords : []),
-        ]
-          .join(" ")
-          .toLowerCase();
+      const renderSearchResults = (target: HTMLElement | null, query = "") => {
+        if (!(target instanceof HTMLElement)) return;
 
-        return haystack.includes(normalizedQuery);
-      })
-      .slice(0, normalizedQuery ? 8 : 6);
+        const normalizedQuery = query.trim().toLowerCase();
+        target.hidden = !normalizedQuery;
 
-    target.replaceChildren();
+        if (!normalizedQuery) {
+          target.replaceChildren();
+          return;
+        }
 
-    if (!results.length) {
-      const empty = document.createElement("p");
-      empty.className = "site-header__search-empty";
-      empty.textContent = "No matching pages or products found.";
-      target.appendChild(empty);
-      return;
-    }
+        const results = searchItems
+          .filter((item: SearchItem) => {
+            const haystack = [
+              item.label,
+              item.note,
+              item.type,
+              ...(Array.isArray(item.keywords) ? item.keywords : []),
+            ]
+              .join(" ")
+              .toLowerCase();
 
-    const list = document.createElement("div");
-    list.className = "site-header__search-list";
+            return haystack.includes(normalizedQuery);
+          })
+          .sort(
+            (left: SearchItem, right: SearchItem) =>
+              rankSearchItem(left, normalizedQuery) - rankSearchItem(right, normalizedQuery),
+          )
+          .slice(0, 8);
 
-    results.forEach((item: SearchItem) => {
-      const link = document.createElement("a");
-      link.href = item.href;
-      link.className = "site-header__search-result";
+        target.replaceChildren();
 
-      const type = document.createElement("small");
-      type.textContent = item.type;
+        const headerRow = document.createElement("div");
+        headerRow.className = "site-header__search-results-head";
+        const title = document.createElement("strong");
+        title.textContent = results.length
+          ? `${results.length} result${results.length === 1 ? "" : "s"} found`
+          : "No results found";
+        const hint = document.createElement("span");
+        hint.textContent = results.length
+          ? "Choose a page, category, or product family."
+          : "Try a broader product name or a company page.";
+        headerRow.append(title, hint);
+        target.appendChild(headerRow);
 
-      const label = document.createElement("strong");
-      label.textContent = item.label;
+        if (!results.length) {
+          const empty = document.createElement("p");
+          empty.className = "site-header__search-empty";
+          empty.textContent = "No matching pages or products found.";
+          target.appendChild(empty);
+          return;
+        }
 
-      const note = document.createElement("span");
-      note.textContent = item.note;
+        const list = document.createElement("div");
+        list.className = "site-header__search-list";
 
-      link.append(type, label, note);
-      list.appendChild(link);
-    });
+        results.forEach((item: SearchItem) => {
+          const link = document.createElement("a");
+          link.href = item.href;
+          link.className = "site-header__search-result";
 
-    target.appendChild(list);
-  };
+          const body = document.createElement("div");
+          body.className = "site-header__search-result-body";
 
-  const setSearchOpen = (open: boolean) => {
-    if (!(searchToggle instanceof HTMLButtonElement) || !(searchPanel instanceof HTMLElement)) {
-      return;
-    }
+          const label = document.createElement("strong");
+          label.className = "site-header__search-result-title";
+          label.textContent = item.label;
 
-    searchToggle.setAttribute("aria-expanded", String(open));
-    searchRoot?.classList.toggle("is-open", open);
-    searchPanel.hidden = !open;
+          const note = document.createElement("span");
+          note.className = "site-header__search-result-note";
+          note.textContent = item.note;
 
-    if (open) {
-      renderSearchResults(searchResults, searchInput?.value ?? "");
-      window.requestAnimationFrame(() => searchInput?.focus());
-    }
-  };
+          body.append(label, note);
+          link.append(body);
+          list.appendChild(link);
+        });
 
-  const closeMenus = (except?: HTMLDetailsElement | null) => {
-    menus.forEach((menu) => {
-      if (menu !== except) {
+        target.appendChild(list);
+      };
+
+      const closeMenus = (except?: HTMLDetailsElement | null) => {
+        menus.forEach((menu) => {
+          if (menu === except) return;
+          const timer = closeTimers.get(menu);
+          if (timer) {
+            window.clearTimeout(timer);
+            closeTimers.delete(menu);
+          }
+          menu.removeAttribute("open");
+        });
+      };
+
+      const setMobileMenuState = (open: boolean) => {
+        mobileNavElement.classList.toggle("is-open", open);
+        mobileToggle.setAttribute("aria-expanded", String(open));
+        header.classList.toggle("is-mobile-open", open);
+        document.body.classList.toggle("mobile-nav-open", open);
+
+        if (!open) {
+          menus.forEach((menu) => menu.removeAttribute("open"));
+          if (mobileSearchInput instanceof HTMLInputElement) {
+            mobileSearchInput.value = "";
+          }
+          renderSearchResults(mobileSearchResults, "");
+        }
+      };
+
+      const setSearchOpen = (open: boolean) => {
+        searchToggle.setAttribute("aria-expanded", String(open));
+        searchRoot?.classList.toggle("is-open", open);
+        searchPanel.hidden = !open;
+
+        if (open) {
+          closeMenus();
+          renderSearchResults(searchResults, searchInput?.value ?? "");
+          window.requestAnimationFrame(() => searchInput?.focus());
+        }
+      };
+
+      const scheduleClose = (menu: HTMLDetailsElement) => {
         const timer = closeTimers.get(menu);
         if (timer) {
           window.clearTimeout(timer);
         }
-        menu.removeAttribute("open");
-      }
-    });
-  };
 
-  const cancelClose = (menu: HTMLDetailsElement) => {
-    const timer = closeTimers.get(menu);
-    if (timer) {
-      window.clearTimeout(timer);
-      closeTimers.delete(menu);
-    }
-  };
+        closeTimers.set(
+          menu,
+          window.setTimeout(() => {
+            menu.removeAttribute("open");
+            closeTimers.delete(menu);
+          }, 220),
+        );
+      };
 
-  const scheduleClose = (menu: HTMLDetailsElement) => {
-    cancelClose(menu);
-    closeTimers.set(
-      menu,
-      window.setTimeout(() => {
-        menu.removeAttribute("open");
-        closeTimers.delete(menu);
-      }, 180),
-    );
-  };
+      menus.forEach((menu) => {
+        const summary = menu.querySelector<HTMLElement>("[data-nav-summary]");
+        if (!(summary instanceof HTMLElement)) return;
 
-  menus.forEach((menu) => {
-    const summary = menu.querySelector("[data-nav-summary]");
-    if (!summary) return;
+        const onPointerEnter = () => {
+          if (!desktopNav.matches) return;
+          closeMenus(menu);
+          setSearchOpen(false);
+          menu.setAttribute("open", "");
+        };
 
-    menu.addEventListener("pointerenter", () => {
-      if (!desktopNav.matches) return;
-      cancelClose(menu);
-      closeMenus(menu);
-      menu.setAttribute("open", "");
-    });
+        const onPointerLeave = () => {
+          if (!desktopNav.matches) return;
+          scheduleClose(menu);
+        };
 
-    menu.addEventListener("pointerleave", () => {
-      if (!desktopNav.matches) return;
-      scheduleClose(menu);
-    });
+        const onFocusIn = () => {
+          if (!desktopNav.matches) return;
+          closeMenus(menu);
+          setSearchOpen(false);
+          menu.setAttribute("open", "");
+        };
 
-    menu.addEventListener("focusin", () => {
-      if (!desktopNav.matches) return;
-      cancelClose(menu);
-      closeMenus(menu);
-      menu.setAttribute("open", "");
-    });
+        const onFocusOut = (event: FocusEvent) => {
+          if (!desktopNav.matches) return;
+          const nextTarget = event.relatedTarget;
+          if (nextTarget instanceof Node && menu.contains(nextTarget)) return;
+          scheduleClose(menu);
+        };
 
-    menu.addEventListener("focusout", (event) => {
-      if (!desktopNav.matches) return;
-      const nextTarget = (event as FocusEvent).relatedTarget;
-      if (nextTarget instanceof Node && menu.contains(nextTarget)) return;
-      scheduleClose(menu);
-    });
+        const onSummaryClick = (event: MouseEvent) => {
+          if (!desktopNav.matches) return;
+          event.preventDefault();
+          const willOpen = !menu.hasAttribute("open");
+          closeMenus(menu);
+          setSearchOpen(false);
+          if (willOpen) {
+            menu.setAttribute("open", "");
+          } else {
+            menu.removeAttribute("open");
+          }
+        };
 
-    summary.addEventListener("click", (event) => {
-      if (!desktopNav.matches) return;
-      event.preventDefault();
-      cancelClose(menu);
-      const willOpen = !menu.hasAttribute("open");
-      closeMenus(menu);
-      if (willOpen) {
-        menu.setAttribute("open", "");
-      } else {
-        menu.removeAttribute("open");
-      }
-    });
-  });
+        menu.addEventListener("pointerenter", onPointerEnter);
+        menu.addEventListener("pointerleave", onPointerLeave);
+        menu.addEventListener("focusin", onFocusIn);
+        menu.addEventListener("focusout", onFocusOut);
+        summary.addEventListener("click", onSummaryClick);
 
-  mobileToggle?.addEventListener("click", () => {
-    if (!mobileNav.matches || !(mobileNavElement instanceof HTMLElement)) {
-      return;
-    }
+        cleanupFns.push(() => {
+          menu.removeEventListener("pointerenter", onPointerEnter);
+          menu.removeEventListener("pointerleave", onPointerLeave);
+          menu.removeEventListener("focusin", onFocusIn);
+          menu.removeEventListener("focusout", onFocusOut);
+          summary.removeEventListener("click", onSummaryClick);
+        });
+      });
 
-    setMobileMenuState(!mobileNavElement.classList.contains("is-open"));
-  });
+      const onMobileToggleClick = () => {
+        if (!mobileNav.matches) return;
+        setSearchOpen(false);
+        setMobileMenuState(!mobileNavElement.classList.contains("is-open"));
+      };
 
-  navLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      if (mobileNav.matches) {
+      mobileToggle.addEventListener("click", onMobileToggleClick);
+      cleanupFns.push(() => mobileToggle.removeEventListener("click", onMobileToggleClick));
+
+      navLinks.forEach((link) => {
+        const onNavLinkClick = () => {
+          if (mobileNav.matches) {
+            setMobileMenuState(false);
+          }
+          setSearchOpen(false);
+        };
+
+        link.addEventListener("click", onNavLinkClick);
+        cleanupFns.push(() => link.removeEventListener("click", onNavLinkClick));
+      });
+
+      const onSearchToggleClick = () => {
+        const isExpanded = searchToggle.getAttribute("aria-expanded") === "true";
+        if (!isExpanded) {
+          setMobileMenuState(false);
+        }
+        setSearchOpen(!isExpanded);
+      };
+
+      searchToggle.addEventListener("click", onSearchToggleClick);
+      cleanupFns.push(() => searchToggle.removeEventListener("click", onSearchToggleClick));
+
+      const onSearchInput = () => {
+        renderSearchResults(searchResults, searchInput?.value ?? "");
+      };
+
+      const onMobileSearchInput = () => {
+        renderSearchResults(mobileSearchResults, mobileSearchInput?.value ?? "");
+      };
+
+      searchInput?.addEventListener("input", onSearchInput);
+      mobileSearchInput?.addEventListener("input", onMobileSearchInput);
+      cleanupFns.push(() => searchInput?.removeEventListener("input", onSearchInput));
+      cleanupFns.push(() => mobileSearchInput?.removeEventListener("input", onMobileSearchInput));
+
+      const onDocumentClick = (event: MouseEvent) => {
+        const target = event.target;
+        if (!(target instanceof Node)) return;
+
+        if (searchRoot && !searchRoot.contains(target)) {
+          setSearchOpen(false);
+        }
+
+        if (mobileNav.matches) {
+          if (header.contains(target)) return;
+          setMobileMenuState(false);
+          return;
+        }
+
+        if (menus.some((menu) => menu.contains(target))) return;
+        closeMenus();
+      };
+
+      document.addEventListener("click", onDocumentClick);
+      cleanupFns.push(() => document.removeEventListener("click", onDocumentClick));
+
+      const onDesktopChange = (event: MediaQueryListEvent) => {
+        if (!event.matches) {
+          closeMenus();
+        }
+      };
+
+      const onMobileChange = (event: MediaQueryListEvent) => {
+        if (!event.matches) {
+          setMobileMenuState(false);
+        }
+      };
+
+      desktopNav.addEventListener("change", onDesktopChange);
+      mobileNav.addEventListener("change", onMobileChange);
+      cleanupFns.push(() => desktopNav.removeEventListener("change", onDesktopChange));
+      cleanupFns.push(() => mobileNav.removeEventListener("change", onMobileChange));
+
+      const onKeyDown = (event: KeyboardEvent) => {
+        if (event.key === "Escape") {
+          setSearchOpen(false);
+          setMobileMenuState(false);
+          closeMenus();
+        }
+      };
+
+      document.addEventListener("keydown", onKeyDown);
+      cleanupFns.push(() => document.removeEventListener("keydown", onKeyDown));
+
+      renderSearchResults(searchResults, "");
+      renderSearchResults(mobileSearchResults, "");
+
+      win.__isiHeaderCleanup = () => {
+        cleanupFns.forEach((cleanup) => cleanup());
+        closeMenus();
+        setSearchOpen(false);
         setMobileMenuState(false);
-      }
-      setSearchOpen(false);
-    });
-  });
+      };
+    };
 
-  searchToggle?.addEventListener("click", () => {
-    const isExpanded = searchToggle.getAttribute("aria-expanded") === "true";
-    if (!isExpanded) {
-      setMobileMenuState(false);
-    }
-    setSearchOpen(!isExpanded);
-  });
-
-  searchInput?.addEventListener("input", () => {
-    renderSearchResults(searchResults, searchInput.value);
-  });
-
-  mobileSearchInput?.addEventListener("input", () => {
-    renderSearchResults(mobileSearchResults, mobileSearchInput.value);
-  });
-
-  document.addEventListener("click", (event) => {
-    const target = event.target;
-    if (!(target instanceof Node)) return;
-
-    if (searchRoot && !searchRoot.contains(target)) {
-      setSearchOpen(false);
+    if (!win.__isiHeaderPageLoadBound) {
+      document.addEventListener("astro:page-load", setupHeader);
+      document.addEventListener("astro:before-preparation", () => win.__isiHeaderCleanup?.());
+      win.__isiHeaderPageLoadBound = true;
     }
 
-    if (mobileNav.matches) {
-      if (header?.contains(target)) {
-        return;
-      }
-      setMobileMenuState(false);
-      return;
-    }
-
-    if (!desktopNav.matches) return;
-    if (menus.some((menu) => menu.contains(target))) return;
-    closeMenus();
-  });
-
-  desktopNav.addEventListener("change", (event) => {
-    if (!event.matches) {
-      closeMenus();
-    }
-  });
-
-  mobileNav.addEventListener("change", (event) => {
-    if (!event.matches) {
-      setMobileMenuState(false);
-    }
-  });
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-      setSearchOpen(false);
-      setMobileMenuState(false);
-      closeMenus();
-    }
-  });
-
-  renderSearchResults(searchResults, "");
-  renderSearchResults(mobileSearchResults, "");
+    setupHeader();
+  })();
 </script>
 
 <style>
@@ -576,22 +674,21 @@ const isAboutActive = currentPath.startsWith("/about");
   }
 
   .site-header__bar {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    display: flex;
     align-items: center;
-    gap: 1rem;
-    min-height: 5.35rem;
-    padding-block: 0.75rem;
+    justify-content: space-between;
+    gap: 1.15rem;
+    min-height: 6rem;
+    padding-block: 0.85rem;
   }
 
   .site-header__brand {
-    grid-column: 1;
     display: flex;
     align-items: center;
     gap: 0.95rem;
     min-width: 0;
-    max-width: 24rem;
-    justify-self: start;
+    flex: 0 1 auto;
+    max-width: min(36rem, 48vw);
   }
 
   .site-header__mark {
@@ -619,6 +716,7 @@ const isAboutActive = currentPath.startsWith("/about");
   .site-header__brand-copy {
     display: grid;
     min-width: 0;
+    gap: 0.14rem;
   }
 
   .site-header__brand-copy strong {
@@ -629,28 +727,29 @@ const isAboutActive = currentPath.startsWith("/about");
   .site-header__brand-copy small {
     color: var(--color-text-muted);
     font-size: 0.76rem;
-    line-height: 1.4;
-    max-width: 19.5rem;
+    line-height: 1.38;
+    max-width: min(32rem, 42vw);
   }
 
   .site-header__nav {
-    grid-column: 2;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 1.05rem;
+    justify-content: flex-start;
+    flex: 1 1 auto;
+    gap: 1.1rem;
     white-space: nowrap;
     min-width: 0;
-    justify-self: center;
+    margin-left: 1.45rem;
+    margin-right: 0;
   }
 
   .site-header__actions {
-    grid-column: 3;
     display: flex;
     align-items: center;
-    gap: 0.65rem;
+    flex: 0 0 auto;
+    gap: 0.72rem;
     position: relative;
-    justify-self: end;
+    margin-left: auto;
   }
 
   .site-header__search {
@@ -668,9 +767,9 @@ const isAboutActive = currentPath.startsWith("/about");
     border: 1px solid rgba(84, 96, 109, 0.16);
     border-radius: 999px;
     justify-content: center;
-    width: 3rem;
+    min-width: 8.9rem;
     height: 3rem;
-    padding: 0;
+    padding: 0 1rem;
     background: rgba(255, 255, 255, 0.9);
     color: var(--color-text);
     box-shadow: 0 10px 22px rgba(11, 27, 43, 0.06);
@@ -714,31 +813,80 @@ const isAboutActive = currentPath.startsWith("/about");
 
   .site-header__search-panel {
     position: absolute;
-    top: calc(100% + 0.65rem);
+    top: calc(100% + 0.75rem);
     right: 0;
-    width: min(27rem, calc(100vw - 2rem));
-    padding: 0.9rem;
+    width: min(39rem, calc(100vw - 2rem));
+    padding: 1.2rem;
     border: 1px solid rgba(84, 96, 109, 0.14);
-    border-radius: 1.1rem;
+    border-radius: 1.4rem;
     background:
+      radial-gradient(circle at top left, rgba(25, 77, 128, 0.06), transparent 42%),
       linear-gradient(180deg, rgba(255, 255, 255, 0.99), rgba(245, 248, 250, 0.98));
-    box-shadow: 0 22px 42px rgba(11, 27, 43, 0.16);
+    box-shadow:
+      0 28px 60px rgba(11, 27, 43, 0.16),
+      0 2px 8px rgba(11, 27, 43, 0.05);
     z-index: 8;
   }
 
   .site-header__search-field {
-    display: block;
+    display: grid;
+    gap: 0.42rem;
   }
 
-  .site-header__search-toggle span:last-child {
-    display: none;
+  .site-header__search-label {
+    display: inline;
+  }
+
+  .site-header__search-panel-head {
+    display: grid;
+    gap: 0.35rem;
+    margin-bottom: 0.95rem;
+    padding-bottom: 0.9rem;
+    border-bottom: 1px solid rgba(84, 96, 109, 0.1);
+  }
+
+  .site-header__search-panel-kicker {
+    margin: 0;
+    color: rgba(25, 77, 128, 0.92);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .site-header__search-panel-title {
+    margin: 0;
+    color: var(--color-text);
+    font-size: 1.02rem;
+    line-height: 1.32;
+  }
+
+  .site-header__search-panel-note {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .site-header__search-field-label {
+    color: var(--color-text);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .site-header__search-field-hint {
+    color: var(--color-text-muted);
+    font-size: 0.74rem;
+    line-height: 1.4;
   }
 
   .site-header__search-field input {
     width: 100%;
     border: 1px solid rgba(84, 96, 109, 0.16);
-    border-radius: 0.95rem;
-    padding: 0.92rem 1rem;
+    border-radius: 1.05rem;
+    padding: 0.98rem 1.05rem;
     background: rgba(255, 255, 255, 0.96);
     color: var(--color-text);
     font: inherit;
@@ -750,62 +898,124 @@ const isAboutActive = currentPath.startsWith("/about");
     box-shadow: 0 0 0 4px rgba(25, 77, 128, 0.08);
   }
 
-  .site-header__search-results {
-    margin-top: 0.75rem;
+  :global(.site-header__search-results) {
+    margin-top: 1rem;
+    max-height: min(24rem, 52vh);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding-right: 0.2rem;
   }
 
-  .site-header__search-results[hidden] {
+  :global(.site-header__search-results-head) {
+    display: grid;
+    gap: 0.3rem;
+    margin-bottom: 0.85rem;
+    padding: 0 0.15rem;
+  }
+
+  :global(.site-header__search-results-head > *) {
+    display: block;
+  }
+
+  :global(.site-header__search-results-head strong) {
+    font-size: 0.95rem;
+    line-height: 1.3;
+  }
+
+  :global(.site-header__search-results-head span) {
+    color: var(--color-text-muted);
+    font-size: 0.78rem;
+    line-height: 1.45;
+  }
+
+  :global(.site-header__search-results[hidden]) {
     display: none;
   }
 
-  .site-header__search-list {
-    display: grid;
-    gap: 0.45rem;
+  :global(.site-header__search-results::-webkit-scrollbar) {
+    width: 0.45rem;
   }
 
-  .site-header__search-result {
+  :global(.site-header__search-results::-webkit-scrollbar-thumb) {
+    border-radius: 999px;
+    background: rgba(84, 96, 109, 0.28);
+  }
+
+  :global(.site-header__search-results::-webkit-scrollbar-track) {
+    background: transparent;
+  }
+
+  :global(.site-header__search-list) {
     display: grid;
-    gap: 0.18rem;
-    padding: 0.78rem 0.85rem;
-    border-radius: 0.92rem;
-    border: 1px solid transparent;
-    background: rgba(25, 77, 128, 0.03);
+    gap: 0.75rem;
+  }
+
+  :global(.site-header__search-result) {
+    display: grid;
+    gap: 0.5rem;
+    padding: 1rem 1.05rem;
+    border-radius: 1.05rem;
+    border: 1px solid rgba(84, 96, 109, 0.11);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 252, 0.98));
+    min-height: 4.55rem;
+    box-shadow: 0 8px 18px rgba(11, 27, 43, 0.04);
     transition:
       border-color 160ms ease,
       background 160ms ease,
       transform 160ms ease;
   }
 
-  .site-header__search-result:hover,
-  .site-header__search-result:focus-visible {
-    border-color: rgba(25, 77, 128, 0.16);
-    background: rgba(25, 77, 128, 0.08);
-    transform: translateY(-1px);
+  :global(.site-header__search-result:hover),
+  :global(.site-header__search-result:focus-visible) {
+    border-color: rgba(25, 77, 128, 0.2);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.99), rgba(243, 247, 251, 0.99));
+    transform: translateY(-2px);
   }
 
-  .site-header__search-result small {
-    color: var(--color-primary);
-    font-size: 0.67rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+  :global(.site-header__search-result-body) {
+    display: grid;
+    gap: 0.28rem;
+    width: 100%;
   }
 
-  .site-header__search-result strong {
-    font-size: 0.92rem;
+  :global(.site-header__search-result-title) {
+    display: block;
+    margin: 0;
+    width: 100%;
+  }
+
+  :global(.site-header__search-result-note) {
+    display: block;
+    width: 100%;
+    margin: 0;
+  }
+
+  :global(.site-header__search-result strong) {
+    font-size: 0.99rem;
     line-height: 1.3;
   }
 
-  .site-header__search-result span,
-  .site-header__search-empty {
+  :global(.site-header__search-empty) {
     color: var(--color-text-muted);
-    font-size: 0.78rem;
+    font-size: 0.8rem;
     line-height: 1.45;
   }
 
-  .site-header__search-empty {
+  :global(.site-header__search-result-note) {
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+    line-height: 1.45;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  :global(.site-header__search-empty) {
     margin: 0;
-    padding: 0.55rem 0.2rem 0.1rem;
+    padding: 0.6rem 0.2rem 0.1rem;
   }
 
   .site-header__sr-only {
@@ -838,13 +1048,18 @@ const isAboutActive = currentPath.startsWith("/about");
   }
 
   @media (max-width: 1280px) {
+    .site-header__bar {
+      gap: 0.95rem;
+    }
+
     .site-header__brand-copy small {
-      max-width: 15rem;
+      max-width: min(24rem, 34vw);
       font-size: 0.72rem;
     }
 
     .site-header__nav {
       gap: 0.88rem;
+      margin-left: 1rem;
     }
 
     .site-header__summary,
@@ -854,6 +1069,12 @@ const isAboutActive = currentPath.startsWith("/about");
   }
 
   @media (max-width: 1100px) {
+    .site-header__bar {
+      gap: 0.8rem;
+      min-height: 5.45rem;
+      align-items: center;
+    }
+
     .site-header__brand-copy strong {
       font-size: 0.92rem;
     }
@@ -864,6 +1085,7 @@ const isAboutActive = currentPath.startsWith("/about");
 
     .site-header__nav {
       gap: 0.72rem;
+      margin-left: 0.85rem;
     }
 
     .site-header__summary,
@@ -874,6 +1096,12 @@ const isAboutActive = currentPath.startsWith("/about");
     .site-header__search-toggle {
       width: 2.85rem;
       height: 2.85rem;
+      min-width: 2.85rem;
+      padding: 0;
+    }
+
+    .site-header__search-label {
+      display: none;
     }
 
     .site-header__cta {
@@ -882,6 +1110,11 @@ const isAboutActive = currentPath.startsWith("/about");
 
     .site-header__cta strong {
       font-size: 0.92rem;
+    }
+
+    .site-header__actions {
+      align-self: center;
+      margin-top: 0;
     }
   }
 
@@ -941,8 +1174,7 @@ const isAboutActive = currentPath.startsWith("/about");
   }
 
   .site-header__menu[open] > .site-header__summary .site-header__chevron,
-  .site-header__menu:hover > .site-header__summary .site-header__chevron,
-  .site-header__menu:focus-within > .site-header__summary .site-header__chevron {
+  .site-header__menu.is-active > .site-header__summary .site-header__chevron {
     transform: rotate(225deg) translateY(1px);
   }
 
@@ -1020,8 +1252,6 @@ const isAboutActive = currentPath.startsWith("/about");
     line-height: 1.45;
   }
 
-  .site-header__menu:hover .site-header__dropdown,
-  .site-header__menu:focus-within .site-header__dropdown,
   .site-header__menu[open] .site-header__dropdown {
     opacity: 1;
     visibility: visible;
@@ -1187,26 +1417,75 @@ const isAboutActive = currentPath.startsWith("/about");
 
     .site-header__mobile-search {
       display: grid;
-      gap: 0.7rem;
-      margin-bottom: 0.15rem;
+      gap: 0.85rem;
+      margin-bottom: 0.2rem;
     }
 
     .site-header__search-field--mobile input {
-      padding: 0.88rem 0.95rem;
+      padding: 0.98rem 1rem;
       background: rgba(255, 255, 255, 0.94);
+    }
+
+    .site-header__search-panel-head {
+      margin-bottom: 0.8rem;
+      padding-bottom: 0.8rem;
     }
 
     .site-header__search-results--mobile {
       margin-top: 0;
+      max-height: min(18rem, 42vh);
+    }
+
+    .site-header__search-results-head {
+      padding-inline: 0.1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .site-header__search-results-head strong {
+      font-size: 0.92rem;
+    }
+
+    .site-header__search-results-head span {
+      font-size: 0.75rem;
+    }
+
+    .site-header__search-list {
+      gap: 0.65rem;
+    }
+
+    .site-header__search-result {
+      padding: 0.95rem 0.95rem 1rem;
+      min-height: 4.4rem;
+      gap: 0.3rem;
+    }
+
+    .site-header__search-result-type {
+      font-size: 0.64rem;
+    }
+
+    .site-header__search-result strong {
+      font-size: 0.94rem;
+    }
+
+    .site-header__search-empty {
+      font-size: 0.77rem;
+    }
+
+    .site-header__search-field-hint {
+      font-size: 0.72rem;
+    }
+
+    .site-header__search-empty {
+      padding: 0.6rem 0.15rem 0.1rem;
     }
 
     .site-header__summary,
     .site-header__link {
       justify-content: space-between;
       width: 100%;
-      padding: 0.82rem 0.95rem;
+      padding: 0.9rem 1rem;
       border: 1px solid rgba(84, 96, 109, 0.14);
-      border-radius: 0.95rem;
+      border-radius: 1rem;
       background: rgba(255, 255, 255, 0.9);
     }
 
@@ -1226,7 +1505,7 @@ const isAboutActive = currentPath.startsWith("/about");
       position: static;
       width: 100%;
       margin-top: 0.55rem;
-      padding: 0.75rem;
+      padding: 0.8rem;
       opacity: 1;
       visibility: visible;
       pointer-events: auto;
@@ -1264,12 +1543,18 @@ const isAboutActive = currentPath.startsWith("/about");
       font-size: 0.68rem;
     }
 
+    .site-header__search-panel {
+      width: min(100vw - 1.1rem, 38rem);
+      padding: 1rem;
+      border-radius: 1.2rem;
+    }
+
     .site-header__actions .site-header__cta {
       display: none;
     }
 
     .site-header__toggle {
-      padding: 0.72rem 0.88rem;
+      padding: 0.74rem 0.9rem;
     }
 
     .site-header__toggle-label {
