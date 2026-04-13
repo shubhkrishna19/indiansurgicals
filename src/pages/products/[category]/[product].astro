@@ -56,17 +56,20 @@ function getAttributeValue(
 <BaseLayout title={family.name} description={family.summary}>
   <section class="section product-hero">
     <div class="container">
-      <Breadcrumbs
-        breadcrumbs={[
-          { label: "Catalogue", href: "/products" },
-          category ? { label: category.name, href: `/products/${category.slug}` } : { label: family.categorySlug },
-          { label: family.name },
-        ]}
-      />
+      <div class="product-hero__navrow">
+        <Breadcrumbs
+          class="product-hero__breadcrumbs"
+          breadcrumbs={[
+            { label: "Catalogue", href: "/products" },
+            category ? { label: category.name, href: `/products/${category.slug}` } : { label: family.categorySlug },
+            { label: family.name },
+          ]}
+        />
+        <span class="product-hero__category-tag">{category?.name ?? "Product Range"}</span>
+      </div>
 
       <div class="product-hero__grid">
         <div class="product-hero__content" data-parallax-group>
-          <span class="eyebrow" data-parallax-speed="0.08">{category?.name ?? "Product Range"}</span>
           <h1>{family.name}</h1>
           <p class="product-hero__summary" data-parallax-speed="0.1">{heroSummary}</p>
 
@@ -162,6 +165,28 @@ function getAttributeValue(
               ))}
             </tbody>
           </table>
+        </div>
+
+        <div class="matrix__cards" aria-label="Model comparison cards">
+          {family.variants.map((variant) => (
+            <article class="matrix-card">
+              <div class="matrix-card__head">
+                <p class="matrix-card__eyebrow">Model</p>
+                <h3>{variant.model}</h3>
+              </div>
+
+              <div class="matrix-card__rows">
+                {matrixColumns.map((column, columnIndex) => (
+                  <div class="matrix-card__row">
+                    <span>{column}</span>
+                    <strong>
+                      {columnIndex === 0 ? variant.model : getAttributeValue(variant, column)}
+                    </strong>
+                  </div>
+                ))}
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </div>
@@ -311,6 +336,30 @@ function getAttributeValue(
     padding-bottom: 1rem;
   }
 
+  .product-hero__navrow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .product-hero__category-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 999px;
+    padding: 0.46rem 0.8rem;
+    background: rgba(25, 77, 128, 0.08);
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
   .product-hero__grid {
     display: grid;
     grid-template-columns: 1.35fr 0.8fr;
@@ -457,10 +506,14 @@ function getAttributeValue(
     overflow-x: auto;
   }
 
+  .matrix__cards {
+    display: none;
+  }
+
   table {
     width: 100%;
     border-collapse: collapse;
-    min-width: 40rem;
+    min-width: 38rem;
   }
 
   th,
@@ -590,6 +643,65 @@ function getAttributeValue(
     line-height: 1.7;
   }
 
+  .matrix-card {
+    display: grid;
+    gap: 0.95rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(84, 96, 109, 0.12);
+    background: rgba(255, 255, 255, 0.74);
+  }
+
+  .matrix-card__head {
+    display: grid;
+    gap: 0.28rem;
+  }
+
+  .matrix-card__eyebrow {
+    margin: 0;
+    color: var(--color-primary);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .matrix-card__head h3 {
+    font-size: 1.08rem;
+    line-height: 1.28;
+  }
+
+  .matrix-card__rows {
+    display: grid;
+    gap: 0.72rem;
+  }
+
+  .matrix-card__row {
+    display: grid;
+    gap: 0.18rem;
+    padding-bottom: 0.7rem;
+    border-bottom: 1px solid rgba(84, 96, 109, 0.1);
+  }
+
+  .matrix-card__row:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .matrix-card__row span {
+    color: var(--color-text-muted);
+    font-size: 0.76rem;
+    line-height: 1.35;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .matrix-card__row strong {
+    color: var(--color-text);
+    font-size: 0.92rem;
+    line-height: 1.45;
+  }
+
   .related-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -597,12 +709,22 @@ function getAttributeValue(
   }
 
   @media (max-width: 1100px) {
+    .product-hero__navrow {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
     .product-hero__grid {
       grid-template-columns: 1fr;
     }
 
     .product-hero__summary {
       max-width: 46rem;
+    }
+
+    .product-hero__content {
+      gap: 0.85rem;
     }
 
     .variant-panel__grid,
@@ -616,6 +738,16 @@ function getAttributeValue(
   }
 
   @media (max-width: 760px) {
+    .product-hero__navrow {
+      margin-bottom: 0.4rem;
+    }
+
+    .product-hero__category-tag {
+      font-size: 0.7rem;
+      padding: 0.42rem 0.68rem;
+      letter-spacing: 0.1em;
+    }
+
     .product-hero__grid,
     .product-hero__meta,
     .product-highlights__grid,
@@ -640,8 +772,8 @@ function getAttributeValue(
     }
 
     .product-hero__summary {
-      font-size: 0.96rem;
-      line-height: 1.65;
+      font-size: 0.94rem;
+      line-height: 1.58;
       max-width: 100%;
     }
 
@@ -649,12 +781,12 @@ function getAttributeValue(
     .product-hero__aside,
     .product-highlights,
     .variant-panel {
-      padding: 1rem;
+      padding: 0.95rem;
     }
 
     .product-hero__aside h2,
     .variant-panel__header h2 {
-      font-size: 1.4rem;
+      font-size: 1.32rem;
     }
 
     .product-highlights__intro h2 {
@@ -673,8 +805,18 @@ function getAttributeValue(
 
     th,
     td {
-      padding: 0.75rem 0.8rem;
-      font-size: 0.88rem;
+      padding: 0.65rem 0.7rem;
+      font-size: 0.84rem;
+    }
+
+    .matrix__table-wrap {
+      display: none;
+    }
+
+    .matrix__cards {
+      display: grid;
+      gap: 0.85rem;
+      padding: 0.95rem;
     }
 
     .variant-switcher {
@@ -685,8 +827,14 @@ function getAttributeValue(
     }
 
     .variant-switcher__button {
-      white-space: nowrap;
+      white-space: normal;
       flex: 0 0 auto;
+      min-width: 10.25rem;
+      max-width: 14rem;
+      padding: 0.62rem 0.82rem;
+      font-size: 0.84rem;
+      line-height: 1.28;
+      text-align: left;
     }
 
     .variant-panel__spec {
@@ -706,6 +854,7 @@ function getAttributeValue(
 
     .product-hero__meta {
       grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
     }
 
     .product-highlights__grid {
@@ -728,19 +877,15 @@ function getAttributeValue(
     .variant-panel__tag {
       white-space: nowrap;
     }
+
+    .product-hero__aside {
+      gap: 0.7rem;
+    }
   }
 
   @media (max-width: 860px) {
     .product-hero__meta {
       grid-template-columns: 1fr;
-    }
-
-    .matrix__table-wrap {
-      margin-inline: -0.25rem;
-    }
-
-    .matrix table {
-      min-width: 36rem;
     }
 
     .variant-switcher {

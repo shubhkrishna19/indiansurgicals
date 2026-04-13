@@ -60,11 +60,13 @@ const showcaseFamilies = categories
   }, [])
   .slice(0, 8);
 const heroMetrics = [
-  { value: business.experienceClaim, label: "Years of manufacturing" },
+  { value: business.experienceClaim, label: "Manufacturing years" },
   { value: `${catalogueStats.familyCount}`, label: "Product families" },
-  { value: `${catalogueStats.categoryCount}`, label: "Product categories" },
-  { value: "ISO / CE", label: "Quality certifications" },
+  { value: `${catalogueStats.categoryCount}`, label: "Categories" },
+  { value: "ISO / CE", label: "Certifications" },
 ];
+const mobileReviewVisibleCount = 2;
+const mobileHiddenReviewCount = Math.max(0, business.testimonials.length - mobileReviewVisibleCount);
 const leadershipHighlights = [
   {
     value: business.experienceClaim,
@@ -221,9 +223,16 @@ const leadershipHighlights = [
           </p>
         </div>
 
-        <div class="review-grid">
-          {business.testimonials.map((item) => (
-            <article class="review-card panel">
+        <div class="review-grid" data-review-grid>
+          {business.testimonials.map((item, index) => (
+            <article
+              class:list={[
+                "review-card",
+                "panel",
+                { "review-card--extra-mobile": index >= mobileReviewVisibleCount },
+              ]}
+              data-review-card
+            >
               <div class="review-card__meta">
                 {item.image ? (
                   <img
@@ -250,10 +259,25 @@ const leadershipHighlights = [
                 </div>
                 <span class="review-card__rating-label">Verified review</span>
               </div>
-              <blockquote>{item.quote}</blockquote>
+              <blockquote class="review-card__quote">{item.quote}</blockquote>
             </article>
           ))}
         </div>
+        {mobileHiddenReviewCount > 0 && (
+          <div class="review-block__actions">
+            <button
+              type="button"
+              class="review-block__toggle button button--secondary"
+              data-review-toggle
+              data-collapsed-label={`Show ${mobileHiddenReviewCount} more reviews`}
+              data-expanded-label="Show fewer reviews"
+              aria-expanded="false"
+              hidden
+            >
+              Show {mobileHiddenReviewCount} more reviews
+            </button>
+          </div>
+        )}
       </div>
     </div>
   </section>
@@ -263,6 +287,7 @@ const leadershipHighlights = [
       <CatalogueDownloadPanel
         title="Official Company Catalogue"
         subtitle="View online or download the official PDF."
+        compact={true}
       />
     </div>
   </section>
@@ -280,17 +305,6 @@ const leadershipHighlights = [
     document.querySelectorAll(".js-category-carousel").forEach((strip) => {
       const track = strip.querySelector(".category-strip__track");
       if (!track) {
-        return;
-      }
-      const prefersNativeScroll = window.matchMedia("(max-width: 900px)");
-
-      if (prefersNativeScroll.matches) {
-        strip.classList.add("is-native");
-        track.style.transform = "";
-        cleanups.push(() => {
-          strip.classList.remove("is-native");
-          track.style.transform = "";
-        });
         return;
       }
 
@@ -538,15 +552,89 @@ const leadershipHighlights = [
 
   const runCategoryCarousel = () => window.requestAnimationFrame(setupCategoryCarousel);
 
+  const setupReviewGridToggle = () => {
+    if (window.__isiReviewGridCleanup) {
+      window.__isiReviewGridCleanup();
+    }
+
+    const mobileReviews = window.matchMedia("(max-width: 900px)");
+    const cleanups = [];
+
+    document.querySelectorAll("[data-review-toggle]").forEach((button) => {
+      const block = button.closest(".review-block");
+      const grid = block?.querySelector("[data-review-grid]");
+      const cards = [...(grid?.querySelectorAll(".review-card--extra-mobile") ?? [])];
+
+      if (!grid || cards.length === 0) {
+        button.hidden = true;
+        return;
+      }
+
+      let expanded = false;
+      const collapsedLabel = button.dataset.collapsedLabel || "Show more reviews";
+      const expandedLabel = button.dataset.expandedLabel || "Show fewer reviews";
+
+      const render = () => {
+        const isMobile = mobileReviews.matches;
+
+        if (!isMobile) {
+          grid.classList.remove("is-expanded");
+          button.hidden = true;
+          button.textContent = collapsedLabel;
+          button.setAttribute("aria-expanded", "false");
+          return;
+        }
+
+        grid.classList.toggle("is-expanded", expanded);
+        button.hidden = false;
+        button.textContent = expanded ? expandedLabel : collapsedLabel;
+        button.setAttribute("aria-expanded", expanded ? "true" : "false");
+      };
+
+      const onClick = () => {
+        expanded = !expanded;
+        render();
+      };
+
+      const onChange = () => {
+        if (!mobileReviews.matches) {
+          expanded = false;
+        }
+        render();
+      };
+
+      button.addEventListener("click", onClick);
+      mobileReviews.addEventListener?.("change", onChange);
+      mobileReviews.addListener?.(onChange);
+      render();
+
+      cleanups.push(() => {
+        button.removeEventListener("click", onClick);
+        mobileReviews.removeEventListener?.("change", onChange);
+        mobileReviews.removeListener?.(onChange);
+      });
+    });
+
+    window.__isiReviewGridCleanup = () => {
+      cleanups.forEach((cleanup) => cleanup());
+    };
+  };
+
+  const runReviewGridToggle = () => window.requestAnimationFrame(setupReviewGridToggle);
+
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", runCategoryCarousel, { once: true });
+    document.addEventListener("DOMContentLoaded", runReviewGridToggle, { once: true });
   } else {
     runCategoryCarousel();
+    runReviewGridToggle();
   }
 
   document.addEventListener("astro:page-load", runCategoryCarousel);
+  document.addEventListener("astro:page-load", runReviewGridToggle);
   document.addEventListener("astro:before-preparation", () => {
     window.__isiCategoryCarouselCleanup?.();
+    window.__isiReviewGridCleanup?.();
   });
 </script>
 
@@ -794,9 +882,13 @@ const leadershipHighlights = [
   }
 
   .showcase-card__media--fumigator-fit img {
-    max-width: 68%;
-    max-height: 76%;
+    max-width: 42%;
+    max-height: 56%;
     object-position: center center;
+  }
+
+  .showcase-card__media--fumigator-fit {
+    padding: 1.7rem 1.15rem 1.15rem;
   }
 
   .showcase-card__placeholder {
@@ -854,7 +946,7 @@ const leadershipHighlights = [
   }
 
   .section--trust {
-    padding-bottom: 2.2rem;
+    padding-bottom: 1.85rem;
     background:
       radial-gradient(circle at top right, rgba(201, 111, 40, 0.08), transparent 28%),
       linear-gradient(180deg, rgba(25, 77, 128, 0.04), rgba(25, 77, 128, 0.01));
@@ -862,15 +954,26 @@ const leadershipHighlights = [
 
   .trust-shell {
     display: grid;
-    gap: 1.25rem;
-    padding: 1.45rem;
-    margin-bottom: 1.2rem;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    align-items: start;
+    gap: 1rem 1.15rem;
+    padding: 1.2rem 1.25rem;
+    margin-bottom: 0.95rem;
+  }
+
+  .trust-shell__intro {
+    max-width: 31rem;
+  }
+
+  .trust-shell__intro :global(.section-title) {
+    gap: 0.6rem;
+    margin-bottom: 0;
   }
 
   .leadership-grid {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.8rem;
   }
 
   .review-grid {
@@ -881,21 +984,24 @@ const leadershipHighlights = [
 
   .leadership-card {
     display: grid;
-    gap: 0.7rem;
-    padding: 1rem;
-    border-radius: 1rem;
-    background: rgba(255, 255, 255, 0.72);
-    border: 1px solid rgba(84, 96, 109, 0.12);
+    gap: 0.42rem;
+    padding: 0.88rem 0.92rem;
+    border-radius: 0.9rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(247, 250, 252, 0.72));
+    border: 1px solid rgba(84, 96, 109, 0.1);
+    box-shadow: 0 14px 28px rgba(13, 45, 76, 0.06);
   }
 
   .leadership-card strong {
     font-family: var(--font-heading);
-    font-size: 2rem;
+    font-size: 1.5rem;
+    line-height: 1;
     color: var(--color-primary);
   }
 
   .leadership-card h3 {
-    font-size: 1rem;
+    font-size: 0.96rem;
+    line-height: 1.2;
   }
 
   .leadership-card p,
@@ -906,15 +1012,32 @@ const leadershipHighlights = [
     margin: 0;
   }
 
+  .leadership-card p {
+    font-size: 0.84rem;
+    line-height: 1.5;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+
   .review-block {
     display: grid;
-    gap: 1rem;
+    gap: 0.85rem;
+  }
+
+  .review-block__actions {
+    display: none;
+  }
+
+  .review-card--extra-mobile {
+    display: flex;
   }
 
   .review-block__intro {
     display: grid;
-    gap: 0.75rem;
-    max-width: 58rem;
+    gap: 0.55rem;
+    max-width: 52rem;
   }
 
   .review-block__intro h2 {
@@ -1080,8 +1203,11 @@ const leadershipHighlights = [
     }
 
     .hero__metrics,
-    .leadership-grid,
     .review-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .leadership-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
@@ -1094,77 +1220,269 @@ const leadershipHighlights = [
     }
   }
 
+  @media (max-width: 900px) {
+    .review-block__actions {
+      display: flex;
+      justify-content: center;
+    }
+
+    .review-grid:not(.is-expanded) .review-card--extra-mobile {
+      display: none;
+    }
+
+    .review-block__toggle {
+      min-height: 2.45rem;
+      padding: 0.62rem 0.92rem;
+      font-size: 0.82rem;
+      border-radius: 999px;
+    }
+  }
+
   @media (max-width: 700px) {
+    .section--categories {
+      padding-bottom: 1.25rem;
+    }
+
+    .section--explore {
+      padding-top: 1.1rem;
+      padding-bottom: 0.9rem;
+    }
+
+    .showcase-cta {
+      margin-top: 0.9rem;
+    }
+
+    .section--trust {
+      padding-top: 0.95rem;
+      padding-bottom: 0.95rem;
+    }
+
     .hero {
-      padding-top: 3.2rem;
-      padding-bottom: 2.8rem;
+      padding-top: 2.8rem;
+      padding-bottom: 2.35rem;
     }
 
     .hero__content {
-      padding: 1.2rem;
-      gap: 1.1rem;
+      padding: 0.9rem;
+      gap: 0.78rem;
     }
 
     .hero h1 {
-      font-size: clamp(2.15rem, 11vw, 3.35rem);
-      line-height: 0.98;
+      font-size: clamp(1.95rem, 9.8vw, 2.8rem);
+      line-height: 1;
       max-width: 10ch;
     }
 
     .hero__copy {
-      font-size: 0.97rem;
-      line-height: 1.68;
+      font-size: 0.91rem;
+      line-height: 1.48;
     }
 
-    .hero__metrics,
     .showcase-grid,
-    .leadership-grid,
     .review-grid {
       grid-template-columns: 1fr;
     }
 
+    .trust-shell {
+      grid-template-columns: 1fr;
+      gap: 0.58rem;
+      padding: 0.72rem;
+      margin-bottom: 0.56rem;
+    }
+
+    .leadership-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.48rem;
+    }
+
+    .leadership-card {
+      gap: 0.22rem;
+      padding: 0.64rem;
+      border-radius: 0.75rem;
+    }
+
+    .leadership-card strong {
+      font-size: 1.02rem;
+    }
+
+    .leadership-card h3 {
+      font-size: 0.78rem;
+      line-height: 1.18;
+    }
+
+    .leadership-card p {
+      display: none;
+    }
+
+    .trust-shell__intro :global(.section-title) {
+      gap: 0.35rem;
+    }
+
+    .trust-shell__intro :global(.section-title h2) {
+      font-size: clamp(1.45rem, 6.8vw, 1.85rem);
+      line-height: 1.06;
+    }
+
+    .trust-shell__intro :global(.section-title__subtitle) {
+      font-size: 0.86rem;
+      line-height: 1.42;
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
+    .hero__metrics {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.48rem;
+    }
+
+    .hero__actions {
+      gap: 0.5rem;
+    }
+
+    .hero__actions .button {
+      min-height: 2.7rem;
+      padding: 0.7rem 0.95rem;
+      font-size: 0.86rem;
+      line-height: 1.1;
+      border-radius: 0.95rem;
+    }
+
+    .hero__metric {
+      padding: 0.66rem 0.68rem;
+      gap: 0.16rem;
+      border-radius: 1rem;
+    }
+
+    .hero__metric strong {
+      font-size: 1.1rem;
+    }
+
+    .hero__metric span {
+      font-size: 0.7rem;
+      line-height: 1.18;
+    }
+
     .showcase-card {
-      grid-template-rows: minmax(12.5rem, 14rem) 1fr;
+      grid-template-columns: minmax(8.8rem, 42%) 1fr;
+      grid-template-rows: none;
+      align-items: stretch;
     }
 
     .showcase-card__media {
-      min-height: 12.5rem;
-      padding-inline: 0.8rem;
+      min-height: 100%;
+      padding: 0.72rem;
     }
 
     .showcase-card__media img,
     .showcase-card__placeholder {
-      max-width: 74%;
+      max-width: 88%;
+      max-height: 82%;
+    }
+
+    .showcase-card__media--autoclave-fit img {
+      max-width: 78%;
       max-height: 76%;
     }
 
+    .showcase-card__media--fumigator-fit img {
+      max-width: 62%;
+      max-height: 70%;
+    }
+
     .showcase-card__body {
-      padding: 0.85rem 0.9rem 0.95rem;
+      align-content: center;
+      gap: 0.34rem;
+      padding: 0.72rem 0.8rem;
+      border-top: 0;
+      border-left: 1px solid rgba(25, 77, 128, 0.08);
+    }
+
+    .showcase-card__category {
+      font-size: 0.64rem;
+      letter-spacing: 0.1em;
+    }
+
+    .showcase-card h3 {
+      font-size: 0.92rem;
+      line-height: 1.24;
+      min-height: auto;
+      -webkit-line-clamp: 2;
     }
 
     .review-card {
-      padding: 0.95rem;
+      gap: 0.55rem;
+      padding: 0.8rem;
+    }
+
+    .review-block__intro {
+      gap: 0.42rem;
+      max-width: 100%;
+    }
+
+    .review-block {
+      gap: 0.62rem;
+    }
+
+    .review-block__intro h2 {
+      font-size: clamp(1.5rem, 7vw, 1.9rem);
+      max-width: 18ch;
+    }
+
+    .review-block__intro p {
+      font-size: 0.9rem;
+      line-height: 1.52;
+    }
+
+    .review-grid {
+      gap: 0.66rem;
     }
 
     .review-card__meta {
+      grid-template-columns: 3.3rem minmax(0, 1fr);
+      column-gap: 0.65rem;
       min-height: 0;
     }
 
-    .section--trust {
-      padding-bottom: 1.5rem;
+    .review-card__avatar {
+      width: 3.3rem;
+      height: 3.3rem;
+      flex-basis: 3.3rem;
+      border-radius: 0.82rem;
     }
 
-    .section--categories {
-      padding-bottom: 1.55rem;
+    .review-card__meta strong {
+      font-size: 1rem;
     }
 
-    .section--explore {
-      padding-top: 1.45rem;
+    .review-card__meta span,
+    .review-card__meta small {
+      font-size: 0.86rem;
+      line-height: 1.24;
+    }
+
+    .review-card__rating {
+      gap: 0.38rem;
+      padding: 0.28rem 0.52rem;
+    }
+
+    .review-card__rating-label {
+      font-size: 0.62rem;
+    }
+
+    .review-card blockquote {
+      font-size: 0.87rem;
+      line-height: 1.48;
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
     }
 
     .section--band {
-      padding-top: 1.2rem;
-      padding-bottom: 2.2rem;
+      padding-top: 0.95rem;
+      padding-bottom: 1.8rem;
     }
 
     .cta {
@@ -1175,34 +1493,192 @@ const leadershipHighlights = [
       font-size: clamp(1.4rem, 8vw, 1.9rem);
       max-width: 18ch;
     }
+
+    .cta p {
+      max-width: 100%;
+    }
+
+    .cta__actions {
+      flex-direction: column;
+    }
+
+    .cta__actions .button {
+      width: 100%;
+    }
   }
 
   @media (max-width: 900px) {
     .category-strip {
-      overflow-x: auto;
-      cursor: auto;
-      touch-action: pan-x;
-      scroll-snap-type: x proximity;
-      scrollbar-width: none;
+      margin-top: 1rem;
+      overflow: hidden;
+      cursor: grab;
+      touch-action: pan-y;
       mask-image: none;
-      -webkit-overflow-scrolling: touch;
     }
 
-    .category-strip::-webkit-scrollbar {
-      display: none;
-    }
-
-    .category-strip.is-native .category-strip__track {
-      transform: none !important;
-    }
-
-    .category-strip :global(.category-card[aria-hidden="true"]) {
-      display: none;
+    .category-strip__track {
+      gap: 0.55rem;
     }
 
     .category-strip :global(.category-card) {
-      width: clamp(8.4rem, 42vw, 9.6rem);
-      scroll-snap-align: start;
+      width: clamp(7.15rem, 36vw, 8.1rem);
     }
   }
+
+  @media (max-width: 520px) {
+    .section--categories :global(.section-title) {
+      margin-bottom: 0.9rem;
+    }
+
+    .section--explore {
+      padding-top: 0.9rem;
+      padding-bottom: 0.72rem;
+    }
+
+    .showcase-cta {
+      margin-top: 0.72rem;
+    }
+
+    .section--trust {
+      padding-top: 0.78rem;
+      padding-bottom: 0.78rem;
+    }
+
+    .hero__content {
+      padding: 0.78rem;
+      gap: 0.68rem;
+      border-radius: 1.05rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.72rem, 9vw, 2.15rem);
+      max-width: 9.5ch;
+    }
+
+    .hero__copy {
+      font-size: 0.84rem;
+      line-height: 1.38;
+    }
+
+    .hero__actions {
+      gap: 0.42rem;
+    }
+
+    .hero__actions .button {
+      min-height: 2.45rem;
+      padding: 0.62rem 0.82rem;
+      font-size: 0.8rem;
+      border-radius: 0.9rem;
+    }
+
+    .hero__metrics {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.4rem;
+    }
+
+    .hero__metric {
+      padding: 0.56rem 0.58rem;
+      gap: 0.14rem;
+      border-radius: 0.95rem;
+    }
+
+    .hero__metric strong {
+      font-size: 0.98rem;
+    }
+
+    .hero__metric span {
+      font-size: 0.65rem;
+      line-height: 1.14;
+    }
+
+    .showcase-grid {
+      gap: 0.58rem;
+    }
+
+    .showcase-card {
+      border-radius: 1rem;
+      grid-template-columns: minmax(7.4rem, 40%) 1fr;
+      grid-template-rows: none;
+    }
+
+    .showcase-card__media {
+      min-height: 100%;
+      padding: 0.6rem;
+    }
+
+    .showcase-card__media img,
+    .showcase-card__placeholder {
+      max-width: 90%;
+      max-height: 82%;
+    }
+
+    .showcase-card__media--autoclave-fit img {
+      max-width: 80%;
+      max-height: 76%;
+    }
+
+    .showcase-card__media--fumigator-fit img {
+      max-width: 70%;
+      max-height: 74%;
+    }
+
+    .showcase-card__body {
+      align-content: center;
+      gap: 0.28rem;
+      padding: 0.62rem 0.7rem;
+      border-top: 0;
+      border-left: 1px solid rgba(25, 77, 128, 0.08);
+    }
+
+    .showcase-card h3 {
+      font-size: 0.88rem;
+    }
+
+    .review-card {
+      padding: 0.68rem;
+    }
+
+    .review-card__avatar {
+      width: 3rem;
+      height: 3rem;
+      flex-basis: 3rem;
+    }
+
+    .review-card__meta {
+      grid-template-columns: 3rem minmax(0, 1fr);
+      column-gap: 0.55rem;
+    }
+
+    .review-card__meta strong {
+      font-size: 0.95rem;
+    }
+
+    .review-card__meta span,
+    .review-card__meta small {
+      font-size: 0.82rem;
+    }
+
+    .review-card__rating {
+      padding: 0.28rem 0.52rem;
+    }
+
+    .review-card__stars {
+      font-size: 0.8rem;
+    }
+
+    .review-card blockquote {
+      font-size: 0.82rem;
+      line-height: 1.42;
+      -webkit-line-clamp: 3;
+    }
+
+    .review-block {
+      gap: 0.52rem;
+    }
+
+    .review-grid {
+      gap: 0.56rem;
+    }
+  }
+
 </style>
